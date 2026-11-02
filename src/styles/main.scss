@@ -1,0 +1,6 @@
+// src/styles/main.scss — point d'entrée des styles Work'n'Share (compilé en /main.css).
+// Un partiel par fonctionnalité (_collapse.scss, _nav.scss…), importé ici avec @use.
+// Les styles de base restent dans Webflow : ici, seulement ce que le Designer
+// ne sait pas faire (états pilotés par le JS, animations, contenus CMS générés).
+
+@use "collapse";

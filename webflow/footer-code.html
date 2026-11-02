@@ -1,0 +1,14 @@
+<!--
+  Webflow → Site settings → Custom code → FOOTER CODE (avant </body>)
+  Placer APRÈS les librairies externes (GSAP, ScrollTrigger, Lenis…) :
+  main.js les lit sur window.
+-->
+<script>
+  (window.__worknshare || Promise.resolve({ base: 'https://cdn.jsdelivr.net/gh/Brand-Appart-Delivery/worknshare-webflow-scripts@main' }))
+    .then(function (o) {
+      const script = document.createElement('script');
+      script.src = o.base + '/main.js';
+      document.body.appendChild(script);
+      console.log("[Work'n'Share] JS :", script.src);
+    });
+</script>

@@ -1,0 +1,1 @@
+[data-collapse-content]{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.22,1,.36,1)}[data-collapse-content]>*{overflow:hidden}[data-collapse].is-open [data-collapse-content]{grid-template-rows:1fr}

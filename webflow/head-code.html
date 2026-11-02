@@ -1,0 +1,66 @@
+<!--
+  Webflow → Site settings → Custom code → HEAD CODE
+  Charge main.css (et prépare main.js pour le footer).
+
+  - Production : lit version.json sur GitHub (sans cache) puis charge
+    jsDelivr @<version> : nouvelle adresse à chaque deploy, jamais d'ancien
+    fichier en cache. Repli sur @main si version.json ne répond pas.
+  - Staging (*.webflow.io) avec FORCE_PROD = false : essaie le serveur local
+    puis le tunnel (npm run dev), avec rechargement automatique.
+-->
+<script>
+  (function () {
+    const FORCE_PROD = false;
+
+    const REPO = 'Brand-Appart-Delivery/worknshare-webflow-scripts';
+    const DEV_ORIGINS = ['http://localhost:3000', 'https://dev.michelaxel.fr'];
+    const VERSION_URL = 'https://raw.githubusercontent.com/' + REPO + '/main/version.json';
+    const CDN = 'https://cdn.jsdelivr.net/gh/' + REPO + '@';
+
+    const host = window.location.hostname;
+    const isStaging = host === 'localhost' || host === '127.0.0.1' || host.endsWith('.webflow.io');
+
+    function getProdVersion() {
+      const ctrl = new AbortController();
+      const timer = setTimeout(function () { ctrl.abort(); }, 1500);
+      return fetch(VERSION_URL + '?t=' + Date.now(), { cache: 'no-store', signal: ctrl.signal })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) { return d && d.version ? d.version : 'main'; })
+        .catch(function () { return 'main'; })
+        .finally(function () { clearTimeout(timer); });
+    }
+
+    async function findDevOrigin() {
+      if (FORCE_PROD || !isStaging) return null;
+      for (const origin of DEV_ORIGINS) {
+        try {
+          await fetch(origin + '/main.css', { method: 'HEAD' });
+          return origin;
+        } catch (e) {}
+      }
+      return null;
+    }
+
+    window.__worknshare = (async function () {
+      const dev = await findDevOrigin();
+      if (dev) return { base: dev, dev: true };
+      const version = await getProdVersion();
+      return { base: CDN + version, version: version };
+    })();
+
+    window.__worknshare.then(function (o) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = o.base + '/main.css';
+      document.head.appendChild(link);
+      console.log("[Work'n'Share] CSS :", link.href);
+      if (o.dev) {
+        try {
+          new EventSource(o.base + '/esbuild').addEventListener('change', function () {
+            location.reload();
+          });
+        } catch (e) {}
+      }
+    });
+  })();
+</script>

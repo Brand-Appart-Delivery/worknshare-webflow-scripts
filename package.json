@@ -1,0 +1,26 @@
+{
+  "name": "worknshare",
+  "version": "1.0.0",
+  "description": "Scripts et styles du site Work'n'Share (Webflow), bundlés par esbuild.",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev:esbuild": "node scripts/build.js --serve",
+    "dev:proxy": "node scripts/dev-proxy.js",
+    "dev:tunnel": "cloudflared tunnel run webflow-dev",
+    "dev": "concurrently -n esbuild,proxy,tunnel -c blue,green,magenta \"npm:dev:esbuild\" \"npm:dev:proxy\" \"npm:dev:tunnel\"",
+    "deploy": "node scripts/deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brand-Appart-Delivery/worknshare-webflow-scripts.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "esbuild": "^0.28.1",
+    "esbuild-sass-plugin": "^3.3.1",
+    "sass": "^1.80.0"
+  }
+}
