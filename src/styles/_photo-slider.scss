@@ -1,0 +1,36 @@
+// Carrousel photo en fondu (components/photo-slider.js) : photos superposées
+// (position réglée dans Webflow), seule la photo active est visible.
+
+[data-photo-slide] {
+  transition: opacity 0.6s ease;
+}
+
+// Avant le JS : seule la première photo
+[data-photo-slider]:not(.is-photo-ready) [data-photo-slide] ~ [data-photo-slide],
+[data-photo-slider].is-photo-ready [data-photo-slide]:not(.is-active) {
+  opacity: 0;
+}
+
+[data-photo-slider] {
+  touch-action: pan-y; // glisser horizontal = changer de photo
+}
+
+// Points devenus des boutons
+[data-photo-slider] .slider_dot {
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  appearance: none;
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-photo-slide] {
+    transition: none;
+  }
+}

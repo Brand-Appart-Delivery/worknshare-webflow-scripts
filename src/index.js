@@ -15,6 +15,7 @@ import { initNav } from "./components/nav.js";
 import { initFooter } from "./components/footer.js";
 import { initFormulas } from "./components/formula.js";
 import { initSliders } from "./components/slider.js";
+import { initPhotoSliders } from "./components/photo-slider.js";
 import { initCounters } from "./animations/counter.js";
 import { initReveal } from "./animations/reveal.js";
 import { initWiden } from "./animations/widen.js";
@@ -30,6 +31,7 @@ onReady(() => {
   initCollapses();
   initFormulas();
   initSliders();
+  initPhotoSliders();
   initCounters();
   initReveal();
   initWiden();

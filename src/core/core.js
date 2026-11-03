@@ -53,8 +53,9 @@ function initAnchors() {
     (e) => {
       const link = e.target.closest && e.target.closest("a[href*='#']");
       if (!link) return;
-      // Onglets (href="#panneau") : gérés par leur propre module, pas de scroll
-      if (link.matches("[role='tab'], [data-formula-tab]")) return;
+      // Onglets (href="#panneau"), flèches de slider et liens-boutons : gérés
+      // par leur propre module, pas de scroll vers l'ancre
+      if (link.matches("[role='tab'], [role='button'], [data-formula-tab], [data-slider-prev], [data-slider-next]")) return;
       const url = new URL(link.href, window.location.href);
       const samePage = url.origin === location.origin && url.pathname === location.pathname;
       if (!samePage || !url.hash || url.hash === "#") return;

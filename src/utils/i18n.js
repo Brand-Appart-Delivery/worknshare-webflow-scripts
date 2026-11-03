@@ -9,7 +9,7 @@
 
 const DEFAULT_LANG = "fr";
 
-const LOCALES = {
+export const LOCALES = {
   fr: { tag: "fr-FR", prefix: "" },
   en: { tag: "en-GB", prefix: "/en" },
 };
@@ -35,6 +35,9 @@ const DICT = {
     "map.distance": "à vol d'oiseau",
     "map.walk": "{station} · {min} min à pied",
     "map.pin": "Espace Work & Share de {name}",
+    "map.photo": "{name}, photo {n} sur {total}",
+    "map.photoGo": "Voir la photo {n}",
+    "map.building": "Immeuble {name}",
     "map.origin": "Point de recherche : {place}",
     "map.attribution": "© OpenFreeMap © OpenMapTiles · © contributeurs OpenStreetMap",
     "map.noRooms": "Aucun espace avec salles ne correspond.",
@@ -69,6 +72,9 @@ const DICT = {
     "map.distance": "as the crow flies",
     "map.walk": "{station} · {min} min walk",
     "map.pin": "Work & Share space in {name}",
+    "map.photo": "{name}, photo {n} of {total}",
+    "map.photoGo": "Show photo {n}",
+    "map.building": "{name} building",
     "map.origin": "Search point: {place}",
     "map.attribution": "© OpenFreeMap © OpenMapTiles · © OpenStreetMap contributors",
     "map.noRooms": "No space with meeting rooms matches.",

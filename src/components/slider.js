@@ -79,8 +79,22 @@ function initSlider(block) {
   const reduced = prefersReducedMotion();
   const autoplayDelay = readNumber(block, "data-slider-autoplay", 0);
 
-  // Les flèches sont des liens Webflow (href="#") : pas de saut en haut de page
-  [prev, next].forEach((arrow) => arrow && arrow.addEventListener("click", (e) => e.preventDefault()));
+  // Les flèches sont des liens Webflow (href="#" ou "#section") : on retire le
+  // lien, sinon le scroll d'ancre de Webflow (qui ignore preventDefault) fait
+  // sauter la page. Elles restent des boutons au clavier (Entrée / Espace).
+  [prev, next].forEach((arrow) => {
+    if (!arrow) return;
+    arrow.addEventListener("click", (e) => e.preventDefault());
+    if (arrow.tagName !== "A") return;
+    arrow.removeAttribute("href");
+    arrow.setAttribute("role", "button");
+    if (!arrow.hasAttribute("tabindex")) arrow.setAttribute("tabindex", "0");
+    arrow.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault();
+      arrow.click();
+    });
+  });
 
   // Nombre de slides visibles : "auto" (largeurs Webflow) ou fixé par écran
   const perView = readNumber(block, "data-slider-per-view", 0);

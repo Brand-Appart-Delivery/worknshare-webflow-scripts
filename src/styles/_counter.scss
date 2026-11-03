@@ -1,6 +1,62 @@
-// Chiffres animés (animations/counter.js) : chiffres à chasse fixe pour que
-// le nombre ne « danse » pas pendant l'incrémentation.
+// Chiffres animés (animations/counter.js) : compteur mécanique, chaque chiffre
+// est une colonne qui défile verticalement.
 
 [data-count] {
   font-variant-numeric: tabular-nums;
+}
+
+[data-count].is-counting {
+  white-space: nowrap;
+}
+
+// Texte final, lu par les lecteurs d'écran pendant l'animation
+.count-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.count-roll {
+  display: inline-flex;
+  align-items: flex-start;
+  vertical-align: top;
+}
+
+.count-roll > span {
+  display: block;
+  height: var(--count-line, 1.2em);
+  line-height: var(--count-line, 1.2em);
+}
+
+// Espaces gardés (« + 50 », « 3 000 ») : seule dans son bloc, une espace serait
+// supprimée et le « + » se recalerait à la fin de l'animation
+.count-roll > .count-char {
+  white-space: pre;
+}
+
+// Fenêtre d'une colonne : un seul chiffre visible, à peine plus haute que la
+// ligne (--count-win, rattrapé par des marges négatives) pour ne pas couper le
+// chiffre ; le défilement ne se voit que dans cette hauteur.
+.count-roll > .count-col {
+  position: relative;
+  height: calc(var(--count-line, 1.2em) + 2 * var(--count-win, 0px));
+  margin-block: calc(-1 * var(--count-win, 0px));
+  overflow: hidden;
+  text-align: center;
+}
+
+// Bande 0 → 9 → 0 qui défile dans la fenêtre : un chiffre tous les
+// « ligne + 2 × --count-gap », centré comme dans le texte normal
+.count-strip {
+  display: block;
+  will-change: transform;
+
+  > span {
+    display: block;
+    height: calc(var(--count-line, 1.2em) + 2 * var(--count-gap, 0px));
+    line-height: calc(var(--count-line, 1.2em) + 2 * var(--count-gap, 0px));
+  }
 }

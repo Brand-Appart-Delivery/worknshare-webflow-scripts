@@ -30,6 +30,8 @@ import { prefersReducedMotion } from "../utils/motion.js";
 import { t } from "../utils/i18n.js";
 import { initScrollZone } from "../utils/scroll-zone.js";
 import { createScrollIndicator } from "../utils/scroll-indicator.js";
+import { getLenis } from "../core/core.js";
+import { createPlaceCarousel } from "./place-carousel.js";
 
 const MAPLIBRE_VERSION = "4.7.1";
 const MAPLIBRE_JS = `https://unpkg.com/maplibre-gl@${MAPLIBRE_VERSION}/dist/maplibre-gl.js`;
@@ -78,6 +80,7 @@ function initModule(module) {
   const startType = module.getAttribute("data-map-tab") === "salles" ? "salles" : "bureaux";
   const state = { origin: null, active: null, type: startType, map: null, markers: new Map(), originMarker: null };
   const card = module.querySelector("[data-place-card]");
+  const carousel = createPlaceCarousel(card);
 
   // ---------- Liste : tri, groupes, distances ----------
 
@@ -212,14 +215,10 @@ function initModule(module) {
   function fillCard(space) {
     if (!card) return;
     const set = (sel, fn) => card.querySelectorAll(sel).forEach(fn);
-    set("[data-place-photo]", (img) => {
-      img.src = space.photo;
-      img.removeAttribute("srcset");
-      img.alt = space.photoAlt || space.name;
-    });
+    carousel.set(space.photos.length ? space.photos : [space.photo], space.name);
     set("[data-place-name]", (el) => (el.textContent = space.name));
     set("[data-place-building]", (el) => {
-      el.textContent = space.building;
+      el.textContent = space.building ? t("map.building", { name: space.building }) : "";
       el.hidden = !space.building;
     });
     set("[data-place-address]", (el) => {
@@ -231,8 +230,6 @@ function initModule(module) {
     });
     set("[data-place-link]", (a) => a.setAttribute("href", space.url));
     set("[data-place-visit]", (a) => a.setAttribute("href", `/nous-contacter/?motif=visite&espace=${space.slug}`));
-    // Une seule photo par espace pour l'instant : pas de navigation photo
-    set("[data-place-prev], [data-place-next], [data-place-dots]", (el) => (el.hidden = true));
     card.setAttribute("aria-label", space.name);
     card.classList.add("is-open");
   }
@@ -249,11 +246,16 @@ function initModule(module) {
   // ---------- Liste : clics et survols ----------
 
   spaces.forEach((s) => {
-    // 1er clic : affiche l'espace sur la carte ; 2e clic : ouvre la fiche
+    // Clic : affiche l'espace sur la carte ; re-clic : le désélectionne et
+    // revient à la vue de départ (comme le pin). La fiche s'ouvre depuis la
+    // carte de l'espace, ou au Cmd / Ctrl + clic (nouvel onglet).
     s.el.addEventListener("click", (e) => {
       if (e.metaKey || e.ctrlKey || e.shiftKey || !DESKTOP.matches) return;
-      if (state.active !== s) {
-        e.preventDefault();
+      e.preventDefault();
+      if (state.active === s) {
+        select(null);
+        resetView();
+      } else {
         select(s.slug);
       }
     });
@@ -362,6 +364,23 @@ function initModule(module) {
   }
 
   // Vue de départ : le point de recherche et les plus proches, sinon tous les espaces
+  // Clic sur un pin : la page se recale pour que le module (liste + carte)
+  // soit centré dans l'écran, sous la nav (ou collé sous la nav s'il est plus
+  // grand que l'espace disponible)
+  function centerModule() {
+    const nav = document.querySelector("[data-nav]");
+    const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+    const rect = module.getBoundingClientRect();
+    const space = window.innerHeight - navHeight;
+    const offset = navHeight + Math.max((space - rect.height) / 2, 0);
+    const target = Math.max(rect.top + window.scrollY - offset, 0);
+    if (Math.abs(target - window.scrollY) < 4) return;
+    const instant = prefersReducedMotion();
+    const lenis = getLenis();
+    if (lenis) lenis.scrollTo(target, { duration: instant ? 0 : 0.8, immediate: instant, force: true });
+    else window.scrollTo({ top: target, behavior: instant ? "auto" : "smooth" });
+  }
+
   function resetView() {
     if (state.origin) fitToOrigin();
     else fitToSpaces();
@@ -420,6 +439,7 @@ function initModule(module) {
       el.innerHTML = `${PIN_SVG}<span class="map-pin_label">${escapeHtml(s.name)}</span>`;
       el.addEventListener("click", (e) => {
         e.stopPropagation();
+        centerModule();
         // Re-clic sur le pin déjà choisi : on désélectionne et on revient à la vue de départ
         if (state.active && state.active.slug === s.slug) {
           select(null);
