@@ -1,0 +1,26 @@
+// FAQ (composant Webflow « Question FAQ », classes faq_*).
+// Ici : état ouvert posé par le JS (is-open) et couleurs selon le thème
+// (attribut data-faq-theme, lié à la propriété « Thème » du composant).
+
+.faq_item.is-open .faq_toggle {
+  background-color: var(--_work-n-share---color--vert--700, #3b400f);
+  color: var(--_work-n-share---color--vert--100, #eefc96);
+}
+
+// Thème salles / événementiel (data-faq-theme="rooms" ; is-rooms gardé pour l'existant)
+.faq_item[data-faq-theme="rooms"].is-open .faq_toggle,
+.faq_item.is-rooms.is-open .faq_toggle {
+  background-color: var(--_work-n-share---color--bordeaux--900, #2c0c10);
+  color: var(--_work-n-share---color--rose--300, #ffa7e0);
+}
+
+.faq_item.is-open .faq_toggle-icon {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq_toggle,
+  .faq_toggle-icon {
+    transition: none;
+  }
+}

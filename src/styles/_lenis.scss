@@ -1,0 +1,24 @@
+// Scroll fluide Lenis (créé dans core/core.js) : réglages recommandés par Lenis.
+// Lenis ajoute ces classes sur <html> tout seul.
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+// Lenis gère le scroll : pas de scroll fluide natif en plus
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+// Zones qui défilent seules (tiroir du menu, liste de la carte, suggestions) :
+// Lenis les laisse tranquilles, et arrivé en bout de zone le défilement ne
+// passe pas à la page (avec ou sans Lenis)
+[data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+// Lenis arrêté (menu mobile ouvert) : la page ne bouge plus
+.lenis.lenis-stopped {
+  overflow: hidden;
+}

@@ -1,0 +1,671 @@
+{
+  "source": {
+    "figmaFileKey": "js2sDpScX8RudthohIkz3u",
+    "page": "Design (V2. 27/10) — 651:2",
+    "extractedOn": "2026-11-02",
+    "nodesAnalysed": [
+      "4472:37947",
+      "4515:13624",
+      "4485:41259",
+      "4483:12130",
+      "4377:33867",
+      "4517:182",
+      "4522:1204",
+      "4551:2",
+      "4556:159",
+      "4579:2"
+    ]
+  },
+  "units": {
+    "fontSize": "px (Figma) — convertir en rem sur base 16 si besoin",
+    "lineHeight": "multiplicateur sans unité (ex. 1.25 = 125 %)",
+    "letterSpacing": "Figma = POURCENTAGE de la taille de police. CONFIRMÉ via get_design_context : WS/Display/XL 64px, -1 → tracking -0.64px ; Display/L 44px → -0.44px ; Texte/L 20px → -0.2px ; Label/M 16px → -0.16px ; Label/S 14px → -0.14px. Donc -1 = -1 % = -0.01em ; -2 = -2 % = -0.02em."
+  },
+  "fonts": {
+    "display": {
+      "family": "Boldonse",
+      "cssStack": "'Boldonse', 'Arial Black', sans-serif",
+      "weights": [
+        400
+      ],
+      "styles": [
+        "normal"
+      ],
+      "variable": false,
+      "googleFonts": true,
+      "googleFontsCss": "family=Boldonse",
+      "notes": [
+        "Une seule graisse (Regular 400), statique, OFL (Universitype). Ne jamais appliquer font-weight bold (faux gras).",
+        "Toujours en capitales dans la maquette (textTransform uppercase) : titres saisis en majuscules ou transformés."
+      ]
+    },
+    "text": {
+      "family": "Google Sans Flex",
+      "cssStack": "'Google Sans Flex', 'Google Sans', Arial, sans-serif",
+      "figmaVariable": "font/texte",
+      "weightsUsed": [
+        400,
+        500,
+        600,
+        700
+      ],
+      "weightsByUsage": {
+        "400": "Texte L/M/S",
+        "500": "Label M/S/XS",
+        "600": "Titre/Carte, Label/S-fort",
+        "700": "Transport (indices de lignes)"
+      },
+      "variable": true,
+      "axes": {
+        "wght": "utilisé 400–700",
+        "wdth": "100 (fixe)",
+        "GRAD": "0 (fixe)",
+        "ROND": "0 (fixe)",
+        "opsz": "automatique (non fixé dans Figma)",
+        "slnt": "non utilisé"
+      },
+      "figmaFontVariationSettings": "\"GRAD\" 0, \"ROND\" 0, \"wdth\" 100",
+      "googleFonts": true,
+      "googleFontsCss": "family=Google+Sans+Flex:wght@400..700",
+      "notes": [
+        "Disponible sur Google Fonts / Fontsource (police variable open source, axes wght, wdth, opsz, GRAD, ROND, slnt). Charger seulement l'axe wght 400..700 suffit : les autres axes restent à leur valeur par défaut, identiques à la maquette.",
+        "Vérifier dans Webflow (Google Fonts intégré) que la famille est proposée ; sinon l'ajouter via <link> ou upload des fichiers (Fontsource)."
+      ]
+    },
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Boldonse&family=Google+Sans+Flex:wght@400..700&display=swap"
+  },
+  "breakpoints": {
+    "desktop": "maquettes 1440",
+    "mobile": "maquettes 393 (marquées « V1 provisoire sur les valeurs »)",
+    "tabletRecommendation": "non maquetté : interpoler (clamp) ou garder desktop jusqu'à ~992px puis basculer vers mobile ≤ 767px"
+  },
+  "styles": {
+    "WS/Display/XXL": {
+      "family": "Boldonse",
+      "weight": 400,
+      "figmaStyle": "Regular",
+      "desktop": {
+        "size": 88,
+        "sizePx": "88px",
+        "lineHeight": 1.15,
+        "letterSpacing": {
+          "figma": "-2%",
+          "figmaRaw": -2,
+          "em": -0.02,
+          "px": -1.76
+        }
+      },
+      "mobile": {
+        "size": 40,
+        "sizePx": "40px",
+        "lineHeight": 1.15,
+        "letterSpacing": {
+          "figma": "-2%",
+          "figmaRaw": -2,
+          "em": -0.02,
+          "px": -0.8
+        }
+      },
+      "mobileStyleName": "WS/Mobile/Display/XXL",
+      "textTransform": "uppercase",
+      "usage": [
+        "Très grand titre (H2 « Bureaux et coworking » en deux lignes) — uniquement dans des sections MASQUÉES de l'accueil (4472:38303, 4472:38413) ; aucun usage visible repéré"
+      ]
+    },
+    "WS/Display/XL": {
+      "family": "Boldonse",
+      "weight": 400,
+      "figmaStyle": "Regular",
+      "desktop": {
+        "size": 64,
+        "sizePx": "64px",
+        "lineHeight": 1.25,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.64
+        }
+      },
+      "mobile": {
+        "size": 34,
+        "sizePx": "34px",
+        "lineHeight": 1.25,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.34
+        }
+      },
+      "mobileStyleName": "WS/Mobile/Display/XL",
+      "textTransform": "uppercase",
+      "usage": [
+        "H1 des pages (Clichy 4515:13634, Événementiel 4485:41270, Bureaux flexibles 4483:12141, Contact 4517:188)"
+      ]
+    },
+    "WS/Display/L": {
+      "family": "Boldonse",
+      "weight": 400,
+      "figmaStyle": "Regular",
+      "desktop": {
+        "size": 44,
+        "sizePx": "44px",
+        "lineHeight": 1.25,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.44
+        }
+      },
+      "mobile": {
+        "size": 28,
+        "sizePx": "28px",
+        "lineHeight": 1.25,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.28
+        }
+      },
+      "mobileStyleName": "WS/Mobile/Display/L",
+      "textTransform": "uppercase",
+      "usage": [
+        "H2 de section (centrés ou alignés à gauche)",
+        "H1 de l'article de blog (4377:33873)",
+        "Chiffres clés (« 50 », « 4,9/5 »)",
+        "Titres visuels hors Hn (« Accroche (pas un Hn) », « Intertitre (pas un Hn) », « LE BLOG : »)"
+      ]
+    },
+    "WS/Display/M": {
+      "family": "Boldonse",
+      "weight": 400,
+      "figmaStyle": "Regular",
+      "desktop": {
+        "size": 28,
+        "sizePx": "28px",
+        "lineHeight": 1.3,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.28
+        }
+      },
+      "mobile": {
+        "size": 22,
+        "sizePx": "22px",
+        "lineHeight": 1.3,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.22
+        }
+      },
+      "mobileStyleName": "WS/Mobile/Display/M",
+      "textTransform": "uppercase",
+      "usage": [
+        "H2 du texte riche (article de blog)",
+        "H3 de section sous un H2 (Bureaux flexibles 4483:12179)",
+        "H2 de bloc court (« Vous avez un projet immobilier ? »)",
+        "Intertitre hors Hn (« Près de Clichy »)",
+        "H2 « À lire aussi »"
+      ]
+    },
+    "WS/Display/Carte": {
+      "family": "Boldonse",
+      "weight": 400,
+      "figmaStyle": "Regular",
+      "desktop": {
+        "size": 22,
+        "sizePx": "22px",
+        "lineHeight": 1.3,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.22
+        }
+      },
+      "mobile": {
+        "size": 20,
+        "sizePx": "20px",
+        "lineHeight": 1.3,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.2
+        }
+      },
+      "mobileStyleName": "WS/Mobile/Display/Carte",
+      "textTransform": "uppercase",
+      "usage": [
+        "Titres de grandes cartes d'offre (« Offre (H3 possible) » sur l'accueil)"
+      ]
+    },
+    "WS/Display/S": {
+      "family": "Boldonse",
+      "weight": 400,
+      "figmaStyle": "Regular",
+      "desktop": {
+        "size": 18,
+        "sizePx": "18px",
+        "lineHeight": 1.35,
+        "letterSpacing": {
+          "figma": "0%",
+          "figmaRaw": 0,
+          "em": 0.0,
+          "px": 0.0
+        }
+      },
+      "mobile": {
+        "size": 16,
+        "sizePx": "16px",
+        "lineHeight": 1.35,
+        "letterSpacing": {
+          "figma": "0%",
+          "figmaRaw": 0,
+          "em": 0.0,
+          "px": 0.0
+        }
+      },
+      "mobileStyleName": "WS/Mobile/Display/S",
+      "textTransform": "uppercase",
+      "usage": [
+        "H3 du texte riche (article)",
+        "Citation / blockquote (article)"
+      ]
+    },
+    "WS/Display/XS": {
+      "family": "Boldonse",
+      "weight": 400,
+      "figmaStyle": "Regular",
+      "desktop": {
+        "size": 12,
+        "sizePx": "12px",
+        "lineHeight": 1.4,
+        "letterSpacing": {
+          "figma": "0%",
+          "figmaRaw": 0,
+          "em": 0.0,
+          "px": 0.0
+        }
+      },
+      "mobile": null,
+      "mobileStyleName": null,
+      "textTransform": "uppercase",
+      "usage": [
+        "Surtitre / eyebrow au-dessus du H1 (« H1 · amorce », « Surtitre »), opacité 72 %",
+        "Petites mentions capitales (« RÉSEAU WORK & SHARE · 14 ESPACES »)"
+      ],
+      "note": "Pas de version mobile : 12px conservé sur mobile (amorce H1 mobile = 12px sur 2 lignes)."
+    },
+    "WS/Titre/Carte": {
+      "family": "Google Sans Flex",
+      "weight": 600,
+      "figmaStyle": "SemiBold",
+      "desktop": {
+        "size": 20,
+        "sizePx": "20px",
+        "lineHeight": 1.3,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.2
+        }
+      },
+      "mobile": {
+        "size": 18,
+        "sizePx": "18px",
+        "lineHeight": 1.3,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.18
+        }
+      },
+      "mobileStyleName": "WS/Mobile/Titre/Carte",
+      "textTransform": "none",
+      "usage": [
+        "Titres de cartes en texte (non Boldonse)",
+        "Questions de FAQ (accordéon, H3 sur Événementiel)"
+      ]
+    },
+    "WS/Texte/L": {
+      "family": "Google Sans Flex",
+      "weight": 400,
+      "figmaStyle": "Regular",
+      "desktop": {
+        "size": 20,
+        "sizePx": "20px",
+        "lineHeight": 1.45,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.2
+        }
+      },
+      "mobile": {
+        "size": 18,
+        "sizePx": "18px",
+        "lineHeight": 1.45,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.18
+        }
+      },
+      "mobileStyleName": "WS/Mobile/Texte/L",
+      "textTransform": "none",
+      "usage": [
+        "Intro / chapô sous les H2 et H1",
+        "Chapeau de l'article",
+        "Paragraphes, listes et liens du texte riche (corps d'article en 20px)",
+        "Libellé des chiffres clés (avis réseau)"
+      ]
+    },
+    "WS/Texte/M": {
+      "family": "Google Sans Flex",
+      "weight": 400,
+      "figmaStyle": "Regular",
+      "desktop": {
+        "size": 16,
+        "sizePx": "16px",
+        "lineHeight": 1.5,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.16
+        }
+      },
+      "mobile": null,
+      "mobileStyleName": null,
+      "textTransform": "none",
+      "usage": [
+        "Texte courant des cartes (descriptions, avis clients)",
+        "Textes secondaires de sections"
+      ],
+      "note": "Pas de WS/Mobile/Texte/M : 16px conservé sur mobile."
+    },
+    "WS/Texte/S": {
+      "family": "Google Sans Flex",
+      "weight": 400,
+      "figmaStyle": "Regular",
+      "desktop": {
+        "size": 14,
+        "sizePx": "14px",
+        "lineHeight": 1.45,
+        "letterSpacing": {
+          "figma": "0%",
+          "figmaRaw": 0,
+          "em": 0.0,
+          "px": 0.0
+        }
+      },
+      "mobile": null,
+      "mobileStyleName": null,
+      "textTransform": "none",
+      "usage": [
+        "Légendes d'image / figcaption (couleur vert/700)",
+        "Mentions, informations secondaires (signature d'avis, horaires)"
+      ]
+    },
+    "WS/Label/M": {
+      "family": "Google Sans Flex",
+      "weight": 500,
+      "figmaStyle": "Medium",
+      "desktop": {
+        "size": 16,
+        "sizePx": "16px",
+        "lineHeight": 1.2,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.16
+        }
+      },
+      "mobile": null,
+      "mobileStyleName": null,
+      "textTransform": "none",
+      "usage": [
+        "Libellés de boutons (WS/Bouton primaire/secondaire)",
+        "Phrase du bandeau logos"
+      ]
+    },
+    "WS/Label/S": {
+      "family": "Google Sans Flex",
+      "weight": 500,
+      "figmaStyle": "Medium",
+      "desktop": {
+        "size": 14,
+        "sizePx": "14px",
+        "lineHeight": 1.2,
+        "letterSpacing": {
+          "figma": "-1%",
+          "figmaRaw": -1,
+          "em": -0.01,
+          "px": -0.14
+        }
+      },
+      "mobile": null,
+      "mobileStyleName": null,
+      "textTransform": "none",
+      "usage": [
+        "Liens du fil d'Ariane",
+        "Pastilles / filtres de rubrique",
+        "Méta d'article (date, temps de lecture)",
+        "Onglets du module de recherche, items de liste à puces des cartes",
+        "Source de citation"
+      ]
+    },
+    "WS/Label/S-fort": {
+      "family": "Google Sans Flex",
+      "weight": 600,
+      "figmaStyle": "SemiBold",
+      "desktop": {
+        "size": 14,
+        "sizePx": "14px",
+        "lineHeight": 1.2,
+        "letterSpacing": {
+          "figma": "0%",
+          "figmaRaw": 0,
+          "em": 0.0,
+          "px": 0.0
+        }
+      },
+      "mobile": null,
+      "mobileStyleName": null,
+      "textTransform": "none",
+      "usage": [
+        "Page courante du fil d'Ariane",
+        "Auteur d'article (« Par … »)",
+        "Nom de l'auteur d'un avis, initiales dans les bulles"
+      ]
+    },
+    "WS/Label/XS": {
+      "family": "Google Sans Flex",
+      "weight": 500,
+      "figmaStyle": "Medium",
+      "desktop": {
+        "size": 12,
+        "sizePx": "12px",
+        "lineHeight": 1.25,
+        "letterSpacing": {
+          "figma": "0%",
+          "figmaRaw": 0,
+          "em": 0.0,
+          "px": 0.0
+        }
+      },
+      "mobile": null,
+      "mobileStyleName": null,
+      "textTransform": "none",
+      "usage": [
+        "Petits liens soulignés (« Avis Google · voir la fiche »)",
+        "Mentions de footer, micro-labels"
+      ]
+    },
+    "Transport/Indice": {
+      "family": "Google Sans Flex",
+      "weight": 700,
+      "figmaStyle": "Bold",
+      "desktop": {
+        "size": 14,
+        "sizePx": "14px",
+        "lineHeight": 1,
+        "letterSpacing": {
+          "figma": "0%",
+          "figmaRaw": 0,
+          "em": 0.0,
+          "px": 0.0
+        }
+      },
+      "mobile": null,
+      "mobileStyleName": null,
+      "textTransform": "none",
+      "usage": [
+        "Indice des lignes de transport (métro, RER, train) dans les pictos — famille liée à la variable font/texte"
+      ]
+    },
+    "Transport/Mode bus": {
+      "family": "Google Sans Flex",
+      "weight": 700,
+      "figmaStyle": "Bold",
+      "desktop": {
+        "size": 9,
+        "sizePx": "9px",
+        "lineHeight": 1,
+        "letterSpacing": {
+          "figma": "0%",
+          "figmaRaw": 0,
+          "em": 0.0,
+          "px": 0.0
+        }
+      },
+      "mobile": null,
+      "mobileStyleName": null,
+      "textTransform": "none",
+      "usage": [
+        "Mention « BUS » dans le picto de ligne de bus — famille liée à la variable font/texte"
+      ]
+    }
+  },
+  "semantic": {
+    "h1": "WS/Display/XL",
+    "h1_blogArticle": "WS/Display/L",
+    "h2": "WS/Display/L",
+    "h3": "WS/Display/M",
+    "h3_carteOffre": "WS/Display/Carte",
+    "h3_faq": "WS/Titre/Carte",
+    "h4": "WS/Display/S",
+    "h4_note": "Aucun H4 dans les maquettes ; Display/S proposé par cohérence (c'est le h3 du texte riche).",
+    "titreVisuelHorsHn": "WS/Display/L (« Accroche », « Intertitre », « LE BLOG : ») ou WS/Display/M pour les intertitres secondaires",
+    "eyebrow": "WS/Display/XS (uppercase, opacité 0.72, même couleur que le H1)",
+    "lead": "WS/Texte/L",
+    "paragraph": "WS/Texte/M (texte courant des cartes/sections) — dans le corps d'article et les intros : WS/Texte/L",
+    "small": "WS/Texte/S",
+    "caption": "WS/Texte/S (couleur vert/700)",
+    "button": "WS/Label/M",
+    "link_inline": "hérite du texte parent + underline (decoration from-font), même couleur",
+    "link_small": "WS/Label/XS underline",
+    "breadcrumb": "WS/Label/S (liens) / WS/Label/S-fort (page courante), couleur vert/700",
+    "tag_pastille": "WS/Label/S",
+    "meta": "WS/Label/S (date, temps de lecture) / WS/Label/S-fort (auteur)",
+    "blockquote": "WS/Display/S uppercase + source en WS/Label/S",
+    "stat_number": "WS/Display/L",
+    "card_title_sans": "WS/Titre/Carte"
+  },
+  "richText": {
+    "context": "Article 4377:33867, champ Rich Text Webflow 4377:33887 (colonne 720px)",
+    "h1": {
+      "style": "WS/Display/L",
+      "color": "color/vert/700 #3b400f",
+      "textTransform": "uppercase",
+      "note": "H1 de l'article hors RTE (en-tête), 960px de large"
+    },
+    "chapeau": {
+      "style": "WS/Texte/L",
+      "color": "color/vert/900 #121404"
+    },
+    "h2": {
+      "style": "WS/Display/M",
+      "color": "color/vert/700 #3b400f",
+      "textTransform": "uppercase"
+    },
+    "h3": {
+      "style": "WS/Display/S",
+      "color": "color/vert/700 #3b400f",
+      "textTransform": "uppercase"
+    },
+    "p": {
+      "style": "WS/Texte/L",
+      "color": "color/vert/900 #121404"
+    },
+    "a": {
+      "style": "inherit",
+      "textDecoration": "underline",
+      "textUnderlinePosition": "from-font",
+      "color": "inherit (vert/900)"
+    },
+    "ul_li": {
+      "style": "WS/Texte/L",
+      "color": "color/vert/900",
+      "bullet": "puce graphique SVG 8px de large (hauteur de ligne 29px), gap 16px, items espacés de 12px"
+    },
+    "blockquote": {
+      "style": "WS/Display/S",
+      "textTransform": "uppercase",
+      "color": "color/vert/700",
+      "background": "color/vert/100 #eefc96",
+      "padding": "32px",
+      "radius": "radius/l 24px",
+      "source": "WS/Label/S, vert/700",
+      "gapTextSource": "12px"
+    },
+    "figcaption": {
+      "style": "WS/Texte/S",
+      "color": "color/vert/700",
+      "gapImage": "12px",
+      "imageRadius": "24px"
+    },
+    "spacing": {
+      "betweenBlocks": "24px (space/24)",
+      "betweenParts_h2": "48px (space/48)"
+    },
+    "faq_inArticle": {
+      "style": "WS/Titre/Carte",
+      "color": "vert/900"
+    }
+  },
+  "colors": {
+    "titles": "color/vert/700 #3b400f (texte/marque) sur fonds clairs",
+    "body": "color/vert/900 #121404 (texte/principal)",
+    "onDark": "texte/sur-fonce #fffbe7 ; texte/sur-marque #eefc96 (ex. libellé bouton primaire sur vert/700)",
+    "eventTheme": "Pages Salles/Événementiel : titres rose/300 #ffa7e0 sur bordeaux/900 #2c0c10, ou bordeaux/900 sur fond clair"
+  },
+  "notes": [
+    "letterSpacing : unité Figma en %, confirmée par le CSS généré (64px × -1 % = -0.64px). Utiliser em : -0.01em / -0.02em.",
+    "Tous les styles Boldonse sont en majuscules dans les maquettes ; prévoir text-transform: uppercase sur les classes de titre (et ne pas compter sur la saisie en capitales du CMS).",
+    "Styles mobiles existants (variables) : Mobile/Display/XXL 40, XL 34, L 28, M 22, S 16, Carte 20 ; Mobile/Titre/Carte 18 ; Mobile/Texte/L 18. Pas de version mobile pour Display/XS, Texte/M, Texte/S, Labels, Transport : valeurs desktop conservées.",
+    "Maquettes mobiles marquées « provisoire sur les valeurs » (V1 27/10) : tailles mobiles susceptibles d'évoluer.",
+    "Incohérence : Mobile/Display/L (28px, lh 1.25) a la même taille que Display/M desktop (28px, lh 1.3) mais un interlignage différent.",
+    "Incohérence : interlettrage non homogène dans les familles — Label/M et Label/S à -1 % mais Label/S-fort et Label/XS à 0 ; Texte/L et M à -1 % mais Texte/S à 0 ; Display XXL→Carte à -1/-2 % mais Display/S et XS à 0.",
+    "WS/Display/XXL (88px) n'est utilisé que dans des sections masquées de l'accueil ; il remonte dans les variables de Clichy, Événementiel et des composants globaux sans usage visible repéré. Le garder en réserve (hero) ou le supprimer.",
+    "L'accueil (V3) n'a pas de H1 visible : le hero V2 est une vidéo sans texte, l'ancien hero avec H1 (WS/Display/XL) est masqué. Il faudra un H1 (au moins visuellement masqué) côté Webflow.",
+    "H1 de l'article de blog = Display/L (44), pas Display/XL comme les autres pages.",
+    "Les niveaux de titre ne suivent pas strictement les tailles : la maquette distingue H2 de section (Display/L) et titres visuels hors Hn de même style ; prévoir des classes de style découplées des balises (ex. .ws-display-l appliquée sur h2, p ou div).",
+    "Transport/Indice et Transport/Mode bus ont pour famille la variable « font/texte » (= Google Sans Flex) en Bold 700.",
+    "Figma applique fontVariationSettings GRAD 0, ROND 0, wdth 100 (valeurs par défaut) : rien à fixer en CSS.",
+    "Boldonse n'existe qu'en 400 : ne jamais mettre font-weight: 700 sur les titres (Webflow applique bold par défaut aux h1–h6 → forcer 400)."
+  ]
+}

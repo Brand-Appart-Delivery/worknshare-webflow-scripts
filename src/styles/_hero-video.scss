@@ -1,0 +1,82 @@
+// Hero vidéo de l'accueil ([data-hero-video], classes hero-video_* de Webflow).
+// Le hero remplit exactement le premier écran : nav + photo + marge du bas =
+// hauteur de la fenêtre. La marge du bas (égale à celle des côtés) est dans le
+// hero, sur son fond beige : on ne voit pas la section suivante (blanche) en
+// dessous. Remplace les hauteurs fixes de Webflow (800 / 720 / 700 px).
+// --nav-height est mesurée par components/nav.js.
+
+[data-hero-video] {
+  --hero-gap: var(--_work-n-share---space--24, 24px);
+  padding-bottom: var(--hero-gap);
+  // Fond : le beige de Webflow se fond en blanc vers le bas (raccord avec la
+  // section suivante). Calque par-dessus la couleur de fond, qui reste en Webflow.
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 0.5) 70%,
+    var(--_work-n-share---color--blanc, #ffffff) 100%
+  );
+
+  .hero-video_media {
+    height: calc(100vh - var(--nav-height, 96px) - var(--hero-gap)); // navigateurs sans svh
+    height: calc(100svh - var(--nav-height, 96px) - var(--hero-gap)); // mobile : hors barre d'adresse
+    min-height: 540px; // place minimale pour le titre et la recherche
+  }
+}
+
+@media (max-width: 767px) {
+  [data-hero-video] {
+    --hero-gap: var(--_work-n-share---space--12, 12px);
+  }
+}
+
+// ---------- Photo cadrée sur l'écran (animations/hero-intro.js) ----------
+// La photo a la taille de la fenêtre et est décalée de la position du bloc :
+// même cadrage pendant et après l'arrivée (pas de saut). Variables posées par le JS.
+[data-hero-video].is-framed .hero-video_media > img {
+  position: absolute;
+  inset: auto;
+  left: calc(var(--hero-x, 0px) * -1);
+  top: calc(var(--hero-y, 0px) * -1);
+  width: var(--hero-vw, 100vw);
+  max-width: none;
+  height: var(--hero-vh, 100vh);
+  object-fit: cover;
+}
+
+// ---------- Arrivée du hero ----------
+@media (prefers-reduced-motion: no-preference) {
+  // Avant le JS : bloc photo masqué (sinon il s'afficherait à sa place puis
+  // sauterait en plein écran). Repli : affiché au bout de 2 s si le JS ne vient pas.
+  [data-hero-video]:not(.is-intro-running):not(.is-intro-done) .hero-video_media {
+    opacity: 0;
+    animation: hero-intro-fallback 0s linear 2s forwards;
+  }
+
+  // Contenu (titre, recherche, contrôles vidéo) : apparaît une fois le cadre en place
+  [data-hero-video]:not(.is-intro-done) .hero-video_media > :not(img):not(:empty) {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: hero-intro-fallback 0s linear 2s forwards;
+  }
+
+  [data-hero-video].is-intro-running .hero-video_media,
+  [data-hero-video].is-intro-running .hero-video_media > :not(img):not(:empty) {
+    animation: none;
+  }
+
+  // Pendant l'arrivée, le JS place le contenu à chaque image : pas de transition
+  // CSS (ex. remontée de la recherche) qui le mettrait en retard sur le cadre
+  [data-hero-video].is-intro-running .hero-video_media > *,
+  [data-hero-video].is-intro-running [data-hero-heading] {
+    transition: none !important;
+  }
+
+}
+
+@keyframes hero-intro-fallback {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

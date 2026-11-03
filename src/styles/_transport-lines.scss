@@ -1,0 +1,80 @@
+@use "sass:list";
+
+// Couleurs officielles des lignes Île-de-France Mobilités, pour les pastilles
+// générées par le JS (utils/stations.js) : .transport-line[data-line="M-13"].
+// Forme et taille viennent de la classe Webflow transport-line (+ is-square).
+// Couleurs relevées sur la charte IDFM ; à ajuster si besoin.
+
+$dark: #121404;
+
+// [code, fond, texte]
+$lines: (
+  "M-1": (#ffcd00, $dark),
+  "M-2": (#003ca6, #fff),
+  "M-3": (#837902, #fff),
+  "M-3b": (#6ec4e8, $dark),
+  "M-4": (#cf009e, #fff),
+  "M-5": (#ff7e2e, $dark),
+  "M-6": (#6eca97, $dark),
+  "M-7": (#fa9aba, $dark),
+  "M-7b": (#6eca97, $dark),
+  "M-8": (#e19bdf, $dark),
+  "M-9": (#b6bd00, $dark),
+  "M-10": (#c9910d, $dark),
+  "M-11": (#704b1c, #fff),
+  "M-12": (#007852, #fff),
+  "M-13": (#6ec4e8, $dark),
+  "M-14": (#62259d, #fff),
+  "M-15": (#a50034, #fff),
+  "M-16": (#ec7cae, $dark),
+  "M-17": (#d5c900, $dark),
+  "M-18": (#00a88f, #fff),
+  "RER-A": (#e2231a, #fff),
+  "RER-B": (#7ba3dc, $dark),
+  "RER-C": (#ffcd00, $dark),
+  "RER-D": (#00814f, #fff),
+  "RER-E": (#c04191, #fff),
+  "T-H": (#8d653d, #fff),
+  "T-J": (#d5c900, $dark),
+  "T-K": (#c7b300, $dark),
+  "T-L": (#ceadd2, $dark),
+  "T-N": (#00a4a7, #fff),
+  "T-P": (#f28e42, $dark),
+  "T-R": (#e4b4d1, $dark),
+  "T-U": (#b90845, #fff),
+  "T-V": (#9b9842, #fff),
+  "TRAM-1": (#0055c8, #fff),
+  "TRAM-2": (#cf009e, #fff),
+  "TRAM-3a": (#ff7e2e, $dark),
+  "TRAM-3b": (#00a88f, #fff),
+  "TRAM-4": (#e2231a, #fff),
+  "TRAM-5": (#62259d, #fff),
+  "TRAM-6": (#e2231a, #fff),
+  "TRAM-7": (#704b1c, #fff),
+  "TRAM-8": (#837902, #fff),
+  "TRAM-9": (#3c91dc, #fff),
+  "TRAM-10": (#6eca97, $dark),
+  "TRAM-11": (#ff7e2e, $dark),
+  "TRAM-12": (#a50034, #fff),
+  "TRAM-13": (#8d653d, #fff),
+);
+
+// Ligne inconnue (nouvelle ligne, navette…) : pastille sombre neutre
+.transport-line[data-line] {
+  background-color: $dark;
+  color: #fff;
+}
+
+@each $code, $colors in $lines {
+  .transport-line[data-line="#{$code}"] {
+    background-color: list.nth($colors, 1);
+    color: list.nth($colors, 2);
+  }
+}
+
+// Picto de mode texte (M, RER, T) : garde la taille de la classe Webflow
+.transport-mode[data-mode] {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}

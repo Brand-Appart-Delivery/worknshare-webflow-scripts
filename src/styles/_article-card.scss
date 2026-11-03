@@ -1,0 +1,35 @@
+// Carte article (classes article-card_* créées dans Webflow).
+// - zoom léger de la photo au survol / focus clavier (cadre article-card_media) ;
+// - l'extrait tient sur 2 lignes avec ellipse : propriétés refusées par Webflow.
+
+// Le cadre coupe la photo agrandie (isolation : coins arrondis nets sur Safari)
+.article-card_media {
+  isolation: isolate;
+}
+
+.article-card_image {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.article-card:hover .article-card_image,
+.article-card:focus-visible .article-card_image {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-card_image {
+    transition: none;
+  }
+
+  .article-card:hover .article-card_image,
+  .article-card:focus-visible .article-card_image {
+    transform: none;
+  }
+}
+
+.article-card_excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}

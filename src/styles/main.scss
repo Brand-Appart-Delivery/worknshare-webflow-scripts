@@ -3,4 +3,23 @@
 // Les styles de base restent dans Webflow : ici, seulement ce que le Designer
 // ne sait pas faire (états pilotés par le JS, animations, contenus CMS générés).
 
+@use "lenis";
 @use "collapse";
+@use "faq";
+@use "article-card";
+@use "logo-strip";
+@use "map-module";
+@use "event-card";
+@use "card-zoom";
+@use "hero-video";
+@use "tab-indicator";
+@use "formula";
+@use "mega-menu";
+@use "slider";
+@use "counter";
+@use "reveal";
+@use "transport-lines";
+@use "spaces-map";
+@use "scroll-indicator";
+@use "space-search";
+@use "post-body";

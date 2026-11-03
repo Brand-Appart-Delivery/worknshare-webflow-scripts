@@ -1,0 +1,21 @@
+{
+  "collection": "🌐 Espaces (6ae9133a82664ff73e573da9)",
+  "date": "2026-11-03",
+  "motif": "Avant remplacement de latitude / longitude (toutes les fiches copiées de Clichy avaient 48.8985 / 2.2960) par des coordonnées provisoires au centre de chaque ville, pour la carte.",
+  "items": [
+    {"id": "6ae91849a1be7ba7205931b5", "slug": "clichy", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae9274c2d2afb91f79ab483", "slug": "colombes", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae927aab71194d345adc43b", "slug": "issy-les-moulineaux", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae927aab71194d345adc43d", "slug": "la-defense", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae927aab71194d345adc43f", "slug": "levallois-perret", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae927aab71194d345adc441", "slug": "nanterre", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae9280a7a97882afbb974cd", "slug": "rueil-malmaison", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae9280a7a97882afbb974cf", "slug": "saint-cloud", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae9280a7a97882afbb974d1", "slug": "suresnes", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae9280a7a97882afbb974d3", "slug": "saint-denis", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae9286d82229bf3ee7b580a", "slug": "saint-ouen", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae9286d82229bf3ee7b580c", "slug": "cachan", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae9286d82229bf3ee7b580e", "slug": "val-de-fontenay", "latitude": "48.8985", "longitude": "2.2960"},
+    {"id": "6ae9286d82229bf3ee7b5810", "slug": "villejuif", "latitude": "48.8985", "longitude": "2.2960"}
+  ]
+}

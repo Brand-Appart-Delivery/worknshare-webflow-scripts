@@ -1,0 +1,248 @@
+// Carte des espaces (components/spaces-map.js) : carte MapLibre, pins « maison »,
+// point de recherche, fiche au-dessus du pin. Les classes map-pin*, map-origin et
+// map-module_canvas sont créées par le JS ; les autres viennent de Webflow.
+
+$vert-900: var(--_work-n-share---color--vert--900, #121404);
+$vert-700: var(--_work-n-share---color--vert--700, #3b400f);
+$vert-100: var(--_work-n-share---color--vert--100, #eefc96);
+$blanc: var(--_work-n-share---color--blanc, #ffffff);
+
+// Carte : occupe toute la zone, sous la fiche et les contrôles
+[data-map] {
+  position: relative;
+}
+
+// (sélecteur renforcé : la feuille de MapLibre remet .maplibregl-map en relative)
+[data-map] > .map-module_canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+// Carte prête : on retire l'image de repli
+[data-map-module].is-map-ready .map-module_bg {
+  visibility: hidden;
+}
+
+// Fiche et contrôles au-dessus de la carte
+[data-map] [data-place-card],
+[data-map] .map-controls,
+[data-map] [data-map-attribution] {
+  z-index: 2;
+}
+
+// En-tête fixe de la colonne liste (titre, onglets, recherche, compteur) :
+// les espaces défilent dessous. Marges / fond / espacement posés par le JS.
+.map-module_head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: box-shadow 0.2s ease;
+
+  &.is-stuck {
+    box-shadow: 0 1px 0 0 var(--_work-n-share---color--vert--700-a16, rgba(59, 64, 15, 0.16));
+  }
+}
+
+// Fiche fermée tant qu'aucun espace n'est choisi
+[data-place-card]:not(.is-open) {
+  display: none;
+}
+
+[data-place-card].is-open {
+  animation: place-card-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes place-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Repères d'offres (lus par le JS, jamais affichés)
+[data-offers] {
+  display: none;
+}
+
+// Éléments de liste filtrés (onglet Salles) : Webflow met display:block sur les items
+[data-space-list] [hidden] {
+  display: none !important;
+}
+
+// ---------- Pins ----------
+.map-pin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: $vert-900;
+  font: inherit;
+  transition: transform 0.2s ease;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.map-pin_shape {
+  display: block;
+  width: 32px;
+  height: 35px;
+  filter: drop-shadow(0 2px 4px rgba(18, 20, 4, 0.25));
+  transition: width 0.2s ease, height 0.2s ease;
+
+  path {
+    fill: currentColor;
+    stroke: $blanc;
+    stroke-width: 1.5;
+  }
+
+  text {
+    fill: $vert-100;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+}
+
+// Nom de l'espace sous le pin (visible au survol et sur le pin actif)
+.map-pin_label {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background-color: $blanc;
+  color: $vert-900;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.map-pin:hover,
+.map-pin:focus-visible,
+.map-pin.is-hover {
+  z-index: 2;
+
+  .map-pin_label {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.map-pin:focus-visible {
+  outline: 2px solid $vert-700;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+// Pin actif : plus grand, vert clair, nom en pastille foncée
+.map-pin.is-active {
+  z-index: 3;
+
+  .map-pin_shape {
+    width: 44px;
+    height: 48px;
+
+    path {
+      fill: $vert-100;
+      stroke: $vert-900;
+    }
+
+    text {
+      fill: $vert-900;
+    }
+  }
+
+  .map-pin_label {
+    opacity: 1;
+    transform: none;
+    background-color: $vert-900;
+    color: $blanc;
+  }
+}
+
+// Point de recherche (adresse, station, « autour de moi »)
+.map-origin {
+  width: 18px;
+  height: 18px;
+  border: 3px solid $blanc;
+  border-radius: 50%;
+  background-color: $vert-900;
+  box-shadow: 0 0 0 6px rgba(18, 20, 4, 0.18);
+}
+
+// ---------- Bouton « Afficher la liste » (sur la carte, liste masquée) ----------
+.map-list-open {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background-color: $blanc;
+  color: $vert-900;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  box-shadow: 0 4px 16px rgba(18, 20, 4, 0.16);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--_work-n-share---color--beige--50, #fffbe7);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $vert-700;
+    outline-offset: 2px;
+  }
+}
+
+[data-map-module].is-list-hidden .map-list-open {
+  display: inline-flex;
+  // apparaît une fois la liste sortie (glissement de 0,5 s)
+  animation: place-card-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+// Picto liste (3 traits avec puces)
+.map-list-open_icon {
+  width: 18px;
+  height: 18px;
+  background-color: currentColor;
+  mask: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23000" stroke-width="1.8" stroke-linecap="round"%3E%3Cpath d="M9 6h11M9 12h11M9 18h11"/%3E%3Ccircle cx="4.5" cy="6" r="1" fill="%23000"/%3E%3Ccircle cx="4.5" cy="12" r="1" fill="%23000"/%3E%3Ccircle cx="4.5" cy="18" r="1" fill="%23000"/%3E%3C/svg%3E') center / contain no-repeat;
+  -webkit-mask: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23000" stroke-width="1.8" stroke-linecap="round"%3E%3Cpath d="M9 6h11M9 12h11M9 18h11"/%3E%3Ccircle cx="4.5" cy="6" r="1" fill="%23000"/%3E%3Ccircle cx="4.5" cy="12" r="1" fill="%23000"/%3E%3Ccircle cx="4.5" cy="18" r="1" fill="%23000"/%3E%3C/svg%3E') center / contain no-repeat;
+}
+
+// ---------- Mouvement réduit ----------
+@media (prefers-reduced-motion: reduce) {
+  .map-pin,
+  .map-pin_shape,
+  .map-pin_label {
+    transition: none;
+  }
+
+  [data-place-card].is-open,
+  [data-map-module].is-list-hidden .map-list-open {
+    animation: none;
+  }
+}

@@ -1,0 +1,6 @@
+// Chiffres animés (animations/counter.js) : chiffres à chasse fixe pour que
+// le nombre ne « danse » pas pendant l'incrémentation.
+
+[data-count] {
+  font-variant-numeric: tabular-nums;
+}

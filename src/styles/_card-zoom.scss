@@ -1,0 +1,111 @@
+// Zoom léger de la photo au survol / focus clavier des cartes-liens.
+// Même effet partout (cf. carte article et carte événement) : la photo
+// grossit de 5 %, son contour visible ne bouge pas.
+//
+// Deux cas :
+// 1. la photo remplit un bloc qui coupe déjà ce qui dépasse (overflow hidden) :
+//    on agrandit simplement la photo ;
+// 2. la photo porte elle-même ses coins arrondis (ou une forme) : on l'agrandit
+//    ET on réduit d'autant son clip-path, pour garder le même contour à l'écran
+//    sans ajouter de cadre dans Webflow.
+
+$zoom: 1.05;
+$ease: cubic-bezier(0.22, 1, 0.36, 1);
+$duration: 0.6s;
+// Marge du clip-path qui compense le zoom : (1 - 1 / 1.05) / 2
+$inset: 2.381%;
+$radius: var(--_work-n-share---radius--m, 16px);
+
+// ---------- Cas 1 : bloc qui coupe déjà la photo ----------
+.events-format-card_image,
+.space-gallery_thumb .space-cover {
+  transition: transform $duration $ease;
+}
+
+.events-format-card:hover .events-format-card_image,
+.events-format-card:focus-visible .events-format-card_image,
+.space-gallery_thumb:hover .space-cover,
+.space-gallery_thumb:focus-visible .space-cover {
+  transform: scale($zoom);
+}
+
+// ---------- Cas 2a : photo aux coins arrondis ----------
+.blog-featured_image,
+.events-article_image,
+.space-item_photo,
+.mega-menu_banner-img {
+  clip-path: inset(0 round $radius);
+  transition:
+    transform $duration $ease,
+    clip-path $duration $ease;
+}
+
+.blog-featured:hover .blog-featured_image,
+.blog-featured:focus-visible .blog-featured_image,
+.events-article:hover .events-article_image,
+.events-article:focus-visible .events-article_image,
+.space-item:hover .space-item_photo,
+.space-item:focus-visible .space-item_photo,
+.mega-menu_banner:hover .mega-menu_banner-img,
+.mega-menu_banner:focus-visible .mega-menu_banner-img {
+  transform: scale($zoom);
+  clip-path: inset($inset round calc(#{$radius} / #{$zoom}));
+}
+
+// ---------- Cas 2b : photo en forme de maison (carte espace) ----------
+// Forme de base posée dans Webflow : polygon(50% 0, 100% 24%, 100% 100%, 0 100%, 0 24%).
+// Au survol, chaque point est rapproché du centre de 1/1.05 pour compenser le zoom.
+.space-card_image {
+  transition:
+    transform $duration $ease,
+    clip-path $duration $ease;
+}
+
+.space-card:hover .space-card_image,
+.space-card:focus-visible .space-card_image {
+  transform: scale($zoom);
+  clip-path: polygon(50% 2.381%, 97.619% 25.238%, 97.619% 97.619%, 2.381% 97.619%, 2.381% 25.238%);
+}
+
+// ---------- Animations réduites : pas de zoom ----------
+@media (prefers-reduced-motion: reduce) {
+  .events-format-card_image,
+  .space-gallery_thumb .space-cover,
+  .blog-featured_image,
+  .events-article_image,
+  .space-item_photo,
+  .mega-menu_banner-img,
+  .space-card_image {
+    transition: none;
+  }
+
+  .events-format-card:hover .events-format-card_image,
+  .events-format-card:focus-visible .events-format-card_image,
+  .space-gallery_thumb:hover .space-cover,
+  .space-gallery_thumb:focus-visible .space-cover,
+  .blog-featured:hover .blog-featured_image,
+  .blog-featured:focus-visible .blog-featured_image,
+  .events-article:hover .events-article_image,
+  .events-article:focus-visible .events-article_image,
+  .space-item:hover .space-item_photo,
+  .space-item:focus-visible .space-item_photo,
+  .mega-menu_banner:hover .mega-menu_banner-img,
+  .mega-menu_banner:focus-visible .mega-menu_banner-img,
+  .space-card:hover .space-card_image,
+  .space-card:focus-visible .space-card_image {
+    transform: none;
+  }
+
+  // On garde le contour de base (sinon le clip réduit resterait au survol)
+  .blog-featured:hover .blog-featured_image,
+  .events-article:hover .events-article_image,
+  .space-item:hover .space-item_photo,
+  .mega-menu_banner:hover .mega-menu_banner-img {
+    clip-path: inset(0 round $radius);
+  }
+
+  .space-card:hover .space-card_image,
+  .space-card:focus-visible .space-card_image {
+    clip-path: polygon(50% 0%, 100% 24%, 100% 100%, 0% 100%, 0% 24%);
+  }
+}

@@ -1,0 +1,48 @@
+// Module carte + liste (classes map-module_*, space-item_*, place-card_* créées
+// dans Webflow). Ici : états dépendants du parent, que Webflow ne sait pas écrire.
+
+// Carte d'espace active (fond vert foncé) : textes secondaires en beige,
+// pictos de transport en version « fond foncé »
+.space-item.is-active {
+  .space-item_muted,
+  .space-item_small {
+    color: var(--_work-n-share---texte--sur-fonce, #fffbe7);
+  }
+
+  .space-item_time {
+    color: var(--_work-n-share---texte--sur-marque, #eefc96);
+  }
+
+  .transport-mode {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+  }
+}
+
+// Liste repliée (bouton « Masquer la liste », data-map-list-toggle) : la colonne
+// glisse vers la gauche hors du module (qui coupe ce qui dépasse) et la carte
+// s'élargit. --list-width = largeur de la colonne, mesurée par le JS.
+[data-map-module] [data-map-list] {
+  transition:
+    margin-left 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease,
+    visibility 0s linear 0s;
+}
+
+[data-map-module].is-list-hidden [data-map-list] {
+  margin-left: calc(var(--list-width, 560px) * -1);
+  opacity: 0;
+  visibility: hidden; // plus atteignable au clavier une fois repliée
+  transition:
+    margin-left 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease,
+    visibility 0s linear 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-map-module] [data-map-list],
+  [data-map-module].is-list-hidden [data-map-list] {
+    transition: none;
+  }
+}

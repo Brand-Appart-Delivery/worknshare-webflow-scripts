@@ -1,0 +1,213 @@
+<!--
+  Composant Webflow « Global Styles » (groupe WS) : code embed à placer en haut
+  de chaque page (ou du template). Copie de référence, versionnée ici.
+  Les styles de balises (body, h1–h6, p, a) sont réglés dans le Designer, pas ici.
+  Variables : collection Webflow « Work'n'Share » (--_work-n-share---…),
+  avec valeur de repli si la variable manque.
+-->
+<style>
+  /* Lissage du texte (les styles de balises body, h1–h6, p, a sont dans le Designer) */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Liens soulignés au niveau de la police */
+  a { text-underline-position: from-font; }
+
+  /* ---------- Texte riche du blog (article, colonne 720 px) ---------- */
+  .w-richtext { color: var(--_work-n-share---color--vert--900, #121404); }
+  .w-richtext > * + * { margin-top: var(--_work-n-share---space--24, 24px); }
+  .w-richtext p,
+  .w-richtext li {
+    font-size: var(--_work-n-share---typo--texte-l, 1.25rem);
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+  }
+  .w-richtext h2 {
+    margin-top: var(--_work-n-share---space--48, 48px);
+    color: var(--_work-n-share---color--vert--700, #3b400f);
+    font-size: var(--_work-n-share---typo--display-m, 1.75rem);
+    line-height: 1.3;
+  }
+  .w-richtext h3 {
+    color: var(--_work-n-share---color--vert--700, #3b400f);
+    font-size: var(--_work-n-share---typo--display-s, 1.125rem);
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+  .w-richtext ul,
+  .w-richtext ol { padding-left: 1.5em; }
+  .w-richtext li + li { margin-top: var(--_work-n-share---space--12, 12px); }
+  .w-richtext blockquote {
+    margin: 0;
+    padding: var(--_work-n-share---space--32, 32px);
+    border: 0;
+    border-radius: var(--_work-n-share---radius--l, 24px);
+    background-color: var(--_work-n-share---color--vert--100, #eefc96);
+    color: var(--_work-n-share---color--vert--700, #3b400f);
+    font-family: var(--_work-n-share---font--display, "Boldonse"), "Arial Black", sans-serif;
+    font-size: var(--_work-n-share---typo--display-s, 1.125rem);
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+  .w-richtext figure { margin-top: var(--_work-n-share---space--32, 32px); }
+  .w-richtext figure img { border-radius: var(--_work-n-share---radius--l, 24px); }
+  .w-richtext figcaption {
+    margin-top: var(--_work-n-share---space--12, 12px);
+    color: var(--_work-n-share---color--vert--700, #3b400f);
+    font-size: var(--_work-n-share---typo--texte-s, 0.875rem);
+    line-height: 1.45;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 767px) {
+    .w-richtext p,
+    .w-richtext li { font-size: var(--_work-n-share---typo--mobile--texte-l, 1.125rem); }
+    .w-richtext h2 { font-size: var(--_work-n-share---typo--mobile--display-m, 1.375rem); }
+    .w-richtext h3 { font-size: var(--_work-n-share---typo--mobile--display-s, 1rem); }
+  }
+
+  /* ---------- Global (repris du projet de base) ---------- */
+
+  /* Focus clavier visible (couleur de marque) */
+  *[tabindex]:focus-visible,
+  input[type='file']:focus-visible {
+    outline: 0.125rem solid var(--_work-n-share---color--vert--700, #3b400f);
+    outline-offset: 0.125rem;
+  }
+
+  html,
+  body {
+    overscroll-behavior: none;
+  }
+
+  /* Set color style to inherit */
+  .inherit-color * {
+    color: inherit;
+  }
+
+  /* Pas de marge en haut du premier élément d'un texte riche */
+  .w-richtext > :not(div):first-child,
+  .w-richtext > div:first-child > :first-child {
+    margin-top: 0 !important;
+  }
+
+  /* Pas de marge en bas du dernier élément d'un texte riche */
+  .w-richtext > :last-child,
+  .w-richtext ol li:last-child,
+  .w-richtext ul li:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Les conteneurs restent centrés */
+  .container-medium,
+  .container-small,
+  .container-large {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  /* "..." après 3 lignes */
+  .text-style-3lines {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  /* "..." après 2 lignes */
+  .text-style-2lines {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  /* Ces classes ne sont jamais écrasées */
+  .hide {
+    display: none !important;
+  }
+
+  @media screen and (max-width: 991px) {
+    .hide,
+    .hide-tablet {
+      display: none !important;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .hide-mobile-landscape {
+      display: none !important;
+    }
+  }
+  @media screen and (max-width: 479px) {
+    .hide-mobile {
+      display: none !important;
+    }
+  }
+
+  .margin-0 { margin: 0rem !important; }
+  .padding-0 { padding: 0rem !important; }
+  .spacing-clean { padding: 0rem !important; margin: 0rem !important; }
+
+  .margin-top { margin-right: 0rem !important; margin-bottom: 0rem !important; margin-left: 0rem !important; }
+  .padding-top { padding-right: 0rem !important; padding-bottom: 0rem !important; padding-left: 0rem !important; }
+  .margin-right { margin-top: 0rem !important; margin-bottom: 0rem !important; margin-left: 0rem !important; }
+  .padding-right { padding-top: 0rem !important; padding-bottom: 0rem !important; padding-left: 0rem !important; }
+  .margin-bottom { margin-top: 0rem !important; margin-right: 0rem !important; margin-left: 0rem !important; }
+  .padding-bottom { padding-top: 0rem !important; padding-right: 0rem !important; padding-left: 0rem !important; }
+  .margin-left { margin-top: 0rem !important; margin-right: 0rem !important; margin-bottom: 0rem !important; }
+  .padding-left { padding-top: 0rem !important; padding-right: 0rem !important; padding-bottom: 0rem !important; }
+  .margin-horizontal { margin-top: 0rem !important; margin-bottom: 0rem !important; }
+  .padding-horizontal { padding-top: 0rem !important; padding-bottom: 0rem !important; }
+  .margin-vertical { margin-right: 0rem !important; margin-left: 0rem !important; }
+  .padding-vertical { padding-right: 0rem !important; padding-left: 0rem !important; }
+
+  .padding-global {
+    pointer-events: none;
+  }
+  .padding-global > * {
+    pointer-events: auto;
+  }
+
+  /* Images : pas de sélection ni de glisser-déposer */
+  img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  /* Voile derrière le menu déroulant ouvert */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .nav_fixed:has(.w-dropdown-toggle.w--open) .nav-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Desktop uniquement */
+  @media (min-width: 992px) {
+    .locales-wrapper {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+    }
+    .nav_fixed:has(.w-dropdown-toggle.w--open) .locales-wrapper {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+</style>

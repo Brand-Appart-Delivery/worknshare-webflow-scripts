@@ -1,0 +1,210 @@
+// Suggestions de la recherche (components/space-search.js).
+// Toutes les classes search_suggest*, search_line et search_status sont créées
+// par le JS ; [data-search] vient de Webflow.
+
+$vert-900: var(--_work-n-share---color--vert--900, #121404);
+$vert-700: var(--_work-n-share---color--vert--700, #3b400f);
+$vert-100: var(--_work-n-share---color--vert--100, #eefc96);
+$beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
+$blanc: var(--_work-n-share---color--blanc, #ffffff);
+
+// Barre de recherche : Webflow ajoute après le bouton un bloc vide (anti-spam
+// Cloudflare Turnstile). Dans la barre en flex, l'espacement s'appliquait aussi
+// devant lui : 18 px à droite du bouton au lieu de 6. On le sort du flux.
+[data-search-form] > :not(label):not(input) {
+  position: absolute;
+}
+
+// Liste rattachée au <body>, placée sous le champ par le JS (top / left / width)
+.search_suggest {
+  position: absolute;
+  z-index: 90; // au-dessus du contenu, sous la nav fixe (100)
+  min-width: 280px;
+  max-height: min(60vh, 440px); // valeur de départ, recalculée par le JS selon la place sous le champ
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px;
+  border-radius: 24px; // radius/l (maquette 4696:14012)
+  background-color: $blanc;
+  color: $vert-900;
+  text-align: left;
+  box-shadow: 0 24px 48px rgba(18, 20, 4, 0.16);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.search_suggest-title {
+  margin: 0;
+  padding: 8px 12px;
+  color: $vert-700;
+  font-family: "Boldonse", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-transform: uppercase;
+
+  // Filet au-dessus du titre (composant WS/Suggestion · groupe)
+  &::before {
+    content: "";
+    display: block;
+    height: 1px;
+    margin-bottom: 12px;
+    background-color: var(--_work-n-share---color--vert--700-a16, rgba(59, 64, 15, 0.16));
+  }
+}
+
+.search_suggest-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+
+  &.is-focused {
+    background-color: $beige-50;
+  }
+}
+
+// Petit picto par type de suggestion (masques SVG, couleur = texte)
+.search_suggest-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  mask: center / contain no-repeat;
+  -webkit-mask: center / contain no-repeat;
+  opacity: 0.8;
+
+  .is-nearme & {
+    mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="%23000" stroke-width="1.5" stroke-linecap="round"%3E%3Ccircle cx="10" cy="10" r="6.25"/%3E%3Ccircle cx="10" cy="10" r="2.5"/%3E%3Cpath d="M10 1.67v2.08M10 16.25v2.08M1.67 10h2.08M16.25 10h2.08"/%3E%3C/svg%3E');
+    -webkit-mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="%23000" stroke-width="1.5" stroke-linecap="round"%3E%3Ccircle cx="10" cy="10" r="6.25"/%3E%3Ccircle cx="10" cy="10" r="2.5"/%3E%3Cpath d="M10 1.67v2.08M10 16.25v2.08M1.67 10h2.08M16.25 10h2.08"/%3E%3C/svg%3E');
+    opacity: 1;
+  }
+
+  .is-space & {
+    mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="%23000" stroke-width="1.5"%3E%3Cpath d="M11.35 17.81a1.95 1.95 0 0 1-2.7 0C5.34 14.69.91 11.21 3.07 6.15 4.24 3.42 7.05 1.67 10 1.67s5.76 1.75 6.93 4.48c2.16 5.05-2.26 8.55-5.58 11.66Z"/%3E%3Cpath d="M12.92 9.17a2.92 2.92 0 1 1-5.84 0 2.92 2.92 0 0 1 5.84 0Z"/%3E%3C/svg%3E');
+    -webkit-mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="%23000" stroke-width="1.5"%3E%3Cpath d="M11.35 17.81a1.95 1.95 0 0 1-2.7 0C5.34 14.69.91 11.21 3.07 6.15 4.24 3.42 7.05 1.67 10 1.67s5.76 1.75 6.93 4.48c2.16 5.05-2.26 8.55-5.58 11.66Z"/%3E%3Cpath d="M12.92 9.17a2.92 2.92 0 1 1-5.84 0 2.92 2.92 0 0 1 5.84 0Z"/%3E%3C/svg%3E');
+    opacity: 1;
+  }
+
+  .is-station & {
+    mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"%3E%3Crect x="5" y="3" width="14" height="14" rx="3"/%3E%3Cpath d="M5 11h14M9 21l-2-4M15 21l2-4"/%3E%3C/svg%3E');
+    -webkit-mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"%3E%3Crect x="5" y="3" width="14" height="14" rx="3"/%3E%3Cpath d="M5 11h14M9 21l-2-4M15 21l2-4"/%3E%3C/svg%3E');
+  }
+
+  .is-address & {
+    mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23000" stroke-width="1.8"%3E%3Cpath d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/%3E%3Ccircle cx="12" cy="10" r="2.5"/%3E%3C/svg%3E');
+    -webkit-mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23000" stroke-width="1.8"%3E%3Cpath d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/%3E%3Ccircle cx="12" cy="10" r="2.5"/%3E%3C/svg%3E');
+  }
+}
+
+.search_suggest-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.search_suggest-label {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.search_suggest-hint {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: $vert-700;
+}
+
+.search_suggest-item.is-space .search_suggest-hint {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+// Libellé et précision sur la même ligne (« Autour de moi  Utiliser ma position »)
+.search_suggest-item.is-inline .search_suggest-text {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.search_suggest-lines {
+  flex-shrink: 0;
+}
+
+.search_suggest-empty {
+  margin: 8px 12px 12px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+// Message pour lecteurs d'écran uniquement
+.search_status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+// ---------- Onglets Bureaux / Salles : fond glissant (utils/tab-indicator.js) ----------
+// Même animation que « Quelle formule pour vous ? ». Le fond reprend la couleur
+// de l'onglet actif définie dans Webflow (search_tab.is-active : rose).
+.search_tabs.is-sliding .search_tab.is-active {
+  background-color: transparent;
+}
+
+.search_indicator {
+  background-color: var(--_work-n-share---color--rose--300, #ffa7e0);
+}
+
+.search_tab {
+  transition: color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search_tab {
+    transition: none;
+  }
+}
+
+// ---------- Hero de l'accueil : la recherche remonte au focus ----------
+// (components/space-search.js : .is-searching sur [data-hero-video],
+// --search-shift = distance à remonter, --heading-scale = taille du titre réduit ;
+// [data-hero-content] = titre + recherche, [data-hero-heading] = accroche + titre)
+[data-hero-video] [data-hero-content],
+[data-hero-video] [data-hero-heading] {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-hero-video] [data-hero-heading] {
+  transform-origin: 50% 100%; // réduit depuis le bas : l'écart avec la recherche reste le même
+}
+
+[data-hero-video].is-searching {
+  [data-hero-content] {
+    transform: translateY(var(--search-shift, 0px));
+  }
+
+  [data-hero-heading] {
+    transform: scale(var(--heading-scale, 0.5));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-hero-video] [data-hero-content],
+  [data-hero-video] [data-hero-heading] {
+    transition: none;
+  }
+}

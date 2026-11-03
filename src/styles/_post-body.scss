@@ -1,0 +1,224 @@
+// Page article du blog (modèle CMS « Articles », classes post-* créées dans Webflow).
+// Ici : ce que le Designer ne sait pas faire.
+// - texte riche .post-body (styles imbriqués h2/h3/listes/citation/images) ;
+//   la base du texte riche est dans Global Styles (.w-richtext), on la complète ;
+// - couleur et icône de la rubrique selon data-category (slug lié au CMS) ;
+// - légende vide masquée, barre de progression pilotée par le JS.
+
+// Raccourcis vers les variables Webflow (collection Work'n'Share)
+$vert-100: var(--_work-n-share---color--vert--100, #eefc96);
+$vert-700: var(--_work-n-share---color--vert--700, #3b400f);
+$vert-900: var(--_work-n-share---color--vert--900, #121404);
+$marron-900: var(--_work-n-share---color--marron--900, #56260b);
+$jaune-400: var(--_work-n-share---color--jaune--400, #ffcd40);
+$bleu-900: var(--_work-n-share---color--bleu--900, #0e1b3a);
+$bleu-300: var(--_work-n-share---color--bleu--300, #a3c4ff);
+$bordeaux-900: var(--_work-n-share---color--bordeaux--900, #2c0c10);
+$rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
+
+// ---------- Texte riche de l'article ----------
+
+.post-body {
+  // Les ancres du sommaire ne passent pas sous le header collant
+  h2,
+  h3 {
+    scroll-margin-top: 120px;
+  }
+
+  // Intertitre h3 juste sous un h2 : même espacement que les blocs (24 px)
+  h2 + h3 {
+    margin-top: var(--_work-n-share---space--24, 24px);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-position: from-font;
+  }
+
+  // Listes à puces : puce ronde 8 px de la maquette
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  ul li {
+    position: relative;
+    padding-left: var(--_work-n-share---space--24, 24px);
+  }
+
+  ul li::before {
+    content: "";
+    position: absolute;
+    top: 0.725em; // centre de la première ligne (line-height 1.45)
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: currentColor;
+    transform: translateY(-50%);
+  }
+
+  // Citation : la source éventuelle (cite ou dernier paragraphe) en petit
+  blockquote p {
+    margin: 0;
+    font: inherit;
+    letter-spacing: inherit;
+  }
+
+  blockquote cite,
+  blockquote footer {
+    display: block;
+    margin-top: var(--_work-n-share---space--12, 12px);
+    font-family: var(--_work-n-share---font--texte, "Google Sans Flex"), sans-serif;
+    font-size: var(--_work-n-share---typo--label-s, 0.875rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-transform: none;
+  }
+
+  // Images pleine largeur de la colonne, coins arrondis
+  figure {
+    width: 100%;
+    max-width: 100% !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  figure > div {
+    width: 100%;
+  }
+
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 440px;
+    object-fit: cover;
+  }
+}
+
+// ---------- Rubrique : couleur et icône selon data-category ----------
+// Une icône par rubrique est posée dans la pastille (data-icon) : on n'affiche
+// que celle qui correspond au slug. Sans slug connu, on garde l'icône lieu.
+
+.post-category [data-icon] {
+  display: none;
+}
+
+.post-category:not([data-category]) [data-icon="nouveaux-espaces"],
+.post-category[data-category="immobilier-de-bureau"] [data-icon="immobilier-de-bureau"],
+.post-category[data-category="facons-de-travailler"] [data-icon="facons-de-travailler"],
+.post-category[data-category="nouveaux-espaces"] [data-icon="nouveaux-espaces"],
+.post-category[data-category="evenementiel"] [data-icon="evenementiel"],
+.post-category[data-category="coulisses"] [data-icon="coulisses"] {
+  display: block;
+}
+
+// Couleurs de la pastille (mêmes paires que le filtre rubrique du blog)
+@mixin post-category-colors($fond, $texte) {
+  background-color: $fond;
+  color: $texte;
+}
+
+.post-category[data-category="immobilier-de-bureau"] {
+  @include post-category-colors($marron-900, $jaune-400);
+}
+
+.post-category[data-category="facons-de-travailler"] {
+  @include post-category-colors($bleu-900, $bleu-300);
+}
+
+.post-category[data-category="nouveaux-espaces"] {
+  @include post-category-colors($vert-100, $vert-700);
+}
+
+.post-category[data-category="evenementiel"] {
+  @include post-category-colors($bordeaux-900, $rose-300);
+}
+
+.post-category[data-category="coulisses"] {
+  @include post-category-colors($vert-700, $vert-100);
+}
+
+// Cartes article des listes CMS (blog, « À lire aussi ») : la pastille suit le slug
+// posé en data-category sur la carte, comme les variantes du composant.
+.article-card[data-category="immobilier-de-bureau"] {
+  color: $marron-900;
+
+  .article-card_category {
+    @include post-category-colors($marron-900, $jaune-400);
+  }
+}
+
+.article-card[data-category="facons-de-travailler"] {
+  color: $bleu-900;
+
+  .article-card_category {
+    @include post-category-colors($bleu-900, $bleu-300);
+  }
+}
+
+.article-card[data-category="nouveaux-espaces"] .article-card_category {
+  @include post-category-colors($vert-100, $vert-700);
+}
+
+.article-card[data-category="evenementiel"] {
+  color: $bordeaux-900;
+
+  .article-card_category {
+    @include post-category-colors($bordeaux-900, $rose-300);
+  }
+}
+
+// Icône de la rubrique dans les cartes : même principe que la pastille d'en-tête
+.article-card [data-icon] {
+  display: none;
+}
+
+.article-card[data-category="immobilier-de-bureau"] [data-icon="immobilier-de-bureau"],
+.article-card[data-category="facons-de-travailler"] [data-icon="facons-de-travailler"],
+.article-card[data-category="nouveaux-espaces"] [data-icon="nouveaux-espaces"],
+.article-card[data-category="evenementiel"] [data-icon="evenementiel"],
+.article-card[data-category="coulisses"] [data-icon="coulisses"] {
+  display: block;
+}
+
+// ---------- Divers ----------
+
+// FAQ de l'article : la réponse vient d'un champ Rich Text (classe faq_answer
+// sur le bloc). On neutralise la taille 20 px du texte riche global.
+.post-faq .faq_answer p,
+.post-faq .faq_answer li {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+.post-faq .faq_answer > * + * {
+  margin-top: var(--_work-n-share---space--12, 12px);
+}
+
+// Légende de l'image principale : masquée si le champ CMS est vide
+.post-hero_caption.w-dyn-bind-empty {
+  display: none;
+}
+
+// Cartes « espaces liés » : pastille de disponibilité masquée si le champ est vide
+.post-spaces .tag:has(.w-dyn-bind-empty) {
+  display: none;
+}
+
+// Barre de progression : largeur posée par le JS (variable --progress, 0 à 1)
+.post-progress_bar {
+  width: calc(var(--progress, 0) * 100%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .post-toc_link {
+    transition: border-color 200ms ease, font-weight 200ms ease;
+  }
+}

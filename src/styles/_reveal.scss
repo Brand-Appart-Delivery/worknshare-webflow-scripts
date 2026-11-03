@@ -1,0 +1,27 @@
+// Apparition en cascade au scroll (animations/reveal.js, [data-reveal-stagger]).
+// --reveal-delay (par élément) et --reveal-distance sont posés par le JS.
+
+[data-reveal-stagger]:not(.is-reveal-done) > * {
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+// En attente : éléments masqués et un peu plus bas
+[data-reveal-stagger].is-reveal-pending > * {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance, 32px));
+}
+
+// Animations réduites : tout est visible, sans mouvement
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal-stagger] > * {
+    transition: none;
+  }
+
+  [data-reveal-stagger].is-reveal-pending > * {
+    opacity: 1;
+    transform: none;
+  }
+}

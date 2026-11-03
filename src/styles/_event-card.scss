@@ -1,0 +1,19 @@
+// Cartes « types d'événements » (classes event-card_* créées dans Webflow).
+// Ici : léger zoom de la photo au survol / focus clavier de la carte.
+
+.event-card:hover .event-card_photo,
+.event-card:focus-visible .event-card_photo {
+  transform: scale(1.04);
+}
+
+// Animations réduites : pas de zoom
+@media (prefers-reduced-motion: reduce) {
+  .event-card_photo {
+    transition: none;
+  }
+
+  .event-card:hover .event-card_photo,
+  .event-card:focus-visible .event-card_photo {
+    transform: none;
+  }
+}

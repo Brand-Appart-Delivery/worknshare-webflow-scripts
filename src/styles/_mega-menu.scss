@@ -1,0 +1,222 @@
+// Mega menu du header (composant Webflow « Header »)
+// Structure dans Webflow :
+// - déclencheur : [data-mega-trigger="espaces"] (lien « Nos espaces ») + aria-expanded / aria-controls
+// - panneau desktop : .mega-menu#mega-menu-espaces[data-mega-panel="espaces"]
+// - tiroir mobile : .mega-menu_drawer#mega-menu-mobile[data-nav-panel="main"], ouvert par [data-nav-toggle] (burger)
+// - accordéon mobile : [data-mega-trigger="espaces-mobile"] → .mega-menu_sub#mega-menu-espaces-mobile
+// Le JS ajoute .is-open sur le panneau ouvert. L'affichage (display) est déjà géré
+// dans Webflow (combo is-open, caché en dessous de 992px pour le panneau desktop) :
+// on ne touche donc pas au display ici, sauf la sécurité ci-dessous.
+
+// Sécurité : un panneau sans .is-open reste caché
+[data-mega-panel]:not(.is-open),
+[data-nav-panel]:not(.is-open) {
+  display: none;
+}
+
+// Arrivée de la nav au chargement : elle descend du haut de l'écran jusqu'à sa
+// place. En CSS pur (pas d'attente du JS) ; « both » la garde cachée avant le
+// départ. Pas d'animation si l'utilisateur a réduit les animations (plus bas).
+@keyframes nav-intro {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+[data-nav] {
+  animation: nav-intro 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+// Accueil (hero [data-hero-video]) : la nav est pilotée par l'arrivée du hero
+// (animations/hero-intro.js) : son bas suit le haut de la photo qui se resserre.
+// - avant le JS : cachée (délai long, « both » garde l'état de départ) ;
+// - pendant l'arrivée / après : plus d'animation CSS, le JS la place ;
+// - arrivée sautée (page ouverte plus bas) : animation normale tout de suite ;
+// - JS absent : l'animation CSS la fait quand même arriver au bout de 1,45 s.
+// Sans fond en haut de page (fond blanc au scroll / menu ouvert, plus bas).
+body:has([data-hero-video]) [data-nav] {
+  animation-delay: 1.45s;
+}
+
+html.is-hero-intro-running body [data-nav],
+html.is-hero-intro-done body [data-nav] {
+  animation: none;
+}
+
+html.is-hero-intro-skipped body [data-nav] {
+  animation-delay: 0.1s;
+}
+
+body:has([data-hero-video]) [data-nav]:not(.is-scrolled):not(:has([data-mega-panel].is-open, [data-nav-panel].is-open)) {
+  background-color: transparent;
+}
+
+// Nav en mode scroll : marges latérales réduites (80 → 24 px en desktop).
+// Seulement le côté : la hauteur de la nav sert au calcul du hero (--nav-height),
+// la changer au scroll ferait bouger la page.
+@media (min-width: 992px) {
+  [data-nav].is-scrolled {
+    padding-left: var(--_work-n-share---space--24, 24px);
+    padding-right: var(--_work-n-share---space--24, 24px);
+  }
+
+  // Le contenu de la nav est limité à la largeur du site (1280 px) et centré :
+  // au scroll il s'étend jusqu'aux nouvelles marges, sinon rien ne bougerait
+  [data-nav] .navbar_inner {
+    transition: max-width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-nav].is-scrolled .navbar_inner {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) and (prefers-reduced-motion: reduce) {
+  [data-nav] .navbar_inner {
+    transition: none;
+  }
+}
+
+// Nav fixe (sticky dans Webflow) : fond blanc une fois la page scrollée
+[data-nav] {
+  transition:
+    background-color 0.25s ease,
+    padding-left 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    padding-right 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+// Fond blanc aussi en haut de page quand le mega menu ou le tiroir est ouvert
+[data-nav].is-scrolled,
+[data-nav]:has([data-mega-panel].is-open),
+[data-nav]:has([data-nav-panel].is-open) {
+  background-color: var(--_work-n-share---color--blanc, #ffffff);
+}
+
+// Variante « Événementiel » du Header (texte clair, sans fond, sur hero bordeaux) :
+// au scroll ou menu ouvert, elle reprend l'apparence normale du header (fond
+// blanc, textes vert foncé, boutons par défaut). Webflow pose la classe
+// w-variant-<id de la variante> sur le header et ses éléments.
+[data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad {
+  .navbar_link,
+  .logo,
+  .button {
+    transition:
+      color 0.25s ease,
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  &.is-scrolled,
+  &:has([data-mega-panel].is-open),
+  &:has([data-nav-panel].is-open) {
+    background-color: var(--_work-n-share---color--blanc, #ffffff);
+    color: var(--_work-n-share---color--vert--700, #3b400f);
+
+    .navbar_link,
+    .logo {
+      color: var(--_work-n-share---color--vert--700, #3b400f);
+    }
+
+    .button {
+      background-color: var(--_work-n-share---action--primaire, #3b400f);
+      color: var(--_work-n-share---action--sur-primaire, #eefc96);
+    }
+
+    .button.is-secondary {
+      background-color: transparent;
+      color: var(--_work-n-share---color--vert--700, #3b400f);
+      border-color: currentColor;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad {
+    .navbar_link,
+    .logo,
+    .button {
+      transition: none;
+    }
+  }
+}
+
+// Le hero qui suit ce header remonte sous la nav : son fond passe derrière la nav
+// transparente, et une bordure transparente de la hauteur de la nav redescend son
+// contenu à la même place (le fond est peint sous la bordure).
+[data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad + * {
+  margin-top: calc(var(--nav-height, 96px) * -1);
+  border-top: var(--nav-height, 96px) solid transparent;
+}
+
+// Tiroir mobile ouvert : la page derrière ne défile plus
+html.is-nav-open,
+html.is-nav-open body {
+  overflow: hidden;
+}
+
+// Burger : pas de soulignement ni de fond au clic
+[data-nav-toggle] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+// Apparition douce du panneau et du tiroir
+.mega-menu.is-open,
+.mega-menu_drawer.is-open {
+  animation: mega-menu-in 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes mega-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Chevron du déclencheur tourné quand le panneau est ouvert
+[data-mega-trigger] .icon-16,
+[data-mega-trigger] .mega-menu_entry-icon {
+  transition: transform 0.2s ease;
+}
+
+[data-mega-trigger][aria-expanded="true"] .icon-16,
+[data-mega-trigger][aria-expanded="true"] .mega-menu_entry-icon {
+  transform: rotate(180deg);
+}
+
+// Focus clavier visible
+[data-mega-trigger]:focus-visible,
+[data-nav-toggle]:focus-visible,
+.mega-menu_link:focus-visible,
+.mega-menu_city:focus-visible,
+.mega-menu_entry:focus-visible,
+.mega-menu_banner:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+// Mouvement réduit : pas d'animation
+@media (prefers-reduced-motion: reduce) {
+  [data-nav] {
+    transition: none;
+    animation: none;
+  }
+
+  .mega-menu.is-open,
+  .mega-menu_drawer.is-open {
+    animation: none;
+  }
+
+  [data-mega-trigger] .icon-16,
+  [data-mega-trigger] .mega-menu_entry-icon {
+    transition: none;
+  }
+}

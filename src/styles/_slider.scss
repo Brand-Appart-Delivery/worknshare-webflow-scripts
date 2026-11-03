@@ -1,0 +1,169 @@
+// Sliders Swiper (components/slider.js). La feuille de base de Swiper est
+// chargée par Webflow ; ici : raccord avec les classes Webflow et états.
+
+// ---------- Base Swiper (reprise de swiper.css, le strict nécessaire) ----------
+.swiper {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  list-style: none;
+}
+
+.swiper-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  transition-property: transform;
+  transition-timing-function: ease;
+  transform: translate3d(0, 0, 0);
+}
+
+// Pas de display ici : les slides sont des éléments Webflow (ex. carte article
+// en flex colonne) qui gardent leur propre affichage et leurs espacements.
+.swiper-slide {
+  position: relative;
+  flex-shrink: 0;
+  transition-property: transform;
+}
+
+// Message lu par les lecteurs d'écran (module a11y de Swiper)
+.swiper-notification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+// ---------- Raccord avec Webflow ----------
+
+// Conteneur créé par le JS autour de la piste. Les slides débordent du
+// conteneur centré : elles arrivent et partent par les bords de l'écran au
+// lieu d'être coupées au bord du contenu. La coupe se fait sur le bloc
+// [data-slider] (section pleine largeur), sans barre de défilement horizontale.
+.slider_viewport.swiper {
+  width: 100%;
+  overflow: visible;
+}
+
+[data-slider] {
+  overflow-x: hidden; // navigateurs anciens
+  overflow-x: clip; // coupe sans créer de zone de défilement (sticky intact)
+}
+
+// La piste Webflow (grille, flex, scroll…) devient le wrapper Swiper :
+// Swiper gère le défilement et l'espacement (spaceBetween).
+[data-slider-track].swiper-wrapper {
+  display: flex;
+  grid-template-columns: none;
+  overflow: visible;
+  gap: 0;
+  column-gap: 0;
+  row-gap: 0;
+  scroll-snap-type: none;
+}
+
+// Slides de même hauteur
+[data-slider-track] > .swiper-slide {
+  height: auto;
+}
+
+// Flèches en bout de course : non cliquables
+[data-slider-prev].is-disabled,
+[data-slider-next].is-disabled,
+[data-slider-prev].is-locked,
+[data-slider-next].is-locked {
+  cursor: default;
+  pointer-events: none;
+}
+
+// Flèches bleu marine (blog de l'accueil) : pleine quand on peut avancer dans
+// ce sens, en contour quand on est au bout. Au départ : gauche en contour,
+// droite pleine ; elles s'inversent en fin de liste.
+.slider_arrow.is-navy,
+.slider_arrow.is-outline-navy {
+  border: 1.5px solid var(--_work-n-share---color--bleu--900, #0e1b3a);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+
+  &:not(.is-disabled):not(.is-locked) {
+    background-color: var(--_work-n-share---color--bleu--900, #0e1b3a);
+    color: var(--_work-n-share---color--beige--50, #fffbe7);
+  }
+
+  &.is-disabled,
+  &.is-locked {
+    background-color: transparent;
+    color: var(--_work-n-share---color--bleu--900, #0e1b3a);
+  }
+}
+
+// Autres flèches : simplement atténuées en bout de course
+.slider_arrow:not(.is-navy):not(.is-outline-navy).is-disabled,
+.slider_arrow:not(.is-navy):not(.is-outline-navy).is-locked {
+  opacity: 0.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slider_arrow.is-navy,
+  .slider_arrow.is-outline-navy {
+    transition: none;
+  }
+}
+
+// Points de pagination
+.slider_dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  border-radius: 999px;
+  background-color: currentColor;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: opacity 0.2s ease, width 0.2s ease;
+
+  &.is-active {
+    width: 24px;
+    opacity: 1;
+  }
+}
+
+[data-slider-prev]:focus-visible,
+[data-slider-next]:focus-visible,
+.slider_dot:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slider_dot {
+    transition: none;
+  }
+}
+
+// ---------- Option data-slider-gap="edge" : slides hors vue hors de la page ----------
+// (components/slider.js : .is-slider-edge sur le bloc, --slider-edge = marge
+// jusqu'au bord de l'écran + 24 px, --slider-speed = durée du défilement)
+.is-slider-edge [data-slider-track] > .swiper-slide {
+  transition: transform var(--slider-speed, 600ms) cubic-bezier(0.22, 1, 0.36, 1);
+
+  &.is-offside-prev {
+    transform: translateX(calc(var(--slider-edge, 104px) * -1));
+  }
+
+  &.is-offside-next {
+    transform: translateX(var(--slider-edge, 104px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-slider-edge [data-slider-track] > .swiper-slide {
+    transition: none;
+  }
+}

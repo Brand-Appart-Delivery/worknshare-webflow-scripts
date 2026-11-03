@@ -1,0 +1,40 @@
+// Fond qui glisse sous l'onglet actif (utils/tab-indicator.js).
+// Commun à « Quelle formule pour vous ? » et aux onglets de recherche.
+// La couleur du fond est donnée par chaque module (_formula.scss, _space-search.scss).
+
+// Barre d'onglets : repère de position pour le fond
+.is-sliding {
+  position: relative;
+  isolation: isolate;
+}
+
+// Les onglets passent au-dessus du fond
+.is-sliding > [role="tab"],
+.is-sliding > a,
+.is-sliding > button {
+  position: relative;
+  z-index: 1;
+}
+
+.tab-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  border-radius: 999px;
+  pointer-events: none;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease;
+
+  &.is-instant {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab-indicator {
+    transition: none;
+  }
+}

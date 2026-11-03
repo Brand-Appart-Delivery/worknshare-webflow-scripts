@@ -3,10 +3,10 @@ import { requestScrollRefresh } from "../utils/scroll-refresh.js";
 import { prefersReducedMotion } from "../utils/motion.js";
 
 // false = scroll natif. true = Lenis (le script Lenis doit être chargé dans Webflow).
-const SMOOTH_SCROLL_ENABLED = false;
+const SMOOTH_SCROLL_ENABLED = true;
 
 // Élément fixe en haut de page dont on tient compte pour le scroll vers une ancre.
-const NAV_SELECTOR = ".nav_fixed";
+const NAV_SELECTOR = "[data-nav]";
 
 const ANCHOR_DURATION = 2; // secondes
 const HASH_LOAD_DELAY = 400; // ms avant le scroll animé à l'arrivée avec un #hash
@@ -53,6 +53,8 @@ function initAnchors() {
     (e) => {
       const link = e.target.closest && e.target.closest("a[href*='#']");
       if (!link) return;
+      // Onglets (href="#panneau") : gérés par leur propre module, pas de scroll
+      if (link.matches("[role='tab'], [data-formula-tab]")) return;
       const url = new URL(link.href, window.location.href);
       const samePage = url.origin === location.origin && url.pathname === location.pathname;
       if (!samePage || !url.hash || url.hash === "#") return;
@@ -87,7 +89,10 @@ export function initLenis() {
   if (!SMOOTH_SCROLL_ENABLED || typeof window.Lenis === "undefined") return null;
   if (prefersReducedMotion()) return null;
 
-  lenisInstance = new window.Lenis({ duration: 1.2, smoothWheel: true, anchors: false });
+  // lerp (et pas « duration ») : avec une durée fixe, chaque coup de molette
+  // relance une animation qui part vite puis freine longtemps, d'où des à-coups
+  // (surtout au trackpad). Le lerp rattrape la cible en douceur, en continu.
+  lenisInstance = new window.Lenis({ lerp: 0.1, smoothWheel: true, anchors: false });
 
   const hasGsap = typeof window.gsap !== "undefined";
   if (hasGsap) {

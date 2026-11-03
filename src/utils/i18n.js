@@ -2,8 +2,10 @@
 // Langue de la page et textes d'interface générés par le code (aria-label,
 // messages, boutons). Le contenu Webflow / CMS est déjà traduit par Webflow.
 //
-// La langue vient de <html lang>, rempli par Webflow Localization sur chaque
-// version. Ajouter une langue : une entrée dans LOCALES + son dictionnaire.
+// La langue vient du préfixe d'URL des versions traduites (/en/…), sinon
+// français. On ne se fie pas à <html lang> : la langue principale du site
+// Webflow est réglée sur « English » alors que le site est en français.
+// Ajouter une langue : une entrée dans LOCALES (avec son préfixe) + son dictionnaire.
 
 const DEFAULT_LANG = "fr";
 
@@ -16,16 +18,80 @@ const DICT = {
   fr: {
     "menu.open": "Menu",
     "menu.close": "Fermer",
+    "nav.open": "Ouvrir le menu",
+    "nav.close": "Fermer le menu",
+    "slider.prev": "Élément précédent",
+    "slider.next": "Élément suivant",
+    "slider.goto": "Aller à l'élément {{index}}",
+    "slider.first": "Premier élément",
+    "slider.last": "Dernier élément",
+    "map.count": "{n} espaces",
+    "map.countOne": "1 espace",
+    "map.hideList": "Masquer la liste",
+    "map.showList": "Afficher la liste",
+    "map.nearest": "Les plus proches {of}",
+    "map.nearestMe": "Les plus proches de vous",
+    "map.others": "Autres espaces · {dept}",
+    "map.distance": "à vol d'oiseau",
+    "map.walk": "{station} · {min} min à pied",
+    "map.pin": "Espace Work & Share de {name}",
+    "map.origin": "Point de recherche : {place}",
+    "map.attribution": "© OpenFreeMap © OpenMapTiles · © contributeurs OpenStreetMap",
+    "map.noRooms": "Aucun espace avec salles ne correspond.",
+    "search.nearMe": "Autour de moi",
+    "search.nearMeHint": "Utiliser ma position",
+    "search.locating": "Localisation…",
+    "search.geoError": "Position indisponible. Tapez une ville ou une adresse.",
+    "search.spaces": "Nos espaces",
+    "search.stations": "Gares et stations",
+    "search.addresses": "Adresses et communes",
+    "search.noResult": "Aucun résultat. Essayez une ville, une adresse ou une station.",
+    "search.outsideIdf": "hors Île-de-France",
+    "search.results": "{n} suggestions",
   },
   en: {
     "menu.open": "Menu",
     "menu.close": "Close",
+    "nav.open": "Open menu",
+    "nav.close": "Close menu",
+    "slider.prev": "Previous item",
+    "slider.next": "Next item",
+    "slider.goto": "Go to item {{index}}",
+    "slider.first": "First item",
+    "slider.last": "Last item",
+    "map.count": "{n} spaces",
+    "map.countOne": "1 space",
+    "map.hideList": "Hide the list",
+    "map.showList": "Show the list",
+    "map.nearest": "Closest to {place}",
+    "map.nearestMe": "Closest to you",
+    "map.others": "Other spaces · {dept}",
+    "map.distance": "as the crow flies",
+    "map.walk": "{station} · {min} min walk",
+    "map.pin": "Work & Share space in {name}",
+    "map.origin": "Search point: {place}",
+    "map.attribution": "© OpenFreeMap © OpenMapTiles · © OpenStreetMap contributors",
+    "map.noRooms": "No space with meeting rooms matches.",
+    "search.nearMe": "Near me",
+    "search.nearMeHint": "Use my location",
+    "search.locating": "Locating…",
+    "search.geoError": "Location unavailable. Type a town or an address.",
+    "search.spaces": "Our spaces",
+    "search.stations": "Stations",
+    "search.addresses": "Addresses and towns",
+    "search.noResult": "No result. Try a town, an address or a station.",
+    "search.outsideIdf": "outside Île-de-France",
+    "search.results": "{n} suggestions",
   },
 };
 
 export function getLang() {
-  const lang = (document.documentElement.lang || DEFAULT_LANG).slice(0, 2).toLowerCase();
-  return LOCALES[lang] ? lang : DEFAULT_LANG;
+  const path = location.pathname;
+  const found = Object.keys(LOCALES).find((lang) => {
+    const prefix = LOCALES[lang].prefix;
+    return prefix && (path === prefix || path.startsWith(`${prefix}/`));
+  });
+  return found || DEFAULT_LANG;
 }
 
 export function getLocale() {

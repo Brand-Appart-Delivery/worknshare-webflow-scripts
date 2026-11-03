@@ -1,0 +1,81 @@
+// Sélecteur « Quelle formule pour vous ? » (classes formula_* créées dans Webflow).
+// Ici : panneaux masqués, fond glissant sous l'onglet actif (.formula_indicator,
+// créé par le JS) et couleurs selon l'offre (data-formula-theme posé dans Webflow).
+
+// Webflow met display:flex sur le panneau : on force le masquage
+.formula_group[hidden] {
+  display: none;
+}
+
+// Apparition du panneau choisi
+.formula_group.is-entering {
+  animation: formula-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes formula-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Sans JS (ou avant son chargement) : l'onglet actif a son propre fond
+.formula_tab.is-active[data-formula-theme="office"] {
+  background-color: var(--_work-n-share---color--bleu--900, #0e1b3a);
+  color: var(--_work-n-share---color--bleu--300, #a3c4ff);
+}
+
+.formula_tab.is-active[data-formula-theme="managed-office"] {
+  background-color: var(--_work-n-share---color--marron--900, #56260b);
+  color: var(--_work-n-share---color--jaune--400, #ffcd40);
+}
+
+.formula_tab.is-active[data-formula-theme="rooms"] {
+  background-color: var(--_work-n-share---color--bordeaux--900, #2c0c10);
+  color: var(--_work-n-share---color--rose--300, #ffa7e0);
+}
+
+// Avec le JS : le fond glissant (utils/tab-indicator.js, base dans
+// _tab-indicator.scss) remplace le fond de l'onglet actif
+.formula_tabs.is-sliding .formula_tab.is-active,
+.formula_tabs.is-sliding .formula_tab.is-active[data-formula-theme] {
+  background-color: transparent;
+}
+
+// Couleur du fond glissant selon l'offre de l'onglet actif
+.formula_indicator {
+  background-color: var(--_work-n-share---color--vert--900, #121404);
+
+  &[data-theme="office"] {
+    background-color: var(--_work-n-share---color--bleu--900, #0e1b3a);
+  }
+
+  &[data-theme="managed-office"] {
+    background-color: var(--_work-n-share---color--marron--900, #56260b);
+  }
+
+  &[data-theme="rooms"] {
+    background-color: var(--_work-n-share---color--bordeaux--900, #2c0c10);
+  }
+}
+
+// Focus clavier visible sur l'onglet
+.formula_tab:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+// Animations réduites : pas de glissement ni d'apparition
+@media (prefers-reduced-motion: reduce) {
+  .formula_tab {
+    transition: none;
+  }
+
+  .formula_group.is-entering {
+    animation: none;
+  }
+}

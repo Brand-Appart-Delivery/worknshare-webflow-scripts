@@ -1,0 +1,78 @@
+// Barre de défilement maison (utils/scroll-indicator.js) : trait fin à droite
+// de la zone, sous son en-tête collant. Remplace la barre native.
+
+// Barre native masquée sur les zones équipées
+.has-scroll-indicator {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 8px;
+  width: 4px;
+  border-radius: 4px;
+  background-color: var(--_work-n-share---color--vert--700-a16, rgba(59, 64, 15, 0.16));
+  cursor: pointer;
+  // Visible seulement au survol de la zone ou pendant le défilement
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    width 0.2s ease;
+
+  .has-scroll-indicator:hover &,
+  &.is-active,
+  &.is-dragging {
+    opacity: 1;
+  }
+
+  // Zone de clic plus large que le trait
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 -6px;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+
+  &:hover,
+  &.is-dragging {
+    width: 6px;
+  }
+}
+
+.scroll-indicator_thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: inherit;
+  background-color: var(--_work-n-share---color--vert--700, #3b400f);
+  opacity: 0.45;
+  cursor: grab;
+  touch-action: none;
+  transition: opacity 0.2s ease;
+
+  .scroll-indicator.is-active &,
+  .scroll-indicator:hover &,
+  .scroll-indicator.is-dragging & {
+    opacity: 1;
+  }
+
+  .scroll-indicator.is-dragging & {
+    cursor: grabbing;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator,
+  .scroll-indicator_thumb {
+    transition: none;
+  }
+}
