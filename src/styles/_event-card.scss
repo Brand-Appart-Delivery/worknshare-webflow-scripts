@@ -1,5 +1,12 @@
 // Cartes « types d'événements » (classes event-card_* créées dans Webflow).
-// Ici : léger zoom de la photo au survol / focus clavier de la carte.
+// Ici : léger zoom de la photo au survol / focus clavier de la carte (durée et
+// courbe communes, cf. _motion.scss ; remplace la transition de Webflow).
+
+@use "motion" as m;
+
+.event-card .event-card_photo {
+  transition: transform m.$image-zoom-duration m.$image-zoom-ease;
+}
 
 .event-card:hover .event-card_photo,
 .event-card:focus-visible .event-card_photo {

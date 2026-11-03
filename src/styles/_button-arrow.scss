@@ -1,0 +1,60 @@
+// Flèche « → » (.ico-arrow-right, icône en masque SVG 18 × 18 : tige de
+// x = 3,75 à 13,875, trait de 1,5) dans les boutons et liens : au survol du
+// lien, la tige s'allonge. La flèche glisse vers la droite et une barre de même
+// épaisseur comble l'espace derrière elle (la barre est sur le parent de
+// l'icône : dans l'icône, elle serait coupée par son masque).
+// Partout où la flèche est dans un lien ou un bouton : boutons, cartes-liens
+// (articles, bannière du mega menu), entrées du mega menu, liens texte. Pas sur
+// les flèches de slider (pas de tige à allonger).
+
+@use "motion" as m;
+
+$arrow-grow: 6px; // allongement de la tige
+$arrow-speed: 0.35s;
+
+// Conteneur de l'icône (même taille que l'icône)
+$holder: ":is(.button_icon, .icon-18, .mega-menu_entry-icon, .offices-link_icon, .venue-icon-18):has(> .ico-arrow-right)";
+// Lien ou bouton qui déclenche l'effet
+$link: ":is(a, button):not(.slider_arrow)";
+
+#{$link} #{$holder} {
+  position: relative;
+
+  > .ico-arrow-right {
+    transition: transform $arrow-speed m.$ease-out;
+  }
+
+  // Barre qui prolonge la tige : part du début de la tige (3,75 / 18)
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 20.8%;
+    width: 0;
+    height: 8.33%; // épaisseur du trait (1,5 / 18)
+    min-height: 1.5px;
+    border-radius: 1px;
+    background-color: currentColor;
+    transform: translateY(-50%);
+    transition: width $arrow-speed m.$ease-out;
+  }
+}
+
+#{$link}:is(:hover, :focus-visible) #{$holder} {
+  > .ico-arrow-right {
+    transform: translateX($arrow-grow);
+  }
+
+  &::before {
+    width: $arrow-grow;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #{$link} #{$holder} {
+    > .ico-arrow-right,
+    &::before {
+      transition: none;
+    }
+  }
+}

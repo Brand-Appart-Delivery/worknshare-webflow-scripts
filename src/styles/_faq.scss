@@ -2,6 +2,13 @@
 // Ici : état ouvert posé par le JS (is-open) et couleurs selon le thème
 // (attribut data-faq-theme, lié à la propriété « Thème » du composant).
 
+// Les questions sont des liens Webflow : pas de soulignement (aussi réglé dans
+// Webflow sur la classe faq_question)
+.faq_question {
+  text-decoration: none;
+  color: inherit;
+}
+
 .faq_item.is-open .faq_toggle {
   background-color: var(--_work-n-share---color--vert--700, #3b400f);
   color: var(--_work-n-share---color--vert--100, #eefc96);

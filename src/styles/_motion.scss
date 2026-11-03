@@ -1,0 +1,9 @@
+// Réglages d'animation partagés (à importer : @use "motion" as m;).
+
+// Courbe douce utilisée sur tout le site (arrivée en ralentissant)
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+// Zoom des photos au survol des cartes-liens : lent et doux, raccord avec les
+// autres animations d'image (arrivée du hero, cartes, bento…)
+$image-zoom-duration: 1.1s;
+$image-zoom-ease: $ease-out;

@@ -135,7 +135,18 @@ export function getLenis() {
   return lenisInstance;
 }
 
+// Rechargement de la page : on repart du haut (le head code coupe déjà la
+// reprise de position ; sécurité si le navigateur a quand même redescendu).
+// Pas pour un lien vers une ancre (#section) ni pour le bouton Retour.
+function resetScrollOnReload() {
+  const nav = performance.getEntriesByType?.("navigation")[0];
+  if (!nav || nav.type !== "reload" || location.hash) return;
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  window.scrollTo(0, 0);
+}
+
 export function initCore() {
+  resetScrollOnReload();
   initLenis();
   initAnchors();
 }

@@ -1,0 +1,18 @@
+// Cartes empilées puis distribuées (animations/cards-stack.js)
+
+// Paquet : position / rotation posées par le JS
+[data-cards-stack].is-stacked > * {
+  transform: translate(var(--stack-x, 0px), var(--stack-y, 0px)) rotate(var(--stack-r, 0deg));
+}
+
+// Distribution : chaque carte part à sa place en se redressant, avec un léger
+// dépassement à l'arrivée
+[data-cards-stack].is-dealing > * {
+  position: relative;
+  transition: transform 0.9s cubic-bezier(0.34, 1.32, 0.64, 1);
+  transition-delay: var(--stack-delay, 0ms);
+}
+
+[data-cards-stack].is-stacked > * {
+  position: relative;
+}

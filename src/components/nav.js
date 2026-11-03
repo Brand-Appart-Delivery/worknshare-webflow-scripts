@@ -12,7 +12,8 @@
 // ÉTATS : .is-open sur le panneau / tiroir ouvert (display géré par les combos
 // Webflow + _mega-menu.scss), aria-expanded sur les déclencheurs,
 // .is-nav-open sur <html> quand le tiroir est ouvert (scroll bloqué),
-// .is-scrolled sur [data-nav] dès que la page a défilé (fond blanc).
+// .is-scrolled sur [data-nav] quand elle est revenue en cours de page (fond
+// blanc), .is-hidden quand elle est cachée (scroll vers le bas).
 //
 // COMPORTEMENT :
 //   - desktop : ouverture au clic, et au survol avec une souris ;
@@ -22,6 +23,7 @@
 
 import { t } from "../utils/i18n.js";
 import { getLenis } from "../core/core.js";
+import { createScrollIndicator } from "../utils/scroll-indicator.js";
 
 const DESKTOP_QUERY = window.matchMedia("(min-width: 992px)");
 const HOVER_QUERY = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -137,6 +139,8 @@ function initDrawer(header) {
   toggle.setAttribute("aria-label", t("nav.open"));
   // Le tiroir défile seul : Lenis ne doit pas capter sa molette / son tactile
   drawer.setAttribute("data-lenis-prevent", "");
+  // Barre de défilement maison (la même que la liste de la carte)
+  createScrollIndicator(drawer);
 
   toggle.addEventListener("click", (e) => {
     e.preventDefault();
@@ -210,28 +214,66 @@ function closeAll(header) {
   if (header.querySelector("[data-nav-panel].is-open")) setDrawer(header, false);
 }
 
-// ---------- Nav fixe : fond blanc dès qu'on a scrollé ----------
+// ---------- Nav au scroll : part avec la page, revient quand on remonte ----------
 // La nav est en position sticky (réglée dans Webflow, classe navbar).
-// Ici on ajoute seulement .is-scrolled sur [data-nav] quand la page a défilé.
+// - en haut de page : elle suit la page comme une nav normale (mode « flow ») ;
+// - on remonte : elle redescend en glissant, fond blanc (.is-scrolled) ;
+// - on redescend : elle se cache en glissant (.is-hidden).
+// Jamais cachée si un menu est ouvert ou si le focus clavier est dedans.
+// Le décalage utilise la propriété CSS « translate » (pas « transform », déjà
+// utilisée par l'arrivée de la nav au chargement).
 
-const SCROLL_THRESHOLD = 8; // px
+const SCROLL_THRESHOLD = 8; // px : fond blanc au-delà
+const DIRECTION_DELTA = 6; // px de scroll dans un sens avant de changer d'état
 
 function initScrollState(header) {
+  let mode = "flow"; // "flow" | "shown" | "hidden"
+  let lastY = window.scrollY;
+  let travel = 0; // distance parcourue dans le sens courant
   let ticking = false;
+
+  const locked = () =>
+    header.querySelector("[data-mega-panel].is-open, [data-nav-panel].is-open") ||
+    header.contains(document.activeElement) ||
+    document.documentElement.classList.contains("is-hero-intro-running");
+
+  const apply = () => {
+    const y = Math.max(window.scrollY, 0);
+    const height = header.offsetHeight;
+    header.classList.toggle("is-flow", mode === "flow");
+    header.classList.toggle("is-hidden", mode === "hidden");
+    // Fond blanc seulement quand elle est revenue en cours de page
+    header.classList.toggle("is-scrolled", mode !== "flow" && y > SCROLL_THRESHOLD);
+    header.style.translate = mode === "flow" ? `0 ${-Math.min(y, height)}px` : "";
+  };
+
   const update = () => {
     ticking = false;
-    header.classList.toggle("is-scrolled", window.scrollY > SCROLL_THRESHOLD);
+    const y = Math.max(window.scrollY, 0);
+    const dy = y - lastY;
+    lastY = y;
+    if (dy !== 0) travel = Math.sign(dy) === Math.sign(travel) ? travel + dy : dy;
+
+    if (y <= 0) mode = "flow";
+    else if (locked()) mode = mode === "flow" && y < header.offsetHeight ? "flow" : "shown";
+    else if (travel < -DIRECTION_DELTA && mode !== "shown") mode = y > 0 ? "shown" : "flow";
+    else if (travel > DIRECTION_DELTA && mode === "shown") mode = "hidden";
+    apply();
   };
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(update);
-    },
-    { passive: true },
-  );
-  update(); // page rechargée au milieu : bon état tout de suite
+
+  const schedule = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  };
+  window.addEventListener("scroll", schedule, { passive: true });
+  // Menu ouvert / focus dans la nav : elle réapparaît
+  header.addEventListener("focusin", schedule);
+  header.addEventListener("click", schedule);
+
+  // Page rechargée au milieu : nav visible
+  if (window.scrollY > header.offsetHeight) mode = "shown";
+  apply();
 }
 
 // ---------- Hauteur de la nav (variable CSS --nav-height sur <html>) ----------

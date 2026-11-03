@@ -7,8 +7,9 @@
 //
 // STRUCTURE (Webflow) :
 //   [data-hero-video]           section du hero
-//     .hero-video_media         bloc photo (premier parent de l'image)
-//       img                     photo de fond
+//     .hero-video_media         bloc photo (parent du fond)
+//       fond : élément « Background Video » de Webflow (.w-background-video)
+//              ou <video>, sinon img (photo de fond)
 //       …                       voile, contrôles vidéo, contenu
 //
 // La photo est cadrée sur l'écran entier (variables --hero-vw / --hero-vh /
@@ -29,8 +30,14 @@ const easeInOutQuart = (t) => (t < 0.5 ? 8 * t ** 4 : 1 - (-2 * t + 2) ** 4 / 2)
 
 export function initHeroIntro(root = document) {
   const hero = root.querySelector("[data-hero-video]");
-  const img = hero && hero.querySelector("img");
+  // Fond : vidéo de fond Webflow si présente, sinon la photo. Marqué
+  // [data-hero-bg] pour le CSS (cadrage fixe, cf. _hero-video.scss).
+  const img =
+    hero &&
+    (hero.querySelector(".hero-video_media > .w-background-video, .hero-video_media > video") ||
+      hero.querySelector("img"));
   const media = img && img.parentElement;
+  img?.setAttribute("data-hero-bg", "");
   if (!media) return;
 
   // ---------- Photo cadrée sur l'écran (toujours, pas seulement à l'arrivée) ----------
@@ -71,7 +78,9 @@ export function initHeroIntro(root = document) {
   // Contenu du hero (titre, recherche, contrôles vidéo) : apparaît pendant la
   // seconde moitié du resserrement et finit avec le cadre. Il reçoit le même
   // mouvement inverse que la photo : immobile à l'écran et net (pas étiré).
-  const contents = [...media.children].filter((el) => el !== img && (el.children.length || el.textContent.trim()));
+  const contents = [...media.children].filter(
+    (el) => el !== img && el.tagName !== "IMG" && (el.children.length || el.textContent.trim()),
+  );
   const CONTENT_START = 0.5; // avancement (0 → 1) où le contenu commence à apparaître
   const CONTENT_RISE = 16; // px de montée pendant l'apparition
 

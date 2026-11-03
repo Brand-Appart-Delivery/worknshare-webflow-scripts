@@ -9,9 +9,11 @@
 //    ET on réduit d'autant son clip-path, pour garder le même contour à l'écran
 //    sans ajouter de cadre dans Webflow.
 
+@use "motion" as m;
+
 $zoom: 1.05;
-$ease: cubic-bezier(0.22, 1, 0.36, 1);
-$duration: 0.6s;
+$ease: m.$image-zoom-ease;
+$duration: m.$image-zoom-duration;
 // Marge du clip-path qui compense le zoom : (1 - 1 / 1.05) / 2
 $inset: 2.381%;
 $radius: var(--_work-n-share---radius--m, 16px);

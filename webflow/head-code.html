@@ -7,10 +7,38 @@
     fichier en cache. Repli sur @main si version.json ne répond pas.
   - Staging (*.webflow.io) avec FORCE_PROD = false : essaie le serveur local
     puis le tunnel (npm run dev), avec rechargement automatique.
+  - Anti-flash : la page reste invisible tant que main.css n'est pas chargé
+    (sinon on voit la page sans ses styles d'animation, puis elle saute).
+    Sécurité : affichée quoi qu'il arrive au bout de 2,5 s.
+  - Rechargement de la page : on repart toujours du haut (pas de reprise de la
+    position de scroll), sauf lien vers une ancre (#section).
 -->
+<style>
+  html.wns-loading body { opacity: 0; }
+  html.wns-ready body { transition: opacity 0.2s ease; }
+</style>
 <script>
   (function () {
     const FORCE_PROD = false;
+
+    // Rechargement : pas de reprise de la position de scroll (main.js remonte en haut)
+    const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    if (navEntry && navEntry.type === 'reload' && !location.hash && 'scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+      window.scrollTo(0, 0);
+    }
+
+    // Anti-flash : page cachée jusqu'à l'arrivée de main.css
+    const root = document.documentElement;
+    root.classList.add('wns-loading');
+    let shown = false;
+    function show() {
+      if (shown) return;
+      shown = true;
+      root.classList.add('wns-ready');
+      root.classList.remove('wns-loading');
+    }
+    setTimeout(show, 2500);
 
     const REPO = 'Brand-Appart-Delivery/worknshare-webflow-scripts';
     const DEV_ORIGINS = ['http://localhost:3000', 'https://dev.michelaxel.fr'];
@@ -48,10 +76,12 @@
       return { base: CDN + version, version: version };
     })();
 
+    window.__worknshare.catch(show);
     window.__worknshare.then(function (o) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
       link.href = o.base + '/main.css';
+      link.onload = link.onerror = show;
       document.head.appendChild(link);
       console.log("[Work'n'Share] CSS :", link.href);
       if (o.dev) {

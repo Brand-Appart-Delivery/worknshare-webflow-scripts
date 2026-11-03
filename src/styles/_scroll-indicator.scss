@@ -76,3 +76,21 @@
     transition: none;
   }
 }
+
+// Sans en-tête (menu de suggestions, tiroir) : support collant de hauteur
+// nulle en tête de la zone, le trait reste en haut à droite de la partie visible
+.scroll-indicator_holder {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: block;
+  height: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none;
+
+  .scroll-indicator {
+    top: 12px;
+    pointer-events: auto;
+  }
+}

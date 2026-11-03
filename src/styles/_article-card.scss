@@ -1,3 +1,5 @@
+@use "motion" as m;
+
 // Carte article (classes article-card_* créées dans Webflow).
 // - zoom léger de la photo au survol / focus clavier (cadre article-card_media) ;
 // - l'extrait tient sur 2 lignes avec ellipse : propriétés refusées par Webflow.
@@ -8,7 +10,7 @@
 }
 
 .article-card_image {
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform m.$image-zoom-duration m.$image-zoom-ease;
 }
 
 .article-card:hover .article-card_image,

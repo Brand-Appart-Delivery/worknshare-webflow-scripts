@@ -1,0 +1,370 @@
+// Visionneuse photo plein écran (components/lightbox.js), maquette Figma
+// « WS/Visionneuse » : fond vert très foncé, éléments en vert clair.
+
+@use "motion" as m;
+
+$lb-bg: var(--_work-n-share---color--vert--900, #121404);
+$lb-accent: var(--_work-n-share---color--vert--100, #eefc96);
+$lb-gutter: 40px;
+
+html.is-lightbox-open,
+html.is-lightbox-open body {
+  overflow: hidden;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 32px;
+  padding: 24px $lb-gutter 32px;
+  background-color: $lb-bg;
+  color: $lb-accent;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &.is-open {
+    opacity: 1;
+  }
+}
+
+// ---------- Barre du haut : compteur, légende, fermer ----------
+.lightbox_bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.lightbox_count,
+.lightbox_caption {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.lightbox_count {
+  font-variant-numeric: tabular-nums;
+}
+
+.lightbox_caption {
+  text-align: center;
+}
+
+.lightbox_close {
+  justify-self: end;
+}
+
+// ---------- Boutons ronds (fermer, flèches) ----------
+.lightbox_button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $lb-accent;
+    color: $lb-bg;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $lb-accent;
+    outline-offset: 3px;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+// ---------- Photo et flèches ----------
+.lightbox_stage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 0;
+}
+
+.lightbox_figure {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-width: 0;
+  margin: 0;
+  touch-action: pan-y;
+  transition: opacity 0.2s ease;
+
+  &.is-loading {
+    opacity: 0.5;
+  }
+}
+
+.lightbox_image {
+  display: block;
+  max-width: min(100%, 1088px);
+  max-height: 100%;
+  border-radius: 24px;
+  object-fit: contain;
+  user-select: none;
+}
+
+// ---------- Miniatures ----------
+.lightbox_thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.lightbox_thumb {
+  flex: 0 0 112px;
+  height: 72px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+  opacity: 0.75;
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover,
+  &.is-active {
+    opacity: 1;
+  }
+
+  &.is-active {
+    border-color: $lb-accent;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $lb-accent;
+    outline-offset: 2px;
+  }
+}
+
+// ---------- Mobile (maquette « Visionneuse · Mobile ») ----------
+// Compteur et fermer en haut, photo pleine largeur recadrée en hauteur, légende
+// sous la photo, miniatures qui défilent ; pas de flèches (on glisse la photo).
+// La barre du haut est « dépliée » (display: contents) pour placer la légende
+// sous la photo dans la grille.
+@media (max-width: 767px) {
+  .lightbox {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+    gap: 16px 0;
+    padding: 16px 0 16px;
+  }
+
+  .lightbox_bar {
+    display: contents;
+  }
+
+  .lightbox_count {
+    grid-area: 1 / 1;
+    align-self: center;
+    padding-left: 16px;
+  }
+
+  .lightbox_close {
+    grid-area: 1 / 2;
+    width: 48px;
+    height: 48px;
+    margin-right: 16px;
+  }
+
+  .lightbox_stage {
+    grid-area: 2 / 1 / 3 / 3;
+    padding: 0 16px;
+  }
+
+  .lightbox_prev,
+  .lightbox_next {
+    display: none;
+  }
+
+  .lightbox_figure {
+    width: 100%;
+  }
+
+  .lightbox_image {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .lightbox_caption {
+    grid-area: 3 / 1 / 4 / 3;
+    padding: 0 16px;
+  }
+
+  .lightbox_thumbs {
+    grid-area: 4 / 1 / 5 / 3;
+    justify-content: flex-start;
+    padding: 0 16px;
+    scroll-padding: 0 16px;
+  }
+
+  .lightbox_thumb {
+    flex-basis: 72px;
+    height: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox,
+  .lightbox_figure,
+  .lightbox_button,
+  .lightbox_thumb {
+    transition: none;
+  }
+}
+
+// ---------- Galerie d'une page espace : switch « Photos / Visite 360° » ----------
+// (components/space-gallery.js) Fond actif qui glisse ; visite 360° (ou message)
+// à la place de la grande photo.
+// Le switch est posé en absolu sur la photo (Webflow) : on le garde ainsi
+// (le fond glissant mettrait la barre en position relative, pleine largeur)
+.space-gallery_switch,
+.space-gallery_switch.is-sliding {
+  position: absolute;
+  z-index: 3;
+}
+
+.space-gallery_switch.is-sliding .space-gallery_tab,
+.space-gallery_switch.is-sliding .space-gallery_tab.is-active {
+  background-color: transparent;
+  transition: color 0.3s ease;
+}
+
+.space-gallery_switch.is-sliding .space-gallery_tab.is-active {
+  color: var(--_work-n-share---color--vert--100, #eefc96);
+}
+
+.space-gallery_indicator {
+  background-color: var(--_work-n-share---color--vert--700, #3b400f);
+}
+
+.space-gallery_tour {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: inherit;
+  background-color: var(--_work-n-share---color--vert--900, #121404);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.35s ease,
+    visibility 0s linear 0.35s;
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  &.is-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    color: var(--_work-n-share---color--vert--100, #eefc96);
+    text-align: center;
+
+    p {
+      margin: 0;
+      font-size: 18px;
+    }
+  }
+}
+
+.is-tour .space-gallery_tour {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .space-gallery_tour {
+    transition: none;
+  }
+}
+
+// Mode visite : grande zone sur toute la hauteur de la galerie, miniatures
+// effacées (hauteurs posées par le JS, animées ici)
+[data-gallery] .space-gallery_main {
+  transition: height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-gallery] .space-gallery_thumbs {
+  transition: opacity 0.25s ease;
+}
+
+[data-gallery].is-tour {
+  position: relative;
+  overflow: hidden;
+
+  // Miniatures sorties de la colonne (sinon elles gardent leur place et la
+  // grande zone ne peut pas grandir), effacées sous la visite
+  .space-gallery_thumbs {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .space-gallery_main {
+    flex-shrink: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-gallery] .space-gallery_main,
+  [data-gallery] .space-gallery_thumbs {
+    transition: none;
+  }
+}

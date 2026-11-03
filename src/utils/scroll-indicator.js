@@ -8,13 +8,22 @@
 // la zone reste défilable au clavier et à la molette.
 //
 // createScrollIndicator(zone, anchor) : anchor = élément collant en haut de la
-// zone (l'indicateur est placé juste en dessous et le suit).
+// zone (l'indicateur est placé juste en dessous et le suit). Sans anchor (menu
+// de suggestions, tiroir…) : un support collant de hauteur nulle est ajouté en
+// tête de la zone, le trait y est accroché et reste visible en haut à droite.
+// Si la zone est vidée puis remplie (rendu en innerHTML), appeler attach().
 
 const GAP = 12; // px laissés en haut et en bas du trait
 const MIN_THUMB = 32; // px, hauteur minimale de la poignée
 
-export function createScrollIndicator(zone, anchor) {
-  if (!zone || !anchor) return null;
+export function createScrollIndicator(zone, anchor = null) {
+  if (!zone) return null;
+  const sticky = !anchor;
+  if (sticky) {
+    anchor = document.createElement("div");
+    anchor.className = "scroll-indicator_holder";
+    anchor.setAttribute("aria-hidden", "true");
+  }
 
   const track = document.createElement("div");
   track.className = "scroll-indicator";
@@ -23,7 +32,16 @@ export function createScrollIndicator(zone, anchor) {
   thumb.className = "scroll-indicator_thumb";
   track.appendChild(thumb);
   anchor.appendChild(track);
+  if (sticky) zone.prepend(anchor);
   zone.classList.add("has-scroll-indicator");
+  if (sticky) track.classList.add("is-sticky");
+
+  // Zone vidée puis remplie : on remet le support en tête
+  const attach = () => {
+    if (sticky && anchor.parentElement !== zone) zone.prepend(anchor);
+    else if (sticky && zone.firstElementChild !== anchor) zone.prepend(anchor);
+    schedule();
+  };
 
   let trackHeight = 0;
   let thumbHeight = 0;
@@ -32,8 +50,14 @@ export function createScrollIndicator(zone, anchor) {
     const max = zone.scrollHeight - zone.clientHeight;
     track.hidden = max <= 1;
     if (track.hidden) return;
-    // Hauteur visible sous l'en-tête
-    trackHeight = Math.max(zone.clientHeight - anchor.offsetHeight - GAP * 2, 0);
+    // Hauteur visible (sous l'en-tête s'il y en a un)
+    if (sticky) {
+      // Même marge en bas qu'en haut (le support se cale sous la marge intérieure)
+      const offset = track.getBoundingClientRect().top - zone.getBoundingClientRect().top - zone.clientTop;
+      trackHeight = Math.max(zone.clientHeight - offset * 2, 0);
+    } else {
+      trackHeight = Math.max(zone.clientHeight - anchor.offsetHeight - GAP * 2, 0);
+    }
     thumbHeight = Math.max(MIN_THUMB, (trackHeight * zone.clientHeight) / zone.scrollHeight);
     track.style.height = `${trackHeight}px`;
     thumb.style.height = `${thumbHeight}px`;
@@ -42,9 +66,9 @@ export function createScrollIndicator(zone, anchor) {
 
   // Un calcul par image au plus
   let frame = 0;
-  const schedule = () => {
+  function schedule() {
     if (!frame) frame = requestAnimationFrame(() => ((frame = 0), update()));
-  };
+  }
 
   // Poignée visible plus fort pendant le défilement
   let idle = null;
@@ -96,5 +120,5 @@ export function createScrollIndicator(zone, anchor) {
   });
 
   update();
-  return { update };
+  return { update, attach };
 }

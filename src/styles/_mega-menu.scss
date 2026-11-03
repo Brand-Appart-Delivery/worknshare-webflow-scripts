@@ -71,6 +71,7 @@ body:has([data-hero-video]) [data-nav]:not(.is-scrolled):not(:has([data-mega-pan
 
   [data-nav].is-scrolled .navbar_inner {
     max-width: 100%;
+    transition: none; // même logique que les marges : animé seulement au retour en haut
   }
 }
 
@@ -80,12 +81,36 @@ body:has([data-hero-video]) [data-nav]:not(.is-scrolled):not(:has([data-mega-pan
   }
 }
 
-// Nav fixe (sticky dans Webflow) : fond blanc une fois la page scrollée
+// Nav fixe (sticky dans Webflow) : fond blanc une fois revenue en cours de
+// page ; elle se cache en descendant et revient en remontant (components/nav.js,
+// propriété « translate »). En haut de page (.is-flow) elle suit la page sans
+// animation.
 [data-nav] {
   transition:
     background-color 0.25s ease,
     padding-left 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    padding-right 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    padding-right 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &.is-flow {
+    transition:
+      background-color 0.25s ease,
+      padding-left 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      padding-right 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  // Revenue en cours de page : marges réduites d'un coup (elle arrive déjà
+  // réduite). L'animation des marges ne joue qu'au retour en haut de page (la
+  // transition est celle de l'état d'arrivée).
+  &.is-scrolled {
+    transition:
+      background-color 0.25s ease,
+      translate 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &.is-hidden {
+    translate: 0 -100%;
+  }
 }
 
 // Fond blanc aussi en haut de page quand le mega menu ou le tiroir est ouvert
@@ -111,8 +136,9 @@ body:has([data-hero-video]) [data-nav]:not(.is-scrolled):not(:has([data-mega-pan
       transform 0.2s ease;
   }
 
-  &.is-scrolled,
-  &:has([data-mega-panel].is-open),
+  // Tiroir mobile ouvert : apparence normale du header. (Nav scrollée ou mega
+  // menu ouvert : blanc aux couleurs de la page, cf. « Événementiel sur fond
+  // blanc » plus bas.)
   &:has([data-nav-panel].is-open) {
     background-color: var(--_work-n-share---color--blanc, #ffffff);
     color: var(--_work-n-share---color--vert--700, #3b400f);
@@ -132,6 +158,75 @@ body:has([data-hero-video]) [data-nav]:not(.is-scrolled):not(:has([data-mega-pan
       color: var(--_work-n-share---color--vert--700, #3b400f);
       border-color: currentColor;
     }
+  }
+}
+
+// Variante Événementiel en haut de page (nav claire sur hero bordeaux) : survol
+// des liens dans la logique de ses boutons, fond rose et texte bordeaux (le
+// survol par défaut, fond vert clair + texte crème, serait illisible ici). Nav
+// repassée en blanc (scroll, menu ouvert) : survol normal.
+[data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad:not(:has([data-nav-panel].is-open)) {
+  .navbar_link:hover,
+  .navbar_link:focus-visible,
+  [data-mega-trigger][aria-expanded="true"] {
+    background-color: var(--_work-n-share---color--rose--300, #ffa7e0);
+    color: var(--_work-n-share---color--bordeaux--900, #2c0c10);
+  }
+}
+
+// Événementiel sur fond blanc (nav scrollée ou mega menu ouvert) : nav et
+// mega menu blancs, mais aux couleurs de la page (bordeaux et rose au lieu du
+// vert).
+$ev-bordeaux: var(--_work-n-share---color--bordeaux--900, #2c0c10);
+$ev-rose: var(--_work-n-share---color--rose--300, #ffa7e0);
+$ev-blanc: var(--_work-n-share---color--blanc, #ffffff);
+
+[data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad:is(.is-scrolled, :has([data-mega-panel].is-open)):not(:has([data-nav-panel].is-open)) {
+  background-color: $ev-blanc;
+
+  .navbar_link,
+  .logo {
+    color: $ev-bordeaux;
+  }
+
+  // Boutons en contour (téléphone) : bordeaux sur blanc (le rose serait illisible)
+  .button.is-secondary {
+    color: $ev-bordeaux;
+    border-color: currentColor;
+  }
+
+  .mega-menu_title,
+  .mega-menu_city,
+  .mega-menu_link {
+    color: $ev-bordeaux;
+  }
+
+  .mega-menu_city,
+  .mega-menu_link {
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration-color: $ev-rose;
+    }
+  }
+
+  .mega-menu_card {
+    background-color: color-mix(in srgb, #{$ev-rose} 22%, #{$ev-blanc});
+  }
+
+  .mega-menu_card-title,
+  .mega-menu_card-desc {
+    color: $ev-bordeaux;
+  }
+
+  .mega-menu_card .button {
+    background-color: $ev-bordeaux;
+    color: $ev-rose;
   }
 }
 
@@ -218,5 +313,69 @@ html.is-nav-open body {
   [data-mega-trigger] .icon-16,
   [data-mega-trigger] .mega-menu_entry-icon {
     transition: none;
+  }
+}
+
+// ---------- Nav claire sur hero vert (page Bureaux flexibles) ----------
+// Le hero porte data-nav-theme="vert" (posé dans Webflow) et suit directement
+// la nav. En haut de page, menus fermés : nav transparente posée sur le hero
+// vert, texte crème, bouton contact et survols vert clair. Nav scrollée ou menu
+// ouvert : apparence normale du header (blanc et vert, déjà raccord avec la page).
+$vert-900: var(--_work-n-share---color--vert--900, #121404);
+$vert-100: var(--_work-n-share---color--vert--100, #eefc96);
+$creme: var(--_work-n-share---color--beige--50, #fffbe7);
+
+[data-nav]:has(+ [data-nav-theme="vert"]):not(.is-scrolled):not(:has([data-mega-panel].is-open, [data-nav-panel].is-open)) {
+  background-color: transparent;
+
+  .navbar_link,
+  .logo {
+    color: $creme;
+  }
+
+  .navbar_link:hover,
+  .navbar_link:focus-visible {
+    background-color: $vert-100;
+    color: $vert-900;
+  }
+
+  .button {
+    background-color: $vert-100;
+    color: $vert-900;
+  }
+
+  .button.is-secondary {
+    background-color: transparent;
+    color: $vert-100;
+    border-color: currentColor;
+  }
+}
+
+[data-nav]:has(+ [data-nav-theme="vert"]) {
+  .navbar_link,
+  .logo,
+  .button {
+    transition:
+      color 0.25s ease,
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+  }
+}
+
+// Le hero vert remonte sous la nav : son fond passe derrière la nav
+// transparente ; la bordure transparente (de la hauteur de la nav) redescend son
+// contenu à la même place (même principe que la variante Événementiel).
+[data-nav] + [data-nav-theme="vert"] {
+  margin-top: calc(var(--nav-height, 96px) * -1);
+  border-top: var(--nav-height, 96px) solid transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-nav]:has(+ [data-nav-theme="vert"]) {
+    .navbar_link,
+    .logo,
+    .button {
+      transition: none;
+    }
   }
 }

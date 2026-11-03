@@ -285,3 +285,30 @@ $blanc: var(--_work-n-share---color--blanc, #ffffff);
     transition: none;
   }
 }
+
+// ---------- Carte d'accès d'une page espace (components/space-map.js) ----------
+// Carte prête : image, faux pin de repli masqués
+[data-map].is-map-ready > img,
+[data-map].is-map-ready .space-map_pin {
+  visibility: hidden;
+}
+
+// Contrôles + / − / recentrer : en bas à droite, au-dessus de la carte
+.space-map .map-controls {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.space-map .space-map_credit {
+  z-index: 2;
+}
+
+// Pin unique : pas de clic, nom toujours visible
+.space-map .map-pin {
+  cursor: default;
+}

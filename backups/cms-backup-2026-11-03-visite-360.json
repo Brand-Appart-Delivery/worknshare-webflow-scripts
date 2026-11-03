@@ -1,0 +1,1823 @@
+{
+ "collection": "Espaces",
+ "collectionId": "6ae9133a82664ff73e573da9",
+ "savedOn": "2026-11-03",
+ "reason": "avant ajout Visite 360° (Matterport) sur tous les espaces",
+ "items": [
+  {
+   "id": "6ae9286d82229bf3ee7b5810",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.536Z",
+   "createdOn": "2026-11-03T00:18:53.741Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Villejuif",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Villejuif",
+    "departement": "6ae913e7e2ba6fb2b8728024",
+    "latitude": "48.7922",
+    "longitude": "2.3634",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 14,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Villejuif",
+    "slug": "villejuif"
+   }
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580e",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.526Z",
+   "createdOn": "2026-11-03T00:18:51.821Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Val de Fontenay",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Val de Fontenay",
+    "departement": "6ae913e7e2ba6fb2b8728024",
+    "latitude": "48.8540",
+    "longitude": "2.4880",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 13,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Val de Fontenay",
+    "slug": "val-de-fontenay"
+   }
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580c",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.524Z",
+   "createdOn": "2026-11-03T00:18:49.944Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Cachan",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Cachan",
+    "departement": "6ae913e7e2ba6fb2b8728024",
+    "latitude": "48.7914",
+    "longitude": "2.3336",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 12,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Cachan",
+    "slug": "cachan"
+   }
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580a",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.523Z",
+   "createdOn": "2026-11-03T00:18:48.232Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Saint-Ouen",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Saint-Ouen",
+    "departement": "6ae913e7e2ba6fb2b8728022",
+    "latitude": "48.9118",
+    "longitude": "2.3335",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 11,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Saint-Ouen",
+    "slug": "saint-ouen"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d3",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.522Z",
+   "createdOn": "2026-11-03T00:17:14.146Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Saint-Denis",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Saint-Denis",
+    "departement": "6ae913e7e2ba6fb2b8728022",
+    "latitude": "48.9362",
+    "longitude": "2.3574",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 10,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Saint-Denis",
+    "slug": "saint-denis"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d1",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.521Z",
+   "createdOn": "2026-11-03T00:17:12.344Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Suresnes",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Suresnes",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.8711",
+    "longitude": "2.2290",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 9,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Suresnes",
+    "slug": "suresnes"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cf",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.519Z",
+   "createdOn": "2026-11-03T00:17:10.474Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Saint-Cloud",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Saint-Cloud",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.8441",
+    "longitude": "2.2196",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 8,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Saint-Cloud",
+    "slug": "saint-cloud"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cd",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.518Z",
+   "createdOn": "2026-11-03T00:17:08.674Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Rueil-Malmaison",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Rueil-Malmaison",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.8778",
+    "longitude": "2.1803",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 7,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Rueil-Malmaison",
+    "slug": "rueil-malmaison"
+   }
+  },
+  {
+   "id": "6ae927aab71194d345adc441",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.516Z",
+   "createdOn": "2026-11-03T00:15:38.036Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Nanterre",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Nanterre",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.8924",
+    "longitude": "2.2071",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 6,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Nanterre",
+    "slug": "nanterre"
+   }
+  },
+  {
+   "id": "6ae927aab71194d345adc43f",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.515Z",
+   "createdOn": "2026-11-03T00:15:36.003Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Levallois-Perret",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Levallois-Perret",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.8950",
+    "longitude": "2.2875",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 5,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Levallois-Perret",
+    "slug": "levallois-perret"
+   }
+  },
+  {
+   "id": "6ae927aab71194d345adc43d",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.514Z",
+   "createdOn": "2026-11-03T00:15:34.182Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share La Défense",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "La Défense",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.8919",
+    "longitude": "2.2380",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 4,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "La Défense",
+    "slug": "la-defense"
+   }
+  },
+  {
+   "id": "6ae927aab71194d345adc43b",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.513Z",
+   "createdOn": "2026-11-03T00:15:32.159Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Issy-les-Moulineaux",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Issy-les-Moulineaux",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.8245",
+    "longitude": "2.2700",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 3,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Issy-les-Moulineaux",
+    "slug": "issy-les-moulineaux"
+   }
+  },
+  {
+   "id": "6ae9274c2d2afb91f79ab483",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T01:04:24.446Z",
+   "lastUpdated": "2026-11-03T00:54:54.511Z",
+   "createdOn": "2026-11-03T00:14:04.766Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Colombes",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Colombes",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.9226",
+    "longitude": "2.2522",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 2,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Colombes",
+    "slug": "colombes"
+   }
+  },
+  {
+   "id": "6ae91849a1be7ba7205931b5",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-03T00:19:59.623Z",
+   "lastUpdated": "2026-11-03T00:19:59.623Z",
+   "createdOn": "2026-11-02T23:10:01.284Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Clichy, immeuble Blaaack",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6ae91847a1be7ba72059316e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+      "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593172",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593172_6ae908780138258ded98cff6_home-comparateur-operes.webp",
+      "alt": "Équipe au travail dans un bureau de Work & Share Clichy"
+     },
+     {
+      "fileId": "6ae91847a1be7ba720593175",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba720593175_6ae8fec6620183791e14c1c0_espace-la-defense-provisoire.webp",
+      "alt": "Espace déjeuner avec grandes tables et vue sur les arbres"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593180",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593180_6ae907d01c965032638670c0_offices-atout-terrasse.webp",
+      "alt": "Terrasse végétalisée avec transats"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593183",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593183_6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+      "alt": "Alcôves en arche avec fauteuils jaunes"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593187",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593187_6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+      "alt": "Rooftop avec vue sur Paris"
+     },
+     {
+      "fileId": "6ae91848a1be7ba720593190",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba720593190_6ae8fec00122b4a5919c952f_espace-clichy-01.webp",
+      "alt": "Résidents qui partagent un café au bistrot"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 12 postes",
+    "prix-poste-nomade": "Dès 150 € HT",
+    "prix-poste-dedie": "Dès 220 € HT",
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": 8,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Clichy",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.8985",
+    "longitude": "2.2960",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3",
+     "6ae913ecb1901def9695bdc7",
+     "6ae913ecb1901def9695bdc9"
+    ],
+    "temps-depuis-paris": "6 min",
+    "venir-detail-des-acces": "<p><strong>Train L</strong> — Clichy-Levallois, 6 min à pied</p><p><strong>Métro 13</strong> — Mairie de Clichy, 12 min à pied</p><p><strong>Bus 54 et 274</strong> — Arrêt Mairie de Clichy, 2 min à pied</p>",
+    "parking": "Souterrain et sécurisé, places à louer au mois",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6ae91848a1be7ba72059318c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059318c_6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking manager de Clichy",
+    "hote-citation": "« Passez nous voir : je vous fais visiter, et le café est pour moi. »",
+    "telephone": "01 99 00 12 34",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": null,
+    "lieu-evenementiel": null,
+    "ordre": 1,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Clichy",
+    "slug": "clichy"
+   }
+  }
+ ]
+}

@@ -46,3 +46,17 @@
     transition: none;
   }
 }
+
+// Bloc qui s'agrandit au scroll (animations/expand.js) : zoom (scale posé par
+// le JS) depuis le centre, coins arrondis qui coupent bien la carte (canvas),
+// fond visible autour porté par .expand-wrap
+.has-expand {
+  overflow: hidden;
+  isolation: isolate;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.expand-wrap {
+  background-color: var(--_work-n-share---color--blanc, #ffffff);
+}

@@ -18,15 +18,24 @@ import { initSliders } from "./components/slider.js";
 import { initPhotoSliders } from "./components/photo-slider.js";
 import { initCounters } from "./animations/counter.js";
 import { initReveal } from "./animations/reveal.js";
+import { initCardsStack } from "./animations/cards-stack.js";
+import { initBentoReveal } from "./animations/bento-reveal.js";
+import { initStars } from "./animations/stars.js";
 import { initWiden } from "./animations/widen.js";
+import { initExpand } from "./animations/expand.js";
+import { initHeroVideo } from "./components/hero-video.js";
 import { initHeroIntro } from "./animations/hero-intro.js";
 import { initSpacesMap } from "./components/spaces-map.js";
+import { initSpaceMaps } from "./components/space-map.js";
+import { initSpaceGalleries } from "./components/space-gallery.js";
+import { initVisitForms } from "./components/visit-form.js";
 import { initSpaceSearch } from "./components/space-search.js";
 
 onReady(() => {
   initCore();
   initNav();
-  initHeroIntro(); // tôt : le hero est la première chose visible
+  initHeroIntro();
+  initHeroVideo(); // tôt : le hero est la première chose visible
   initFooter();
   initCollapses();
   initFormulas();
@@ -34,9 +43,16 @@ onReady(() => {
   initPhotoSliders();
   initCounters();
   initReveal();
+  initCardsStack();
+  initBentoReveal();
+  initStars(); // après le bento : lit le délai de chaque carte
   initWiden();
+  initExpand();
   // Carte avant la recherche : la recherche envoie ses événements au module carte
   initSpacesMap();
+  initSpaceMaps();
+  initSpaceGalleries();
+  initVisitForms();
   initSpaceSearch();
 });
 

@@ -1,0 +1,109 @@
+// Bloc final « Venez visiter » d'une page espace (components/visit-form.js).
+// Classes visit-block_* créées dans Webflow ; ici ce que Webflow ne sait pas
+// faire : espacement des champs dans le <form>, pastilles « Votre besoin »
+// cochées, champs au focus, Turnstile, mobile.
+
+$vert-900: var(--_work-n-share---color--vert--900, #121404);
+$vert-700: var(--_work-n-share---color--vert--700, #3b400f);
+$vert-100: var(--_work-n-share---color--vert--100, #eefc96);
+
+// Le <form> Webflow est dans .visit-block_form (bloc formulaire)
+.visit-block_form > form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+// Cloudflare Turnstile ajouté par Webflow : ne doit pas créer de trou
+.visit-block_form form > :not(.visit-block_field):not(.visit-block_row):not(.visit-block_actions) {
+  position: absolute;
+}
+
+// Pastilles « Votre besoin » : cochée = fond vert
+.visit-block_chip {
+  position: relative;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:has(input:checked) {
+    background-color: $vert-700;
+    border-color: $vert-700;
+    color: $vert-100;
+  }
+
+  &:has(input:focus-visible) {
+    outline: 2px solid $vert-700;
+    outline-offset: 2px;
+  }
+}
+
+.visit-block_input:focus {
+  border-color: $vert-700;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 64, 15, 0.12);
+}
+
+.visit-block_select {
+  appearance: none;
+  padding-right: 48px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5s3.7 5 5 5 5-5 5-5' stroke='%23121404' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px;
+}
+
+.visit-block_submit {
+  flex-shrink: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+// Messages Webflow après envoi
+.visit-block_form .w-form-done,
+.visit-block_form .w-form-fail {
+  border-radius: 16px;
+}
+
+.visit-block_form .w-form-done {
+  background-color: $vert-100;
+  color: $vert-900;
+}
+
+// Tablette / mobile : colonnes empilées, toit moins haut
+@media (max-width: 991px) {
+  .visit-block_house {
+    padding: 160px 32px 32px !important;
+  }
+
+  .visit-block_grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .visit-block_house {
+    padding: 112px 16px 16px !important;
+    clip-path: polygon(50% 0, 100% 8%, 100% 100%, 0 100%, 0 8%) !important;
+  }
+
+  .visit-block_card {
+    padding: 24px !important;
+  }
+
+  .visit-block_row {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .visit-block_actions {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visit-block_chip {
+    transition: none;
+  }
+}

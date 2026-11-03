@@ -22,7 +22,7 @@
 // ÉTATS : .is-active (élément de liste et pin), .is-open (fiche),
 // .is-map-ready (module, carte affichée), .is-list-hidden (module).
 
-import { loadScript, loadStyle } from "../utils/load-asset.js";
+import { loadMapLibre, STYLE_URL, applyTheme, PIN_SVG, escapeHtml } from "../utils/map-base.js";
 import { distanceKm, formatDistance } from "../utils/geo.js";
 import { readSpaces } from "../utils/spaces-data.js";
 import { loadStations, nearestStations, renderLines } from "../utils/stations.js";
@@ -33,31 +33,10 @@ import { createScrollIndicator } from "../utils/scroll-indicator.js";
 import { getLenis } from "../core/core.js";
 import { createPlaceCarousel } from "./place-carousel.js";
 
-const MAPLIBRE_VERSION = "4.7.1";
-const MAPLIBRE_JS = `https://unpkg.com/maplibre-gl@${MAPLIBRE_VERSION}/dist/maplibre-gl.js`;
-const MAPLIBRE_CSS = `https://unpkg.com/maplibre-gl@${MAPLIBRE_VERSION}/dist/maplibre-gl.css`;
-const STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
-
 const DESKTOP = window.matchMedia("(min-width: 992px)");
 const NEAREST_COUNT = 3; // espaces mis en avant dans « Les plus proches de… »
 const LIST_MARGIN = 16; // px d'air autour de l'espace choisi quand la liste défile jusqu'à lui
 
-// Couleurs de la carte (charte Work & Share). Appliquées par-dessus le style
-// Positron d'OpenFreeMap : modifier ici pour retoucher le fond de carte.
-const THEME = {
-  background: "#fbf3d5", // terre (beige)
-  water: "#d6e2d3",
-  park: "#ecebc4",
-  building: "#f3e8c2",
-  roadMajor: "#ffffff",
-  roadMinor: "#fdf9ea",
-  label: "#4a4d2c",
-  labelHalo: "#fbf3d5",
-};
-
-// Pin « maison » Work & Share (SVG inline, couleurs gérées en CSS)
-const PIN_SVG =
-  '<svg viewBox="0 0 40 44" aria-hidden="true" class="map-pin_shape"><path d="M20 1 39 13v29a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V13Z"/><text x="20" y="31" text-anchor="middle">W/</text></svg>';
 
 export function initSpacesMap(root = document) {
   root.querySelectorAll("[data-map-module]").forEach(initModule);
@@ -399,8 +378,7 @@ function initModule(module) {
   }
 
   async function createMap() {
-    await Promise.all([loadStyle(MAPLIBRE_CSS), loadScript(MAPLIBRE_JS)]);
-    const maplibregl = window.maplibregl;
+    const maplibregl = await loadMapLibre();
     if (!maplibregl) return;
 
     const canvas = document.createElement("div");
@@ -540,35 +518,4 @@ function initStickyHead(column) {
     () => head.classList.toggle("is-stuck", column.scrollTop > 4),
     { passive: true },
   );
-}
-
-// Recolore le style Positron aux couleurs de Work & Share
-function applyTheme(map) {
-  const style = map.getStyle();
-  if (!style || !style.layers) return;
-  style.layers.forEach((layer) => {
-    const id = layer.id;
-    const paint = (prop, value) => {
-      try {
-        map.setPaintProperty(id, prop, value);
-      } catch (e) {
-        /* propriété absente pour ce calque */
-      }
-    };
-    if (layer.type === "background") paint("background-color", THEME.background);
-    else if (layer.type === "fill" && /water/.test(id)) paint("fill-color", THEME.water);
-    else if (layer.type === "fill" && /park|landcover|landuse|wood|grass/.test(id)) paint("fill-color", THEME.park);
-    else if (layer.type === "fill" && /building/.test(id)) paint("fill-color", THEME.building);
-    else if (layer.type === "line" && /water|river/.test(id)) paint("line-color", THEME.water);
-    else if (layer.type === "line" && /motorway|trunk|primary|major/.test(id)) paint("line-color", THEME.roadMajor);
-    else if (layer.type === "line" && /road|street|minor|secondary|tertiary|path/.test(id)) paint("line-color", THEME.roadMinor);
-    else if (layer.type === "symbol") {
-      paint("text-color", THEME.label);
-      paint("text-halo-color", THEME.labelHalo);
-    }
-  });
-}
-
-function escapeHtml(text) {
-  return String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 }

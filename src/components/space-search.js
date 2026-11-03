@@ -19,6 +19,7 @@ import { readSpaces } from "../utils/spaces-data.js";
 import { loadStations, renderLines } from "../utils/stations.js";
 import { createTabIndicator } from "../utils/tab-indicator.js";
 import { t } from "../utils/i18n.js";
+import { createScrollIndicator } from "../utils/scroll-indicator.js";
 import { getLenis } from "../core/core.js";
 import { prefersReducedMotion } from "../utils/motion.js";
 
@@ -29,6 +30,7 @@ const MAX = { spaces: 4, stations: 4, addresses: 4 };
 
 let uid = 0;
 const MIN_PANEL_HEIGHT = 160; // px : en dessous, la liste garde au moins 3 lignes visibles
+const MAX_PANEL_HEIGHT = 420; // px, hauteur maximale de la liste de suggestions
 
 // « Hauts-de-Seine » -> « Hauts-de-Seine · 92 » (titres de groupe des suggestions)
 const DEPT_CODES = {
@@ -75,6 +77,8 @@ function initSearch(block) {
   // La liste est rattachée au <body> et placée sous le champ : le hero (photo à
   // coins arrondis) et la colonne du module carte coupent ce qui dépasse.
   document.body.appendChild(panel);
+  // Barre de défilement maison (la même que la liste de la carte)
+  const scrollbar = createScrollIndicator(panel);
   const anchor = form || input;
 
   function place() {
@@ -83,10 +87,11 @@ function initSearch(block) {
     panel.style.top = `${rect.bottom + window.scrollY + 12}px`;
     panel.style.left = `${rect.left + window.scrollX}px`;
     panel.style.width = `${rect.width}px`;
-    // La liste ne sort pas de l'écran : hauteur limitée à la place sous le champ
-    // (16 px de marge en bas), avec défilement interne au-delà
+    // Hauteur limitée : MAX_PANEL_HEIGHT au plus, et jamais hors de l'écran
+    // (place sous le champ, 16 px de marge en bas), défilement interne au-delà
     const available = window.innerHeight - (rect.bottom + 12) - 16;
-    panel.style.maxHeight = `${Math.max(MIN_PANEL_HEIGHT, available)}px`;
+    panel.style.maxHeight = `${Math.min(MAX_PANEL_HEIGHT, Math.max(MIN_PANEL_HEIGHT, available))}px`;
+    scrollbar?.update();
   }
 
   let placing = false;
@@ -378,6 +383,8 @@ function initSearch(block) {
     }
 
     panel.hidden = false;
+    panel.scrollTop = 0;
+    scrollbar?.attach(); // le rendu a vidé la liste
     place();
     input.setAttribute("aria-expanded", "true");
     live.textContent = t("search.results", { n: options.length });

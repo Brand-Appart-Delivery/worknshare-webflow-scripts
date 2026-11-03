@@ -1,0 +1,18 @@
+// Bento : tuiles qui apparaissent avec un léger zoom, de gauche à droite
+// (animations/bento-reveal.js). « .bento-tile.is-… » : bloc qui est sa propre
+// tuile (option data-bento-reveal="self").
+
+[data-bento-reveal].is-bento-pending .bento-tile,
+[data-bento-reveal].is-bento-pending.bento-tile {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+[data-bento-reveal].is-bento-revealing .bento-tile,
+[data-bento-reveal].is-bento-revealing.bento-tile {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.6s ease var(--bento-delay, 0ms),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--bento-delay, 0ms);
+}
