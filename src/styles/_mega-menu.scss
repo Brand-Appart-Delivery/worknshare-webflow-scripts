@@ -56,58 +56,18 @@ body:has([data-hero-video]) [data-nav]:not(.is-scrolled):not(:has([data-mega-pan
   background-color: transparent;
 }
 
-// Nav en mode scroll : marges latérales réduites (80 → 24 px en desktop).
-// Seulement le côté : la hauteur de la nav sert au calcul du hero (--nav-height),
-// la changer au scroll ferait bouger la page.
-@media (min-width: 992px) {
-  [data-nav].is-scrolled {
-    padding-left: var(--_work-n-share---space--24, 24px);
-    padding-right: var(--_work-n-share---space--24, 24px);
-  }
-
-  // Le contenu de la nav est limité à la largeur du site (1280 px) et centré :
-  // au scroll il s'étend jusqu'aux nouvelles marges, sinon rien ne bougerait
-  [data-nav] .navbar_inner {
-    transition: max-width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  [data-nav].is-scrolled .navbar_inner {
-    max-width: 100%;
-    transition: none; // même logique que les marges : animé seulement au retour en haut
-  }
-}
-
-@media (min-width: 992px) and (prefers-reduced-motion: reduce) {
-  [data-nav] .navbar_inner {
-    transition: none;
-  }
-}
-
 // Nav fixe (sticky dans Webflow) : fond blanc une fois revenue en cours de
 // page ; elle se cache en descendant et revient en remontant (components/nav.js,
 // propriété « translate »). En haut de page (.is-flow) elle suit la page sans
 // animation.
+// Largeur et marges identiques dans tous les états (pas d'élargissement au scroll).
 [data-nav] {
   transition:
     background-color 0.25s ease,
-    padding-left 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    padding-right 0.8s cubic-bezier(0.22, 1, 0.36, 1),
     translate 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 
   &.is-flow {
-    transition:
-      background-color 0.25s ease,
-      padding-left 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-      padding-right 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  // Revenue en cours de page : marges réduites d'un coup (elle arrive déjà
-  // réduite). L'animation des marges ne joue qu'au retour en haut de page (la
-  // transition est celle de l'état d'arrivée).
-  &.is-scrolled {
-    transition:
-      background-color 0.25s ease,
-      translate 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: background-color 0.25s ease;
   }
 
   &.is-hidden {

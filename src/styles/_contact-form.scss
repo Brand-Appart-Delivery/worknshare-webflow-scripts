@@ -1,0 +1,13 @@
+// Formulaire « Nous contacter » (components/contact-form.js).
+// Styles des pastilles et des champs : dans Webflow (contact-motif_*, form_*).
+
+// Champs affichés selon la demande : Webflow met display flex / grid
+[data-contact-motif][hidden] {
+  display: none !important;
+}
+
+// Focus clavier visible sur la pastille (le bouton radio est invisible)
+.contact-motif_option:has(.contact-motif_input:focus-visible) {
+  outline: 2px solid var(--_work-n-share---color--vert--700, #3b400f);
+  outline-offset: 2px;
+}
