@@ -41,6 +41,7 @@ import { initDevisForms } from "./components/devis-form.js";
 import { initFormLabels } from "./utils/form-labels.js";
 import { initHouseShapes } from "./components/house-shape.js";
 import { initCustomSelects } from "./components/custom-select.js";
+import { initMiniMaps } from "./components/mini-map.js";
 
 onReady(() => {
   initCore();
@@ -75,6 +76,7 @@ onReady(() => {
   initSpaceGalleries();
   initVisitForms();
   initSpaceSearch();
+  initMiniMaps(); // carte du mega menu « Nos espaces »
   initCustomSelects(); // en dernier : lit les valeurs pré-remplies des formulaires
 });
 

@@ -1,0 +1,36 @@
+// Petite carte décorative du mega menu (components/mini-map.js).
+// Taille, arrondi et position : classes Webflow de l'image remplacée.
+
+.mini-map {
+  position: relative;
+  overflow: hidden;
+  background-color: #fbf3d5; // fond de carte (map-base.js), avant chargement
+  pointer-events: none; // aucune interaction : le clic passe au lien autour
+}
+
+.mini-map_canvas {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  .mini-map.is-ready & {
+    opacity: 1;
+  }
+}
+
+// Pins plus petits (carte réduite), sans curseur ni survol
+.mini-map_pin {
+  cursor: default;
+
+  .map-pin_shape {
+    width: 22px;
+    height: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mini-map_canvas {
+    transition: none;
+  }
+}
