@@ -12,7 +12,9 @@ export function initCollapses(root = document) {
     if (!trigger || !content) return;
 
     trigger.setAttribute("aria-expanded", "false");
-    trigger.addEventListener("click", () => {
+    trigger.addEventListener("click", (e) => {
+      // Déclencheur en lien Webflow (href="#") : pas de saut en haut de page
+      if (trigger.tagName === "A") e.preventDefault();
       const isOpen = !el.classList.contains("is-open");
       el.classList.toggle("is-open", isOpen);
       trigger.setAttribute("aria-expanded", String(isOpen));
