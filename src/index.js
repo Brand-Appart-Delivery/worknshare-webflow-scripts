@@ -33,6 +33,7 @@ import { initSpaceSearch } from "./components/space-search.js";
 import { initTocs } from "./components/toc.js";
 import { initCardLinks } from "./components/card-link.js";
 import { initComparateur } from "./components/comparateur.js";
+import { initComparatorBanners } from "./components/comparator-banner.js";
 
 onReady(() => {
   initCore();
@@ -44,6 +45,7 @@ onReady(() => {
   initTocs(); // sommaires (article, pages légales) : avant les animations
   initCardLinks();
   initComparateur(); // page /comparateur : charge son propre JS et CSS
+  initComparatorBanners(); // bandeau qui pré-remplit le comparateur
   initFormulas();
   initSliders();
   initPhotoSliders();

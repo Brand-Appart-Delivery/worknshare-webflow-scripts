@@ -71,6 +71,9 @@ const DICT = {
     "search.noResult": "Aucun résultat. Essayez une ville, une adresse ou une station.",
     "search.outsideIdf": "hors Île-de-France",
     "search.results": "{n} suggestions",
+    "comparator.city": "Commune d’implantation",
+    "comparator.cities": "Communes proposées",
+    "comparator.noCity": "Commune inconnue du comparateur. Essayez la commune voisine.",
   },
   en: {
     "menu.open": "Menu",
@@ -128,6 +131,9 @@ const DICT = {
     "search.noResult": "No result. Try a town, an address or a station.",
     "search.outsideIdf": "outside Île-de-France",
     "search.results": "{n} suggestions",
+    "comparator.city": "Office location (town)",
+    "comparator.cities": "Suggested towns",
+    "comparator.noCity": "Town not covered by the comparator. Try a neighbouring one.",
   },
 };
 

@@ -5,11 +5,30 @@
 const esbuild = require("esbuild");
 const { sassPlugin } = require("esbuild-sass-plugin");
 
+const fs = require("fs");
+const path = require("path");
+
 const isWatch = process.argv.includes("--watch");
 const isServe = process.argv.includes("--serve");
 const isDev = isWatch || isServe;
 
+// Liste des communes du comparateur (nom + code postal) pour le bandeau
+// « Bail commercial ou Work & Share ? » : extraite du tableau C de
+// src/comparateur/comparateur.js, seule source des communes connues.
+function buildCommunes() {
+  const src = fs.readFileSync(path.join(__dirname, "../src/comparateur/comparateur.js"), "utf8");
+  const start = src.indexOf("var C=[");
+  const end = src.indexOf("\n];", start);
+  const rows = [...src.slice(start, end).matchAll(/^\["([^"]+)","(\d{5})"/gm)].map((m) => [m[1], m[2]]);
+  if (rows.length < 100) throw new Error(`Communes du comparateur introuvables (${rows.length})`);
+  fs.writeFileSync(
+    path.join(__dirname, "../src/comparateur/communes.json"),
+    JSON.stringify(rows) + "\n",
+  );
+}
+
 async function run() {
+  buildCommunes();
   const ctx = await esbuild.context({
     entryPoints: [
       { in: "src/index.js", out: "main" },

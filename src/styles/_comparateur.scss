@@ -7,3 +7,105 @@
 .page-wrapper:has([data-comparateur]:not(.is-ready)) .res {
   display: none;
 }
+
+// ---------- Bandeau « Bail commercial ou Work & Share ? » (comparator-banner.js) ----------
+// Champ commune : vrai <input> posé dans la pastille Webflow, liste en dessous
+.offices-calc_input.has-input {
+  position: relative;
+  cursor: text;
+}
+
+.offices-calc_field-input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  outline: none;
+
+  &::placeholder {
+    color: inherit;
+    opacity: 1;
+  }
+}
+
+// Focus clavier visible sur la pastille entière
+.offices-calc_input.has-input:focus-within {
+  outline: 2px solid var(--_work-n-share---color--bleu--300, #a3c4ff);
+  outline-offset: 2px;
+}
+
+.offices-calc_input.has-input:has([aria-invalid="true"]) {
+  border-color: var(--_work-n-share---color--rose--300, #ffa7e0);
+}
+
+.offices-calc_list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  min-width: 240px;
+  max-height: 288px;
+  overflow-y: auto;
+  padding: 6px;
+  border-radius: var(--_work-n-share---radius--m, 16px);
+  background: var(--_work-n-share---color--blanc, #fff);
+  color: var(--_work-n-share---color--bleu--900, #0e1b3a);
+  box-shadow: 0 12px 32px rgb(14 27 58 / 18%);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.offices-calc_option {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--_work-n-share---radius--s, 8px);
+  cursor: pointer;
+
+  &.is-active,
+  &:hover {
+    background: color-mix(in srgb, var(--_work-n-share---color--bleu--300, #a3c4ff) 35%, transparent);
+  }
+}
+
+.offices-calc_cp {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.offices-calc_empty {
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.offices-calc_step[aria-disabled="true"] {
+  opacity: 0.35;
+  cursor: default;
+}
+
+// La liste des communes déborde du bandeau : le bandeau ne coupe plus ce qui
+// dépasse, la photo garde ses coins arrondis à elle seule
+.offices-banner[data-comparator] {
+  overflow: visible;
+
+  .offices-banner_media {
+    overflow: hidden;
+    border-radius: var(--_work-n-share---radius--l, 24px) 0 0 var(--_work-n-share---radius--l, 24px);
+  }
+
+  @media (max-width: 991px) {
+    .offices-banner_media {
+      border-radius: var(--_work-n-share---radius--l, 24px) var(--_work-n-share---radius--l, 24px) 0 0;
+    }
+  }
+}
