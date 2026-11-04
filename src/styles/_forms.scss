@@ -1,0 +1,10 @@
+// Formulaires Webflow : règles communes.
+
+// Anti-spam Cloudflare Turnstile : Webflow l'ajoute dans chaque formulaire
+// quand il approche de l'écran. Dans un formulaire en flex, son arrivée
+// ajoutait un écart (24 px) : la page grandissait en plein scroll et Lenis
+// recalculait sa limite (ralentissement). Sorti du flux, il ne prend plus de place.
+form > div:has(> div > input[name="cf-turnstile-response"]),
+form > div:has(input[name="cf-turnstile-response"]):not(:has(input:not([type="hidden"]), select, textarea, button)) {
+  position: absolute;
+}
