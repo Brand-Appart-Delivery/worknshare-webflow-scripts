@@ -44,7 +44,24 @@ export function initSpacesMap(root = document) {
   root.querySelectorAll("[data-map-module]").forEach(initModule);
 }
 
+// Commandes de la carte posées en liens « # » dans Webflow : annoncées comme
+// boutons aux lecteurs d'écran, activables aussi avec la touche Espace
+const CONTROLS =
+  "[data-map-list-toggle], [data-place-close], [data-place-prev], [data-place-next], [data-map-zoom-in], [data-map-zoom-out], [data-map-reset]";
+
+function asButton(el) {
+  if (el.tagName !== "A") return;
+  el.setAttribute("role", "button");
+  el.addEventListener("keydown", (e) => {
+    if (e.key !== " ") return;
+    e.preventDefault();
+    el.click();
+  });
+}
+
 function initModule(module) {
+  module.querySelectorAll(CONTROLS).forEach(asButton);
+
   // La colonne défile seule sous la souris (sauf si la page est en train de
   // défiler, cf. utils/scroll-zone.js), même quand la liste n'est pas encore
   // reliée au CMS
