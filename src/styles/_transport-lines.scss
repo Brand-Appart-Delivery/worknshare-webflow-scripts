@@ -1,80 +1,209 @@
 @use "sass:list";
 
-// Couleurs officielles des lignes Île-de-France Mobilités, pour les pastilles
-// générées par le JS (utils/stations.js) : .transport-line[data-line="M-13"].
-// Forme et taille viennent de la classe Webflow transport-line (+ is-square).
-// Couleurs relevées sur la charte IDFM ; à ajuster si besoin.
+// Pastilles de lignes (métro, RER, train, tram, bus), même rendu partout :
+// listes CMS « Lignes » (page espace), cartes posées dans Webflow et liste de
+// la carte de la home (utils/stations.js).
+//
+// STRUCTURE (dans Webflow) : .transport-line avec deux attributs, liés au CMS
+// dans les listes « Lignes » :
+//   data-line="metro-13"      slug de la ligne (champ Slug)
+//   data-line-mode="Métro"    mode (champ Mode : Métro, RER, Train, Tram, Bus)
+// Forme carrée (RER, train) : classe is-square ou data-line-shape="Carré".
+//
+// COULEUR : variable Webflow « ligne/<slug> » (collection Work'n'Share), à
+// modifier dans le panneau Variables. Valeur de secours = référentiel IDFM
+// (open data « referentiel-des-lignes », relevé du 04/11/2026). Nouvelle ligne :
+// créer la variable ligne/<slug> et ajouter le slug ci-dessous.
+//
+// PICTO DU MODE (M, RER, train, T, BUS) : dessiné en CSS devant la première
+// pastille de chaque mode ; les suivantes du même mode n'en ont pas.
 
-$dark: #121404;
+$noir: var(--_work-n-share---ligne--texte-noir, #000);
+$blanc: var(--_work-n-share---ligne--texte-blanc, #fff);
 
-// [code, fond, texte]
+// slug : (fond de secours, texte)
 $lines: (
-  "M-1": (#ffcd00, $dark),
-  "M-2": (#003ca6, #fff),
-  "M-3": (#837902, #fff),
-  "M-3b": (#6ec4e8, $dark),
-  "M-4": (#cf009e, #fff),
-  "M-5": (#ff7e2e, $dark),
-  "M-6": (#6eca97, $dark),
-  "M-7": (#fa9aba, $dark),
-  "M-7b": (#6eca97, $dark),
-  "M-8": (#e19bdf, $dark),
-  "M-9": (#b6bd00, $dark),
-  "M-10": (#c9910d, $dark),
-  "M-11": (#704b1c, #fff),
-  "M-12": (#007852, #fff),
-  "M-13": (#6ec4e8, $dark),
-  "M-14": (#62259d, #fff),
-  "M-15": (#a50034, #fff),
-  "M-16": (#ec7cae, $dark),
-  "M-17": (#d5c900, $dark),
-  "M-18": (#00a88f, #fff),
-  "RER-A": (#e2231a, #fff),
-  "RER-B": (#7ba3dc, $dark),
-  "RER-C": (#ffcd00, $dark),
-  "RER-D": (#00814f, #fff),
-  "RER-E": (#c04191, #fff),
-  "T-H": (#8d653d, #fff),
-  "T-J": (#d5c900, $dark),
-  "T-K": (#c7b300, $dark),
-  "T-L": (#ceadd2, $dark),
-  "T-N": (#00a4a7, #fff),
-  "T-P": (#f28e42, $dark),
-  "T-R": (#e4b4d1, $dark),
-  "T-U": (#b90845, #fff),
-  "T-V": (#9b9842, #fff),
-  "TRAM-1": (#0055c8, #fff),
-  "TRAM-2": (#cf009e, #fff),
-  "TRAM-3a": (#ff7e2e, $dark),
-  "TRAM-3b": (#00a88f, #fff),
-  "TRAM-4": (#e2231a, #fff),
-  "TRAM-5": (#62259d, #fff),
-  "TRAM-6": (#e2231a, #fff),
-  "TRAM-7": (#704b1c, #fff),
-  "TRAM-8": (#837902, #fff),
-  "TRAM-9": (#3c91dc, #fff),
-  "TRAM-10": (#6eca97, $dark),
-  "TRAM-11": (#ff7e2e, $dark),
-  "TRAM-12": (#a50034, #fff),
-  "TRAM-13": (#8d653d, #fff),
+  "metro-1": (#ffbe00, noir),
+  "metro-2": (#0055c8, blanc),
+  "metro-3": (#6e6e00, blanc),
+  "metro-3bis": (#82c8e6, noir),
+  "metro-4": (#a0006e, blanc),
+  "metro-5": (#ff5a00, noir),
+  "metro-6": (#82dc73, noir),
+  "metro-7": (#ff82b4, noir),
+  "metro-7bis": (#82dc73, noir),
+  "metro-8": (#d282be, noir),
+  "metro-9": (#d2d200, noir),
+  "metro-10": (#dc9600, noir),
+  "metro-11": (#6e491e, blanc),
+  "metro-12": (#00643c, blanc),
+  "metro-13": (#82c8e6, noir),
+  "metro-14": (#640082, blanc),
+  "rer-a": (#eb2132, blanc),
+  "rer-b": (#5091cb, blanc),
+  "rer-c": (#ffcc30, noir),
+  "rer-d": (#008b5b, blanc),
+  "rer-e": (#b94e9a, blanc),
+  "train-h": (#84653d, blanc),
+  "train-j": (#cec73d, noir),
+  "train-k": (#9b9842, blanc),
+  "train-l": (#c4a4cc, noir),
+  "train-n": (#00b297, blanc),
+  "train-p": (#f58f53, noir),
+  "train-r": (#f49fb3, noir),
+  "train-u": (#b6134c, blanc),
+  "train-v": (#9f9825, blanc),
+  "tram-t1": (#0055c8, blanc),
+  "tram-t2": (#a0006e, blanc),
+  "tram-t3a": (#ff5a00, noir),
+  "tram-t3b": (#00643c, blanc),
+  "tram-t4": (#dc9600, noir),
+  "tram-t5": (#640082, blanc),
+  "tram-t6": (#ff0000, blanc),
+  "tram-t7": (#6e491e, blanc),
+  "tram-t8": (#6e6e00, blanc),
+  "tram-t9": (#3c91dc, blanc),
+  "tram-t10": (#6e6e00, blanc),
+  "tram-t11": (#ff5a00, noir),
+  "tram-t12": (#a50034, blanc),
+  "tram-t13": (#8d653d, blanc),
+  "tram-t14": (#00a092, blanc),
+  "bus-54": (#82c8e6, noir),
+  "bus-274": (#ff1400, blanc),
 );
 
-// Ligne inconnue (nouvelle ligne, navette…) : pastille sombre neutre
-.transport-line[data-line] {
-  background-color: $dark;
-  color: #fff;
-}
-
-@each $code, $colors in $lines {
-  .transport-line[data-line="#{$code}"] {
-    background-color: list.nth($colors, 1);
-    color: list.nth($colors, 2);
+@each $slug, $v in $lines {
+  .transport-line[data-line="#{$slug}"] {
+    background-color: var(--_work-n-share---ligne--#{$slug}, #{list.nth($v, 1)});
+    color: if(list.nth($v, 2) == noir, $noir, $blanc);
   }
 }
 
-// Picto de mode texte (M, RER, T) : garde la taille de la classe Webflow
-.transport-mode[data-mode] {
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1;
+// Ligne sans couleur connue : pastille sombre neutre
+.transport-line[data-line-mode]:not([data-line]) {
+  background-color: #121404;
+  color: #fff;
+}
+
+// Formes : carré pour RER et train (attribut lié au CMS), bus rectangulaire
+.transport-line[data-line-shape="Carré"] {
+  border-radius: 6px;
+}
+
+.transport-line[data-line-mode="Bus"] {
+  border-radius: 3px;
+}
+
+// ---------- Picto du mode ----------
+$chip: 24px;
+$gap: 4px;
+$modes: (
+  "Métro": "M",
+  "RER": "RER",
+  "Train": "",
+  "Tram": "T",
+  "Bus": "BUS",
+);
+
+.transport-line[data-line-mode] {
+  position: relative;
+  margin-left: $chip + $gap;
+  overflow: visible;
+
+  // Pastille ronde à liseré (comme .transport-mode de Webflow)
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: -($chip + $gap);
+    width: $chip;
+    height: $chip;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+  }
+
+  &::before {
+    content: "";
+    border: 1.5px solid var(--_work-n-share---ligne--texte-noir, #000);
+    border-radius: 50%;
+    background-color: var(--_work-n-share---ligne--texte-blanc, #fff);
+  }
+
+  &::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--_work-n-share---ligne--texte-noir, #000);
+    font-family: var(--_work-n-share---font--texte, inherit);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+  }
+}
+
+@each $mode, $label in $modes {
+  .transport-line[data-line-mode="#{$mode}"]::after {
+    content: "#{$label}";
+  }
+}
+
+.transport-line[data-line-mode="RER"]::after,
+.transport-line[data-line-mode="Bus"]::after {
+  font-size: 8px;
+}
+
+// Train : picto (même dessin que .ico-train de Webflow)
+.transport-line[data-line-mode="Train"]::after {
+  background-color: var(--_work-n-share---ligne--texte-noir, #000);
+  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.66667 7.33333V6.66667C2.66667 4.15251 2.66667 2.89543 3.44771 2.11438C4.22877 1.33333 5.48584 1.33333 8 1.33333C10.5141 1.33333 11.7713 1.33333 12.5523 2.11438C13.3333 2.89543 13.3333 4.15251 13.3333 6.66667V7.33333C13.3333 9.84747 13.3333 11.1046 12.5523 11.8856C11.7713 12.6667 10.5141 12.6667 8 12.6667C5.48584 12.6667 4.22877 12.6667 3.44771 11.8856C2.66667 11.1046 2.66667 9.84747 2.66667 7.33333Z' stroke-linejoin='round' stroke='%23000'/%3E%3Cpath d='M2.66667 8C2.66667 8 5.15555 8.66667 8 8.66667C10.8445 8.66667 13.3333 8 13.3333 8M4.66667 12.6667L3.33333 14.6667M11.3333 12.6667L12.6667 14.6667M3 10.6667H4.33333M11.6667 10.6667H13M3.33333 3.33333H12.6667' stroke-linecap='round' stroke-linejoin='round' stroke='%23000'/%3E%3C/svg%3E")
+    center / 14px 14px no-repeat;
+}
+
+// Ligne du même mode que la précédente : pas de picto
+@each $mode, $label in $modes {
+  // pastilles sœurs (cartes Webflow, carte de la home)
+  .transport-line[data-line-mode="#{$mode}"] + .transport-line[data-line-mode="#{$mode}"],
+  // listes CMS (une pastille par élément de liste)
+  .w-dyn-item:has(> .transport-line[data-line-mode="#{$mode}"]) + .w-dyn-item > .transport-line[data-line-mode="#{$mode}"] {
+    margin-left: 0;
+
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+}
+
+// Composant Webflow « Pastille ligne » (.ligne > .transport-mode + .ligne_indice) :
+// couleurs portées par ses variantes. Même règle : un seul picto par mode.
+@each $mode, $label in $modes {
+  .ligne[data-line-mode="#{$mode}"] + .ligne[data-line-mode="#{$mode}"],
+  .w-dyn-item:has(.ligne[data-line-mode="#{$mode}"]) + .w-dyn-item .ligne[data-line-mode="#{$mode}"] {
+    > .transport-mode {
+      display: none;
+    }
+  }
+}
+
+// Anciens pictos posés à la main dans les cartes : remplacés par le CSS
+.transport-lines > .transport-mode:has(+ .transport-line[data-line-mode]) {
+  display: none;
+}
+
+// ---------- Cartes « Près de… » (gabarit Espace) ----------
+// Webflow interdit une liste CMS dans un lien : le bloc d'accès
+// (.space-card_access, avec la liste « Lignes ») est posé à côté du lien de la
+// carte, dans l'élément de liste. On garde la carte en colonne et l'accès en bas.
+[data-space-near] .w-dyn-item:has(> .space-card + .space-card_access) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_work-n-share---space--12, 12px);
+
+  > .space-card {
+    flex: 1;
+  }
+
+  > .space-card_access {
+    margin-top: 0;
+  }
 }

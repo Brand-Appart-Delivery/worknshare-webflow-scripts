@@ -30,6 +30,8 @@ import { initSpaceMaps } from "./components/space-map.js";
 import { initSpaceGalleries } from "./components/space-gallery.js";
 import { initVisitForms } from "./components/visit-form.js";
 import { initSpaceSearch } from "./components/space-search.js";
+import { initTocs } from "./components/toc.js";
+import { initCardLinks } from "./components/card-link.js";
 
 onReady(() => {
   initCore();
@@ -38,6 +40,8 @@ onReady(() => {
   initHeroVideo(); // tôt : le hero est la première chose visible
   initFooter();
   initCollapses();
+  initTocs(); // sommaires (article, pages légales) : avant les animations
+  initCardLinks();
   initFormulas();
   initSliders();
   initPhotoSliders();

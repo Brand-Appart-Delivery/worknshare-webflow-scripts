@@ -13,10 +13,18 @@
     color: var(--_work-n-share---texte--sur-marque, #eefc96);
   }
 
-  .transport-mode {
+  // Picto du mode (pseudo-élément de .transport-line, cf. _transport-lines.scss)
+  .transport-line[data-line-mode]::before {
     background-color: transparent;
     border-color: #fff;
+  }
+
+  .transport-line[data-line-mode]::after {
     color: #fff;
+  }
+
+  .transport-line[data-line-mode="Train"]::after {
+    background-color: #fff;
   }
 }
 

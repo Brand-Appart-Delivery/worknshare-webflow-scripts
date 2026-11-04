@@ -20,10 +20,30 @@ $radius: var(--_work-n-share---radius--m, 16px);
 
 // ---------- Cas 1 : bloc qui coupe déjà la photo ----------
 .events-format-card_image,
-.space-gallery_thumb .space-cover {
+.space-gallery_thumb .space-cover,
+.bento-card.is-card-link .bento-card_image {
   transition: transform $duration $ease;
 }
 
+// Carte bento : chiffre CMS vide (ex. nombre de salles non renseigné) masqué,
+// la carte affiche seulement « salles de réunion »
+.bento-card_figure.w-dyn-bind-empty {
+  display: none;
+}
+
+// Cartes bento rendues cliquables (components/card-link.js)
+.bento-card.is-card-link {
+  overflow: hidden;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--_work-n-share---color--rose--300, #ffa7e0);
+    outline-offset: 3px;
+  }
+}
+
+.bento-card.is-card-link:hover .bento-card_image,
+.bento-card.is-card-link:focus-visible .bento-card_image,
 .events-format-card:hover .events-format-card_image,
 .events-format-card:focus-visible .events-format-card_image,
 .space-gallery_thumb:hover .space-cover,
@@ -77,10 +97,13 @@ $radius: var(--_work-n-share---radius--m, 16px);
   .events-article_image,
   .space-item_photo,
   .mega-menu_banner-img,
-  .space-card_image {
+  .space-card_image,
+  .bento-card.is-card-link .bento-card_image {
     transition: none;
   }
 
+  .bento-card.is-card-link:hover .bento-card_image,
+  .bento-card.is-card-link:focus-visible .bento-card_image,
   .events-format-card:hover .events-format-card_image,
   .events-format-card:focus-visible .events-format-card_image,
   .space-gallery_thumb:hover .space-cover,

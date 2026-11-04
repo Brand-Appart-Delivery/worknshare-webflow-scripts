@@ -96,8 +96,9 @@ function initGallery(gallery) {
   if (switcher) initSwitch(gallery, switcher, tourTab);
 
   // Clic sur la grande photo : ouvre aussi la visionneuse (sur la 1re)
+  // (sauf si la photo est déjà dans un déclencheur [data-gallery-open])
   const main = gallery.querySelector(".space-gallery_main img, [data-gallery-main]");
-  if (main) {
+  if (main && !main.closest("[data-gallery-open]")) {
     main.style.cursor = "zoom-in";
     main.addEventListener("click", () => lightbox.open(photos, 0, main));
   }
