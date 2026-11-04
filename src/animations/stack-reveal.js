@@ -8,7 +8,8 @@
 // Au départ, les cartes suivantes sont rangées sous la première, en paquet
 // (on voit juste leur bord dépasser). Au fil du scroll, la première reste à sa
 // place et chaque carte suivante sort de dessous pour descendre à sa position
-// prévue. L'avancement suit le scroll (scrub) : en remontant, elles se rangent.
+// prévue, en grandissant jusqu'à sa taille ; son ombre s'estompe à l'arrivée.
+// L'avancement suit le scroll (scrub) : en remontant, elles se rangent.
 //
 // Desktop uniquement (en tablette / mobile les cartes sont plus hautes que
 // l'écran). Rien si l'utilisateur a réduit les animations ou sans GSAP.
@@ -18,7 +19,10 @@ import { requestScrollRefresh } from "../utils/scroll-refresh.js";
 
 const DESKTOP = "(min-width: 992px)";
 const PEEK = 16; // px de bord visible par carte rangée dessous
-const SHRINK = 0.04; // réduction par rang dans le paquet (profondeur)
+const SHRINK = 0.08; // réduction par rang dans le paquet (profondeur)
+// Ombre pendant la descente, qui s'estompe à l'arrivée
+const SHADOW_FROM = "0 32px 64px rgba(18, 20, 4, 0.22)";
+const SHADOW_TO = "0 0px 0px rgba(18, 20, 4, 0)";
 
 export function initStackReveal(root = document) {
   const { gsap, ScrollTrigger } = window;
@@ -51,11 +55,13 @@ export function initStackReveal(root = document) {
             // Rangée sous la première carte, bord qui dépasse en bas
             y: () => first.offsetTop + first.offsetHeight - card.offsetTop - card.offsetHeight + rank * PEEK,
             scale: 1 - rank * SHRINK,
+            boxShadow: SHADOW_FROM,
             transformOrigin: "50% 100%",
           },
           {
             y: 0,
             scale: 1,
+            boxShadow: SHADOW_TO,
             ease: "none",
             scrollTrigger: {
               trigger: first,
@@ -78,6 +84,7 @@ export function initStackReveal(root = document) {
         cards.forEach((card) => {
           card.style.position = "";
           card.style.zIndex = "";
+          card.style.boxShadow = "";
         });
     });
   });
