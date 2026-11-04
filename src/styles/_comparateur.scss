@@ -1,0 +1,9 @@
+// Page /comparateur : rien n'apparaît avant ses propres styles
+// (components/comparateur.js ajoute is-ready à [data-comparateur]).
+[data-comparateur]:not(.is-ready) {
+  visibility: hidden;
+}
+
+.page-wrapper:has([data-comparateur]:not(.is-ready)) .res {
+  display: none;
+}

@@ -1,0 +1,103 @@
+<!-- Page Webflow /comparateur. Structure :
+  Header (composant du site)
+  section.enc [data-comparateur] [data-nav-theme="vert"]   ← élément Webflow
+    div.wrap                                                ← élément Webflow
+      nav.breadcrumb (Accueil › Comparateur)                ← éléments Webflow
+      h1 « Bail commercial ou bureau flexible ?<br><em>L’écart réel.</em> » ← élément Webflow
+      HtmlEmbed n° 1 : bloc « INST » ci-dessous (les 3 champs + bouton)
+  HtmlEmbed n° 2 : bloc « RES » ci-dessous (résultat + appel final)
+  Footer (composant du site)
+  Le script (comparateur.js) cherche les id et classes de ces blocs : ne pas les renommer. -->
+
+<!-- ===== INST ===== -->
+<noscript>
+  <div class="nojs">Ce comparateur a besoin de JavaScript pour calculer.
+    Activez-le, ou écrivez-moi à
+    <a href="mailto:tristan@workandshare.com">tristan@workandshare.com</a>
+    et je vous envoie le chiffrage.</div>
+</noscript>
+<div class="inst">
+      <div class="fld" data-champ="ville">
+        <div class="mic"><i>1</i>Implantation</div>
+        <div class="ctl"><div class="cw">
+          <input class="ci" id="q" type="text" autocomplete="off" spellcheck="false"
+            placeholder="Votre commune" role="combobox" aria-expanded="false"
+            aria-label="Commune d&rsquo;implantation"
+            aria-controls="drop" aria-autocomplete="list">
+          <div class="drop" id="drop" data-lenis-prevent="" role="listbox" aria-label="Communes propos&eacute;es"></div>
+        </div></div>
+        <p class="msg" id="msg" role="status" aria-live="polite"></p>
+      </div>
+      <div class="fld" data-champ="effectif">
+        <div class="mic"><i>2</i>Collaborateurs</div>
+        <div class="ctl"><div class="stp" id="stp">
+          <button type="button" id="mn" aria-label="Un collaborateur en moins, maintenir pour aller vite">&minus;</button>
+          <input class="tn" id="hd" type="text" inputmode="numeric" autocomplete="off"
+            aria-label="Nombre de collaborateurs" placeholder="&middot;">
+          <button type="button" id="pl" aria-label="Un collaborateur en plus, maintenir pour aller vite">+</button>
+        </div></div>
+      </div>
+      <div class="fld" data-champ="duree">
+        <div class="mic"><i>3</i>Engagement</div>
+        <div class="ctl">
+          <div class="val" id="yrv">3 ans</div>
+          <div class="rgw"><input class="rg" id="rg" type="range" min="1" max="9" value="3"
+            aria-label="Dur&eacute;e d&rsquo;engagement" aria-valuetext="3 ans"></div>
+        </div>
+      </div>
+      <button class="decl" id="decl" type="button" disabled>D&eacute;couvrir mes &eacute;conomies
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+          stroke-linecap="round" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></button>
+    </div>
+
+<!-- ===== RES ===== -->
+<div class="res" id="res">
+<div class="prTete"><b>Bail commercial ou bureau flexible, l’écart réel</b>
+  <span id="prCtx"></span></div>
+<section class="wrap verd" data-a data-seq="1">
+  <div class="mic sq" id="vLab">&Eacute;conomie</div>
+  <div class="disp tn sq" id="big">0</div>
+  <p class="ph sq" id="vPh"></p>
+  <p class="esp sq" id="vEsp"></p>
+  <div class="trio">
+    <div class="sq"><div class="v tn" id="k1">0</div><div class="l" id="l1"></div></div>
+    <div class="sq"><div class="v tn" id="k2">0</div><div class="l" id="l2"></div></div>
+    <div class="sq"><div class="v tn" id="k3">0</div><div class="l" id="l3"></div></div>
+  </div>
+</section>
+
+<section class="wrap" data-a data-tab="1">
+  <div class="duels" id="rows"></div>
+</section>
+<section class="fin" id="offer">
+  <i class="grain" aria-hidden="true"></i>
+  <div>
+    <h2 id="ctaH" data-a data-fin>Parlons de votre projet de bureaux.</h2>
+    <div class="act" data-a data-fin data-d="260">
+      <a class="go2" id="goLink" href="https://cal.com/tristan-martins/15min" target="_blank"
+        rel="noopener">Votre bureau chez Work &amp; Share
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+          stroke-linecap="round" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></a>
+    </div>
+    <div class="act2" data-a data-fin data-d="380">
+      <button type="button" id="envBtn" aria-expanded="false" aria-controls="pMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path
+          d="M12 15.6V3.8m0 0L8.2 7.6M12 3.8l3.8 3.8"/><path
+          d="M5 13.4v5.4a1.4 1.4 0 0 0 1.4 1.4h11.2a1.4 1.4 0 0 0 1.4-1.4v-5.4"/></svg>Partager
+        ce chiffrage</button>
+      <div class="pMenu" id="pMenu" hidden></div>
+    </div>
+    <p class="preuve" data-a data-fin data-d="470"><span class="f1">Sp&eacute;cialiste du bureau flexible</span>
+      <span class="f2">en &Icirc;le-de-France depuis 2017<i class="sep">&nbsp;&middot;</i></span>
+      <span class="avis">4,9<i class="et" aria-hidden="true"></i>sur Google, plus de 1 000 avis</span></p>
+    <p class="legal" data-a data-fin data-d="640">Estimation &agrave; vis&eacute;e informative, ni devis ni
+      offre. Montants en euros hors taxes. Loyers ImmoStat, fiscalit&eacute; 2026.<span
+        id="rgpd"></span>
+      <!-- A incrementer a chaque livraison. Apps Script sert la derniere VERSION
+           creee, pas le dernier code enregistre : sans ce reperage on ne sait pas
+           quelle version est reellement en ligne. -->
+      <span class="ver">v80</span></p>
+  </div>
+</section>
+</div>

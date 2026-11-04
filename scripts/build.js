@@ -14,6 +14,9 @@ async function run() {
     entryPoints: [
       { in: "src/index.js", out: "main" },
       { in: "src/styles/main.scss", out: "main" },
+      // Comparateur : fichiers à part, chargés seulement sur sa page
+      { in: "src/comparateur/comparateur.js", out: "comparateur" },
+      { in: "src/comparateur/comparateur.css", out: "comparateur" },
     ],
     bundle: true,
     outdir: ".",
@@ -47,7 +50,7 @@ async function run() {
   } else {
     await ctx.rebuild();
     await ctx.dispose();
-    console.log("✅ Build terminé : main.js + main.css");
+    console.log("✅ Build terminé : main.js + main.css (+ comparateur.js / .css)");
   }
 }
 

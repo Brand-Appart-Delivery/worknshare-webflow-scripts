@@ -32,6 +32,7 @@ import { initVisitForms } from "./components/visit-form.js";
 import { initSpaceSearch } from "./components/space-search.js";
 import { initTocs } from "./components/toc.js";
 import { initCardLinks } from "./components/card-link.js";
+import { initComparateur } from "./components/comparateur.js";
 
 onReady(() => {
   initCore();
@@ -42,6 +43,7 @@ onReady(() => {
   initCollapses();
   initTocs(); // sommaires (article, pages légales) : avant les animations
   initCardLinks();
+  initComparateur(); // page /comparateur : charge son propre JS et CSS
   initFormulas();
   initSliders();
   initPhotoSliders();
