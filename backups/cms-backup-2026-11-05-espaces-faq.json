@@ -1,0 +1,3752 @@
+{
+ "collection": "6ae9133a82664ff73e573da9",
+ "note": "Espaces, toutes langues, avant ajout des FAQ générales (2026-11-05)",
+ "items": [
+  {
+   "id": "6ae927aab71194d345adc441",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:38:04.500Z",
+   "createdOn": "2026-11-04T16:30:24.478Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Delta",
+    "titre-h1": "Work & Share Nanterre, Delta building",
+    "accroche": "2 minutes from the RER A, a stone’s throw from La Défense.",
+    "description-courte": "34 private offices · patio and restaurant",
+    "l-espace-en-quelques-mots": "<p>Work &amp; Share has moved into Nanterre, at 5 boulevard des Bouvets, in a modern, friendly setting a stone’s throw from La Défense.</p><p>Ideally located near the Nanterre courthouse and the Paris La Défense Arena, the space offers a lively, welcoming work environment designed to meet the needs of every business — from small companies to large, growing teams.</p><p>With 34 private offices, open-plan spaces and 4 meeting rooms, everything is designed to boost productivity and collaboration. The space also hosts business events for up to 150 attendees: seminars, workshops or conferences.</p><p>In the Delta building, enjoy a reception and concierge service, as well as a restaurant and café offering a varied, balanced food selection. Just 2 minutes’ walk from the RER A, Work &amp; Share Nanterre combines accessibility, comfort and conviviality every day.</p>",
+    "atouts-du-lieu": "<ul><li>Patio — For a well-deserved break in the fresh air</li><li>Restaurant and café — Sit-down lunch, alone or with your team</li><li>Private hire of the space — For events of up to 100 people</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb56edf6631f28e64d602c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d602c_NIC_6470-scaled.jpeg",
+     "alt": "Work & Share Nanterre — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb56edf6631f28e64d602c",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d602c_NIC_6470-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 1"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6047",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6047_NIC_6614-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 2"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6019",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6019_unnamed-1.jpeg",
+      "alt": "Work & Share Nanterre — photo 3"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6038",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6038_work-share-nanterre-42-3-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 4"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6035",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6035_NIC_7015-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 5"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d6052",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d6052_WS-Nanterre-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 6"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d604a",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d604a_NIC_6892-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 7"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d603e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d603e_NIC_6772-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 8"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d603b",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d603b_NIC_6440-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 9"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6041",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6041_work-share-nanterre-40-1-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 10"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d608b",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d608b_NIC_6634-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 11"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d608f",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d608f_NIC_6956-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 12"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=wnCfWhJHjPr",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "From 2 desks",
+    "prix-poste-nomade": "From €150 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": null,
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": 4,
+    "chiffre-capacite-evenementielle-max": 150,
+    "adresse": "5 boulevard des Bouvets",
+    "code-postal": "92000",
+    "ville": "Nanterre",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.89772",
+    "longitude": "2.22191",
+    "station-la-plus-proche": "Nanterre Préfecture",
+    "lignes": [
+     "6ae913ecb1901def9695bdb7"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>RER A — Nanterre Préfecture station, 2 min walk</p><p>Bus 160, 163, 259, 276, N53</p><p>Direct links to the A14, A86 and N13</p>",
+    "parking": "Private underground car park",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Amandine",
+    "hote-photo": {
+     "fileId": "6aeb56eff6631f28e64d60d5",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60d5_TEMPLATES-IG-_-OLD-5.png",
+     "alt": "Amandine, coworking manager at Work & Share Nanterre"
+    },
+    "hote-role": "Coworking Manager, Nanterre",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9274c2d2afb91f79ab483",
+     "6ae927aab71194d345adc43d",
+     "6ae9280a7a97882afbb974d1"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 6,
+    "seo-titre": "Coworking and flexible offices in Nanterre | Work & Share",
+    "seo-description": "Coworking, shared offices and event spaces: discover what Work & Share offers at our Nanterre space, 2 min from the RER A.",
+    "name": "Nanterre",
+    "slug": "nanterre"
+   }
+  },
+  {
+   "id": "6ae9274c2d2afb91f79ab483",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:38:04.709Z",
+   "createdOn": "2026-11-04T16:30:24.478Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": null,
+    "titre-h1": "Work & Share Colombes",
+    "accroche": "On the edge of La Garenne-Colombes, with a large terrace and a gym.",
+    "description-courte": "300 desks · terrace and gym",
+    "l-espace-en-quelques-mots": "<p>Located on the edge of La Garenne-Colombes, in a lively, bustling neighbourhood, our space offers a warm and friendly environment, ideal for every way of working — from solo entrepreneurs to large companies.</p><p>With 300 desks spread across private offices and open-plan areas, everyone can find the setup that suits them.</p><p>Enjoy a large furnished terrace for your breaks or events, a fitness area offering a range of classes, and healthy food from the on-site restaurant and café.</p><p>For your meetings or seminars, 6 modular rooms host up to 120 attendees in a modern, inspiring setting. A place where efficiency, relaxation and conviviality come together every day.</p>",
+    "atouts-du-lieu": "<ul><li>Terrace — For a well-deserved break in the fresh air</li><li>Private parking — Spaces reserved for rent for our residents</li><li>Gym — To stay in shape between meetings</li><li>Private hire of the space — For events of up to 100 people</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb569d112d2894c701bf49",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf49_12-WorkShare_Colombes_ClarisseGallois_BD_1049-1.jpeg",
+     "alt": "Work & Share Colombes — Bistro"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb569d112d2894c701bf49",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf49_12-WorkShare_Colombes_ClarisseGallois_BD_1049-1.jpeg",
+      "alt": "Work & Share Colombes — Bistro"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf46",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf46_23-WorkShare_Colombes_ClarisseGallois_BD_1106-1.jpeg",
+      "alt": "Work & Share Colombes — Hot-desking area"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf97",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf97_Work-Share-Colombes-02212022_161042-8-1-scaled.jpeg",
+      "alt": "Work & Share Colombes — Terrace"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf43",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf43_38-WorkShare_Colombes_ClarisseGallois_BD_1229.jpeg",
+      "alt": "Work & Share Colombes — Event room"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf63",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf63_35-WorkShare_Colombes_ClarisseGallois_BD_1170.jpeg",
+      "alt": "Work & Share Colombes — Chill-out corner"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf26",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf26_17-WorkShare_Colombes_ClarisseGallois_BD_1063.jpeg",
+      "alt": "Work & Share Colombes — Meeting room"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf40",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf40_09-WorkShare_Colombes_ClarisseGallois_BD_0230.jpeg",
+      "alt": "Work & Share Colombes — Bistro, overview"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=KWeruyucsfy",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "From 2 desks",
+    "prix-poste-nomade": "From €150 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": null,
+    "chiffre-postes": 300,
+    "chiffre-salles-de-reunion": 6,
+    "chiffre-capacite-evenementielle-max": 120,
+    "adresse": "1-5 rue du Débarcadère",
+    "code-postal": "92700",
+    "ville": "Colombes",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.9087",
+    "longitude": "2.23564",
+    "station-la-plus-proche": "La Garenne-Colombes",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdc5"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Line L — La Garenne-Colombes station</p><p>Tram T2 — Charlebourg station</p>",
+    "parking": "Private underground car park, spaces for rent for residents",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Romane",
+    "hote-photo": {
+     "fileId": "6aeb569e112d2894c701bfbb",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bfbb_TEMPLATES-IG-_-OLD-1.png",
+     "alt": "Romane, coworking manager at Work & Share Colombes"
+    },
+    "hote-role": "Coworking Manager, Colombes",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae927aab71194d345adc441",
+     "6ae927aab71194d345adc43d",
+     "6ae9280a7a97882afbb974d1"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 2,
+    "seo-titre": "Coworking and flexible offices in Colombes | Work & Share",
+    "seo-description": "Coworking, shared offices and event spaces: discover what Work & Share offers at our Colombes space, in La Garenne-Colombes.",
+    "name": "Colombes",
+    "slug": "colombes"
+   }
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b5810",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:38:04.493Z",
+   "createdOn": "2026-11-04T16:30:24.477Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Byos",
+    "titre-h1": "Work & Share Villejuif, Campus Grand Parc",
+    "accroche": "Metro line 14 right at the door, in the heart of Campus Grand Parc.",
+    "description-courte": "1,800 m² · metro 14 right at the door",
+    "l-espace-en-quelques-mots": "<p>Located at 116 rue Édouard Vaillant in Villejuif, in the heart of Campus Grand Parc, Work &amp; Share Villejuif offers 1,800 m² of coworking space, flexible offices from 2 desks and rooms for meetings and business events.</p><p>Designed as a guesthouse for entrepreneurs, our space hosts more than 250 workstations across private offices, managed offices for large teams and coworking desks, in a new-generation building certified for its environmental performance.</p><p>Residents enjoy a complete environment for working and meeting people: fully equipped meeting rooms, phone booths, social areas and a terrace, plus many services in the Byos building (company restaurant, barista, Business Center, showers and changing rooms…).</p><p>Easy access: Villejuif – Gustave Roussy station (line 14 and future line 15) right at the foot of the building, with quick access to the A6 and Orly airport.</p>",
+    "atouts-du-lieu": "<ul><li>Hospitality — A dedicated team managing reception and community life across all spaces</li><li>Varied food offering — Barista and company restaurant for a tasty break</li><li>Showers and changing rooms — To recharge between work sessions</li><li>Clear your mind — Enjoy a furnished panoramic terrace</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb57819427aa5d4be570e1",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57819427aa5d4be570e1_04-WorkShare_Villejuif_ClarisseGallois-9045-1.jpeg",
+     "alt": "Work & Share Villejuif — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb57819427aa5d4be570e1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57819427aa5d4be570e1_04-WorkShare_Villejuif_ClarisseGallois-9045-1.jpeg",
+      "alt": "Work & Share Villejuif — photo 1"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570a3",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570a3_09-WorkShare_Villejuif_ClarisseGallois-2041-1.jpeg",
+      "alt": "Work & Share Villejuif — photo 2"
+     },
+     {
+      "fileId": "6aeb57819427aa5d4be570ea",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57819427aa5d4be570ea_13-WorkShare_Villejuif_ClarisseGallois-9204.jpeg",
+      "alt": "Work & Share Villejuif — photo 3"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570a9",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570a9_25-WorkShare_Villejuif_ClarisseGallois-9321.jpeg",
+      "alt": "Work & Share Villejuif — photo 4"
+     },
+     {
+      "fileId": "6aeb57819427aa5d4be570e7",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57819427aa5d4be570e7_29-WorkShare_Villejuif_ClarisseGallois-9451.jpeg",
+      "alt": "Work & Share Villejuif — photo 5"
+     },
+     {
+      "fileId": "6aeb57819427aa5d4be570ed",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57819427aa5d4be570ed_60-WorkShare_Villejuif_ClarisseGallois-9784.jpeg",
+      "alt": "Work & Share Villejuif — photo 6"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=v27wBXz5rJ9",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "From 2 desks",
+    "prix-poste-nomade": "From €100 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1,800 m²",
+    "chiffre-postes": 250,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "116 rue Édouard Vaillant",
+    "code-postal": "94800",
+    "ville": "Villejuif",
+    "departement": "6ae913e7e2ba6fb2b8728024",
+    "latitude": "48.79306",
+    "longitude": "2.35792",
+    "station-la-plus-proche": "Villejuif – Gustave Roussy",
+    "lignes": [
+     "6ae913ecb1901def9695bdb5"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Metro 14 — Villejuif – Gustave Roussy station, right at the foot of the building</p><p>Quick access to the A6 and Orly airport</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Marine",
+    "hote-photo": {
+     "fileId": "6aeb57839427aa5d4be57119",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57839427aa5d4be57119_TEMPLATES-IG-_-OLD.png",
+     "alt": "Marine, coworking manager at Work & Share Villejuif"
+    },
+    "hote-role": "Coworking Manager, Villejuif",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9286d82229bf3ee7b580c",
+     "6ae9280a7a97882afbb974cf",
+     "6ae9286d82229bf3ee7b580e"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 14,
+    "seo-titre": "Coworking and flexible offices in Villejuif | Work & Share",
+    "seo-description": "Private offices from 2 desks, coworking and meeting rooms at Campus Grand Parc in Villejuif, right on metro line 14. Visit our space.",
+    "name": "Villejuif",
+    "slug": "villejuif"
+   }
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580a",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:38:05.333Z",
+   "createdOn": "2026-11-04T16:30:24.477Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": null,
+    "titre-h1": "Work & Share Saint-Ouen",
+    "accroche": "A converted former industrial building, 2 minutes from metro line 14.",
+    "description-courte": "27 private offices · sunny terrace",
+    "l-espace-en-quelques-mots": "<p>Welcome to Work &amp; Share Saint-Ouen, at 3 place Martin Levasseur, in a former industrial building fully converted into a modern, friendly space.</p><p>Spread over 1,500 m², the space offers 27 private offices, flexible coworking areas, an 80 m² event room and meeting rooms for all your projects.</p><p>Ideally located 2 minutes from line 14 and the RER C, and close to line 13, it gets you to central Paris in just 15 minutes.</p><p>For your breaks, enjoy our barista corner and large bistro, or relax on our sunny private terrace.</p>",
+    "atouts-du-lieu": "<ul><li>Sunny private terrace — For a break in the sun between meetings</li><li>Barista corner and large bistro</li><li>Private hire of the space — For your business events of up to 120 people</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb5735688dedcf8a6af1e6",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1e6_17-WorkShare_SaintOuen_ClarisseGallois_BD_3918.jpeg",
+     "alt": "Work & Share Saint-Ouen — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb5735688dedcf8a6af1e6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1e6_17-WorkShare_SaintOuen_ClarisseGallois_BD_3918.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 1"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1fe",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1fe_DSC_2871.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 2"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1e0",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1e0_bxb9gg6mppyf2bfin5x7.webp",
+      "alt": "Work & Share Saint-Ouen — Event room"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1ee",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1ee_t0v8zvtylq1napecpvym.webp",
+      "alt": "Work & Share Saint-Ouen — Terrace"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1fa",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1fa_5-WorkShare_SaintOuen_ClarisseGallois_BD_3519.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 5"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1f1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1f1_10-WorkShare_SaintOuen_ClarisseGallois_BD_3654.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 6"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1f7",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1f7_20-WorkShare_SaintOuen_ClarisseGallois_BD_4030.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 7"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1f4",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1f4_27-WorkShare_SaintOuen_ClarisseGallois_BD_4112.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 8"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=tvBHvDDkxXx",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "From 2 desks",
+    "prix-poste-nomade": "From €150 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1,500 m²",
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": 120,
+    "adresse": "3 place Martin Levasseur",
+    "code-postal": "93400",
+    "ville": "Saint-Ouen-sur-Seine",
+    "departement": "6ae913e7e2ba6fb2b8728022",
+    "latitude": "48.90451",
+    "longitude": "2.32424",
+    "station-la-plus-proche": "Saint-Ouen",
+    "lignes": [
+     "6ae913ecb1901def9695bdb5",
+     "6ae913ecb1901def9695bdbb",
+     "6ae913ecb1901def9695bdb3"
+    ],
+    "temps-depuis-paris": "15 min",
+    "venir-detail-des-acces": "<p>Metro 14 and RER C — Saint-Ouen station, 2 min walk</p><p>Metro 13 — Garibaldi station</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Morgan",
+    "hote-photo": {
+     "fileId": "6aeb5735688dedcf8a6af218",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af218_TEMPLATES-IG-_-OLD-2.png",
+     "alt": "Morgan, coworking manager at Work & Share Saint-Ouen"
+    },
+    "hote-role": "Coworking Manager, Saint-Ouen",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae91849a1be7ba7205931b5",
+     "6ae9280a7a97882afbb974d3",
+     "6ae927aab71194d345adc43f"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 11,
+    "seo-titre": "Coworking and flexible offices in Saint-Ouen | Work & Share",
+    "seo-description": "Coworking, private offices and an event room in Saint-Ouen, in a converted industrial building, 2 min from metro line 14 and the RER C.",
+    "name": "Saint-Ouen",
+    "slug": "saint-ouen"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d1",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:38:05.319Z",
+   "createdOn": "2026-11-04T16:30:24.477Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Vita",
+    "titre-h1": "Work & Share Suresnes, Vita building",
+    "accroche": "A 300 m² rooftop facing Paris and La Défense.",
+    "description-courte": "300 m² rooftop · 25 private offices",
+    "l-espace-en-quelques-mots": "<p>Work &amp; Share has moved into Suresnes, in the heart of the Vita building: a modern, inspiring haven of peace just 10 minutes from La Défense.</p><p>In a green setting, a stone’s throw from the Seine, the île de Puteaux and the Bois de Boulogne, this space strikes the perfect balance between calm and energy.</p><p>Across 1,500 m², enjoy 25 private offices (up to 200 desks), a hot-desking area, around ten meeting rooms, alcoves and phone booths for both focus and collaboration.</p><p>The many terraces, patios and the 300 m² rooftop offer stunning views over Paris and La Défense. Certified Osmoz, BREEAM, BiodiverCity and R2S, Vita is a sustainable, comfortable workplace with a strong focus on wellbeing.</p>",
+    "atouts-du-lieu": "<ul><li>300 m² rooftop and outdoor spaces — Stunning views over Paris and La Défense</li><li>Hospitality — A dedicated team managing reception and community life across all spaces</li><li>Smart fridges — For a great lunch break</li></ul>",
+    "certifications": "Building certified Osmoz, BREEAM, BiodiverCity and R2S",
+    "photo-principale": {
+     "fileId": "6aeb577e9427aa5d4be570a0",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570a0_LD-Bistrot-scaled.jpeg",
+     "alt": "Work & Share Suresnes — Bistro"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb577e9427aa5d4be570a0",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570a0_LD-Bistrot-scaled.jpeg",
+      "alt": "Work & Share Suresnes — Bistro"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570b2",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570b2_Espace-partage-3-1-scaled.jpeg",
+      "alt": "Work & Share Suresnes — Shared space"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c005",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c005_Nomade-1-8-1-scaled.jpeg",
+      "alt": "Work & Share Suresnes — Hot-desking area"
+     },
+     {
+      "fileId": "6aeb57779427aa5d4be5700f",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57779427aa5d4be5700f_EP-copie.jpeg",
+      "alt": "Work & Share Suresnes — Shared space, overview"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "From 2 desks",
+    "prix-poste-nomade": "From €150 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1,500 m²",
+    "chiffre-postes": 200,
+    "chiffre-salles-de-reunion": 10,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "42 rue Rouget de Lisle",
+    "code-postal": "92150",
+    "ville": "Suresnes",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.87789",
+    "longitude": "2.23183",
+    "station-la-plus-proche": "Puteaux",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdc3",
+     "6ae913ecb1901def9695bdc5"
+    ],
+    "temps-depuis-paris": "22 min",
+    "venir-detail-des-acces": "<p>Lines L and U — Puteaux station</p><p>Tram T2 — Belvédère station</p><p>10 minutes from La Défense, 22 minutes from Saint-Lazare</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Lisa",
+    "hote-photo": {
+     "fileId": "6aeb57829427aa5d4be570f9",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57829427aa5d4be570f9_TEMPLATES-IG-_-OLD-4.png",
+     "alt": "Lisa, coworking manager at Work & Share Suresnes"
+    },
+    "hote-role": "Coworking Manager, Suresnes",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae927aab71194d345adc43d",
+     "6ae927aab71194d345adc441",
+     "6ae9274c2d2afb91f79ab483"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 9,
+    "seo-titre": "Coworking and flexible offices in Suresnes | Work & Share",
+    "seo-description": "Coworking, shared offices and event spaces: discover what Work & Share offers at our Suresnes space, 10 minutes from La Défense.",
+    "name": "Suresnes",
+    "slug": "suresnes"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cf",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:39:02.654Z",
+   "createdOn": "2026-11-04T16:30:24.477Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Les Bureaux de la Colline",
+    "titre-h1": "Work & Share Saint-Cloud, Les Bureaux de la Colline",
+    "accroche": "In the heart of old Saint-Cloud, a bistro with a view of the Eiffel Tower.",
+    "description-courte": "32 private offices · Eiffel Tower view",
+    "l-espace-en-quelques-mots": "<p>Work &amp; Share has moved into Saint-Cloud, in Les Bureaux de la Colline: a bright, warm and friendly 1,200 m² space designed to meet all your business needs.</p><p>With 32 private offices and large open-plan areas, the space can host up to 180 residents in a flexible, inspiring work setting. The 5 meeting rooms and the large bistro with a stunning view of the Eiffel Tower are the perfect setting to combine performance and shared moments.</p><p>Located in the heart of the village of old Saint-Cloud, in a neighbourhood that is both residential and full of shops, the space enjoys a peaceful setting right next to the T2, line L, metro 10 and major roads.</p><p>On the ground floor, a wide range of places to eat completes the experience, along with a little extra from Work &amp; Share: a nap room entirely dedicated to our residents’ wellbeing.</p>",
+    "atouts-du-lieu": "<ul><li>Bistro with a view of the Eiffel Tower</li><li>Nap room — To recharge your batteries</li><li>Parking — Spaces reserved for rent for our residents</li><li>Restaurant and café — For a good sit-down lunch with your team</li><li>Digital concierge</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb5734688dedcf8a6af1bb",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1bb_media-27518402-008-2-scaled.jpeg",
+     "alt": "Work & Share Saint-Cloud — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb5734688dedcf8a6af1bb",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1bb_media-27518402-008-2-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 1"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1d3",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1d3_OK17-3-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 2"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1c4",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1c4_Work-Share-Saint-Cloud-02062023_172743-1-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 3"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1be",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1be_OK20-1-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 4"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1d0",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1d0_OK15-2-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 5"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1c1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1c1_OK6-1-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 6"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1d6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1d6_media-27518402-001-1-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 7"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1c7",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1c7_media-27518402-003-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 8"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af19a",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af19a_Work-Share-Saint-Cloud-02022023_182944-1-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 9"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=RXzdGPUt2W1",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "From 2 desks",
+    "prix-poste-nomade": "From €150 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1,200 m²",
+    "chiffre-postes": 180,
+    "chiffre-salles-de-reunion": 5,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "1 rue Royale",
+    "code-postal": "92210",
+    "ville": "Saint-Cloud",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.84373",
+    "longitude": "2.21827",
+    "station-la-plus-proche": "Pont de Saint-Cloud",
+    "lignes": [
+     "6ae913ecb1901def9695bdc5",
+     "6ae913ecb1901def9695bdc1",
+     "6aeb55a620fa60674d59da8f"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Tram T2 — Pont de Saint-Cloud station</p><p>Line L — Saint-Cloud station</p><p>Metro 10 — Boulogne Pont de Saint-Cloud</p>",
+    "parking": "Private car park, spaces for rent for residents",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Léna",
+    "hote-photo": {
+     "fileId": "6aeb5735688dedcf8a6af1e3",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1e3_TEMPLATES-IG-_-OLD-6.png",
+     "alt": "Léna, coworking manager at Work & Share Saint-Cloud"
+    },
+    "hote-role": "Coworking Manager, Saint-Cloud",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9280a7a97882afbb974d1",
+     "6ae927aab71194d345adc43d",
+     "6ae9280a7a97882afbb974cd"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 8,
+    "seo-titre": "Coworking and flexible offices in Saint-Cloud | Work & Share",
+    "seo-description": "Coworking, shared offices and event spaces: discover what Work & Share offers at our Saint-Cloud space, Les Bureaux de la Colline.",
+    "name": "Saint-Cloud",
+    "slug": "saint-cloud"
+   }
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580e",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:39:02.968Z",
+   "createdOn": "2026-11-04T16:30:24.476Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Joya",
+    "titre-h1": "Work & Share Val de Fontenay, Joya building",
+    "accroche": "In the Joya building, 10 minutes from Gare de Lyon.",
+    "description-courte": "22 private offices · 4,000 m² of outdoor space",
+    "l-espace-en-quelques-mots": "<p>Work &amp; Share is opening a new space in the Joya building in Val de Fontenay, a modern, welcoming environment just 10 minutes from Gare de Lyon.</p><p>Ideally located near the RER A and E and soon connected to metro line 15, this space adapts to every setup: 22 private offices (2 to 24 desks), 4 modular meeting rooms and plenty of shared spaces (friendly bistro, alcoves, phone booths, relaxation areas).</p><p>Joya, certified BREEAM and HQE Excellent, also offers a full range of services: fitness, recording studio, nap rooms, bike club, wellness pods, not to mention 4,000 m² of outdoor space and 5 restaurants for plenty of variety.</p>",
+    "atouts-du-lieu": "<ul><li>Hospitality — A dedicated team managing reception and community life across all spaces</li><li>Varied food offering — Brasserie, food shop, canteen… for a great lunch break</li><li>Fitness area and bike club — To recharge between work sessions</li><li>Clear your mind — Enjoy the 3 terraces and the urban farm</li></ul>",
+    "certifications": "Building certified BREEAM and HQE Excellent",
+    "photo-principale": {
+     "fileId": "6aeb57789427aa5d4be57015",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57789427aa5d4be57015_Hospitality-Work-Share-Val-de-Fontenay.jpeg",
+     "alt": "Work & Share Val de Fontenay — Reception"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb57789427aa5d4be57015",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57789427aa5d4be57015_Hospitality-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Reception"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570a6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570a6_Bureaux-privatifs-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Private offices"
+     },
+     {
+      "fileId": "6aeb57789427aa5d4be57018",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57789427aa5d4be57018_Salle-de-reunion-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Meeting room"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570af",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570af_Coin-chill-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Chill-out corner"
+     },
+     {
+      "fileId": "6aeb57789427aa5d4be57012",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57789427aa5d4be57012_Nomade-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Hot-desking area"
+     },
+     {
+      "fileId": "6aeb57789427aa5d4be5701b",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57789427aa5d4be5701b_Bureau-opere-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Managed office"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be5709d",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be5709d_Hospitality-2-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Reception, overview"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570ac",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570ac_Salle-Event-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Event room"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=TXUk9XuUcN8",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "2 to 24 desks",
+    "prix-poste-nomade": "From €150 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": null,
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": 4,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "198 rue Carnot",
+    "code-postal": "94120",
+    "ville": "Fontenay-sous-Bois",
+    "departement": "6ae913e7e2ba6fb2b8728024",
+    "latitude": "48.85328",
+    "longitude": "2.49223",
+    "station-la-plus-proche": "Val de Fontenay",
+    "lignes": [
+     "6ae913ecb1901def9695bdb7",
+     "6ae913ecb1901def9695bdbd"
+    ],
+    "temps-depuis-paris": "10 min",
+    "venir-detail-des-acces": "<p>RER A and E — Val de Fontenay station</p><p>Coming soon: metro 1, line 15 and tram T1</p><p>10 minutes from Gare de Lyon, 23 minutes from Saint-Lazare</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Méline",
+    "hote-photo": {
+     "fileId": "6aeb57829427aa5d4be570f6",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57829427aa5d4be570f6_TEMPLATES-IG-_-OLD-1.png",
+     "alt": "Méline, coworking manager at Work & Share Val de Fontenay"
+    },
+    "hote-role": "Coworking Manager, Val de Fontenay",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9286d82229bf3ee7b5810",
+     "6ae9280a7a97882afbb974d3",
+     "6ae9286d82229bf3ee7b580a"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 13,
+    "seo-titre": "Coworking and flexible offices in Val de Fontenay | Work & Share",
+    "seo-description": "Coworking, shared offices and event spaces: discover what Work & Share Val de Fontenay offers, 10 minutes from Gare de Lyon.",
+    "name": "Val de Fontenay",
+    "slug": "val-de-fontenay"
+   }
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580c",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:39:02.869Z",
+   "createdOn": "2026-11-04T16:30:24.476Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Arobase",
+    "titre-h1": "Work & Share Cachan, Arobase building",
+    "accroche": "A brand-new building 50 m from the RER B, 20 minutes from Montparnasse.",
+    "description-courte": "Opening November 2026 · 1,171 m² in the Arobase building",
+    "l-espace-en-quelques-mots": "<p>Located at 119-121 avenue Aristide Briand, in the Arobase building, Work &amp; Share Cachan offers 1,171 m² of coworking space, flexible offices and rooms for meetings and business events.</p><p>Designed as a guesthouse for entrepreneurs, our space hosts 220 workstations: private offices, managed offices for large teams and coworking desks, in a new-generation building certified BREEAM Good.</p><p>Residents enjoy a complete environment for working and meeting people: fully equipped meeting rooms, phone booths, work alcoves, social areas and terraces, plus many services in the building.</p><p>Easy access: RER B (Bagneux station) 50 metres away, metro line 4 nearby and the future line 15 of the Grand Paris Express, just 20 minutes from Gare Montparnasse and Orly airport.</p>",
+    "atouts-du-lieu": "<ul><li>Hospitality — A dedicated team managing reception and community life across all spaces</li><li>Varied food offering — Company restaurant for a tasty break</li><li>Showers and changing rooms — To recharge between work sessions</li><li>Clear your mind — Enjoy furnished terraces and patios</li></ul>",
+    "certifications": "Building certified BREEAM Good",
+    "photo-principale": {
+     "fileId": "6aeb564b3e44ea698c9e49e1",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564b3e44ea698c9e49e1_7663-arobase-cam1-10-plaq.jpeg",
+     "alt": "Work & Share Cachan — Building"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb564b3e44ea698c9e49e1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564b3e44ea698c9e49e1_7663-arobase-cam1-10-plaq.jpeg",
+      "alt": "Work & Share Cachan — Building"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": "Opening November 2026",
+    "bureaux-privatifs-tailles": "From 2 desks · 3 floors of 14 to 24 desks",
+    "prix-poste-nomade": "From €150 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1,171 m²",
+    "chiffre-postes": 220,
+    "chiffre-salles-de-reunion": 4,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "119-121 avenue Aristide Briand",
+    "code-postal": "94230",
+    "ville": "Cachan",
+    "departement": "6ae913e7e2ba6fb2b8728024",
+    "latitude": "48.79398",
+    "longitude": "2.32102",
+    "station-la-plus-proche": "Bagneux",
+    "lignes": [
+     "6ae913ecb1901def9695bdb9",
+     "6ae913ecb1901def9695bdb1"
+    ],
+    "temps-depuis-paris": "20 min",
+    "venir-detail-des-acces": "<p>RER B — Bagneux station, 50 m away</p><p>Metro 4 — Bagneux – Lucie Aubrac</p><p>Quick road access to the périphérique ring road (Porte d’Orléans)</p>",
+    "parking": "Private car park in the building",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Mathilde",
+    "hote-photo": {
+     "fileId": "6aeb564c3e44ea698c9e4a00",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564c3e44ea698c9e4a00_TEMPLATES-IG-_-OLD-2.png",
+     "alt": "Mathilde, coworking manager at Work & Share Cachan"
+    },
+    "hote-role": "Coworking Manager, Cachan",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [
+     "6aeb55a7112d2894c701a7a0",
+     "6aeb55a7112d2894c701a7a2",
+     "6aeb55a7112d2894c701a7a4",
+     "6aeb55a7112d2894c701a7a6"
+    ],
+    "espaces-proches": [
+     "6ae9286d82229bf3ee7b5810",
+     "6ae9280a7a97882afbb974cf",
+     "6ae927aab71194d345adc43f"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 12,
+    "seo-titre": "Coworking and flexible offices in Cachan | Work & Share",
+    "seo-description": "Coworking, shared offices and event spaces: discover what Work & Share Cachan offers, 2 min walk from the RER B.",
+    "name": "Cachan",
+    "slug": "cachan"
+   }
+  },
+  {
+   "id": "6ae927aab71194d345adc43f",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:40:23.002Z",
+   "createdOn": "2026-11-04T16:30:24.476Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Carré Vert and Talan",
+    "titre-h1": "Work & Share Levallois-Perret, Carré Vert and Talan",
+    "accroche": "Two managed and private office spaces, a few minutes from metro line 3.",
+    "description-courte": "Managed offices · 2,900 m² across two spaces",
+    "l-espace-en-quelques-mots": "<p>With nearly 2,900 m² across two spaces, Work &amp; Share Levallois-Perret welcomes teams of 2 to 200 people looking for flexibility and comfort.</p><p>At Carré Vert, the 1,670 m² space has 4 managed office floors of 48 to 62 desks. At Talan, the 1,200 m² space offers two floors of 48 and 70 desks, as well as private offices of 2 to 7 desks. Each floor is laid out to suit your needs: open space, closed offices, meeting rooms and phone booths, combining conviviality and privacy.</p><p>Residents also enjoy welcoming shared spaces: a tea room, chill-out corner and locker areas at Carré Vert, and a ground-floor garden at Talan.</p><p>Both spaces are ideally located in Levallois, a few minutes from metro line 3 – Anatole France, and offer a modern, strategic work setting.</p><p>The Work &amp; Share turnkey offer includes all services and a dedicated operations team.</p>",
+    "atouts-du-lieu": "<ul><li>Tea room, chill-out corner and lockers — at Carré Vert</li><li>Ground-floor garden — at Talan</li><li>Dedicated operations team, turnkey services</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb56edf6631f28e64d6044",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6044_0M5A9488-scaled.jpeg",
+     "alt": "Work & Share Levallois-Perret — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb56edf6631f28e64d6044",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6044_0M5A9488-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 1"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d604d",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d604d_0M5A9513-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 2"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d602f",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d602f_0M5A9441-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 3"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d6055",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d6055_0M5A9445-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 4"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d600f",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d600f_0M5A9520-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 5"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6032",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6032_0M5A9524-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 6"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6012",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6012_0M5A9543-Avec-accentuation-Bruit-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 7"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6015",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6015_0M5A9451-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 8"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6028",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6028_0M5A9564-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 9"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": false,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Offices of 2 to 7 desks · floors of 48 to 70 desks",
+    "prix-poste-nomade": null,
+    "prix-poste-dedie": null,
+    "chiffre-surface": "2,900 m²",
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "112 rue Anatole France (Carré Vert) and 91 rue Carnot (Talan)",
+    "code-postal": "92300",
+    "ville": "Levallois-Perret",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.89271",
+    "longitude": "2.28445",
+    "station-la-plus-proche": "Anatole France",
+    "lignes": [
+     "6ae913ecb1901def9695bdaf",
+     "6ae913ecb1901def9695bdc1"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Metro 3 — Anatole France station</p><p>Line L — Clichy-Levallois station</p><p>Bus 93, 94, 174, 238, 274, 275, 341</p><p>Quick access to the périphérique ring road, the A86 and the N315</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Elisabeth",
+    "hote-photo": {
+     "fileId": "6aeb56eef6631f28e64d605b",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d605b_Eli-Cadre.png",
+     "alt": "Elisabeth, senior coworking manager at Work & Share Levallois-Perret"
+    },
+    "hote-role": "Senior Coworking Manager, Levallois-Perret",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae91849a1be7ba7205931b5",
+     "6ae9286d82229bf3ee7b580a",
+     "6ae927aab71194d345adc43d"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 5,
+    "seo-titre": "Managed and private offices in Levallois-Perret | Work & Share",
+    "seo-description": "Managed offices in Levallois-Perret: 2 Work & Share spaces right by metro line 3. Turnkey private floors of 48 to 70 desks.",
+    "name": "Levallois-Perret",
+    "slug": "levallois-perret"
+   }
+  },
+  {
+   "id": "6ae927aab71194d345adc43d",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:40:31.736Z",
+   "createdOn": "2026-11-04T16:30:24.476Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Tour Franklin",
+    "titre-h1": "Work & Share La Défense, Tour Franklin",
+    "accroche": "Two floors of the Tour Franklin, with views across all of Paris.",
+    "description-courte": "3,500 m² across two floors of the Tour Franklin",
+    "l-espace-en-quelques-mots": "<p>Work &amp; Share has moved into the heart of La Défense, in the Tour Franklin: a bright, friendly and flexible space.</p><p>Spread over two floors, our 3,500 m² welcome every profile: from independent entrepreneurs to large, growing teams. The 6th floor offers flexible offices and inspiring open-plan spaces, while the 7th is dedicated to our managed offices, designed for companies of 20 people or more, combining privacy and turnkey services.</p><p>Our private offices are fully equipped and complemented by several meeting rooms, phone booths, lounge areas and a creative room. Residents also enjoy a friendly bistro, a table football room and relaxation areas that encourage people to connect.</p><p>A stone’s throw from lines 1, U, L and the RER A, the space is easy to reach from Paris and its suburbs.</p>",
+    "atouts-du-lieu": "<ul><li>Concierge — 2 separate lobbies with receptionists and a concierge service</li><li>A stunning view — Enjoy views across all of Paris, the Seine and the Bois de Boulogne</li><li>Relaxation area — To recharge between work sessions</li><li>Table football — Take on your colleagues between meetings</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb569e112d2894c701bf9a",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf9a_Espacepartage23.jpeg",
+     "alt": "Work & Share La Défense — Shared space"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb569e112d2894c701bf9a",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf9a_Espacepartage23.jpeg",
+      "alt": "Work & Share La Défense — Shared space"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf83",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf83_Espace-partage-1-1-scaled.jpeg",
+      "alt": "Work & Share La Défense — Shared space, overview"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701bff2",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701bff2_Salon-blanc-1-scaled.jpeg",
+      "alt": "Work & Share La Défense — White lounge"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c013",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c013_Bureau-privatif-1-1-scaled.jpeg",
+      "alt": "Work & Share La Défense — Private office"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701bfeb",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701bfeb_Espacepartage37.jpeg",
+      "alt": "Work & Share La Défense — Relaxation corner"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c005",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c005_Nomade-1-8-1-scaled.jpeg",
+      "alt": "Work & Share La Défense — Hot-desking area"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c022",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c022_SDR-1-1-scaled.jpeg",
+      "alt": "Work & Share La Défense — Meeting room"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c040",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c040_Salle-Event-1-3-scaled.jpeg",
+      "alt": "Work & Share La Défense — Event room"
+     },
+     {
+      "fileId": "6aeb56a0112d2894c701c053",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56a0112d2894c701c053_Bistrot-2-copie-scaled.jpeg",
+      "alt": "Work & Share La Défense — Bistro"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c043",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c043_Bureau-opere-3-scaled.jpeg",
+      "alt": "Work & Share La Défense — Managed office"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c03d",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c03d_Coin-chill-scaled.jpeg",
+      "alt": "Work & Share La Défense — Chill-out corner"
+     },
+     {
+      "fileId": "6aeb56a0112d2894c701c05f",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56a0112d2894c701c05f_Salle-de-reunion-Ecailles-4-scaled.jpeg",
+      "alt": "Work & Share La Défense — Écailles meeting room"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c034",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c034_Salle-de-reunion-Velvet-scaled.jpeg",
+      "alt": "Work & Share La Défense — Velvet meeting room"
+     },
+     {
+      "fileId": "6aeb56a0112d2894c701c04e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56a0112d2894c701c04e_Bureau-opere-2-scaled.jpeg",
+      "alt": "Work & Share La Défense — Managed office, open floor"
+     },
+     {
+      "fileId": "6aeb56a0112d2894c701c04b",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56a0112d2894c701c04b_Bistrot-3-scaled.jpeg",
+      "alt": "Work & Share La Défense — Bistro, overview"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=6wXX8pNfS3f",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "From 2 desks · managed offices from 20 people",
+    "prix-poste-nomade": "From €150 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "3,500 m²",
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "100 terrasse Boieldieu, Tour Franklin",
+    "code-postal": "92800",
+    "ville": "Puteaux",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.88929",
+    "longitude": "2.24075",
+    "station-la-plus-proche": "La Défense",
+    "lignes": [
+     "6ae913ecb1901def9695bdb7",
+     "6ae913ecb1901def9695bdad",
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdc3"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>RER A, metro 1, lines L and U — La Défense station</p><p>Many buses: 73, 141, 144, 159, 174, 258, 275, 276, 278, 360</p><p>Direct links to the N13, N1013 and A14</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Victoire",
+    "hote-photo": {
+     "fileId": "6aeb56a0112d2894c701c07c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56a0112d2894c701c07c_TEMPLATE-DE-POST-IG-73.png",
+     "alt": "Victoire, coworking manager at Work & Share La Défense"
+    },
+    "hote-role": "Coworking Manager, La Défense",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9280a7a97882afbb974d1",
+     "6ae927aab71194d345adc441",
+     "6ae9274c2d2afb91f79ab483"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 4,
+    "seo-titre": "Coworking and flexible offices in La Défense | Work & Share",
+    "seo-description": "Coworking, private offices and managed offices across two floors of the Tour Franklin in La Défense: views across Paris, right by the RER A and metro 1.",
+    "name": "La Défense",
+    "slug": "la-defense"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d3",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:39:02.976Z",
+   "createdOn": "2026-11-04T16:30:24.475Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Carré Pleyel",
+    "titre-h1": "Work & Share Saint-Denis, Carré Pleyel building",
+    "accroche": "Right on lines 13 and 14, 6 stops from Saint-Lazare.",
+    "description-courte": "150 m² terrace with views over Paris",
+    "l-espace-en-quelques-mots": "<p>Located at 5 rue Pleyel in Saint-Denis, right on lines 13 and 14 and just 6 stops from Saint-Lazare, Work &amp; Share enjoys a strategic location.</p><p>On the 6th floor of the fully renovated Carré Pleyel, the space gives access to many services: reception, concierge, Club Med Gym fitness area, auditorium, meeting rooms, company restaurant and healthy café.</p><p>Also enjoy a 150 m² terrace with stunning views over Paris, and a lively neighbourhood full of shops and restaurants.</p><p>For getting around, the space is served by the RER B and D, directly connected to the A1 and A86, with a private car park and Paris just 10 minutes away by bike.</p>",
+    "atouts-du-lieu": "<ul><li>150 m² furnished terrace — With views over Paris</li><li>Club Med Gym fitness area in the building</li><li>Parking — Spaces reserved for rent for our residents</li><li>Registered business address — From €42 excl. VAT / month</li><li>Hospitality — A dedicated team managing the building and its community life</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb5734688dedcf8a6af1a9",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1a9_01-WorkShare_SaintDenis_ClarisseGallois_5865.jpeg",
+     "alt": "Work & Share Saint-Denis — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb5734688dedcf8a6af1a9",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1a9_01-WorkShare_SaintDenis_ClarisseGallois_5865.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 1"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af197",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af197_04-WorkShare_SaintDenis_ClarisseGallois_5745.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 2"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1b7",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1b7_06-WorkShare_SaintDenis_ClarisseGallois_5797.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 3"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af192",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af192_13-WorkShare_SaintDenis_ClarisseGallois_5957.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 4"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1a3",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1a3_15-WorkShare_SaintDenis_ClarisseGallois_6038.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 5"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1a0",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1a0_16-WorkShare_SaintDenis_ClarisseGallois_6049.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 6"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1b4",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1b4_25-WorkShare_SaintDenis_ClarisseGallois_6154.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 7"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1b1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1b1_32-WorkShare_SaintDenis_ClarisseGallois_6245.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 8"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1cb",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1cb_DSC_0091-scaled.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 9"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=i5exW8iyxpi",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": true,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "From 2 desks",
+    "prix-poste-nomade": "From €150 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": null,
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "5 rue Pleyel",
+    "code-postal": "93200",
+    "ville": "Saint-Denis",
+    "departement": "6ae913e7e2ba6fb2b8728022",
+    "latitude": "48.91948",
+    "longitude": "2.34499",
+    "station-la-plus-proche": "Saint-Denis Pleyel",
+    "lignes": [
+     "6ae913ecb1901def9695bdb5",
+     "6ae913ecb1901def9695bdb3"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Metro 14 — Saint-Denis Pleyel station</p><p>Metro 13 — Carrefour Pleyel station</p><p>Bus 139, 255 and 274</p><p>Direct access to the périphérique ring road and the A86</p>",
+    "parking": "Private car park, spaces for rent for residents",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Nadja",
+    "hote-photo": {
+     "fileId": "6aeb5735688dedcf8a6af1dd",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1dd_TEMPLATES-IG-_-OLD.png",
+     "alt": "Nadja, coworking manager at Work & Share Saint-Denis"
+    },
+    "hote-role": "Coworking Manager, Saint-Denis",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9286d82229bf3ee7b580a",
+     "6ae91849a1be7ba7205931b5",
+     "6ae927aab71194d345adc43f"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 10,
+    "seo-titre": "Coworking and flexible offices in Saint-Denis | Work & Share",
+    "seo-description": "Coworking, shared offices and event spaces: discover what Work & Share offers at our Saint-Denis Pleyel space.",
+    "name": "Saint-Denis",
+    "slug": "saint-denis"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cd",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:40:32.244Z",
+   "createdOn": "2026-11-04T16:30:24.475Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Online",
+    "titre-h1": "Work & Share Rueil-Malmaison, Online building",
+    "accroche": "In the heart of Rueil-sur-Seine, near the RER A station.",
+    "description-courte": "1,510 m² · green atrium",
+    "l-espace-en-quelques-mots": "<p>Located at 1 place Louis Renault in Rueil-Malmaison, in the heart of the Rueil-sur-Seine district, Work &amp; Share Rueil-Malmaison offers 1,510 m² of coworking space, flexible offices and rooms for meetings and business events.</p><p>Designed as a guesthouse for entrepreneurs, our space hosts nearly 250 workstations across private offices, managed offices for large teams and coworking desks, in the Online building — a new-generation building certified HQE Excellent and BREEAM Very Good.</p><p>Residents enjoy a complete environment for working and meeting people: fully equipped meeting rooms, phone booths, social areas, plus many services in the building (shared company restaurant, green atrium, terraces, car park, bike storage…).</p><p>Easy access: Rueil-Malmaison station (RER A) right nearby, with quick access to the A86 and La Défense. Work &amp; Share also has a second space in Rueil-Malmaison, for a total of nearly 5,000 m² in the town.</p>",
+    "atouts-du-lieu": "<ul><li>Green central atrium — For a well-deserved break in the sun</li><li>Private parking — Spaces reserved for rent for our residents</li><li>Private hire of the space — For events of up to 100 people (on quote)</li></ul>",
+    "certifications": "Building certified HQE Excellent and BREEAM Very Good",
+    "photo-principale": {
+     "fileId": "6aeb56eef6631f28e64d60a6",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60a6_DSC_1090-1.jpeg",
+     "alt": "Work & Share Rueil-Malmaison — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb56eef6631f28e64d60a6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60a6_DSC_1090-1.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — photo 1"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d60c0",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60c0_Nomade-3-e1640876534902.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Hot-desking area"
+     },
+     {
+      "fileId": "6aeb56eff6631f28e64d60d2",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60d2_Communs.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Common areas"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d60bc",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60bc_Bureaux-1.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Offices"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d60b1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60b1_Nomade-1-9.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Hot-desking area, overview"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d60b4",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60b4_DSC_1055-min-3.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — photo 7"
+     },
+     {
+      "fileId": "6aeb56eff6631f28e64d60c6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60c6_Board-Room-1.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Board Room"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d60b9",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60b9_Retro-1-scaled.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Rétro room"
+     },
+     {
+      "fileId": "6aeb56eff6631f28e64d60cd",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60cd_Creative-Room-2-1-1.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Creative Room"
+     },
+     {
+      "fileId": "6aeb56eff6631f28e64d60ca",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60ca_Jardin-1-IMG_7840.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Garden"
+     },
+     {
+      "fileId": "6aeb56eff6631f28e64d60d8",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60d8_Jardin-3-IMG_7850.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Garden lounge"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "From 2 desks",
+    "prix-poste-nomade": "From €150 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1,510 m²",
+    "chiffre-postes": 250,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": 100,
+    "adresse": "1 place Louis Renault",
+    "code-postal": "92500",
+    "ville": "Rueil-Malmaison",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.88849",
+    "longitude": "2.17296",
+    "station-la-plus-proche": "Rueil-Malmaison",
+    "lignes": [
+     "6ae913ecb1901def9695bdb7"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>RER A — Rueil-Malmaison station</p><p>Vélib’ bike station opposite the space</p><p>Quick access to the A86 and La Défense</p>",
+    "parking": "Private car park, spaces for rent for residents",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Mathilde",
+    "hote-photo": {
+     "fileId": "6aeb564c3e44ea698c9e4a00",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564c3e44ea698c9e4a00_TEMPLATES-IG-_-OLD-2.png",
+     "alt": "Mathilde, coworking manager at Work & Share Rueil-Malmaison"
+    },
+    "hote-role": "Coworking Manager, Rueil-Malmaison",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae927aab71194d345adc441",
+     "6ae9280a7a97882afbb974d1",
+     "6ae927aab71194d345adc43d"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 7,
+    "seo-titre": "Coworking and flexible offices in Rueil-Malmaison | Work & Share",
+    "seo-description": "Coworking, shared offices and event spaces: discover what Work & Share offers at our Rueil-Malmaison space, a stone’s throw from the RER A.",
+    "name": "Rueil-Malmaison",
+    "slug": "rueil-malmaison"
+   }
+  },
+  {
+   "id": "6ae927aab71194d345adc43b",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:40:32.992Z",
+   "createdOn": "2026-11-04T16:30:24.475Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "EOS",
+    "titre-h1": "Work & Share Issy-les-Moulineaux, Business Center EOS",
+    "accroche": "A Business Center entirely dedicated to your events, for up to 460 attendees.",
+    "description-courte": "EOS Business Center · events for up to 460 attendees",
+    "l-espace-en-quelques-mots": "<p>At the heart of the EOS office complex in Issy-les-Moulineaux, Work &amp; Share is opening a 2,800 m² Business Center entirely dedicated to business events, for up to 460 attendees.</p><ul><li>2 auditoriums and 1 amphitheatre (50 to 230 seats)</li><li>1 immersive room and 1 virtual studio</li><li>1 large, fully equipped meeting room</li><li>An event space with a bar for cocktails and afterworks</li></ul><p>With a permanent technical control room and 4 dedicated Event Managers, your conferences, seminars, product launches or film shoots are organised on a turnkey basis, from concept to delivery.</p>",
+    "atouts-du-lieu": "<ul><li>Two auditoriums and an amphitheatre, from 50 to 230 seats</li><li>An immersive room and a virtual studio</li><li>A cocktail area with a bar</li><li>A permanent technical control room and 4 dedicated Event Managers</li><li>Catering, from breakfast to cocktails</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb569d112d2894c701bf3d",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf3d_1-WorkShare_BD_Clarisse-Gallois_9911.jpeg",
+     "alt": "Work & Share Issy-les-Moulineaux — Cocktail area"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb569d112d2894c701bf3d",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf3d_1-WorkShare_BD_Clarisse-Gallois_9911.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Cocktail area"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf33",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf33_4-WorkShare_BD_Clarisse-Gallois_9943.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Grand Bleu auditorium"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf6b",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf6b_10-WorkShare_BD_Clarisse-Gallois_0070.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Reception"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf30",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf30_12-WorkShare_BD_Clarisse-Gallois_0109.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Changing rooms"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf53",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf53_17-WorkShare_BD_Clarisse-Gallois_0162.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Prairie amphitheatre"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf2d",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf2d_23-WorkShare_BD_Clarisse-Gallois_0231.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Virtual studio"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf56",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf56_25-WorkShare_BD_Clarisse-Gallois_0253.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Creative Room"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf68",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf68_26-WorkShare_BD_Clarisse-Gallois_0264.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Rubis amphitheatre"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf60",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf60_33-WorkShare_BD_Clarisse-Gallois_0419.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — AI classroom"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": false,
+    "offre-coworking": false,
+    "offre-salles": true,
+    "offre-bureaux-operes": false,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": null,
+    "prix-poste-nomade": null,
+    "prix-poste-dedie": null,
+    "chiffre-surface": "2,800 m²",
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": 460,
+    "adresse": "41 quai du Président Roosevelt",
+    "code-postal": "92130",
+    "ville": "Issy-les-Moulineaux",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.83383",
+    "longitude": "2.26547",
+    "station-la-plus-proche": "Issy Val de Seine",
+    "lignes": [
+     "6ae913ecb1901def9695bdbb",
+     "6ae913ecb1901def9695bdc5"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>RER C — Issy Val de Seine station</p><p>Tram T2 — Henri Farman station</p><p>Bus 126 and 189</p><p>Direct link to the périphérique ring road</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Jean-Charles",
+    "hote-photo": {
+     "fileId": "6aeb569f112d2894c701bffc",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701bffc_TEMPLATES-IG-_-OLD-3.png",
+     "alt": "Jean-Charles, senior event manager at Work & Share Issy-les-Moulineaux"
+    },
+    "hote-role": "Senior Event Manager, EOS Business Center",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9280a7a97882afbb974cf",
+     "6ae9280a7a97882afbb974d1",
+     "6ae9286d82229bf3ee7b580c"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 3,
+    "seo-titre": "EOS Business Center in Issy-les-Moulineaux: seminars and events | Work & Share",
+    "seo-description": "Auditoriums, amphitheatre, virtual studio and cocktail area: a 2,800 m² Business Center dedicated to business events, for up to 460 attendees.",
+    "name": "Issy-les-Moulineaux",
+    "slug": "issy-les-moulineaux"
+   }
+  },
+  {
+   "id": "6ae91849a1be7ba7205931b5",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:40:33.159Z",
+   "createdOn": "2026-11-04T16:30:24.475Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Clichy, Blaaack building",
+    "accroche": "A rooftop with views over Paris, and a team that opens the door for you.",
+    "description-courte": "Rooftop with views over Paris · 1,840 m² in the Blaaack building",
+    "l-espace-en-quelques-mots": "<p>Our coworking space in Clichy occupies 1,840 m² of the Blaaack building, on the border with Levallois-Perret. Coworking desks, private offices to rent, managed floors and meeting rooms: it’s all under one roof, with a rooftop looking out over Paris for breaks and lunches in the sun.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop with views over Paris</li><li>Fitness room</li><li>Food on site</li><li>Secure underground car park, spaces for rent by the month</li></ul>",
+    "certifications": "Building certified BREEAM and NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Tree-lined atrium of the Blaaack building in Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Bright open space at Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb564c3e44ea698c9e49fd",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564c3e44ea698c9e49fd_rooftop.png",
+      "alt": "Work & Share Clichy — Rooftop"
+     },
+     {
+      "fileId": "6aeb564c3e44ea698c9e4a03",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564c3e44ea698c9e4a03_Blaaack-Accueil.png",
+      "alt": "Work & Share Clichy — Blaaack building, Reception"
+     },
+     {
+      "fileId": "6aeb564b3e44ea698c9e49f2",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564b3e44ea698c9e49f2_Blaaack-Accueil-B.jpeg",
+      "alt": "Work & Share Clichy — Blaaack building, Reception B"
+     },
+     {
+      "fileId": "6aeb564b3e44ea698c9e49f6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564b3e44ea698c9e49f6_Blaaack-Immeuble.jpeg",
+      "alt": "Work & Share Clichy — Blaaack building"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "From 2 desks",
+    "prix-poste-nomade": "From €150 excl. VAT / month",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1,840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Clichy",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.90453",
+    "longitude": "2.29881",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Line L — Clichy-Levallois station</p><p>Metro 13 — Mairie de Clichy station</p>",
+    "parking": "Private parking spaces for rent for residents",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6aeb564c3e44ea698c9e4a06",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564c3e44ea698c9e4a06_TEMPLATES-IG-_-OLD.png",
+     "alt": "Clara, coworking manager at Work & Share Clichy"
+    },
+    "hote-role": "Coworking Manager, Clichy",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": [
+     "6ae927aab71194d345adc43f",
+     "6ae9286d82229bf3ee7b580a",
+     "6ae9280a7a97882afbb974d3"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 1,
+    "seo-titre": "Coworking and offices to rent in Clichy, Blaaack building | Work & Share",
+    "seo-description": "Coworking, private offices, managed offices and meeting rooms in Clichy, in the Blaaack building: rooftop with views over Paris, 6 min from train line L.",
+    "name": "Clichy",
+    "slug": "clichy"
+   }
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b5810",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.705Z",
+   "createdOn": "2026-11-03T00:18:53.741Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Byos",
+    "titre-h1": "Work & Share Villejuif, Campus Grand Parc",
+    "accroche": "Le métro 14 en pied d’immeuble, au cœur du Campus Grand Parc.",
+    "description-courte": "1 800 m² · métro 14 en pied d’immeuble",
+    "l-espace-en-quelques-mots": "<p>Situé 116 rue Édouard Vaillant à Villejuif, au cœur du Campus Grand Parc, Work &amp; Share Villejuif propose 1 800 m² d’espaces de coworking, de bureaux flexibles à partir de 2 postes et de salles dédiées aux réunions et événements professionnels.</p><p>Pensé comme une maison d’hôtes pour entrepreneurs, notre espace accueille plus de 250 postes de travail répartis entre bureaux privatifs, bureaux opérés pour grandes équipes et postes en coworking, dans un immeuble nouvelle génération certifié pour sa performance environnementale.</p><p>Les résidents profitent d’un environnement complet pour travailler et se rencontrer : salles de réunion équipées, phonebox, espaces de convivialité et terrasse, ainsi que de nombreux services dans l’immeuble Byos (RIE, barista, Business Center, douches et vestiaires…).</p><p>Accès facile : station Villejuif – Gustave Roussy (ligne 14 et future ligne 15) en pied d’immeuble, accès rapide à l’A6 et à l’aéroport d’Orly.</p>",
+    "atouts-du-lieu": "<ul><li>Hospitality — Équipe dédiée à la gestion de l’accueil et l’animation de l’ensemble des espaces</li><li>Offre de restauration variée — Barista et restaurant d’entreprise pour une pause gourmande réussie</li><li>Douches et vestiaires — Pour vous ressourcer entre deux sessions de travail</li><li>Aérez votre esprit — Profitez d’une terrasse panoramique aménagée</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb57819427aa5d4be570e1",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57819427aa5d4be570e1_04-WorkShare_Villejuif_ClarisseGallois-9045-1.jpeg",
+     "alt": "Work & Share Villejuif — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb57819427aa5d4be570e1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57819427aa5d4be570e1_04-WorkShare_Villejuif_ClarisseGallois-9045-1.jpeg",
+      "alt": "Work & Share Villejuif — photo 1"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570a3",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570a3_09-WorkShare_Villejuif_ClarisseGallois-2041-1.jpeg",
+      "alt": "Work & Share Villejuif — photo 2"
+     },
+     {
+      "fileId": "6aeb57819427aa5d4be570ea",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57819427aa5d4be570ea_13-WorkShare_Villejuif_ClarisseGallois-9204.jpeg",
+      "alt": "Work & Share Villejuif — photo 3"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570a9",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570a9_25-WorkShare_Villejuif_ClarisseGallois-9321.jpeg",
+      "alt": "Work & Share Villejuif — photo 4"
+     },
+     {
+      "fileId": "6aeb57819427aa5d4be570e7",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57819427aa5d4be570e7_29-WorkShare_Villejuif_ClarisseGallois-9451.jpeg",
+      "alt": "Work & Share Villejuif — photo 5"
+     },
+     {
+      "fileId": "6aeb57819427aa5d4be570ed",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57819427aa5d4be570ed_60-WorkShare_Villejuif_ClarisseGallois-9784.jpeg",
+      "alt": "Work & Share Villejuif — photo 6"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=v27wBXz5rJ9",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Dès 2 postes",
+    "prix-poste-nomade": "Dès 100 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1 800 m²",
+    "chiffre-postes": 250,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "116 rue Édouard Vaillant",
+    "code-postal": "94800",
+    "ville": "Villejuif",
+    "departement": "6ae913e7e2ba6fb2b8728024",
+    "latitude": "48.79306",
+    "longitude": "2.35792",
+    "station-la-plus-proche": "Villejuif – Gustave Roussy",
+    "lignes": [
+     "6ae913ecb1901def9695bdb5"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Métro 14 — station Villejuif – Gustave Roussy, en pied d’immeuble</p><p>Accès rapide à l’A6 et à l’aéroport d’Orly</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Marine",
+    "hote-photo": {
+     "fileId": "6aeb57839427aa5d4be57119",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57839427aa5d4be57119_TEMPLATES-IG-_-OLD.png",
+     "alt": "Marine, coworking manager de Work & Share Villejuif"
+    },
+    "hote-role": "Coworking Manager de Villejuif",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9286d82229bf3ee7b580c",
+     "6ae9280a7a97882afbb974cf",
+     "6ae9286d82229bf3ee7b580e"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 14,
+    "seo-titre": "Coworking et bureaux flexibles à Villejuif | Work & Share",
+    "seo-description": "Bureaux privatifs dès 2 postes, coworking et salles de réunion au Campus Grand Parc à Villejuif, au pied de la ligne 14. Visitez notre espace.",
+    "name": "Villejuif",
+    "slug": "villejuif"
+   }
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580e",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.703Z",
+   "createdOn": "2026-11-03T00:18:51.821Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Joya",
+    "titre-h1": "Work & Share Val de Fontenay, immeuble Joya",
+    "accroche": "Dans l’immeuble Joya, à 10 minutes de la gare de Lyon.",
+    "description-courte": "22 bureaux privatifs · 4 000 m² d’extérieurs",
+    "l-espace-en-quelques-mots": "<p>Work &amp; Share ouvre un nouvel espace au sein du bâtiment Joya à Val de Fontenay, un environnement moderne et chaleureux à seulement 10 minutes de la gare de Lyon.</p><p>Idéalement situé à proximité des RER A et E et bientôt relié à la ligne 15 du métro, cet espace s’adapte à toutes les configurations : 22 bureaux privatifs (2 à 24 postes), 4 salles de réunion modulables et de nombreux espaces partagés (bistrot convivial, alcôves, phonebox, zones de détente).</p><p>Joya, certifié BREEAM et HQE Excellent, propose également une offre complète de services : fitness, studio d’enregistrement, salles de sieste, bike club, bulles de bien-être, sans oublier 4 000 m² d’espaces extérieurs et 5 restaurants pour varier les plaisirs.</p>",
+    "atouts-du-lieu": "<ul><li>Hospitality — Équipe dédiée à la gestion de l’accueil et l’animation de l’ensemble des espaces</li><li>Offre de restauration variée — Brasserie, food shop, cantine… pour une pause déjeuner réussie</li><li>Espace fitness et bike club — Pour vous ressourcer entre deux sessions de travail</li><li>Aérez votre esprit — Profitez des 3 terrasses ainsi que de la ferme urbaine</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et HQE Excellent",
+    "photo-principale": {
+     "fileId": "6aeb57789427aa5d4be57015",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57789427aa5d4be57015_Hospitality-Work-Share-Val-de-Fontenay.jpeg",
+     "alt": "Work & Share Val de Fontenay — Accueil"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb57789427aa5d4be57015",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57789427aa5d4be57015_Hospitality-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Accueil"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570a6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570a6_Bureaux-privatifs-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Bureaux privatifs"
+     },
+     {
+      "fileId": "6aeb57789427aa5d4be57018",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57789427aa5d4be57018_Salle-de-reunion-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Salle de réunion"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570af",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570af_Coin-chill-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Coin chill"
+     },
+     {
+      "fileId": "6aeb57789427aa5d4be57012",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57789427aa5d4be57012_Nomade-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Espace nomade"
+     },
+     {
+      "fileId": "6aeb57789427aa5d4be5701b",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57789427aa5d4be5701b_Bureau-opere-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Bureau opéré"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be5709d",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be5709d_Hospitality-2-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Accueil, vue d’ensemble"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570ac",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570ac_Salle-Event-Work-Share-Val-de-Fontenay.jpeg",
+      "alt": "Work & Share Val de Fontenay — Salle événementielle"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=TXUk9XuUcN8",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "De 2 à 24 postes",
+    "prix-poste-nomade": "Dès 150 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": null,
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": 4,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "198 rue Carnot",
+    "code-postal": "94120",
+    "ville": "Fontenay-sous-Bois",
+    "departement": "6ae913e7e2ba6fb2b8728024",
+    "latitude": "48.85328",
+    "longitude": "2.49223",
+    "station-la-plus-proche": "Val de Fontenay",
+    "lignes": [
+     "6ae913ecb1901def9695bdb7",
+     "6ae913ecb1901def9695bdbd"
+    ],
+    "temps-depuis-paris": "10 min",
+    "venir-detail-des-acces": "<p>RER A et E — gare de Val de Fontenay</p><p>Bientôt : métro 1, ligne 15 et tram T1</p><p>10 minutes de la gare de Lyon, 23 minutes de Saint-Lazare</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Méline",
+    "hote-photo": {
+     "fileId": "6aeb57829427aa5d4be570f6",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57829427aa5d4be570f6_TEMPLATES-IG-_-OLD-1.png",
+     "alt": "Méline, coworking manager de Work & Share Val de Fontenay"
+    },
+    "hote-role": "Coworking Manager de Val de Fontenay",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9286d82229bf3ee7b5810",
+     "6ae9280a7a97882afbb974d3",
+     "6ae9286d82229bf3ee7b580a"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 13,
+    "seo-titre": "Coworking et bureaux flexibles à Val de Fontenay | Work & Share",
+    "seo-description": "Coworking, bureaux partagés et espaces événementiels : découvrez l'offre Work & Share Val de Fontenay, à 10 minutes de la gare de Lyon.",
+    "name": "Val de Fontenay",
+    "slug": "val-de-fontenay"
+   }
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580c",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.685Z",
+   "createdOn": "2026-11-03T00:18:49.944Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Arobase",
+    "titre-h1": "Work & Share Cachan, immeuble Arobase",
+    "accroche": "Un immeuble neuf à 50 m du RER B, à 20 minutes de Montparnasse.",
+    "description-courte": "Ouverture en novembre 2026 · 1 171 m² dans l’immeuble Arobase",
+    "l-espace-en-quelques-mots": "<p>Situé au 119-121 avenue Aristide Briand, au sein de l’immeuble Arobase, Work &amp; Share Cachan propose 1 171 m² d’espaces de coworking, de bureaux flexibles et de salles dédiées aux réunions et événements professionnels.</p><p>Pensé comme une maison d’hôtes pour entrepreneurs, notre espace accueille 220 postes de travail : bureaux privatifs, bureaux opérés pour grandes équipes et postes en coworking, dans un immeuble nouvelle génération certifié BREEAM Good.</p><p>Les résidents profitent d’un environnement complet pour travailler et se rencontrer : salles de réunion équipées, phone box, alcôves de travail, espaces de convivialité et terrasses, ainsi que de nombreux services dans l’immeuble.</p><p>Accès facile : RER B (station Bagneux) à 50 mètres, métro ligne 4 à proximité et future ligne 15 du Grand Paris Express, à seulement 20 minutes de la Gare Montparnasse et de l’aéroport d’Orly.</p>",
+    "atouts-du-lieu": "<ul><li>Hospitality — Équipe dédiée à la gestion de l’accueil et l’animation de l’ensemble des espaces</li><li>Offre de restauration variée — Restaurant d’entreprise pour une pause gourmande réussie</li><li>Douches et vestiaires — Pour vous ressourcer entre deux sessions de travail</li><li>Aérez votre esprit — Profitez de terrasses et patios aménagés</li></ul>",
+    "certifications": "Immeuble certifié BREEAM Good",
+    "photo-principale": {
+     "fileId": "6aeb564b3e44ea698c9e49e1",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564b3e44ea698c9e49e1_7663-arobase-cam1-10-plaq.jpeg",
+     "alt": "Work & Share Cachan — Immeuble"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb564b3e44ea698c9e49e1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564b3e44ea698c9e49e1_7663-arobase-cam1-10-plaq.jpeg",
+      "alt": "Work & Share Cachan — Immeuble"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": "Ouverture en novembre 2026",
+    "bureaux-privatifs-tailles": "Dès 2 postes · 3 plateaux de 14 à 24 postes",
+    "prix-poste-nomade": "Dès 150 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1 171 m²",
+    "chiffre-postes": 220,
+    "chiffre-salles-de-reunion": 4,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "119-121 avenue Aristide Briand",
+    "code-postal": "94230",
+    "ville": "Cachan",
+    "departement": "6ae913e7e2ba6fb2b8728024",
+    "latitude": "48.79398",
+    "longitude": "2.32102",
+    "station-la-plus-proche": "Bagneux",
+    "lignes": [
+     "6ae913ecb1901def9695bdb9",
+     "6ae913ecb1901def9695bdb1"
+    ],
+    "temps-depuis-paris": "20 min",
+    "venir-detail-des-acces": "<p>RER B — station Bagneux, à 50 m</p><p>Métro 4 — Bagneux – Lucie Aubrac</p><p>Accès routier rapide au périphérique (porte d’Orléans)</p>",
+    "parking": "Parking privatif dans l’immeuble",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Mathilde",
+    "hote-photo": {
+     "fileId": "6aeb564c3e44ea698c9e4a00",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564c3e44ea698c9e4a00_TEMPLATES-IG-_-OLD-2.png",
+     "alt": "Mathilde, coworking manager de Work & Share Cachan"
+    },
+    "hote-role": "Coworking Manager de Cachan",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [
+     "6aeb55a7112d2894c701a7a0",
+     "6aeb55a7112d2894c701a7a2",
+     "6aeb55a7112d2894c701a7a4",
+     "6aeb55a7112d2894c701a7a6"
+    ],
+    "espaces-proches": [
+     "6ae9286d82229bf3ee7b5810",
+     "6ae9280a7a97882afbb974cf",
+     "6ae927aab71194d345adc43f"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 12,
+    "seo-titre": "Coworking et bureaux flexibles à Cachan | Work & Share",
+    "seo-description": "Coworking, bureaux partagés et espaces événementiels : découvrez l'offre Work & Share Cachan, à 2 min à pied du RER B.",
+    "name": "Cachan",
+    "slug": "cachan"
+   }
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580a",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.701Z",
+   "createdOn": "2026-11-03T00:18:48.232Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": null,
+    "titre-h1": "Work & Share Saint-Ouen",
+    "accroche": "Un ancien bâtiment industriel réhabilité, à 2 minutes du métro 14.",
+    "description-courte": "27 bureaux privatifs · terrasse ensoleillée",
+    "l-espace-en-quelques-mots": "<p>Bienvenue chez Work &amp; Share Saint-Ouen, au 3 place Martin Levasseur, dans un ancien bâtiment industriel entièrement réhabilité en un espace moderne et convivial.</p><p>Sur 1 500 m², l’espace propose 27 bureaux privatifs, des zones de coworking flexibles, ainsi qu’une salle événementielle de 80 m² et des salles de réunion pour tous vos projets.</p><p>Idéalement situé à 2 minutes de la ligne 14 et du RER C, et proche de la ligne 13, vous rejoignez le centre de Paris en seulement 15 minutes.</p><p>Pour vos pauses, profitez de notre coin Barista et de notre grand bistrot, ou détendez-vous sur notre terrasse privative ensoleillée.</p>",
+    "atouts-du-lieu": "<ul><li>Terrasse privative ensoleillée — Pour une pause au soleil, entre deux réunions</li><li>Coin barista et grand bistrot</li><li>Privatisation de l’espace — Pour vos événements professionnels jusqu’à 120 personnes</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb5735688dedcf8a6af1e6",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1e6_17-WorkShare_SaintOuen_ClarisseGallois_BD_3918.jpeg",
+     "alt": "Work & Share Saint-Ouen — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb5735688dedcf8a6af1e6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1e6_17-WorkShare_SaintOuen_ClarisseGallois_BD_3918.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 1"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1fe",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1fe_DSC_2871.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 2"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1e0",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1e0_bxb9gg6mppyf2bfin5x7.webp",
+      "alt": "Work & Share Saint-Ouen — Salle événementielle"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1ee",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1ee_t0v8zvtylq1napecpvym.webp",
+      "alt": "Work & Share Saint-Ouen — Terrasse"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1fa",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1fa_5-WorkShare_SaintOuen_ClarisseGallois_BD_3519.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 5"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1f1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1f1_10-WorkShare_SaintOuen_ClarisseGallois_BD_3654.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 6"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1f7",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1f7_20-WorkShare_SaintOuen_ClarisseGallois_BD_4030.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 7"
+     },
+     {
+      "fileId": "6aeb5735688dedcf8a6af1f4",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1f4_27-WorkShare_SaintOuen_ClarisseGallois_BD_4112.jpeg",
+      "alt": "Work & Share Saint-Ouen — photo 8"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=tvBHvDDkxXx",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Dès 2 postes",
+    "prix-poste-nomade": "Dès 150 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1 500 m²",
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": 120,
+    "adresse": "3 place Martin Levasseur",
+    "code-postal": "93400",
+    "ville": "Saint-Ouen-sur-Seine",
+    "departement": "6ae913e7e2ba6fb2b8728022",
+    "latitude": "48.90451",
+    "longitude": "2.32424",
+    "station-la-plus-proche": "Saint-Ouen",
+    "lignes": [
+     "6ae913ecb1901def9695bdb5",
+     "6ae913ecb1901def9695bdbb",
+     "6ae913ecb1901def9695bdb3"
+    ],
+    "temps-depuis-paris": "15 min",
+    "venir-detail-des-acces": "<p>Métro 14 et RER C — station Saint-Ouen, à 2 min à pied</p><p>Métro 13 — station Garibaldi</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Morgan",
+    "hote-photo": {
+     "fileId": "6aeb5735688dedcf8a6af218",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af218_TEMPLATES-IG-_-OLD-2.png",
+     "alt": "Morgan, coworking manager de Work & Share Saint-Ouen"
+    },
+    "hote-role": "Coworking Manager de Saint-Ouen",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae91849a1be7ba7205931b5",
+     "6ae9280a7a97882afbb974d3",
+     "6ae927aab71194d345adc43f"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 11,
+    "seo-titre": "Coworking et bureaux flexibles à Saint-Ouen | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs et salle événementielle à Saint-Ouen, dans un ancien bâtiment industriel réhabilité, à 2 min du métro 14 et du RER C.",
+    "name": "Saint-Ouen",
+    "slug": "saint-ouen"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d3",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.700Z",
+   "createdOn": "2026-11-03T00:17:14.146Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Carré Pleyel",
+    "titre-h1": "Work & Share Saint-Denis, immeuble Carré Pleyel",
+    "accroche": "Au pied des lignes 13 et 14, à 6 stations de Saint-Lazare.",
+    "description-courte": "Terrasse de 150 m² avec vue sur Paris",
+    "l-espace-en-quelques-mots": "<p>Situé au 5 rue Pleyel à Saint-Denis, au pied des lignes 13 et 14 et à seulement 6 stations de Saint-Lazare, Work &amp; Share bénéficie d’un emplacement stratégique.</p><p>Installé au 6ᵉ étage du Carré Pleyel, entièrement rénové, l’espace donne accès à de nombreux services : accueil, conciergerie, espace fitness Club Med Gym, auditorium, salles de réunion, RIE et cafétéria healthy.</p><p>Profitez également d’une terrasse de 150 m² avec vue imprenable sur Paris et d’un quartier vivant, riche en commerces et restaurants.</p><p>Côté mobilité, l’espace est desservi par les RER B et D, relié directement à l’A1 et l’A86, avec parking privatif et accès à Paris en 10 minutes à vélo.</p>",
+    "atouts-du-lieu": "<ul><li>Terrasse aménagée de 150 m² — Avec vue sur Paris</li><li>Espace fitness Club Med Gym dans l’immeuble</li><li>Parking — Des places réservées à la location pour nos résidents</li><li>Domiciliation juridique — Dès 42 € HT / mois</li><li>Hospitality — Équipe dédiée à la gestion et à l’animation de l’immeuble</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb5734688dedcf8a6af1a9",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1a9_01-WorkShare_SaintDenis_ClarisseGallois_5865.jpeg",
+     "alt": "Work & Share Saint-Denis — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb5734688dedcf8a6af1a9",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1a9_01-WorkShare_SaintDenis_ClarisseGallois_5865.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 1"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af197",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af197_04-WorkShare_SaintDenis_ClarisseGallois_5745.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 2"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1b7",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1b7_06-WorkShare_SaintDenis_ClarisseGallois_5797.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 3"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af192",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af192_13-WorkShare_SaintDenis_ClarisseGallois_5957.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 4"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1a3",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1a3_15-WorkShare_SaintDenis_ClarisseGallois_6038.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 5"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1a0",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1a0_16-WorkShare_SaintDenis_ClarisseGallois_6049.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 6"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1b4",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1b4_25-WorkShare_SaintDenis_ClarisseGallois_6154.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 7"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1b1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1b1_32-WorkShare_SaintDenis_ClarisseGallois_6245.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 8"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1cb",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1cb_DSC_0091-scaled.jpeg",
+      "alt": "Work & Share Saint-Denis — photo 9"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=i5exW8iyxpi",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": true,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Dès 2 postes",
+    "prix-poste-nomade": "Dès 150 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": null,
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "5 rue Pleyel",
+    "code-postal": "93200",
+    "ville": "Saint-Denis",
+    "departement": "6ae913e7e2ba6fb2b8728022",
+    "latitude": "48.91948",
+    "longitude": "2.34499",
+    "station-la-plus-proche": "Saint-Denis Pleyel",
+    "lignes": [
+     "6ae913ecb1901def9695bdb5",
+     "6ae913ecb1901def9695bdb3"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Métro 14 — station Saint-Denis Pleyel</p><p>Métro 13 — station Carrefour Pleyel</p><p>Bus 139, 255 et 274</p><p>Accès direct au périphérique et à l’A86</p>",
+    "parking": "Parking privatif, places à louer pour les résidents",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Nadja",
+    "hote-photo": {
+     "fileId": "6aeb5735688dedcf8a6af1dd",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1dd_TEMPLATES-IG-_-OLD.png",
+     "alt": "Nadja, coworking manager de Work & Share Saint-Denis"
+    },
+    "hote-role": "Coworking Manager de Saint-Denis",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9286d82229bf3ee7b580a",
+     "6ae91849a1be7ba7205931b5",
+     "6ae927aab71194d345adc43f"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 10,
+    "seo-titre": "Coworking et bureaux flexibles à Saint-Denis | Work & Share",
+    "seo-description": "Coworking, bureaux partagés et espaces événementiels : découvrez l'offre Work & Share de notre espace de Saint-Denis Pleyel",
+    "name": "Saint-Denis",
+    "slug": "saint-denis"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d1",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.702Z",
+   "createdOn": "2026-11-03T00:17:12.344Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Vita",
+    "titre-h1": "Work & Share Suresnes, immeuble Vita",
+    "accroche": "Un rooftop de 300 m² face à Paris et La Défense.",
+    "description-courte": "Rooftop de 300 m² · 25 bureaux privatifs",
+    "l-espace-en-quelques-mots": "<p>Work &amp; Share s’installe à Suresnes, au cœur du bâtiment Vita : un havre de paix moderne et inspirant à seulement 10 minutes de La Défense.</p><p>Dans un environnement verdoyant, à deux pas de la Seine, de l’île de Puteaux et du bois de Boulogne, cet espace offre un parfait équilibre entre sérénité et dynamisme.</p><p>Sur 1 500 m², profitez de 25 bureaux privatifs (jusqu’à 200 postes), d’un espace nomade, d’une dizaine de salles de réunion, d’alcôves et de phonebox favorisant la concentration et la collaboration.</p><p>Les nombreuses terrasses, patios et le rooftop de 300 m² offrent des vues imprenables sur Paris et La Défense. Certifié Osmoz, BREEAM, BiodiverCity et R2S, Vita incarne un lieu de travail durable, confortable et résolument tourné vers le bien-être.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop de 300 m² et espaces extérieurs — Vue imprenable sur Paris et La Défense</li><li>Hospitality — Équipe dédiée à la gestion de l’accueil et l’animation de l’ensemble des espaces</li><li>Frigos connectés — Pour une pause déjeuner réussie</li></ul>",
+    "certifications": "Immeuble certifié Osmoz, BREEAM, BiodiverCity et R2S",
+    "photo-principale": {
+     "fileId": "6aeb577e9427aa5d4be570a0",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570a0_LD-Bistrot-scaled.jpeg",
+     "alt": "Work & Share Suresnes — Bistrot"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb577e9427aa5d4be570a0",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570a0_LD-Bistrot-scaled.jpeg",
+      "alt": "Work & Share Suresnes — Bistrot"
+     },
+     {
+      "fileId": "6aeb577e9427aa5d4be570b2",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb577e9427aa5d4be570b2_Espace-partage-3-1-scaled.jpeg",
+      "alt": "Work & Share Suresnes — Espace partagé"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c005",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c005_Nomade-1-8-1-scaled.jpeg",
+      "alt": "Work & Share Suresnes — Espace nomade"
+     },
+     {
+      "fileId": "6aeb57779427aa5d4be5700f",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57779427aa5d4be5700f_EP-copie.jpeg",
+      "alt": "Work & Share Suresnes — Espace partagé, vue d’ensemble"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Dès 2 postes",
+    "prix-poste-nomade": "Dès 150 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1 500 m²",
+    "chiffre-postes": 200,
+    "chiffre-salles-de-reunion": 10,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "42 rue Rouget de Lisle",
+    "code-postal": "92150",
+    "ville": "Suresnes",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.87789",
+    "longitude": "2.23183",
+    "station-la-plus-proche": "Puteaux",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdc3",
+     "6ae913ecb1901def9695bdc5"
+    ],
+    "temps-depuis-paris": "22 min",
+    "venir-detail-des-acces": "<p>Lignes L et U — gare de Puteaux</p><p>Tram T2 — station Belvédère</p><p>10 minutes de La Défense, 22 minutes de Saint-Lazare</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Lisa",
+    "hote-photo": {
+     "fileId": "6aeb57829427aa5d4be570f9",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb57829427aa5d4be570f9_TEMPLATES-IG-_-OLD-4.png",
+     "alt": "Lisa, coworking manager de Work & Share Suresnes"
+    },
+    "hote-role": "Coworking Manager de Suresnes",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae927aab71194d345adc43d",
+     "6ae927aab71194d345adc441",
+     "6ae9274c2d2afb91f79ab483"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 9,
+    "seo-titre": "Coworking et bureaux flexibles à Suresnes | Work & Share",
+    "seo-description": "Coworking, bureaux partagés et espaces événementiels : découvrez l'offre Work & Share de notre espace de Suresnes, à 10 minutes de La Défense",
+    "name": "Suresnes",
+    "slug": "suresnes"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cf",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.699Z",
+   "createdOn": "2026-11-03T00:17:10.474Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Les Bureaux de la Colline",
+    "titre-h1": "Work & Share Saint-Cloud, Les Bureaux de la Colline",
+    "accroche": "Au cœur du Vieux Saint-Cloud, un bistrot avec vue sur la tour Eiffel.",
+    "description-courte": "32 bureaux privatifs · vue sur la tour Eiffel",
+    "l-espace-en-quelques-mots": "<p>Work &amp; Share s’installe à Saint-Cloud, au sein des Bureaux de la Colline : un espace de 1 200 m² lumineux, chaleureux et convivial, pensé pour répondre à tous vos besoins professionnels.</p><p>Avec 32 bureaux privatifs et de grands open spaces, l’espace peut accueillir jusqu’à 180 résidents dans un cadre de travail flexible et inspirant. Les 5 salles de réunion et le grand bistrot avec vue imprenable sur la tour Eiffel offrent le cadre idéal pour allier performance et moments de partage.</p><p>Situé au cœur du village du Vieux Saint-Cloud, dans un quartier à la fois résidentiel et commerçant, l’espace bénéficie d’un environnement paisible à proximité immédiate du T2, de la ligne L, du métro 10 et de grands axes routiers.</p><p>Au rez-de-chaussée, une large offre de restauration complète l’expérience, et le petit plus signé Work &amp; Share : une salle de sieste entièrement dédiée au bien-être de nos résidents.</p>",
+    "atouts-du-lieu": "<ul><li>Bistrot avec vue sur la tour Eiffel</li><li>Salle de sieste — Pour recharger les batteries</li><li>Parking — Des places réservées à la location pour nos résidents</li><li>Restaurant et cafétéria — Pour un bon déjeuner à table et en équipe</li><li>Conciergerie digitale</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb5734688dedcf8a6af1bb",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1bb_media-27518402-008-2-scaled.jpeg",
+     "alt": "Work & Share Saint-Cloud — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb5734688dedcf8a6af1bb",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1bb_media-27518402-008-2-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 1"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1d3",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1d3_OK17-3-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 2"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1c4",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1c4_Work-Share-Saint-Cloud-02062023_172743-1-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 3"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1be",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1be_OK20-1-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 4"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1d0",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1d0_OK15-2-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 5"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1c1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1c1_OK6-1-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 6"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1d6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1d6_media-27518402-001-1-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 7"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af1c7",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af1c7_media-27518402-003-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 8"
+     },
+     {
+      "fileId": "6aeb5734688dedcf8a6af19a",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5734688dedcf8a6af19a_Work-Share-Saint-Cloud-02022023_182944-1-scaled.jpeg",
+      "alt": "Work & Share Saint-Cloud — photo 9"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=RXzdGPUt2W1",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Dès 2 postes",
+    "prix-poste-nomade": "Dès 150 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1 200 m²",
+    "chiffre-postes": 180,
+    "chiffre-salles-de-reunion": 5,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "1 rue Royale",
+    "code-postal": "92210",
+    "ville": "Saint-Cloud",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.84373",
+    "longitude": "2.21827",
+    "station-la-plus-proche": "Pont de Saint-Cloud",
+    "lignes": [
+     "6ae913ecb1901def9695bdc5",
+     "6ae913ecb1901def9695bdc1",
+     "6aeb55a620fa60674d59da8f"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Tram T2 — station Pont de Saint-Cloud</p><p>Ligne L — gare de Saint-Cloud</p><p>Métro 10 — Boulogne Pont de Saint-Cloud</p>",
+    "parking": "Parking privatif, places à louer pour les résidents",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Léna",
+    "hote-photo": {
+     "fileId": "6aeb5735688dedcf8a6af1e3",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb5735688dedcf8a6af1e3_TEMPLATES-IG-_-OLD-6.png",
+     "alt": "Léna, coworking manager de Work & Share Saint-Cloud"
+    },
+    "hote-role": "Coworking Manager de Saint-Cloud",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9280a7a97882afbb974d1",
+     "6ae927aab71194d345adc43d",
+     "6ae9280a7a97882afbb974cd"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 8,
+    "seo-titre": "Coworking et bureaux flexibles à Saint-Cloud | Work & Share",
+    "seo-description": "Coworking, bureaux partagés et espaces événementiels : découvrez l'offre Work & Share de notre espace de Saint-Cloud, Bureaux de la Colline",
+    "name": "Saint-Cloud",
+    "slug": "saint-cloud"
+   }
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cd",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.697Z",
+   "createdOn": "2026-11-03T00:17:08.674Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Online",
+    "titre-h1": "Work & Share Rueil-Malmaison, immeuble Online",
+    "accroche": "Au cœur de Rueil-sur-Seine, près de la gare du RER A.",
+    "description-courte": "1 510 m² · atrium végétalisé",
+    "l-espace-en-quelques-mots": "<p>Situé 1 place Louis Renault à Rueil-Malmaison, au cœur du quartier Rueil-sur-Seine, Work &amp; Share Rueil-Malmaison propose 1 510 m² d’espaces de coworking, de bureaux flexibles et de salles dédiées aux réunions et événements professionnels.</p><p>Pensé comme une maison d’hôtes pour entrepreneurs, notre espace accueille près de 250 postes de travail répartis entre bureaux privatifs, bureaux opérés pour grandes équipes et postes en coworking, dans l’immeuble Online — un bâtiment nouvelle génération certifié HQE Excellent et BREEAM Very Good.</p><p>Les résidents profitent d’un environnement complet pour travailler et se rencontrer : salles de réunion équipées, phonebox, espaces de convivialité, ainsi que de nombreux services dans l’immeuble (restaurant inter-entreprises, atrium végétalisé, terrasses, parking, local vélos…).</p><p>Accès facile : gare Rueil-Malmaison (RER A) à proximité immédiate, accès rapide à l’A86 et à La Défense. Work &amp; Share dispose également d’un second espace à Rueil-Malmaison, pour un total de près de 5 000 m² dans la ville.</p>",
+    "atouts-du-lieu": "<ul><li>Atrium central végétalisé — Pour une pause bien méritée, au soleil</li><li>Parking privatif — Des places réservées à la location pour nos résidents</li><li>Privatisation de l’espace — Pour des events jusqu’à 100 personnes (sur devis)</li></ul>",
+    "certifications": "Immeuble certifié HQE Excellent et BREEAM Very Good",
+    "photo-principale": {
+     "fileId": "6aeb56eef6631f28e64d60a6",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60a6_DSC_1090-1.jpeg",
+     "alt": "Work & Share Rueil-Malmaison — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb56eef6631f28e64d60a6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60a6_DSC_1090-1.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — photo 1"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d60c0",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60c0_Nomade-3-e1640876534902.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Espace nomade"
+     },
+     {
+      "fileId": "6aeb56eff6631f28e64d60d2",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60d2_Communs.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Espaces communs"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d60bc",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60bc_Bureaux-1.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Bureaux"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d60b1",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60b1_Nomade-1-9.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Espace nomade, vue d’ensemble"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d60b4",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60b4_DSC_1055-min-3.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — photo 7"
+     },
+     {
+      "fileId": "6aeb56eff6631f28e64d60c6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60c6_Board-Room-1.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Board Room"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d60b9",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d60b9_Retro-1-scaled.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Salle Rétro"
+     },
+     {
+      "fileId": "6aeb56eff6631f28e64d60cd",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60cd_Creative-Room-2-1-1.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Creative Room"
+     },
+     {
+      "fileId": "6aeb56eff6631f28e64d60ca",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60ca_Jardin-1-IMG_7840.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Jardin"
+     },
+     {
+      "fileId": "6aeb56eff6631f28e64d60d8",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60d8_Jardin-3-IMG_7850.jpeg",
+      "alt": "Work & Share Rueil-Malmaison — Salon de jardin"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Dès 2 postes",
+    "prix-poste-nomade": "Dès 150 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1 510 m²",
+    "chiffre-postes": 250,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": 100,
+    "adresse": "1 place Louis Renault",
+    "code-postal": "92500",
+    "ville": "Rueil-Malmaison",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.88849",
+    "longitude": "2.17296",
+    "station-la-plus-proche": "Rueil-Malmaison",
+    "lignes": [
+     "6ae913ecb1901def9695bdb7"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>RER A — gare de Rueil-Malmaison</p><p>Station Vélib’ en face de l’espace</p><p>Accès rapide à l’A86 et à La Défense</p>",
+    "parking": "Parking privatif, places à louer pour les résidents",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Mathilde",
+    "hote-photo": {
+     "fileId": "6aeb564c3e44ea698c9e4a00",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564c3e44ea698c9e4a00_TEMPLATES-IG-_-OLD-2.png",
+     "alt": "Mathilde, coworking manager de Work & Share Rueil-Malmaison"
+    },
+    "hote-role": "Coworking Manager de Rueil-Malmaison",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae927aab71194d345adc441",
+     "6ae9280a7a97882afbb974d1",
+     "6ae927aab71194d345adc43d"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 7,
+    "seo-titre": "Coworking et bureaux flexibles à Rueil-Malmaison | Work & Share",
+    "seo-description": "Coworking, bureaux partagés et espaces événementiels : découvrez l'offre Work & Share de notre espace de Rueil-Malmaison, à 2 pas du RER A.",
+    "name": "Rueil-Malmaison",
+    "slug": "rueil-malmaison"
+   }
+  },
+  {
+   "id": "6ae927aab71194d345adc441",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.696Z",
+   "createdOn": "2026-11-03T00:15:38.036Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Delta",
+    "titre-h1": "Work & Share Nanterre, immeuble Delta",
+    "accroche": "À 2 minutes du RER A, à deux pas de La Défense.",
+    "description-courte": "34 bureaux privatifs · patio et restaurant",
+    "l-espace-en-quelques-mots": "<p>Work &amp; Share s’installe à Nanterre, au 5 boulevard des Bouvets, dans un cadre moderne et convivial à deux pas de La Défense.</p><p>Idéalement situé à proximité du TGI de Nanterre et de la Paris La Défense Arena, l’espace offre un environnement de travail dynamique et chaleureux, conçu pour répondre aux besoins de toutes les entreprises — de la petite structure à la grande équipe en développement.</p><p>Avec ses 34 bureaux privatifs, ses open spaces et ses 4 salles de réunion, tout est pensé pour favoriser productivité et collaboration. L’espace accueille également des événements professionnels jusqu’à 150 participants : séminaires, ateliers ou conférences.</p><p>Au sein du bâtiment Delta, profitez d’un service d’accueil et de conciergerie, ainsi que d’un restaurant et d’une cafétéria proposant une offre food variée et équilibrée. Situé à seulement 2 minutes à pied du RER A, Work &amp; Share Nanterre allie accessibilité, confort et convivialité au quotidien.</p>",
+    "atouts-du-lieu": "<ul><li>Patio — Pour une pause bien méritée, au grand air</li><li>Restaurant et cafétéria — Déjeuner à table, seul ou en équipe</li><li>Privatisation de l’espace — Pour des events jusqu’à 100 personnes</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb56edf6631f28e64d602c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d602c_NIC_6470-scaled.jpeg",
+     "alt": "Work & Share Nanterre — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb56edf6631f28e64d602c",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d602c_NIC_6470-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 1"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6047",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6047_NIC_6614-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 2"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6019",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6019_unnamed-1.jpeg",
+      "alt": "Work & Share Nanterre — photo 3"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6038",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6038_work-share-nanterre-42-3-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 4"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6035",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6035_NIC_7015-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 5"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d6052",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d6052_WS-Nanterre-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 6"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d604a",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d604a_NIC_6892-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 7"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d603e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d603e_NIC_6772-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 8"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d603b",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d603b_NIC_6440-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 9"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6041",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6041_work-share-nanterre-40-1-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 10"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d608b",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d608b_NIC_6634-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 11"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d608f",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d608f_NIC_6956-scaled.jpeg",
+      "alt": "Work & Share Nanterre — photo 12"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=wnCfWhJHjPr",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Dès 2 postes",
+    "prix-poste-nomade": "Dès 150 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": null,
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": 4,
+    "chiffre-capacite-evenementielle-max": 150,
+    "adresse": "5 boulevard des Bouvets",
+    "code-postal": "92000",
+    "ville": "Nanterre",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.89772",
+    "longitude": "2.22191",
+    "station-la-plus-proche": "Nanterre Préfecture",
+    "lignes": [
+     "6ae913ecb1901def9695bdb7"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>RER A — station Nanterre Préfecture, à 2 min à pied</p><p>Bus 160, 163, 259, 276, N53</p><p>Connexions directes A14, A86 et N13</p>",
+    "parking": "Parking privatif en sous-sol",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Amandine",
+    "hote-photo": {
+     "fileId": "6aeb56eff6631f28e64d60d5",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eff6631f28e64d60d5_TEMPLATES-IG-_-OLD-5.png",
+     "alt": "Amandine, coworking manager de Work & Share Nanterre"
+    },
+    "hote-role": "Coworking Manager de Nanterre",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9274c2d2afb91f79ab483",
+     "6ae927aab71194d345adc43d",
+     "6ae9280a7a97882afbb974d1"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 6,
+    "seo-titre": "Coworking et bureaux flexibles à Nanterre | Work & Share",
+    "seo-description": "Coworking, bureaux partagés et espaces événementiels : découvrez l'offre Work & Share de notre espace de Nanterre, à 2 min du RER A",
+    "name": "Nanterre",
+    "slug": "nanterre"
+   }
+  },
+  {
+   "id": "6ae927aab71194d345adc43f",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.695Z",
+   "createdOn": "2026-11-03T00:15:36.003Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Carré Vert et Talan",
+    "titre-h1": "Work & Share Levallois-Perret, Carré Vert et Talan",
+    "accroche": "Deux espaces de bureaux opérés et privatifs, à quelques minutes du métro 3.",
+    "description-courte": "Bureaux opérés · 2 900 m² sur deux espaces",
+    "l-espace-en-quelques-mots": "<p>Avec près de 2 900 m² répartis sur deux espaces, Work &amp; Share Levallois-Perret accueille des équipes de 2 à 200 collaborateurs qui cherchent de la flexibilité et du confort.</p><p>À Carré Vert, l’espace de 1 670 m² compte 4 plateaux de bureaux opérés de 48 à 62 postes. À Talan, l’espace de 1 200 m² propose deux plateaux de 48 et 70 postes, ainsi que des bureaux privatifs de 2 à 7 postes. Chaque plateau s’organise selon vos besoins : open space, bureaux fermés, salles de réunion et phonebox, pour allier convivialité et confidentialité.</p><p>Les résidents profitent aussi d’espaces partagés chaleureux : tisanerie, coin chill et zones de casiers à Carré Vert, jardin en rez-de-chaussée à Talan.</p><p>Les deux espaces sont idéalement situés à Levallois, à quelques minutes du métro ligne 3 – Anatole France, et offrent un cadre de travail moderne et stratégique.</p><p>L’offre clé en main Work &amp; Share comprend l’ensemble des services et une équipe opérationnelle dédiée.</p>",
+    "atouts-du-lieu": "<ul><li>Tisanerie, coin chill et casiers — à Carré Vert</li><li>Jardin en rez-de-chaussée — à Talan</li><li>Équipe opérationnelle dédiée, services clés en main</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb56edf6631f28e64d6044",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6044_0M5A9488-scaled.jpeg",
+     "alt": "Work & Share Levallois-Perret — photo 1"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb56edf6631f28e64d6044",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6044_0M5A9488-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 1"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d604d",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d604d_0M5A9513-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 2"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d602f",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d602f_0M5A9441-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 3"
+     },
+     {
+      "fileId": "6aeb56eef6631f28e64d6055",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d6055_0M5A9445-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 4"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d600f",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d600f_0M5A9520-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 5"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6032",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6032_0M5A9524-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 6"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6012",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6012_0M5A9543-Avec-accentuation-Bruit-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 7"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6015",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6015_0M5A9451-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 8"
+     },
+     {
+      "fileId": "6aeb56edf6631f28e64d6028",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56edf6631f28e64d6028_0M5A9564-scaled.jpeg",
+      "alt": "Work & Share Levallois-Perret — photo 9"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": false,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Bureaux de 2 à 7 postes · plateaux de 48 à 70 postes",
+    "prix-poste-nomade": null,
+    "prix-poste-dedie": null,
+    "chiffre-surface": "2 900 m²",
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "112 rue Anatole France (Carré Vert) et 91 rue Carnot (Talan)",
+    "code-postal": "92300",
+    "ville": "Levallois-Perret",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.89271",
+    "longitude": "2.28445",
+    "station-la-plus-proche": "Anatole France",
+    "lignes": [
+     "6ae913ecb1901def9695bdaf",
+     "6ae913ecb1901def9695bdc1"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Métro 3 — station Anatole France</p><p>Ligne L — gare de Clichy-Levallois</p><p>Bus 93, 94, 174, 238, 274, 275, 341</p><p>Accès rapide au périphérique, à l’A86 et à la N315</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Elisabeth",
+    "hote-photo": {
+     "fileId": "6aeb56eef6631f28e64d605b",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56eef6631f28e64d605b_Eli-Cadre.png",
+     "alt": "Elisabeth, senior coworking manager de Work & Share Levallois-Perret"
+    },
+    "hote-role": "Senior Coworking Manager de Levallois-Perret",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae91849a1be7ba7205931b5",
+     "6ae9286d82229bf3ee7b580a",
+     "6ae927aab71194d345adc43d"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 5,
+    "seo-titre": "Bureaux opérés et privatifs à Levallois-Perret | Work & Share",
+    "seo-description": "Bureaux opérés à Levallois-Perret : 2 espaces Work & Share au pied du métro 3. Plateaux privatifs clés en main de 48 à 70 postes.",
+    "name": "Levallois-Perret",
+    "slug": "levallois-perret"
+   }
+  },
+  {
+   "id": "6ae927aab71194d345adc43d",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.693Z",
+   "createdOn": "2026-11-03T00:15:34.182Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Tour Franklin",
+    "titre-h1": "Work & Share La Défense, Tour Franklin",
+    "accroche": "Deux étages de la Tour Franklin, avec vue sur tout Paris.",
+    "description-courte": "3 500 m² sur deux étages de la Tour Franklin",
+    "l-espace-en-quelques-mots": "<p>Work &amp; Share s’installe au cœur de La Défense, dans la Tour Franklin : un espace lumineux, convivial et flexible.</p><p>Répartis sur deux étages, nos 3 500 m² accueillent tous les profils : de l’entrepreneur indépendant aux grandes équipes en croissance. Le 6ᵉ étage propose des bureaux flexibles et des open spaces inspirants, tandis que le 7ᵉ est dédié à nos bureaux opérés, pensés pour les entreprises dès 20 collaborateurs, alliant confidentialité et services clés en main.</p><p>Nos bureaux privatifs sont entièrement équipés et complétés par plusieurs salles de réunion, des phonebox, des espaces lounge et une creative room. Les résidents profitent aussi d’un bistrot convivial, d’une salle de babyfoot et de zones de détente favorisant les échanges.</p><p>Situé à deux pas des lignes 1, U, L et du RER A, l’espace offre une accessibilité optimale depuis Paris et sa périphérie.</p>",
+    "atouts-du-lieu": "<ul><li>Conciergerie — 2 halls distincts avec hôtesses d’accueil et service de conciergerie</li><li>Une vue imprenable — Profitez d’une vue sur tout Paris, la Seine et le Bois de Boulogne</li><li>Espace détente — Pour vous ressourcer entre deux sessions de travail</li><li>Babyfoot — Affrontez vos collègues entre deux réunions</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb569e112d2894c701bf9a",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf9a_Espacepartage23.jpeg",
+     "alt": "Work & Share La Défense — Espace partagé"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb569e112d2894c701bf9a",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf9a_Espacepartage23.jpeg",
+      "alt": "Work & Share La Défense — Espace partagé"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf83",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf83_Espace-partage-1-1-scaled.jpeg",
+      "alt": "Work & Share La Défense — Espace partagé, vue d’ensemble"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701bff2",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701bff2_Salon-blanc-1-scaled.jpeg",
+      "alt": "Work & Share La Défense — Salon blanc"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c013",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c013_Bureau-privatif-1-1-scaled.jpeg",
+      "alt": "Work & Share La Défense — Bureau privatif"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701bfeb",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701bfeb_Espacepartage37.jpeg",
+      "alt": "Work & Share La Défense — Coin détente"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c005",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c005_Nomade-1-8-1-scaled.jpeg",
+      "alt": "Work & Share La Défense — Espace nomade"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c022",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c022_SDR-1-1-scaled.jpeg",
+      "alt": "Work & Share La Défense — Salle de réunion"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c040",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c040_Salle-Event-1-3-scaled.jpeg",
+      "alt": "Work & Share La Défense — Salle événementielle"
+     },
+     {
+      "fileId": "6aeb56a0112d2894c701c053",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56a0112d2894c701c053_Bistrot-2-copie-scaled.jpeg",
+      "alt": "Work & Share La Défense — Bistrot"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c043",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c043_Bureau-opere-3-scaled.jpeg",
+      "alt": "Work & Share La Défense — Bureau opéré"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c03d",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c03d_Coin-chill-scaled.jpeg",
+      "alt": "Work & Share La Défense — Coin chill"
+     },
+     {
+      "fileId": "6aeb56a0112d2894c701c05f",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56a0112d2894c701c05f_Salle-de-reunion-Ecailles-4-scaled.jpeg",
+      "alt": "Work & Share La Défense — Salle de réunion Écailles"
+     },
+     {
+      "fileId": "6aeb569f112d2894c701c034",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701c034_Salle-de-reunion-Velvet-scaled.jpeg",
+      "alt": "Work & Share La Défense — Salle de réunion Velvet"
+     },
+     {
+      "fileId": "6aeb56a0112d2894c701c04e",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56a0112d2894c701c04e_Bureau-opere-2-scaled.jpeg",
+      "alt": "Work & Share La Défense — Bureau opéré, plateau"
+     },
+     {
+      "fileId": "6aeb56a0112d2894c701c04b",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56a0112d2894c701c04b_Bistrot-3-scaled.jpeg",
+      "alt": "Work & Share La Défense — Bistrot, vue d’ensemble"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=6wXX8pNfS3f",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": false,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Dès 2 postes · bureaux opérés dès 20 collaborateurs",
+    "prix-poste-nomade": "Dès 150 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "3 500 m²",
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": null,
+    "adresse": "100 terrasse Boieldieu, Tour Franklin",
+    "code-postal": "92800",
+    "ville": "Puteaux",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.88929",
+    "longitude": "2.24075",
+    "station-la-plus-proche": "La Défense",
+    "lignes": [
+     "6ae913ecb1901def9695bdb7",
+     "6ae913ecb1901def9695bdad",
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdc3"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>RER A, métro 1, lignes L et U — station La Défense</p><p>Nombreux bus : 73, 141, 144, 159, 174, 258, 275, 276, 278, 360</p><p>Connexions directes N13, N1013 et A14</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Victoire",
+    "hote-photo": {
+     "fileId": "6aeb56a0112d2894c701c07c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb56a0112d2894c701c07c_TEMPLATE-DE-POST-IG-73.png",
+     "alt": "Victoire, coworking manager de Work & Share La Défense"
+    },
+    "hote-role": "Coworking Manager de La Défense",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9280a7a97882afbb974d1",
+     "6ae927aab71194d345adc441",
+     "6ae9274c2d2afb91f79ab483"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 4,
+    "seo-titre": "Coworking et bureaux flexibles à La Défense | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs et bureaux opérés sur deux étages de la Tour Franklin, à La Défense : vue sur tout Paris, au pied du RER A et du métro 1.",
+    "name": "La Défense",
+    "slug": "la-defense"
+   }
+  },
+  {
+   "id": "6ae927aab71194d345adc43b",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.690Z",
+   "createdOn": "2026-11-03T00:15:32.159Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "EOS",
+    "titre-h1": "Work & Share Issy-les-Moulineaux, Business Center EOS",
+    "accroche": "Un Business Center 100 % dédié à vos événements, jusqu’à 460 participants.",
+    "description-courte": "Business Center EOS · événements jusqu’à 460 participants",
+    "l-espace-en-quelques-mots": "<p>Au cœur de l’ensemble de bureaux EOS à Issy-les-Moulineaux, Work &amp; Share ouvre un Business Center de 2 800 m² 100 % dédié aux événements professionnels, jusqu’à 460 participants.</p><ul><li>2 auditoriums et 1 amphithéâtre (50 à 230 places)</li><li>1 salle immersive et 1 studio virtuel</li><li>1 grande salle de réunion équipée</li><li>Un espace événementiel avec bar pour cocktails et afterworks</li></ul><p>Avec une régie technique permanente et 4 Event Managers dédiés, vos conférences, séminaires, lancements de produit ou tournages sont organisés clé en main, de la conception à la réalisation.</p>",
+    "atouts-du-lieu": "<ul><li>Deux auditoriums et un amphithéâtre, de 50 à 230 places</li><li>Une salle immersive et un studio virtuel</li><li>Un espace cocktail avec bar</li><li>Une régie technique permanente et 4 Event Managers dédiés</li><li>Offre traiteur, du petit-déjeuner au cocktail</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb569d112d2894c701bf3d",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf3d_1-WorkShare_BD_Clarisse-Gallois_9911.jpeg",
+     "alt": "Work & Share Issy-les-Moulineaux — Espace cocktail"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb569d112d2894c701bf3d",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf3d_1-WorkShare_BD_Clarisse-Gallois_9911.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Espace cocktail"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf33",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf33_4-WorkShare_BD_Clarisse-Gallois_9943.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Auditorium Grand Bleu"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf6b",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf6b_10-WorkShare_BD_Clarisse-Gallois_0070.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Accueil"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf30",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf30_12-WorkShare_BD_Clarisse-Gallois_0109.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Vestiaires"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf53",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf53_17-WorkShare_BD_Clarisse-Gallois_0162.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Amphithéâtre Prairie"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf2d",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf2d_23-WorkShare_BD_Clarisse-Gallois_0231.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Studio virtuel"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf56",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf56_25-WorkShare_BD_Clarisse-Gallois_0253.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Creative Room"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf68",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf68_26-WorkShare_BD_Clarisse-Gallois_0264.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Amphithéâtre Rubis"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf60",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf60_33-WorkShare_BD_Clarisse-Gallois_0419.jpeg",
+      "alt": "Work & Share Issy-les-Moulineaux — Classe IA"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": false,
+    "offre-coworking": false,
+    "offre-salles": true,
+    "offre-bureaux-operes": false,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": null,
+    "prix-poste-nomade": null,
+    "prix-poste-dedie": null,
+    "chiffre-surface": "2 800 m²",
+    "chiffre-postes": null,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": 460,
+    "adresse": "41 quai du Président Roosevelt",
+    "code-postal": "92130",
+    "ville": "Issy-les-Moulineaux",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.83383",
+    "longitude": "2.26547",
+    "station-la-plus-proche": "Issy Val de Seine",
+    "lignes": [
+     "6ae913ecb1901def9695bdbb",
+     "6ae913ecb1901def9695bdc5"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>RER C — station Issy Val de Seine</p><p>Tram T2 — station Henri Farman</p><p>Bus 126 et 189</p><p>Connexion directe au périphérique</p>",
+    "parking": null,
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Jean-Charles",
+    "hote-photo": {
+     "fileId": "6aeb569f112d2894c701bffc",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569f112d2894c701bffc_TEMPLATES-IG-_-OLD-3.png",
+     "alt": "Jean-Charles, senior event manager de Work & Share Issy-les-Moulineaux"
+    },
+    "hote-role": "Senior Event Manager du Business Center EOS",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae9280a7a97882afbb974cf",
+     "6ae9280a7a97882afbb974d1",
+     "6ae9286d82229bf3ee7b580c"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 3,
+    "seo-titre": "Business Center EOS à Issy-les-Moulineaux : séminaires et événements | Work & Share",
+    "seo-description": "Auditoriums, amphithéâtre, studio virtuel et espace cocktail : un Business Center de 2 800 m² dédié aux événements professionnels, jusqu’à 460 participants.",
+    "name": "Issy-les-Moulineaux",
+    "slug": "issy-les-moulineaux"
+   }
+  },
+  {
+   "id": "6ae9274c2d2afb91f79ab483",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.688Z",
+   "createdOn": "2026-11-03T00:14:04.766Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": null,
+    "titre-h1": "Work & Share Colombes",
+    "accroche": "À la frontière de La Garenne-Colombes, une grande terrasse et une salle de sport.",
+    "description-courte": "300 postes · terrasse et salle de sport",
+    "l-espace-en-quelques-mots": "<p>Situé à la frontière de La Garenne-Colombes, dans un quartier vivant et animé, notre espace offre un environnement chaleureux et convivial, idéal pour tous les formats de travail — de l’entrepreneur solo à la grande entreprise.</p><p>Avec 300 postes répartis entre bureaux privatifs et open spaces, chacun y trouve la configuration qui lui correspond.</p><p>Profitez d’une grande terrasse aménagée pour vos pauses ou vos événements, d’un espace fitness proposant des cours variés, et d’une offre food healthy grâce au restaurant et à la cafétéria sur place.</p><p>Pour vos réunions ou séminaires, 6 salles modulables accueillent jusqu’à 120 participants dans un cadre moderne et inspirant. Un lieu où efficacité, détente et convivialité se rencontrent au quotidien.</p>",
+    "atouts-du-lieu": "<ul><li>Terrasse — Pour une pause bien méritée, au grand air</li><li>Parking privatif — Des places réservées à la location pour nos résidents</li><li>Salle de sport — Pour se maintenir en forme entre deux meetings</li><li>Privatisation de l’espace — Pour des events jusqu’à 100 personnes</li></ul>",
+    "certifications": null,
+    "photo-principale": {
+     "fileId": "6aeb569d112d2894c701bf49",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf49_12-WorkShare_Colombes_ClarisseGallois_BD_1049-1.jpeg",
+     "alt": "Work & Share Colombes — Bistrot"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb569d112d2894c701bf49",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf49_12-WorkShare_Colombes_ClarisseGallois_BD_1049-1.jpeg",
+      "alt": "Work & Share Colombes — Bistrot"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf46",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf46_23-WorkShare_Colombes_ClarisseGallois_BD_1106-1.jpeg",
+      "alt": "Work & Share Colombes — Espace nomade"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf97",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf97_Work-Share-Colombes-02212022_161042-8-1-scaled.jpeg",
+      "alt": "Work & Share Colombes — Terrasse"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf43",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf43_38-WorkShare_Colombes_ClarisseGallois_BD_1229.jpeg",
+      "alt": "Work & Share Colombes — Salle événementielle"
+     },
+     {
+      "fileId": "6aeb569e112d2894c701bf63",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bf63_35-WorkShare_Colombes_ClarisseGallois_BD_1170.jpeg",
+      "alt": "Work & Share Colombes — Coin chill"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf26",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf26_17-WorkShare_Colombes_ClarisseGallois_BD_1063.jpeg",
+      "alt": "Work & Share Colombes — Salle de réunion"
+     },
+     {
+      "fileId": "6aeb569d112d2894c701bf40",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569d112d2894c701bf40_09-WorkShare_Colombes_ClarisseGallois_BD_0230.jpeg",
+      "alt": "Work & Share Colombes — Bistrot, vue d’ensemble"
+     }
+    ],
+    "visite-360deg": "https://my.matterport.com/show/?m=KWeruyucsfy",
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Dès 2 postes",
+    "prix-poste-nomade": "Dès 150 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": null,
+    "chiffre-postes": 300,
+    "chiffre-salles-de-reunion": 6,
+    "chiffre-capacite-evenementielle-max": 120,
+    "adresse": "1-5 rue du Débarcadère",
+    "code-postal": "92700",
+    "ville": "Colombes",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.9087",
+    "longitude": "2.23564",
+    "station-la-plus-proche": "La Garenne-Colombes",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdc5"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Ligne L — station La Garenne-Colombes</p><p>Tram T2 — station Charlebourg</p>",
+    "parking": "Parking privatif en sous-sol, places à louer pour les résidents",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Romane",
+    "hote-photo": {
+     "fileId": "6aeb569e112d2894c701bfbb",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb569e112d2894c701bfbb_TEMPLATES-IG-_-OLD-1.png",
+     "alt": "Romane, coworking manager de Work & Share Colombes"
+    },
+    "hote-role": "Coworking Manager de Colombes",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [],
+    "espaces-proches": [
+     "6ae927aab71194d345adc441",
+     "6ae927aab71194d345adc43d",
+     "6ae9280a7a97882afbb974d1"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 2,
+    "seo-titre": "Coworking et bureaux flexibles à Colombes | Work & Share",
+    "seo-description": "Coworking, bureaux partagés et espaces événementiels : découvrez l'offre Work & Share de notre espace de Colombes, à La Garenne-Colombes",
+    "name": "Colombes",
+    "slug": "colombes"
+   }
+  },
+  {
+   "id": "6ae91849a1be7ba7205931b5",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "lastPublished": "2026-11-04T16:44:57.344Z",
+   "lastUpdated": "2026-11-04T16:27:01.687Z",
+   "createdOn": "2026-11-02T23:10:01.284Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "nom-de-l-immeuble": "Blaaack",
+    "titre-h1": "Work & Share Clichy, immeuble Blaaack",
+    "accroche": "Un rooftop avec vue sur Paris, et une équipe qui vous ouvre la porte.",
+    "description-courte": "Rooftop avec vue sur Paris · 1 840 m² dans l’immeuble Blaaack",
+    "l-espace-en-quelques-mots": "<p>Notre espace de coworking à Clichy occupe 1 840 m² de l’immeuble Blaaack, à la limite de Levallois-Perret. Postes en coworking, bureaux privatifs à louer, plateaux opérés et salles de réunion : tout est sous le même toit, avec un rooftop qui regarde Paris pour les pauses et les déjeuners au soleil.</p>",
+    "atouts-du-lieu": "<ul><li>Rooftop avec vue sur Paris</li><li>Salle de fitness</li><li>Restauration sur place</li><li>Parking souterrain et sécurisé, places à louer au mois</li></ul>",
+    "certifications": "Immeuble certifié BREEAM et NF HQE",
+    "photo-principale": {
+     "fileId": "6ae91847a1be7ba72059316e",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91847a1be7ba72059316e_6ae907d02e15969c3857f383_offices-atout-parking.webp",
+     "alt": "Atrium arboré de l’immeuble Blaaack à Clichy"
+    },
+    "photo-hero-forme-maison": {
+     "fileId": "6ae91848a1be7ba72059317c",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91848a1be7ba72059317c_6ae900f57c7bd6735689e0db_offre-coworking-provisoire.png",
+     "alt": "Open space lumineux de Work & Share Clichy"
+    },
+    "galerie": [
+     {
+      "fileId": "6aeb564c3e44ea698c9e49fd",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564c3e44ea698c9e49fd_rooftop.png",
+      "alt": "Work & Share Clichy — Rooftop"
+     },
+     {
+      "fileId": "6aeb564c3e44ea698c9e4a03",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564c3e44ea698c9e4a03_Blaaack-Accueil.png",
+      "alt": "Work & Share Clichy — Immeuble Blaaack, Accueil"
+     },
+     {
+      "fileId": "6aeb564b3e44ea698c9e49f2",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564b3e44ea698c9e49f2_Blaaack-Accueil-B.jpeg",
+      "alt": "Work & Share Clichy — Immeuble Blaaack, Accueil B"
+     },
+     {
+      "fileId": "6aeb564b3e44ea698c9e49f6",
+      "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564b3e44ea698c9e49f6_Blaaack-Immeuble.jpeg",
+      "alt": "Work & Share Clichy — Immeuble Blaaack"
+     }
+    ],
+    "visite-360deg": null,
+    "offre-bureaux-privatifs": true,
+    "offre-coworking": true,
+    "offre-salles": true,
+    "offre-bureaux-operes": true,
+    "offre-domiciliation": false,
+    "disponibilite": null,
+    "bureaux-privatifs-tailles": "Dès 2 postes",
+    "prix-poste-nomade": "Dès 150 € HT / mois",
+    "prix-poste-dedie": null,
+    "chiffre-surface": "1 840 m²",
+    "chiffre-postes": 243,
+    "chiffre-salles-de-reunion": null,
+    "chiffre-capacite-evenementielle-max": 170,
+    "adresse": "5 rue Pierre Bérégovoy",
+    "code-postal": "92110",
+    "ville": "Clichy",
+    "departement": "6ae913e7e2ba6fb2b8728020",
+    "latitude": "48.90453",
+    "longitude": "2.29881",
+    "station-la-plus-proche": "Clichy-Levallois",
+    "lignes": [
+     "6ae913ecb1901def9695bdc1",
+     "6ae913ecb1901def9695bdb3"
+    ],
+    "temps-depuis-paris": null,
+    "venir-detail-des-acces": "<p>Ligne L — gare de Clichy-Levallois</p><p>Métro 13 — station Mairie de Clichy</p>",
+    "parking": "Places de parking privatif à louer pour les résidents",
+    "services-inclus": [
+     "6ae914428f31c3daf261eb17",
+     "6ae914428f31c3daf261eb19",
+     "6ae914428f31c3daf261eb1b",
+     "6ae914428f31c3daf261eb1d",
+     "6ae914428f31c3daf261eb1f",
+     "6ae914428f31c3daf261eb21"
+    ],
+    "services-en-option": [
+     "6ae914428f31c3daf261eb23",
+     "6ae914428f31c3daf261eb25",
+     "6ae914428f31c3daf261eb27"
+    ],
+    "hote-prenom": "Clara",
+    "hote-photo": {
+     "fileId": "6aeb564c3e44ea698c9e4a06",
+     "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeb564c3e44ea698c9e4a06_TEMPLATES-IG-_-OLD.png",
+     "alt": "Clara, coworking manager de Work & Share Clichy"
+    },
+    "hote-role": "Coworking Manager de Clichy",
+    "hote-citation": null,
+    "telephone": "01 89 71 74 72",
+    "e-mail": null,
+    "faq": [
+     "6ae9181f25b34878c33265e6",
+     "6ae9181f25b34878c33265e8",
+     "6ae9181f25b34878c33265ea"
+    ],
+    "espaces-proches": [
+     "6ae927aab71194d345adc43f",
+     "6ae9286d82229bf3ee7b580a",
+     "6ae9280a7a97882afbb974d3"
+    ],
+    "lieu-evenementiel": null,
+    "ordre": 1,
+    "seo-titre": "Coworking et bureaux à louer à Clichy, immeuble Blaaack | Work & Share",
+    "seo-description": "Coworking, bureaux privatifs, bureaux opérés et salles de réunion à Clichy, dans l’immeuble Blaaack : rooftop avec vue sur Paris, à 6 min du train L.",
+    "name": "Clichy",
+    "slug": "clichy"
+   }
+  }
+ ]
+}

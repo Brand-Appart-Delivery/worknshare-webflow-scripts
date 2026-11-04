@@ -42,6 +42,7 @@ import { initFormLabels } from "./utils/form-labels.js";
 import { initHouseShapes } from "./components/house-shape.js";
 import { initCustomSelects } from "./components/custom-select.js";
 import { initMiniMaps } from "./components/mini-map.js";
+import { initLinePills } from "./components/line-pills.js";
 
 onReady(() => {
   initCore();
@@ -52,6 +53,7 @@ onReady(() => {
   initCollapses();
   initTocs(); // sommaires (article, pages légales) : avant les animations
   initCardLinks();
+  initLinePills(); // pastilles de lignes (couleur selon la ligne)
   initComparateur(); // page /comparateur : charge son propre JS et CSS
   initComparatorBanners(); // bandeau qui pré-remplit le comparateur
   initBlogFilters(); // page Blog : filtre par rubrique

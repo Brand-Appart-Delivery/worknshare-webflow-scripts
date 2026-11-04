@@ -185,6 +185,33 @@ $modes: (
   }
 }
 
+// Variante « base » (non liée au CMS) : couleur, forme et picto du mode selon
+// data-line (posé par components/line-pills.js) et data-line-mode
+@each $slug, $v in $lines {
+  .ligne[data-wf--pastille-ligne--variant="base"][data-line="#{$slug}"] .ligne_indice {
+    background-color: var(--_work-n-share---ligne--#{$slug}, #{list.nth($v, 1)});
+    color: if(list.nth($v, 2) == noir, $noir, $blanc);
+  }
+}
+
+.ligne[data-wf--pastille-ligne--variant="base"]:is([data-line-mode="RER"], [data-line-mode="Train"]) .ligne_indice {
+  border-radius: 6px;
+}
+
+$mode-classes: (
+  "Métro": "m",
+  "RER": "rer",
+  "Train": "train",
+  "Tram": "tram",
+  "Bus": "bus",
+);
+
+@each $mode, $cls in $mode-classes {
+  .ligne[data-wf--pastille-ligne--variant="base"][data-line-mode="#{$mode}"] .ligne_mode-#{$cls} {
+    display: flex;
+  }
+}
+
 // Anciens pictos posés à la main dans les cartes : remplacés par le CSS
 .transport-lines > .transport-mode:has(+ .transport-line[data-line-mode]) {
   display: none;
