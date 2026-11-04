@@ -181,19 +181,7 @@ $menu-ease: cubic-bezier(0.22, 1, 0.36, 1);
     color: $fonce;
   }
 
-  .mega-menu_city,
-  .mega-menu_link {
-    text-decoration-line: underline;
-    text-decoration-color: transparent;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-    transition: text-decoration-color 0.2s ease;
-
-    &:hover,
-    &:focus-visible {
-      text-decoration-color: $accent;
-    }
-  }
+  // Survol des liens : léger fondu, réglé dans Webflow (comme partout)
 
   .mega-menu_card {
     background-color: color-mix(in srgb, #{$accent} 22%, #{$blanc});
