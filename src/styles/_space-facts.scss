@@ -1,0 +1,13 @@
+// Chiffres sous le hero d'une page espace (.fact, gabarit Espaces).
+// Champ CMS vide : Webflow pose la classe w-dyn-bind-empty sur l'élément lié.
+// On masque alors le chiffre entier (surface, postes…) ou la précision
+// (« dans l'immeuble » sans nom d'immeuble). Les prix, eux, suivent les
+// interrupteurs « Offre · … » du CMS (visibilité conditionnelle dans Webflow).
+
+.fact:has(.fact_value.w-dyn-bind-empty) {
+  display: none;
+}
+
+.space-inline-row:has(> .fact_label.w-dyn-bind-empty) {
+  display: none;
+}
