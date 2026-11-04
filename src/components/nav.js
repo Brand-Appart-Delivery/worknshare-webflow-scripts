@@ -41,6 +41,7 @@ export function initNav(root = document) {
   initDrawer(header);
   initScrollState(header);
   initNavHeight(header);
+  initNavPill(header);
   markCurrentLinks(header);
 
   // Échap : ferme tout et rend le focus au déclencheur
@@ -285,6 +286,79 @@ function initScrollState(header) {
   // Page rechargée au milieu : nav visible
   if (window.scrollY > header.offsetHeight) mode = "shown";
   apply();
+}
+
+// ---------- Pastille de survol qui glisse d'un lien à l'autre ----------
+// Une seule pastille (.navbar_pill, créée ici) derrière les liens du menu
+// desktop : elle glisse vers le lien survolé ou focus, reste sur « Nos espaces »
+// tant que son mega menu est ouvert, et disparaît en fondu quand on quitte le
+// menu. Couleur : variable --nav-pill (selon le thème, _mega-menu.scss).
+
+function initNavPill(header) {
+  const menu = header.querySelector(".navbar_menu");
+  const links = menu ? [...menu.querySelectorAll(".navbar_link")] : [];
+  if (!links.length) return;
+
+  const pill = document.createElement("span");
+  pill.className = "navbar_pill";
+  pill.setAttribute("aria-hidden", "true");
+  menu.prepend(pill);
+  menu.classList.add("has-pill");
+
+  let target = null; // lien sous la pastille
+
+  const place = (link) => {
+    pill.style.width = `${link.offsetWidth}px`;
+    pill.style.height = `${link.offsetHeight}px`;
+    pill.style.transform = `translate(${link.offsetLeft}px, ${link.offsetTop}px)`;
+  };
+
+  const show = (link) => {
+    if (!link || !link.offsetWidth) return;
+    if (!pill.classList.contains("is-visible")) {
+      // Arrivée depuis l'extérieur : posée sur place, sans glisser
+      pill.classList.add("is-instant");
+      place(link);
+      pill.getBoundingClientRect();
+      pill.classList.remove("is-instant");
+      pill.classList.add("is-visible");
+    } else {
+      place(link);
+    }
+    links.forEach((l) => l.classList.toggle("is-pill", l === link));
+    target = link;
+  };
+
+  // Lien à garder sous la pastille au repos : déclencheur du mega menu ouvert
+  const restingLink = () => links.find((l) => l.getAttribute("aria-expanded") === "true");
+
+  const rest = () => {
+    const link = restingLink();
+    if (link) return show(link);
+    pill.classList.remove("is-visible");
+    links.forEach((l) => l.classList.remove("is-pill"));
+    target = null;
+  };
+
+  links.forEach((link) => {
+    link.addEventListener("pointerenter", () => show(link));
+    link.addEventListener("focus", () => show(link));
+  });
+  menu.addEventListener("pointerleave", rest);
+  menu.addEventListener("focusout", (e) => {
+    if (!menu.contains(e.relatedTarget)) rest();
+  });
+
+  // Mega menu ouvert / fermé (aria-expanded du déclencheur) : on suit
+  const observer = new MutationObserver(() => {
+    if (!menu.matches(":hover")) rest();
+  });
+  links.forEach((l) => observer.observe(l, { attributes: true, attributeFilter: ["aria-expanded"] }));
+
+  // Taille des liens qui change (police chargée, redimensionnement)
+  if (typeof ResizeObserver !== "undefined") {
+    new ResizeObserver(() => target && place(target)).observe(menu);
+  }
 }
 
 // ---------- Hauteur de la nav (variable CSS --nav-height sur <html>) ----------

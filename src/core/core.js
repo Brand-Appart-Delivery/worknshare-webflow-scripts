@@ -135,18 +135,32 @@ export function getLenis() {
   return lenisInstance;
 }
 
-// Rechargement de la page : on repart du haut (le head code coupe déjà la
-// reprise de position ; sécurité si le navigateur a quand même redescendu).
+// Rechargement de la page : on repart toujours du haut. Le head code coupe la
+// reprise de position, mais certains navigateurs (et Lenis, qui garde sa
+// position cible) redescendent quand même une fois la page chargée : on
+// remet en haut au démarrage, puis de nouveau au chargement complet.
 // Pas pour un lien vers une ancre (#section) ni pour le bouton Retour.
-function resetScrollOnReload() {
+function isPlainReload() {
   const nav = performance.getEntriesByType?.("navigation")[0];
-  if (!nav || nav.type !== "reload" || location.hash) return;
-  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  return !!nav && nav.type === "reload" && !location.hash;
+}
+
+function scrollTopNow() {
   window.scrollTo(0, 0);
+  lenisInstance?.scrollTo(0, { immediate: true, force: true });
+}
+
+function resetScrollOnReload() {
+  if (!isPlainReload()) return;
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  scrollTopNow();
+  const again = () => requestAnimationFrame(scrollTopNow);
+  if (document.readyState === "complete") again();
+  else window.addEventListener("load", again, { once: true });
 }
 
 export function initCore() {
-  resetScrollOnReload();
   initLenis();
+  resetScrollOnReload(); // après Lenis : il faut aussi recaler sa position
   initAnchors();
 }
