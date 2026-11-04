@@ -37,6 +37,8 @@ import { initComparateur } from "./components/comparateur.js";
 import { initComparatorBanners } from "./components/comparator-banner.js";
 import { initBlogFilters } from "./components/blog-filter.js";
 import { initContactForms } from "./components/contact-form.js";
+import { initDevisForms } from "./components/devis-form.js";
+import { initFormLabels } from "./utils/form-labels.js";
 import { initHouseShapes } from "./components/house-shape.js";
 
 onReady(() => {
@@ -51,7 +53,9 @@ onReady(() => {
   initComparateur(); // page /comparateur : charge son propre JS et CSS
   initComparatorBanners(); // bandeau qui pré-remplit le comparateur
   initBlogFilters(); // page Blog : filtre par rubrique
+  initFormLabels(); // libellés reliés à leurs champs (tous les formulaires)
   initContactForms(); // page Nous contacter
+  initDevisForms(); // page Événementiel : formulaire de devis
   initHouseShapes(); // formes maison aux angles arrondis
   initFormulas();
   initSliders();

@@ -9,10 +9,11 @@
 //                                           pour ces demandes (sinon masqué et
 //                                           désactivé : il n'est pas envoyé)
 //
-// Le JS : relie chaque libellé à son champ (les libellés Webflow ont un for=""
-// vide), coche la pastille choisie (classe is-active, stylée dans Webflow),
+// Le JS : coche la pastille choisie (classe is-active, stylée dans Webflow),
 // affiche les champs selon la demande, et pré-remplit depuis l'adresse :
 // /nous-contacter?motif=visite&espace=clichy
+
+// (Libellés reliés à leurs champs : utils/form-labels.js, pour tous les formulaires.)
 
 export function initContactForms(root = document) {
   root.querySelectorAll("form[data-contact-form]").forEach(initContactForm);
@@ -21,8 +22,6 @@ export function initContactForms(root = document) {
 function initContactForm(form) {
   if (form.dataset.contactInit) return;
   form.dataset.contactInit = "1";
-
-  linkLabels(form);
 
   const radios = [...form.querySelectorAll('input[type="radio"][name="motif"]')];
   const conditional = [...form.querySelectorAll("[data-contact-motif]")];
@@ -55,19 +54,4 @@ function initContactForm(form) {
   if (espace && select && [...select.options].some((o) => o.value === espace)) select.value = espace;
 
   update();
-}
-
-// Libellés Webflow au for="" vide : un libellé qui entoure son champ n'a pas
-// besoin de for (on le retire), sinon on le relie au champ du même bloc.
-function linkLabels(form) {
-  form.querySelectorAll("label").forEach((label) => {
-    const inside = label.querySelector("input, select, textarea");
-    if (inside) {
-      if (label.getAttribute("for") === "") label.removeAttribute("for");
-      return;
-    }
-    if (label.getAttribute("for")) return;
-    const field = label.parentElement?.querySelector("input, select, textarea");
-    if (field?.id) label.htmlFor = field.id;
-  });
 }
