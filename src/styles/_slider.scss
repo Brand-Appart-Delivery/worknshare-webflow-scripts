@@ -103,10 +103,10 @@
   }
 }
 
-// Autres flèches : simplement atténuées en bout de course
-.slider_arrow:not(.is-navy):not(.is-outline-navy).is-disabled,
-.slider_arrow:not(.is-navy):not(.is-outline-navy).is-locked {
-  opacity: 0.35;
+// Flèche désactivée (bout de course) : légèrement atténuée, toutes couleurs
+.slider_arrow.is-disabled,
+.slider_arrow.is-locked {
+  opacity: 0.4;
 }
 
 @media (prefers-reduced-motion: reduce) {
