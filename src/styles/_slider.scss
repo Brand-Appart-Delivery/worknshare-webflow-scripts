@@ -89,7 +89,8 @@
   border: 1.5px solid var(--_work-n-share---color--bleu--900, #0e1b3a);
   transition:
     background-color 0.25s ease,
-    color 0.25s ease;
+    color 0.25s ease,
+    opacity 0.25s ease;
 
   &:not(.is-disabled):not(.is-locked) {
     background-color: var(--_work-n-share---color--bleu--900, #0e1b3a);
