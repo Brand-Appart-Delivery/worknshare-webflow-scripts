@@ -52,6 +52,13 @@ html.is-hero-intro-skipped body [data-nav] {
   animation-delay: 0.1s;
 }
 
+// Changement de page dans le site (classe posée par le chargeur du head,
+// webflow/head-code.html) : la nav est déjà là, pas d'animation d'arrivée.
+// Sauf l'accueil, où la nav suit l'arrivée du hero (géré plus haut).
+html.is-internal-nav body:not(:has([data-hero-video])) [data-nav] {
+  animation: none;
+}
+
 body:has([data-hero-video]) [data-nav]:not(.is-scrolled):not(:has([data-mega-panel].is-open, [data-nav-panel].is-open)) {
   background-color: transparent;
 }

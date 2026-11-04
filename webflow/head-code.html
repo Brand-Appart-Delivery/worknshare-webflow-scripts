@@ -12,6 +12,8 @@
     Sécurité : affichée quoi qu'il arrive au bout de 2,5 s.
   - Rechargement de la page : on repart toujours du haut (pas de reprise de la
     position de scroll), sauf lien vers une ancre (#section).
+  - Navigation interne (on vient d'une page du site) : html.is-internal-nav,
+    la nav ne rejoue pas son animation d'arrivée.
 -->
 <style>
   html.wns-loading body { opacity: 0; }
@@ -28,8 +30,15 @@
       window.scrollTo(0, 0);
     }
 
-    // Anti-flash : page cachée jusqu'à l'arrivée de main.css
+    // Arrivée depuis une autre page du site (clic, retour arrière) : la nav ne
+    // rejoue pas son animation d'entrée (html.is-internal-nav, _mega-menu.scss)
     const root = document.documentElement;
+    try {
+      const fromSite = document.referrer && new URL(document.referrer).origin === location.origin;
+      if (fromSite && (!navEntry || navEntry.type !== 'reload')) root.classList.add('is-internal-nav');
+    } catch (e) {}
+
+    // Anti-flash : page cachée jusqu'à l'arrivée de main.css
     root.classList.add('wns-loading');
     let shown = false;
     function show() {
