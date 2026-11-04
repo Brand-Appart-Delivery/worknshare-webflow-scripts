@@ -8,6 +8,13 @@
   display: none;
 }
 
+// Appel final (section Webflow) : affiché avec le résultat seulement
+// (le JS masque #res en style inline tant que le calcul n'est pas lancé)
+.page-wrapper:has([data-comparateur]:not(.is-ready)) [data-comparateur-fin],
+.page-wrapper:has(#res[style*="none"]) [data-comparateur-fin] {
+  display: none;
+}
+
 // ---------- Bandeau « Bail commercial ou Work & Share ? » (comparator-banner.js) ----------
 // Champ commune : vrai <input> posé dans la pastille Webflow, liste en dessous
 .offices-calc_input.has-input {
