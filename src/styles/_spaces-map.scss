@@ -117,7 +117,8 @@ $blanc: var(--_work-n-share---color--blanc, #ffffff);
   }
 }
 
-// Apparition des pins (spaces-map.js) : chacun « poppe » avec un rebond, dans
+// Apparition des pins (spaces-map.js) : chacun « poppe » (léger dépassement de
+// taille, sans déformation), dans
 // un ordre aléatoire, décalé de --pin-delay. On anime la forme, pas le bouton :
 // son transform sert à MapLibre pour le positionner.
 .map-pin_shape {
@@ -129,23 +130,17 @@ $blanc: var(--_work-n-share---color--blanc, #ffffff);
 }
 
 .map-pin.is-popping .map-pin_shape {
-  animation: map-pin-bump 0.6s cubic-bezier(0.25, 0.8, 0.35, 1) var(--pin-delay, 0ms) both;
+  animation: map-pin-bump 0.45s cubic-bezier(0.22, 1, 0.36, 1) var(--pin-delay, 0ms) both;
 }
 
 @keyframes map-pin-bump {
   0% {
     opacity: 0;
-    transform: translateY(-18px) scale(0.3);
+    transform: translateY(-8px) scale(0.5);
   }
-  45% {
+  60% {
     opacity: 1;
-    transform: translateY(0) scale(1.25, 0.8); // écrasé en touchant la carte
-  }
-  65% {
-    transform: translateY(-6px) scale(0.92, 1.1); // petit rebond
-  }
-  85% {
-    transform: translateY(0) scale(1.04, 0.97);
+    transform: translateY(0) scale(1.12);
   }
   100% {
     opacity: 1;
