@@ -163,44 +163,40 @@ body:has([data-hero-video]) [data-nav]:not(.is-scrolled):not(:has([data-mega-pan
   }
 }
 
-// Variante Événementiel en haut de page (nav claire sur hero bordeaux) : survol
-// des liens dans la logique de ses boutons, fond rose et texte bordeaux (le
-// survol par défaut, fond vert clair + texte crème, serait illisible ici). Nav
-// repassée en blanc (scroll, menu ouvert) : survol normal.
-[data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad:not(:has([data-nav-panel].is-open)) {
+// ---------- Nav aux couleurs de la page (Événementiel, Comparateur) ----------
+// Survol des liens dans la logique des boutons de la page : fond accent, texte
+// foncé (le survol par défaut, fond vert clair, jurerait ici). Même chose pour
+// le lien dont le mega menu est ouvert. Tiroir mobile ouvert : survol normal.
+@mixin nav-hover($fonce, $accent) {
   .navbar_link:hover,
   .navbar_link:focus-visible,
   [data-mega-trigger][aria-expanded="true"] {
-    background-color: var(--_work-n-share---color--rose--300, #ffa7e0);
-    color: var(--_work-n-share---color--bordeaux--900, #2c0c10);
+    background-color: $accent;
+    color: $fonce;
   }
 }
 
-// Événementiel sur fond blanc (nav scrollée ou mega menu ouvert) : nav et
-// mega menu blancs, mais aux couleurs de la page (bordeaux et rose au lieu du
-// vert).
-$ev-bordeaux: var(--_work-n-share---color--bordeaux--900, #2c0c10);
-$ev-rose: var(--_work-n-share---color--rose--300, #ffa7e0);
-$ev-blanc: var(--_work-n-share---color--blanc, #ffffff);
-
-[data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad:is(.is-scrolled, :has([data-mega-panel].is-open)):not(:has([data-nav-panel].is-open)) {
-  background-color: $ev-blanc;
+// Nav sur fond blanc (scrollée ou mega menu ouvert) : nav et mega menu blancs,
+// mais aux couleurs de la page au lieu du vert.
+@mixin nav-white($fonce, $accent) {
+  $blanc: var(--_work-n-share---color--blanc, #ffffff);
+  background-color: $blanc;
 
   .navbar_link,
   .logo {
-    color: $ev-bordeaux;
+    color: $fonce;
   }
 
-  // Boutons en contour (téléphone) : bordeaux sur blanc (le rose serait illisible)
+  // Boutons en contour (téléphone) : foncé sur blanc (l'accent serait illisible)
   .button.is-secondary {
-    color: $ev-bordeaux;
+    color: $fonce;
     border-color: currentColor;
   }
 
   .mega-menu_title,
   .mega-menu_city,
   .mega-menu_link {
-    color: $ev-bordeaux;
+    color: $fonce;
   }
 
   .mega-menu_city,
@@ -213,22 +209,54 @@ $ev-blanc: var(--_work-n-share---color--blanc, #ffffff);
 
     &:hover,
     &:focus-visible {
-      text-decoration-color: $ev-rose;
+      text-decoration-color: $accent;
     }
   }
 
   .mega-menu_card {
-    background-color: color-mix(in srgb, #{$ev-rose} 22%, #{$ev-blanc});
+    background-color: color-mix(in srgb, #{$accent} 22%, #{$blanc});
   }
 
   .mega-menu_card-title,
   .mega-menu_card-desc {
-    color: $ev-bordeaux;
+    color: $fonce;
   }
 
   .mega-menu_card .button {
-    background-color: $ev-bordeaux;
-    color: $ev-rose;
+    background-color: $fonce;
+    color: $accent;
+  }
+}
+
+// Événementiel : variante du Header (bordeaux et rose)
+$ev-bordeaux: var(--_work-n-share---color--bordeaux--900, #2c0c10);
+$ev-rose: var(--_work-n-share---color--rose--300, #ffa7e0);
+$nav-ev: "[data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad";
+
+#{$nav-ev}:not(:has([data-nav-panel].is-open)) {
+  @include nav-hover($ev-bordeaux, $ev-rose);
+}
+
+#{$nav-ev}:is(.is-scrolled, :has([data-mega-panel].is-open)):not(:has([data-nav-panel].is-open)) {
+  @include nav-white($ev-bordeaux, $ev-rose);
+}
+
+// Hero bleu (data-nav-theme="bleu", ex. Comparateur) : bleu nuit et bleu clair
+$bleu-900: var(--_work-n-share---color--bleu--900, #0e1b3a);
+$bleu-300: var(--_work-n-share---color--bleu--300, #a3c4ff);
+$nav-bleu: '[data-nav]:has(+ [data-nav-theme="bleu"])';
+
+#{$nav-bleu}:not(:has([data-nav-panel].is-open)) {
+  @include nav-hover($bleu-900, $bleu-300);
+}
+
+#{$nav-bleu}:is(.is-scrolled, :has([data-mega-panel].is-open)):not(:has([data-nav-panel].is-open)) {
+  @include nav-white($bleu-900, $bleu-300);
+
+  // Bouton « Nous contacter » : bleu clair comme en haut de page
+  .button:not(.is-secondary) {
+    background-color: $bleu-300;
+    color: $bleu-900;
   }
 }
 
