@@ -220,6 +220,8 @@ function closeAll(header) {
 // - on remonte : elle redescend en glissant, fond blanc (.is-scrolled) ;
 // - on redescend : elle se cache en glissant (.is-hidden).
 // Jamais cachée si un menu est ouvert ou si le focus clavier est dedans.
+// Page avec hero vidéo (accueil) : dans le hero, la nav n'est jamais fixe, même
+// en remontant. Elle repart cachée et ne revient qu'en haut de page.
 // Le décalage utilise la propriété CSS « translate » (pas « transform », déjà
 // utilisée par l'arrivée de la nav au chargement).
 
@@ -231,6 +233,10 @@ function initScrollState(header) {
   let lastY = window.scrollY;
   let travel = 0; // distance parcourue dans le sens courant
   let ticking = false;
+
+  // Bas du hero vidéo (accueil), en px depuis le haut de la page
+  const hero = document.querySelector("[data-hero-video]");
+  const inHero = (y) => !!hero && y < hero.getBoundingClientRect().bottom + y - header.offsetHeight;
 
   const locked = () =>
     header.querySelector("[data-mega-panel].is-open, [data-nav-panel].is-open") ||
@@ -255,6 +261,11 @@ function initScrollState(header) {
     if (dy !== 0) travel = Math.sign(dy) === Math.sign(travel) ? travel + dy : dy;
 
     if (y <= 0) mode = "flow";
+    else if (inHero(y) && !locked()) {
+      // Dans le hero : la nav suit la page (flow) ; si elle était revenue fixe,
+      // elle se cache en glissant, puis repasse en flow tout en haut
+      mode = mode === "flow" || y < header.offsetHeight ? "flow" : "hidden";
+    }
     else if (locked()) mode = mode === "flow" && y < header.offsetHeight ? "flow" : "shown";
     else if (travel < -DIRECTION_DELTA && mode !== "shown") mode = y > 0 ? "shown" : "flow";
     else if (travel > DIRECTION_DELTA && mode === "shown") mode = "hidden";

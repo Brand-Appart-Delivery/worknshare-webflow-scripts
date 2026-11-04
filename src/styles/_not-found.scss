@@ -1,46 +1,6 @@
-// Page 404 : message + dessin, slider des espaces (repris de Bureaux flexibles),
-// bandeaux de renvoi empilés. Classes Webflow notfound_*.
-
-// Police d'affichage : Webflow n'a pas pu la lier par variable à la création
-.notfound_title,
-.notfound_caption {
-  font-family: var(--_work-n-share---font--display, "Boldonse", sans-serif);
-}
-
-// Bandeaux empilés : pas de marge propre (la pile gère l'écart de 24 px)
-.notfound_renvois > .offices-banner {
-  margin-top: 0;
-}
-
-// « Voir tous les espaces » à côté des flèches du slider
+// Page 404 : le responsive est réglé dans Webflow (classes notfound_*).
+// Ici seulement : « Voir tous les espaces » à côté des flèches du slider
+// (bouton composant, sans classe propre).
 .offices-slider_arrows > .button {
   margin-right: var(--_work-n-share---space--8, 8px);
-}
-
-@media (max-width: 991px) {
-  .notfound_grid {
-    flex-direction: column;
-    align-items: flex-start;
-    row-gap: var(--_work-n-share---space--48, 48px);
-  }
-
-  .notfound_figure {
-    width: 100%;
-    max-width: 560px;
-  }
-}
-
-@media (max-width: 767px) {
-  .notfound {
-    padding-top: var(--_work-n-share---space--24, 24px);
-    padding-bottom: var(--_work-n-share---space--64, 64px);
-  }
-
-  .notfound_title {
-    font-size: var(--_work-n-share---typo--mobile--display-l, 28px);
-  }
-
-  .notfound_grid {
-    row-gap: var(--_work-n-share---space--32, 32px);
-  }
 }

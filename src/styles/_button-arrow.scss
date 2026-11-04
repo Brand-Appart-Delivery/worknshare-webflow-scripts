@@ -4,8 +4,9 @@
 // épaisseur comble l'espace derrière elle (la barre est sur le parent de
 // l'icône : dans l'icône, elle serait coupée par son masque).
 // Partout où la flèche est dans un lien ou un bouton : boutons, cartes-liens
-// (articles, bannière du mega menu), entrées du mega menu, liens texte. Pas sur
-// les flèches de slider (pas de tige à allonger).
+// (articles, bannière du mega menu), entrées du mega menu, liens texte, et
+// flèches de slider (la flèche « précédent » est retournée par .is-prev dans
+// Webflow : la tige s'allonge vers la gauche). Flèche de slider désactivée : rien.
 
 @use "motion" as m;
 
@@ -13,9 +14,9 @@ $arrow-grow: 6px; // allongement de la tige
 $arrow-speed: 0.35s;
 
 // Conteneur de l'icône (même taille que l'icône)
-$holder: ":is(.button_icon, .icon-18, .mega-menu_entry-icon, .offices-link_icon, .venue-icon-18):has(> .ico-arrow-right)";
+$holder: ":is(.button_icon, .icon-18, .mega-menu_entry-icon, .offices-link_icon, .venue-icon-18, .slider_arrow-icon):has(> .ico-arrow-right)";
 // Lien ou bouton qui déclenche l'effet
-$link: ":is(a, button):not(.slider_arrow)";
+$link: ":is(a, button):not(.is-disabled, .is-locked)";
 
 #{$link} #{$holder} {
   position: relative;

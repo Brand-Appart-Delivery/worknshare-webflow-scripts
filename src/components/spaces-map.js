@@ -33,6 +33,8 @@ import { createScrollIndicator } from "../utils/scroll-indicator.js";
 import { getLenis } from "../core/core.js";
 import { createPlaceCarousel } from "./place-carousel.js";
 
+const PIN_STAGGER = 70; // ms entre deux pins à l'apparition
+
 const DESKTOP = window.matchMedia("(min-width: 992px)");
 const NEAREST_COUNT = 3; // espaces mis en avant dans « Les plus proches de… »
 const LIST_MARGIN = 16; // px d'air autour de l'espace choisi quand la liste défile jusqu'à lui
@@ -406,6 +408,7 @@ function initModule(module) {
       updateOriginMarker();
       if (state.origin) fitToOrigin();
       if (state.active) select(state.active.slug);
+      revealPinsWhenVisible();
     });
 
     // Pins des espaces
@@ -413,6 +416,8 @@ function initModule(module) {
       const el = document.createElement("button");
       el.type = "button";
       el.className = "map-pin";
+      // En attente de l'apparition en cascade (revealPinsWhenVisible)
+      if (!prefersReducedMotion()) el.classList.add("is-pending");
       el.setAttribute("aria-label", t("map.pin", { name: s.name }));
       el.innerHTML = `${PIN_SVG}<span class="map-pin_label">${escapeHtml(s.name)}</span>`;
       el.addEventListener("click", (e) => {
@@ -431,6 +436,38 @@ function initModule(module) {
     });
     renderList();
     if (state.active) select(state.active.slug, { fly: false });
+
+    // Pins qui « poppent » les uns après les autres, dans un ordre aléatoire,
+    // une fois la carte chargée ET à l'écran (elle se charge 400 px avant)
+    function revealPinsWhenVisible() {
+      const pending = [...state.markers.values()]
+        .map((m) => m.getElement())
+        .filter((el) => el.classList.contains("is-pending"));
+      if (!pending.length) return;
+      // Mélange (Fisher-Yates)
+      for (let i = pending.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pending[i], pending[j]] = [pending[j], pending[i]];
+      }
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some((e) => e.isIntersecting)) return;
+          io.disconnect();
+          pending.forEach((el, i) => {
+            el.style.setProperty("--pin-delay", `${i * PIN_STAGGER}ms`);
+            el.classList.replace("is-pending", "is-popping");
+            // Animation finie : on retire la classe (le survol reprend la main)
+            el.querySelector(".map-pin_shape")?.addEventListener(
+              "animationend",
+              () => el.classList.remove("is-popping"),
+              { once: true },
+            );
+          });
+        },
+        { threshold: 0.3 },
+      );
+      io.observe(mapEl);
+    }
 
     // Contrôles Webflow
     const on = (sel, fn) =>
