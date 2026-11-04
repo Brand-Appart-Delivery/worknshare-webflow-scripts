@@ -8,7 +8,8 @@
 // Au départ, les cartes suivantes sont rangées sous la première, en paquet
 // (on voit juste leur bord dépasser). Au fil du scroll, la première reste à sa
 // place et chaque carte suivante sort de dessous pour descendre à sa position
-// prévue, en grandissant jusqu'à sa taille ; son ombre s'estompe à l'arrivée.
+// prévue, en grandissant jusqu'à sa taille. La carte de devant porte une ombre
+// sur celle qu'elle recouvre, qui s'estompe quand celle-ci arrive à sa place.
 // L'avancement suit le scroll (scrub) : en remontant, elles se rangent.
 //
 // Desktop uniquement (en tablette / mobile les cartes sont plus hautes que
@@ -20,7 +21,7 @@ import { requestScrollRefresh } from "../utils/scroll-refresh.js";
 const DESKTOP = "(min-width: 992px)";
 const PEEK = 16; // px de bord visible par carte rangée dessous
 const SHRINK = 0.08; // réduction par rang dans le paquet (profondeur)
-// Ombre pendant la descente, qui s'estompe à l'arrivée
+// Ombre de la carte de devant sur celle du dessous, estompée à l'arrivée
 const SHADOW_FROM = "0 32px 64px rgba(18, 20, 4, 0.22)";
 const SHADOW_TO = "0 0px 0px rgba(18, 20, 4, 0)";
 
@@ -49,32 +50,33 @@ export function initStackReveal(root = document) {
 
       cards.slice(1).forEach((card, k) => {
         const rank = k + 1;
-        gsap.fromTo(
+        const front = cards[k]; // carte juste devant, qui la recouvre au départ
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: first,
+            // Démarre quand la première carte arrive au tiers haut de
+            // l'écran ; la carte atteint sa place quand le bas de sa
+            // position prévue arrive en bas de l'écran
+            start: () => firstTop() - window.innerHeight * 0.3,
+            end: () => naturalTop(card) + card.offsetHeight - window.innerHeight,
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        });
+        tl.fromTo(
           card,
           {
             // Rangée sous la première carte, bord qui dépasse en bas
             y: () => first.offsetTop + first.offsetHeight - card.offsetTop - card.offsetHeight + rank * PEEK,
             scale: 1 - rank * SHRINK,
-            boxShadow: SHADOW_FROM,
             transformOrigin: "50% 100%",
           },
-          {
-            y: 0,
-            scale: 1,
-            boxShadow: SHADOW_TO,
-            ease: "none",
-            scrollTrigger: {
-              trigger: first,
-              // Démarre quand la première carte arrive au tiers haut de
-              // l'écran ; la carte atteint sa place quand le bas de sa
-              // position prévue arrive en bas de l'écran
-              start: () => firstTop() - window.innerHeight * 0.3,
-              end: () => naturalTop(card) + card.offsetHeight - window.innerHeight,
-              scrub: true,
-              invalidateOnRefresh: true,
-            },
-          },
+          { y: 0, scale: 1, ease: "none" },
+          0,
         );
+        // L'ombre est portée par la carte de devant sur celle qu'elle recouvre,
+        // et s'estompe quand celle-ci arrive à sa place
+        tl.fromTo(front, { boxShadow: SHADOW_FROM }, { boxShadow: SHADOW_TO, ease: "none" }, 0);
       });
 
       requestScrollRefresh();
