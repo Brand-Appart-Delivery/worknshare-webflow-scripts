@@ -69,7 +69,9 @@ export function initHouseShapes(root = document) {
         pending.clear();
       });
     });
-    shapes.forEach((el) => ro.observe(el));
+    // Taille totale (border-box) : l'élargissement au scroll (widen.js) ajoute
+    // du padding sans changer la zone de contenu
+    shapes.forEach((el) => ro.observe(el, { box: "border-box" }));
   }
 }
 
