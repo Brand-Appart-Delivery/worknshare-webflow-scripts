@@ -8,7 +8,8 @@
 // Au départ, les cartes suivantes sont rangées sous la première, en paquet
 // (on voit juste leur bord dépasser). Au fil du scroll, la première reste à sa
 // place et chaque carte suivante sort de dessous pour descendre à sa position
-// prévue, en grandissant jusqu'à sa taille. La carte de devant porte une ombre
+// prévue, en grandissant jusqu'à sa taille et en se redressant (légèrement
+// tournée dans le paquet). La carte de devant porte une ombre
 // sur celle qu'elle recouvre, qui s'estompe quand celle-ci arrive à sa place.
 // L'avancement suit le scroll (scrub) : en remontant, elles se rangent.
 //
@@ -21,6 +22,7 @@ import { requestScrollRefresh } from "../utils/scroll-refresh.js";
 const DESKTOP = "(min-width: 992px)";
 const PEEK = 16; // px de bord visible par carte rangée dessous
 const SHRINK = 0.08; // réduction par rang dans le paquet (profondeur)
+const TILT = 2; // degrés de rotation dans le paquet, alternés d'une carte à l'autre
 // Ombre de la carte de devant sur celle du dessous, estompée à l'arrivée
 const SHADOW_FROM = "0 32px 64px rgba(18, 20, 4, 0.22)";
 const SHADOW_TO = "0 0px 0px rgba(18, 20, 4, 0)";
@@ -69,9 +71,10 @@ export function initStackReveal(root = document) {
             // Rangée sous la première carte, bord qui dépasse en bas
             y: () => first.offsetTop + first.offsetHeight - card.offsetTop - card.offsetHeight + rank * PEEK,
             scale: 1 - rank * SHRINK,
+            rotation: rank % 2 ? -TILT : TILT,
             transformOrigin: "50% 100%",
           },
-          { y: 0, scale: 1, ease: "none" },
+          { y: 0, scale: 1, rotation: 0, ease: "none" },
           0,
         );
         // L'ombre est portée par la carte de devant sur celle qu'elle recouvre,
