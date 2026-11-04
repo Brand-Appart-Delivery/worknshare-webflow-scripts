@@ -861,7 +861,13 @@ body{background:var(--fond);color:var(--ink);font-weight:400;letter-spacing:-.01
 .act2 button{font-family:var(--font);font-weight:500;font-size:16px;padding:12px 24px;min-height:0;background:none;
   border:1.5px solid var(--teal);color:var(--teal)}
 .act2 button:hover{background:var(--fort-08);border-color:var(--teal);transform:none}
-.preuve{color:var(--teal);font-weight:500;font-size:14px}
+/* Preuve : « Spécialiste… depuis 2017 » puis, en dessous, note Google + étoiles */
+.preuve{color:var(--teal);font-weight:500;font-size:14px;letter-spacing:-.01em;line-height:1.4;
+  display:flex;flex-wrap:wrap;justify-content:center;column-gap:.3em;row-gap:10px;max-width:none}
+.preuve .sep{display:none}
+.preuve .avis{flex-basis:100%;justify-content:center;gap:8px;white-space:normal}
+.preuve .et{gap:2px;transform:translateY(-1px)}
+.preuve .et svg{width:14px;height:14px;fill:var(--fort)}
 .legal{color:var(--fort-70);font-size:12px}
 .legal::before{background:var(--teal)}
 .legal a{color:inherit}
