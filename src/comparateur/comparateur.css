@@ -793,6 +793,7 @@ body{background:var(--fond);color:var(--ink);font-weight:400;letter-spacing:-.01
 .enc.plie{min-height:auto;padding-top:var(--_work-n-share---space--24,24px);padding-bottom:var(--_work-n-share---space--64,64px)}
 .enc::before,.grain{display:none}
 .enc .breadcrumb{margin-bottom:var(--_work-n-share---space--32,32px)}
+.enc .breadcrumb,.enc .breadcrumb a,.enc .breadcrumb span{color:var(--accent)}
 .enc h1{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.01em;line-height:1.25;
   font-size:var(--_work-n-share---typo--display-xl,64px);color:var(--_work-n-share---color--beige--50,#FFFBE7);max-width:16em}
 .enc h1 em{color:var(--amber)}
