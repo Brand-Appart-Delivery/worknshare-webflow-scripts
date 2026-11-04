@@ -74,6 +74,8 @@ const DICT = {
     "comparator.city": "Commune d’implantation",
     "comparator.cities": "Communes proposées",
     "comparator.noCity": "Commune inconnue du comparateur. Essayez la commune voisine.",
+    "blog.count": "{n} articles affichés",
+    "blog.countOne": "1 article affiché",
   },
   en: {
     "menu.open": "Menu",
@@ -134,6 +136,8 @@ const DICT = {
     "comparator.city": "Office location (town)",
     "comparator.cities": "Suggested towns",
     "comparator.noCity": "Town not covered by the comparator. Try a neighbouring one.",
+    "blog.count": "{n} articles shown",
+    "blog.countOne": "1 article shown",
   },
 };
 

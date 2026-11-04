@@ -34,6 +34,7 @@ import { initTocs } from "./components/toc.js";
 import { initCardLinks } from "./components/card-link.js";
 import { initComparateur } from "./components/comparateur.js";
 import { initComparatorBanners } from "./components/comparator-banner.js";
+import { initBlogFilters } from "./components/blog-filter.js";
 
 onReady(() => {
   initCore();
@@ -46,6 +47,7 @@ onReady(() => {
   initCardLinks();
   initComparateur(); // page /comparateur : charge son propre JS et CSS
   initComparatorBanners(); // bandeau qui pré-remplit le comparateur
+  initBlogFilters(); // page Blog : filtre par rubrique
   initFormulas();
   initSliders();
   initPhotoSliders();

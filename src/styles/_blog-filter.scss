@@ -1,0 +1,16 @@
+// Filtre du blog par rubrique (components/blog-filter.js)
+
+// Articles hors rubrique : masqués (la grille Webflow impose son display)
+[data-blog-list] > [hidden] {
+  display: none !important;
+}
+
+// Nombre d'articles affichés : annoncé aux lecteurs d'écran seulement
+.blog-filters_status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
