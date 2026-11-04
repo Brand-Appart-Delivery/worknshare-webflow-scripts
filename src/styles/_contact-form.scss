@@ -18,6 +18,11 @@
   display: none !important;
 }
 
+// Coordonnées du récap : nom, e-mail, téléphone l'un sous l'autre
+[data-contact-recap-value="coordonnees"] > [data-contact-recap-value] {
+  display: block;
+}
+
 // Envoyé : colonne de gauche masquée, succès centré sur la page
 .contact-hero.is-sent {
   .contact-hero_intro {
