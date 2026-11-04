@@ -1,22 +1,18 @@
-/* src/comparateur/comparateur.css — styles du comparateur, repris tels quels
-   de l'ancien site (v80). Chargé seulement sur la page du comparateur : les
-   règles html, body, :root, h1 ne touchent donc pas le reste du site. */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap");
+/* src/comparateur/comparateur.css — styles des parties du comparateur générées
+   par son JS (champs, résultat, menu de partage). Le reste de la page (hero,
+   appel final) est en éléments Webflow natifs.
+   Règles d'origine de l'ancien site, limitées aux blocs .inst, .res et .act2
+   pour ne jamais toucher les éléments Webflow, puis couche DA en fin de fichier. */
+/* ---- Neutralise les styles de balise de Webflow dans les blocs du comparateur ---- */ html{font-family:revert;height:revert;-webkit-text-size-adjust:revert;text-size-adjust:revert}
 
-/* ---- Neutralise les styles de balise de Webflow (site CSS chargé avant) ----
-   Sur l'ancien site, la page n'avait que les styles du navigateur, puis « * »
-   (marges à zéro), puis les siens. On remet ici chaque propriété que Webflow
-   touche à cette valeur-là ; les règles d'origine, plus bas, reprennent la main. */
-html{font-family:revert;height:revert;-webkit-text-size-adjust:revert;text-size-adjust:revert}
-body{background-color:revert;color:revert;font-family:revert;font-size:revert;font-weight:revert;letter-spacing:revert;line-height:revert;min-height:revert;margin:0}
-h1,h2,h3,h4,h5,h6{font-family:revert;font-size:revert;font-weight:revert;letter-spacing:revert;line-height:revert;text-transform:revert;margin:0}
-p,ul,ol,figure,figcaption,blockquote{margin:0;padding:0;border-left:revert;font-size:revert;line-height:revert;text-align:revert;display:revert}
-label{display:revert;font-weight:revert;margin:0}
-a{background-color:revert;color:revert;text-decoration:revert}
-b,strong{font-weight:revert}
-small,sub,sup{font-size:revert;line-height:revert;position:revert;vertical-align:revert;top:revert;bottom:revert}
-img{border:revert;display:revert;max-width:revert;vertical-align:revert}
-button,input,select,textarea{font:revert;color:revert;line-height:revert;text-transform:revert;-webkit-appearance:revert;appearance:revert;border:revert;cursor:revert;overflow:revert;margin:0}
+:where(.inst,.res,.act2) h2,:where(.inst,.res,.act2) h3,:where(.inst,.res,.act2) h4,:where(.inst,.res,.act2) h5,:where(.inst,.res,.act2) h6{font-family:revert;font-size:revert;font-weight:revert;letter-spacing:revert;line-height:revert;text-transform:revert;margin:0}
+:where(.inst,.res,.act2) p,:where(.inst,.res,.act2) ul,:where(.inst,.res,.act2) ol,:where(.inst,.res,.act2) figure,:where(.inst,.res,.act2) figcaption,:where(.inst,.res,.act2) blockquote{margin:0;padding:0;border-left:revert;font-size:revert;line-height:revert;text-align:revert;display:revert}
+:where(.inst,.res,.act2) label{display:revert;font-weight:revert;margin:0}
+:where(.inst,.res,.act2) a{background-color:revert;color:revert;text-decoration:revert}
+:where(.inst,.res,.act2) b,:where(.inst,.res,.act2) strong{font-weight:revert}
+:where(.inst,.res,.act2) small,:where(.inst,.res,.act2) sub,:where(.inst,.res,.act2) sup{font-size:revert;line-height:revert;position:revert;vertical-align:revert;top:revert;bottom:revert}
+:where(.inst,.res,.act2) img{border:revert;display:revert;max-width:revert;vertical-align:revert}
+:where(.inst,.res,.act2) button,:where(.inst,.res,.act2) input,:where(.inst,.res,.act2) select,:where(.inst,.res,.act2) textarea{font:revert;color:revert;line-height:revert;text-transform:revert;-webkit-appearance:revert;appearance:revert;border:revert;cursor:revert;overflow:revert;margin:0}
 
 /* ===== Styles d'origine (v80), non modifiés ===== */
 
@@ -38,50 +34,25 @@ button,input,select,textarea{font:revert;color:revert;line-height:revert;text-tr
   --e-pop:cubic-bezier(.34,1.36,.44,1);
   --t1:.18s; --t2:.32s; --t3:.6s; --t4:.9s; --tap:.09s;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--font);font-weight:500;color:var(--ink);background:var(--fond);
-  -webkit-font-smoothing:antialiased;letter-spacing:-.005em;line-height:1.5}
+:where(.inst,.res,.act2),:where(.inst,.res,.act2) *{box-sizing:border-box;margin:0;padding:0}
+
+
 .tn{font-variant-numeric:tabular-nums lining-nums}
-.verd,.sheet,.fin,#res{scroll-margin-top:28px}
+.verd,.sheet,#res{scroll-margin-top:28px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
 .mic{font-size:var(--t-mic);font-weight:700;letter-spacing:.19em;text-transform:uppercase}
-::selection{background:var(--amber);color:var(--teal)}
-.lg{display:block;background:var(--logo) left center/contain no-repeat}
-a.brand{display:inline-flex;align-items:center;text-decoration:none;border-radius:8px;
-  min-height:44px;min-width:44px;
-  transition:opacity var(--t1) var(--e-s),transform var(--t1) var(--e-s)}
-a.brand:hover{opacity:.72}
-a.brand:active{transform:scale(.94);transition-duration:var(--tap)}
+
+
 :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
 [data-a]{opacity:0;transform:translateY(14px)}
 [data-a].in{opacity:1;transform:none;
   transition:opacity var(--t4) var(--e2),transform var(--t4) var(--e2)}
 
-.enc{background:
-   radial-gradient(760px 380px at 78% -8%, rgba(255,208,133,.14), transparent 62%),
-   radial-gradient(900px 520px at 8% 110%, rgba(79,127,125,.22), transparent 60%),
-   linear-gradient(158deg,var(--teal-w) 0%,var(--teal) 42%,var(--teal-x) 100%);
-  color:#fff;position:relative;
-  padding:0 0 clamp(128px,15vh,210px);
-  min-height:100svh;display:flex;flex-direction:column;
-  transition:min-height var(--t3) var(--e2),padding-bottom var(--t3) var(--e2);
-  justify-content:center;
-  justify-content:safe center}
-.enc>.wrap{width:100%}
 .enc.plie{min-height:auto;padding-top:clamp(94px,11.5vh,130px);
   padding-bottom:clamp(52px,6vh,86px)}
-.enc::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
-  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:44px 44px}
-.enc>*{position:relative}
-.top{position:absolute;top:clamp(20px,2.6vh,32px);left:clamp(20px,4vw,44px);z-index:3}
-.top .lg{height:clamp(46px,4.4vw,62px);width:clamp(77px,7.4vw,104px);
-  filter:brightness(0) invert(1)}
-.top .mic{color:rgba(255,255,255,.5)}
-h1{font-size:clamp(31px,4.6vw,60px);font-weight:600;line-height:1.06;
-  letter-spacing:-.04em;margin:0;max-width:21em;text-wrap:balance}
-h1 em{font-style:normal;color:var(--amber)}
+
+
+
 
 .inst{margin-top:clamp(30px,3.8vw,48px);background:rgba(255,255,255,.055);
   border:1px solid rgba(255,255,255,.13);border-radius:18px;
@@ -108,8 +79,7 @@ h1 em{font-style:normal;color:var(--amber)}
 .ctl{margin-top:14px;min-height:54px;display:flex;align-items:center}
 .fld[data-champ="effectif"] .ctl{justify-content:center}
 .fld[data-champ="duree"] .ctl{padding-bottom:14px}
-.fld[data-champ="duree"] .val,
-.fld[data-champ="duree"] .rgw{position:relative;top:-2px}
+.fld[data-champ="duree"] .val,.fld[data-champ="duree"] .rgw{position:relative;top:-2px}
 .fld:focus-within{z-index:5}
 .fld+.fld::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:1px;
   background:linear-gradient(180deg,transparent,rgba(255,255,255,.15) 24%,
@@ -428,38 +398,6 @@ h1 em{font-style:normal;color:var(--amber)}
 /* margin-top negatif plus bas : cette section remonte sous le tableau pour que le
    fondu commence derriere lui. Tout element place en fin de section precedente doit
    donc porter position:relative et z-index:2, sinon il est peint sous ce degrade. */
-.fin{
-  background:
-    radial-gradient(760px 460px at 50% 108%, rgba(255,208,133,.07), transparent 62%),
-    linear-gradient(180deg,
-    #EEF4F3 0px,
-    #E2EAE9 12px,
-    #D5E1DF 24px,
-    #C9D7D5 35px,
-    #BCCECB 47px,
-    #B0C5C2 59px,
-    #A4BBB8 71px,
-    #97B2AF 83px,
-    #8BA9A6 94px,
-    #7FA09C 106px,
-    #739793 118px,
-    #678E8A 130px,
-    #5C8581 142px,
-    #517C79 153px,
-    #467370 165px,
-    #3C6B67 177px,
-    #32625F 189px,
-    #295956 201px,
-    #20504E 212px,
-    #174845 224px,
-    #0E3F3D 236px,
-    var(--teal-x) 100%);
-  color:#fff;text-align:center;position:relative;overflow:hidden;
-  min-height:100svh;display:flex;align-items:center;justify-content:center;
-  padding:clamp(150px,17vh,200px) clamp(20px,4vw,44px) clamp(56px,7vh,90px);
-  border-radius:0;
-  margin-top:clamp(-160px,-14vh,-90px);
-  --v:1}
 
 /* Le chevauchement negatif fait fondre le degrade dans la section precedente.
    Sur telephone il valait -14 vh, soit pres de 120 px sur un grand ecran : la
@@ -473,102 +411,8 @@ h1 em{font-style:normal;color:var(--amber)}
      le chevauchement et on aere le bas de la grille. Le degrade demarre de toute
      facon sur un blanc casse tres proche du fond, la jointure ne se voit pas. */
   .duels{padding-bottom:34px}
-  .fin{margin-top:0;z-index:3;
-    padding-top:clamp(74px,11vh,120px)}
+  
 }
-
-@supports (background:linear-gradient(in oklab,red,blue)){
-  .fin{background:
-    radial-gradient(760px 460px at 50% 108%, rgba(255,208,133,.07), transparent 62%),
-    linear-gradient(180deg in oklab,
-      #EEF4F3 0px, #0E3F3D 380px, var(--teal-x) 100%)}
-}
-
-.fin::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 300px,#000 560px);
-  mask-image:linear-gradient(180deg,transparent 0,transparent 300px,#000 560px);
-  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:44px 44px}
-.fin::after{content:"";position:absolute;left:50%;top:66%;width:min(620px,72vw);
-  aspect-ratio:1.35;
-  transform:translate(-50%,-50%) scale(calc(.78 + .22 * var(--v)));
-  background:radial-gradient(closest-side,rgba(255,208,133,.055),
-    rgba(255,208,133,.02) 52%,transparent 74%);
-  opacity:var(--v);pointer-events:none;
-  will-change:transform,opacity}
-.grain{position:absolute;left:0;right:0;top:0;height:470px;pointer-events:none;
-  opacity:.06;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:160px 160px;
-  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 72%,transparent 100%);
-  mask-image:linear-gradient(180deg,#000 0,#000 72%,transparent 100%)}
-.fin>div{position:relative;width:100%;max-width:1180px;
-  transform:translateY(calc(46px * (1 - var(--v))));
-  opacity:calc(.25 + .75 * var(--v))}
-.fin .mic{color:var(--amber);opacity:.85}
-.fin h2{font-size:clamp(30px,4.4vw,58px);font-weight:600;letter-spacing:-.04em;
-  line-height:1.06;max-width:20em;margin:0 auto}
-.fin h2 b{font-weight:600;color:var(--amber)}
-.fin h2{--avc:215px}
-@media(max-width:900px){.fin h2{--avc:150px}}
-@media(max-width:480px){.fin h2{--avc:180px}}
-.fin h2 .mot{transition:opacity .7s var(--e-s),filter .7s var(--e-s);
-  will-change:opacity,filter}
-.fin h2.solo .mot{opacity:0;filter:blur(3px)}
-.fin h2.solo b{transform:perspective(820px) translateZ(var(--avc))}
-.fin h2 b{display:inline-block;transform-origin:50% 50%;position:relative;z-index:2;
-  transform:perspective(820px) translateZ(0);
-  transition:transform .85s var(--e2)}
-
-@media(prefers-reduced-motion:reduce){
-  .fin h2 .mot,.fin h2 b{transition:none}
-  .fin h2.solo .mot{opacity:1;filter:none}
-  .fin h2.solo b{transform:none}}
-@media(max-width:640px){
-  .fin h2{font-size:clamp(24px,7.4vw,58px);max-width:none;line-height:1.1}
-  .fin{padding-top:clamp(70px,10vh,120px);
-    padding-bottom:clamp(40px,6vh,70px);min-height:auto}
-}
-
-@media(max-width:640px){
-  .fin h2{line-height:1.0;letter-spacing:-.03em}
-  .act{margin-top:30px}
-  .preuve{margin-top:26px;font-size:12.5px;font-weight:600;line-height:1.9;
-    letter-spacing:.01em;max-width:none}
-  .preuve .f2 .sep{display:none}
-  .preuve .avis{width:100%;justify-content:center;gap:8px}
-  .legal{margin-top:34px;padding-top:24px}
-}
-[data-fin]{transform:translateY(54px)}
-[data-fin].in{transition:opacity 1.25s var(--e2),transform 1.25s var(--e2)}
-.act{margin-top:clamp(34px,4.4vw,54px);display:flex;justify-content:center}
-.go2{display:inline-flex;align-items:center;justify-content:center;gap:13px;
-  font-size:17.5px;font-weight:700;
-  background:var(--amber);color:var(--teal);border:none;border-radius:99px;padding:0 44px;
-  min-height:68px;width:min(520px,100%);cursor:pointer;text-decoration:none;
-  box-shadow:0 10px 26px -16px rgba(255,208,133,.42);
-  /* La courbe --e-pop depasse legerement la valeur cible avant de revenir :
-     c'est elle qui donne le rebond au survol, sans animation ni image cle. */
-  transition:background-color var(--t2) var(--e-s),transform .34s var(--e-pop),
-             box-shadow var(--t2) var(--e-s)}
-.go2 svg{width:17px;height:17px;transition:transform var(--t2) var(--e)}
-.go2:hover{background-color:#fff;box-shadow:0 18px 40px -14px rgba(0,0,0,.55);
-  transform:scale(1.032)}
-.go2:hover svg{transform:translateX(4px)}
-.go2:active{transform:scale(.972);transition-duration:var(--tap)}
-.preuve{margin:26px auto 0;font-size:13px;font-weight:700;letter-spacing:.02em;
-  color:rgba(255,255,255,.62);text-align:center;line-height:1.75;max-width:34em}
-.preuve span{white-space:nowrap;display:inline-block}
-.preuve .sep{font-style:normal;opacity:.55}
-.preuve .avis{display:inline-flex;align-items:center;gap:9px}
-.et{display:inline-flex;gap:1.5px;flex:none;transform:translateY(-.5px)}
-.et svg{width:12px;height:12px;fill:var(--amber);display:block}
-.ver{opacity:.4;letter-spacing:.05em}
-.legal{margin:clamp(38px,5vh,60px) auto 0;max-width:60ch;
-  font-size:11.5px;font-weight:500;color:rgba(255,255,255,.32);letter-spacing:0;
-  position:relative;padding-top:clamp(26px,3.4vh,38px)}
-.legal::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:34px;height:2px;border-radius:2px;background:var(--amber);opacity:.55}
 
 .meth{background:var(--paper);border:1px solid var(--rule);border-radius:18px;
   padding:0 clamp(20px,2.4vw,30px)}
@@ -597,7 +441,7 @@ h1 em{font-style:normal;color:var(--amber)}
 .foot-n{padding:20px 0 24px;font-size:12px;color:var(--ink4);line-height:1.6;max-width:88ch}
 
 @media(max-width:900px){
-  .enc{padding-top:clamp(94px,11.5vh,130px)}
+  
   .inst{grid-template-columns:1fr}
   .fld+.fld::before{display:none}
   .fld::after{display:block}
@@ -609,13 +453,13 @@ h1 em{font-style:normal;color:var(--amber)}
      grand ecran ne montre jamais puisque les trois champs y sont cote a cote. */
   .fld[data-champ="duree"]::after{display:none}
   .inst::after{display:none}
-  h1{max-width:none}
+  
   .trio{grid-template-columns:1fr;border-top:none}
   .trio>div{padding:20px 0;border-top:1px solid var(--rule)}
   .trio>div+div::before{display:none}
-  .act{flex-direction:column;align-items:stretch}
-  .go2{width:100%}
-  .go2{padding:0 24px;gap:10px}
+  
+  
+  
   .mgrid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
@@ -633,15 +477,12 @@ h1 em{font-style:normal;color:var(--amber)}
   .stp button{top:0}
   .val{margin-right:16px}
 }
-@media(max-width:400px){
-  .go2{padding:0 14px;font-size:14.5px;gap:8px;letter-spacing:-.014em}
-  .go2 svg{width:17px;height:17px}
-}
+
 @media(prefers-reduced-motion:reduce){
-  .fin{--v:1!important}
-  .fin::after{transform:translate(-50%,-50%)!important}
-  html{scroll-behavior:auto}
-  *,*::before,*::after{transition:none!important;animation:none!important}
+  
+  
+  
+  :where(.inst,.res,.act2),:where(.inst,.res,.act2) *,:where(.inst,.res,.act2) *::before,:where(.inst,.res,.act2) *::after{transition:none!important;animation:none!important}
   [data-a]{opacity:1!important;transform:none!important}
   .res{opacity:1!important}
   .meth[open] .mgrid>div{opacity:1!important;transform:none!important}
@@ -682,18 +523,7 @@ h1 em{font-style:normal;color:var(--amber)}
    Traite en bouton secondaire sur fond sombre, il reste dans le meme ecran que le
    bouton ambre sans lui faire concurrence. Etre a l'interieur de .fin supprime au
    passage tout le probleme de chevauchement. */
-.act2{position:relative;margin-top:20px;display:flex;justify-content:center}
-.act2 button{display:inline-flex;align-items:center;gap:9px;
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.26);
-  border-radius:999px;padding:0 21px;cursor:pointer;
-  font:inherit;font-size:14px;font-weight:700;letter-spacing:.01em;color:#fff;
-  min-height:44px;
-  transition:background-color var(--t1) var(--e-s),border-color var(--t1) var(--e-s),
-    transform .34s var(--e-pop)}
-.act2 button svg{width:16px;height:16px;flex:0 0 16px}
-.act2 button:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.52);
-  transform:scale(1.045)}
-.act2 button:active{transform:scale(.97);transition-duration:var(--tap)}
+.act2{position:relative}
 
 /* Vers le bas, jamais vers le haut : ouvert au-dessus il recouvrait le bouton de
    prise de rendez-vous, c'est-a-dire la seule action qui compte sur cette page.
@@ -725,14 +555,14 @@ h1 em{font-style:normal;color:var(--amber)}
 /* Le JavaScript respecte deja la reduction de mouvement via CALME ; cette regle
    couvre les transitions et animations declarees en CSS. */
 @media (prefers-reduced-motion: reduce){
-  *,*::before,*::after{
+  :where(.inst,.res,.act2),:where(.inst,.res,.act2) *,:where(.inst,.res,.act2) *::before,:where(.inst,.res,.act2) *::after{
     animation-duration:.001ms!important;animation-iteration-count:1!important;
     transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
 
 @media print{
   .act2{display:none!important}
-  .enc{display:none!important}
+  
   .prTete{display:block;margin:0 0 12mm;font-size:10.5pt;line-height:1.5;
     border-bottom:1px solid #bbb;padding-bottom:6mm}
   .prTete b{display:block;font-size:17pt;line-height:1.2;margin-bottom:4mm;
@@ -741,13 +571,13 @@ h1 em{font-style:normal;color:var(--amber)}
   .duel{break-inside:avoid;page-break-inside:avoid}
   .trio>div{break-inside:avoid}
   html,body{background:#fff!important}
-  .drop,.grain,.stp button,.see{display:none!important}
+  .drop,.stp button,.see{display:none!important}
   .dur button{display:none}
   .dur button[aria-checked="true"]{display:inline-block;background:none;color:#000;
     border:1px solid #000}
-  .enc,.fin{min-height:auto!important;background:#fff!important;color:#000!important}
-  .enc *,.fin *{color:#000!important}
-  .fin{border-top:1px solid #999;padding-top:14mm}
+  
+  
+  
   .res{display:block!important}
   [data-a]{opacity:1!important;transform:none!important;filter:none!important}
   .det{display:block!important;height:auto!important;overflow:visible!important}
@@ -756,13 +586,10 @@ h1 em{font-style:normal;color:var(--amber)}
 }
 
 /* =====================================================================
-   COUCHE DA WORK & SHARE (nouvelle charte) — passe après l'original.
-   Couleurs, polices, tailles et boutons du site (variables Webflow
-   --_work-n-share---*). La mécanique d'origine (états, animations,
-   calculs) n'est pas touchée.
+   COUCHE DA WORK & SHARE — variables du site (--_work-n-share---*).
+   Thème : --fort (fond sombre, titres) et --accent (boutons, mots clés).
+   Pour revenir au vert : vert--700 / vert--100 / vert--900.
    ===================================================================== */
-/* Thème : --fort (fond sombre, titres), --accent (boutons, mots clés).
-   Pour revenir au vert : vert--700 / vert--100 / vert--900. */
 :root{
   --fort:var(--_work-n-share---color--bleu--900,#0E1B3A);
   --accent:var(--_work-n-share---color--bleu--300,#A3C4FF);
@@ -771,116 +598,67 @@ h1 em{font-style:normal;color:var(--amber)}
   --teal-m:#2A3A63; --teal-s:#4A5D8C; --teal-w:var(--fort);
   --amber:var(--accent); --amber-d:var(--fort);
   --amber-p:var(--_work-n-share---color--beige--50,#FFFBE7);
-  --wine:var(--_work-n-share---color--bordeaux--900,#2C0C10); --wine-p:#FFE3F5;
-  --ink:var(--fort); --ink2:var(--fort);
-  --ink3:#3A4766; --ink4:#6B7899; --grey:#6B7899;
+  --ink:var(--fort); --ink2:var(--fort); --ink3:#3A4766; --ink4:#6B7899; --grey:#6B7899;
   --paper:var(--_work-n-share---color--blanc,#fff);
   --fond:var(--_work-n-share---color--beige--50,#FFFBE7); --fond2:#F6F0D2;
   --rule:color-mix(in srgb,var(--fort) 16%,transparent);
   --accent-24:color-mix(in srgb,var(--accent) 24%,transparent);
-  --accent-06:color-mix(in srgb,var(--accent) 6%,transparent);
-  --fort-08:color-mix(in srgb,var(--fort) 8%,transparent);
-  --fort-70:color-mix(in srgb,var(--fort) 70%,transparent);
   --font:var(--_work-n-share---font--texte,"Google Sans Flex",Arial,sans-serif);
   --display:var(--_work-n-share---font--display,Boldonse,Arial,sans-serif);
   --t-mic:12px;
 }
-body{background:var(--fond);color:var(--ink);font-weight:400;letter-spacing:-.01em}
 
-/* ---------- En-tête (fond uni du thème) ---------- */
-.enc{background:var(--fort);color:var(--_work-n-share---color--beige--50,#FFFBE7);
-  min-height:calc(100svh - 96px);padding:var(--_work-n-share---space--24,24px) 0 var(--_work-n-share---space--64,64px)}
-.enc.plie{min-height:auto;padding-top:var(--_work-n-share---space--24,24px);padding-bottom:var(--_work-n-share---space--64,64px)}
-.enc::before,.grain{display:none}
-.enc .breadcrumb{margin-bottom:var(--_work-n-share---space--32,32px)}
-.enc .breadcrumb,.enc .breadcrumb a,.enc .breadcrumb span{color:var(--accent)}
-.enc h1{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.01em;line-height:1.25;
-  font-size:var(--_work-n-share---typo--display-xl,64px);color:var(--_work-n-share---color--beige--50,#FFFBE7);max-width:16em}
-.enc h1 em{color:var(--amber)}
-.inst{background:var(--accent-06);border:1px solid var(--accent-24);
+/* ---------- Hero (section Webflow .enc) : états pilotés par le JS ---------- */
+@media (min-width:768px){ .enc:not(.plie){min-height:calc(100svh - 96px)} }
+.enc h1 em{font-style:normal;color:var(--accent)}
+
+/* ---------- Champs ---------- */
+.inst{background:color-mix(in srgb,var(--accent) 6%,transparent);border:1px solid var(--accent-24);
   border-radius:var(--_work-n-share---radius--l,24px);backdrop-filter:none;-webkit-backdrop-filter:none}
-.inst::after,.fld::after{background:var(--accent-24)}
-.fld+.fld::before{background:var(--accent-24)}
+.inst::after,.fld::after,.fld+.fld::before{background:var(--accent-24)}
 .mic{font-family:var(--display);font-weight:400;letter-spacing:0;font-size:12px;line-height:1.4}
-.fld .mic{color:var(--amber)}
+.fld .mic{color:var(--accent)}
 .fld .mic i{font-family:var(--font);font-weight:600}
 .ci,.stp input,.val{font-family:var(--font);font-weight:500;letter-spacing:-.01em}
-.stp button{border-color:var(--accent-24);color:var(--amber);font-family:var(--font)}
-/* Bouton « Découvrir mes économies » = bouton accent du thème */
+.stp button{border-color:var(--accent-24);color:var(--accent);font-family:var(--font)}
+/* « Découvrir mes économies » : même gabarit que .button du site */
 .decl{font-family:var(--font);font-weight:500;font-size:16px;letter-spacing:-.01em;line-height:1.2;
   min-height:0;padding:12px 24px;border-radius:var(--_work-n-share---radius--pill,999px);gap:8px}
-.decl.pret{background:var(--amber);color:var(--fort);box-shadow:none;filter:none}
+.decl.pret{background:var(--accent);color:var(--fort);box-shadow:none;filter:none}
 .decl.pret:hover{filter:none;box-shadow:none;background:var(--accent-h)}
-.decl:focus-visible{outline-color:var(--amber)}
 
-/* ---------- Résultat ---------- */
-.verd .mic{font-family:var(--display);font-weight:400;font-size:14px;letter-spacing:0;color:var(--teal)}
-.disp{font-family:var(--display);font-weight:400;letter-spacing:-.01em;line-height:1.15;text-transform:uppercase;color:var(--teal);
-  font-size:var(--_work-n-share---typo--display-xxl,clamp(54px,9vw,110px))}
-.verd .ph{font-family:var(--font);font-size:var(--_work-n-share---typo--texte-l,20px);line-height:1.45;color:var(--ink);font-weight:400;max-width:36em}
-.verd .esp a{background:var(--amber);color:var(--ink);font-weight:500;font-size:14px;padding:10px 18px;border-radius:var(--_work-n-share---radius--pill,999px)}
-.verd .esp a:hover{background:var(--accent-h);color:var(--ink);transform:none}
-.verd .esp a::before{background:var(--teal);box-shadow:none}
-.verd .esp b{color:var(--ink);font-weight:600}
-.trio .v{font-family:var(--display);font-weight:400;letter-spacing:-.01em;color:var(--teal)}
-.trio .l{font-family:var(--font);font-size:14px;font-weight:500;color:var(--teal);letter-spacing:-.01em}
+/* ---------- Résultat : largeur du conteneur du site ---------- */
+.res .wrap{max-width:calc(var(--_work-n-share---layout--conteneur,1280px) + 2 * var(--_work-n-share---layout--marge,80px));
+  padding-left:var(--_work-n-share---layout--marge,80px);padding-right:var(--_work-n-share---layout--marge,80px)}
+.disp,.trio .v,.verd .mic,.see,.dnom,.det .incT,.det .incO b{font-family:var(--display);font-weight:400;letter-spacing:0}
+.disp{line-height:1.15;text-transform:uppercase;color:var(--fort);font-size:var(--_work-n-share---typo--display-xxl,110px)}
+.verd .mic{font-size:14px;color:var(--fort)}
+.verd .ph{font-family:var(--font);font-size:var(--_work-n-share---typo--texte-l,20px);line-height:1.45;font-weight:400;max-width:36em}
+.verd .esp a{background:var(--accent);color:var(--fort);font-weight:500;font-size:14px;padding:10px 18px;border-radius:var(--_work-n-share---radius--pill,999px)}
+.verd .esp a:hover{background:var(--accent-h);transform:none}
+.verd .esp a::before{background:var(--fort);box-shadow:none}
+.trio .v{color:var(--fort)}
+.trio .l{font-family:var(--font);font-size:14px;font-weight:500;color:var(--fort)}
 
 /* Cartes de comparaison : cartes blanches du site */
-.duel{border-radius:var(--_work-n-share---radius--l,24px);border:0;box-shadow:none}
-.duel>summary{border-radius:var(--_work-n-share---radius--l,24px)}
+.duel,.duel>summary{border-radius:var(--_work-n-share---radius--l,24px);border:0;box-shadow:none}
 .duel[open]>summary{border-radius:var(--_work-n-share---radius--l,24px) var(--_work-n-share---radius--l,24px) 0 0}
 .duel>summary:hover{background-color:#FFFDF3}
-.dhaut b{font-family:var(--font);font-size:20px;font-weight:600;line-height:1.3;color:var(--teal);letter-spacing:-.01em}
-.dgain{background:var(--amber);color:var(--ink)}
-.dgain b{font-weight:600}
-.dnom{font-family:var(--display);font-weight:400;font-size:10px;letter-spacing:0;color:var(--ink4)}
+.dhaut b{font-family:var(--font);font-size:20px;font-weight:600;line-height:1.3;color:var(--fort)}
+.dgain{background:var(--accent);color:var(--fort)}
+.dnom{font-size:10px;color:var(--ink4)}
 .dval{font-family:var(--font);font-weight:500}
-.djauge{background:var(--rule)}
 .ja{background:#C3CDE3}
-.jb{background:var(--teal)}
-.see{font-family:var(--display);font-weight:400;letter-spacing:0;color:var(--teal)}
-.det td{font-size:14px;color:var(--ink)}
-.det tr.w td{color:var(--teal)}
-.det p{font-size:14px;line-height:1.45;color:var(--ink3)}
-.det .incT{font-family:var(--display);font-weight:400;font-size:12px;letter-spacing:0;color:var(--teal)}
-.det .incP{background:var(--amber);color:var(--ink);border-radius:var(--_work-n-share---radius--s,8px)}
-.det .incO span{background:var(--fond);border-radius:var(--_work-n-share---radius--m,16px)}
-.det .incO b{font-family:var(--display);font-weight:400;letter-spacing:0;font-size:10px}
-.det .incO u{font-weight:600;color:var(--teal)}
-
-/* ---------- Appel final : section accent du thème, sans dégradé ---------- */
-.fin,.fin{background:var(--amber);color:var(--teal)}
-.fin::before,.fin::after{display:none}
-.fin .mic{color:var(--teal);opacity:1}
-.fin h2{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.01em;line-height:1.25;color:var(--teal);
-  font-size:var(--_work-n-share---typo--display-l,44px)}
-.fin h2 b{font-weight:400;color:var(--ink)}
-.go2{font-family:var(--font);font-weight:500;font-size:16px;letter-spacing:-.01em;line-height:1.2;min-height:0;width:auto;
-  padding:12px 24px;gap:8px;border-radius:var(--_work-n-share---radius--pill,999px);background:var(--teal);color:var(--amber)}
-.go2:hover{background:var(--ink);color:var(--amber);box-shadow:none;transform:none}
-.act2 button{font-family:var(--font);font-weight:500;font-size:16px;padding:12px 24px;min-height:0;background:none;
-  border:1.5px solid var(--teal);color:var(--teal)}
-.act2 button:hover{background:var(--fort-08);border-color:var(--teal);transform:none}
-/* Preuve : « Spécialiste… depuis 2017 » puis, en dessous, note Google + étoiles */
-.preuve{color:var(--teal);font-weight:500;font-size:14px;letter-spacing:-.01em;line-height:1.4;
-  display:flex;flex-wrap:wrap;justify-content:center;column-gap:.3em;row-gap:10px;max-width:none}
-.preuve .sep{display:none}
-.preuve .avis{flex-basis:100%;justify-content:center;gap:8px;white-space:normal}
-.preuve .et{gap:2px;transform:translateY(-1px)}
-.preuve .et svg{width:14px;height:14px;fill:var(--fort)}
-.legal{color:var(--fort-70);font-size:12px}
-.legal::before{background:var(--teal)}
-.legal a{color:inherit}
+.det td{font-size:14px}
+.det p{font-size:14px;line-height:1.45}
+.det .incT{font-size:12px}
+.det .incP{border-radius:var(--_work-n-share---radius--s,8px)}
+.det .incO span{border-radius:var(--_work-n-share---radius--m,16px)}
+.det .incO b{font-size:10px}
 
 /* ---------- Mobile : tailles mobiles de la charte ---------- */
 @media (max-width:767px){
-  .enc{min-height:auto}
-  .enc h1{font-size:var(--_work-n-share---typo--mobile--display-xl,40px)}
+  .res .wrap{padding-left:var(--_work-n-share---layout--marge-mobile,16px);padding-right:var(--_work-n-share---layout--marge-mobile,16px)}
   .disp{font-size:var(--_work-n-share---typo--mobile--display-xxl,64px)}
-  .fin h2{font-size:var(--_work-n-share---typo--mobile--display-l,28px)}
   .verd .ph{font-size:var(--_work-n-share---typo--mobile--texte-l,18px)}
-  .go2{width:100%}
 }
-/* Titre final : interligne Boldonse (l'original le fixe aussi sur ses mots) */
-.fin h2,.fin h2 .mot,.fin h2 b{line-height:1.25!important}
-.enc h1{line-height:1.25!important}
