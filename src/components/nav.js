@@ -235,9 +235,18 @@ function initScrollState(header) {
   let travel = 0; // distance parcourue dans le sens courant
   let ticking = false;
 
-  // Bas du hero vidéo (accueil), en px depuis le haut de la page
-  const hero = document.querySelector("[data-hero-video]");
-  const inHero = (y) => !!hero && y < hero.getBoundingClientRect().bottom + y - header.offsetHeight;
+  // Hero de la page : [data-hero-video] (accueil) ou [data-hero], sinon la
+  // première section. Tant qu'on y est, la nav n'est pas fixe. Une première
+  // section très haute ou avec un formulaire (ex. Nous contacter) n'est pas
+  // un hero : la nav y redevient fixe normalement.
+  const hero =
+    document.querySelector("[data-hero-video], [data-hero]") ||
+    [...document.querySelectorAll("main section, .page-wrapper section")].find((s) => !header.contains(s));
+  const isHero = () =>
+    !!hero &&
+    (hero.matches("[data-hero-video], [data-hero]") ||
+      (hero.offsetHeight <= window.innerHeight * 1.2 && !hero.querySelector("form")));
+  const inHero = (y) => isHero() && y < hero.getBoundingClientRect().bottom + y - header.offsetHeight;
 
   const locked = () =>
     header.querySelector("[data-mega-panel].is-open, [data-nav-panel].is-open") ||
