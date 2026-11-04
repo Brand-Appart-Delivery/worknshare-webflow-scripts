@@ -19,6 +19,7 @@ import { initPhotoSliders } from "./components/photo-slider.js";
 import { initCounters } from "./animations/counter.js";
 import { initReveal } from "./animations/reveal.js";
 import { initCardsStack } from "./animations/cards-stack.js";
+import { initStackReveal } from "./animations/stack-reveal.js";
 import { initBentoReveal } from "./animations/bento-reveal.js";
 import { initStars } from "./animations/stars.js";
 import { initWiden } from "./animations/widen.js";
@@ -58,6 +59,7 @@ onReady(() => {
   initCounters();
   initReveal();
   initCardsStack();
+  initStackReveal(); // cartes empilées qui se dévoilent au scroll
   initBentoReveal();
   initStars(); // après le bento : lit le délai de chaque carte
   initWiden();
