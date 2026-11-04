@@ -1,3 +1,5 @@
+@use "sass:list";
+
 // Mega menu du header (composant Webflow « Header »)
 // Structure dans Webflow :
 // - déclencheur : [data-mega-trigger="espaces"] (lien « Nos espaces ») + aria-expanded / aria-controls
@@ -316,42 +318,55 @@ html.is-nav-open body {
   }
 }
 
-// ---------- Nav claire sur hero vert (page Bureaux flexibles) ----------
-// Le hero porte data-nav-theme="vert" (posé dans Webflow) et suit directement
-// la nav. En haut de page, menus fermés : nav transparente posée sur le hero
-// vert, texte crème, bouton contact et survols vert clair. Nav scrollée ou menu
-// ouvert : apparence normale du header (blanc et vert, déjà raccord avec la page).
-$vert-900: var(--_work-n-share---color--vert--900, #121404);
-$vert-100: var(--_work-n-share---color--vert--100, #eefc96);
+// ---------- Nav claire sur hero coloré (Bureaux flexibles, Comparateur) ----------
+// Le hero porte data-nav-theme="vert" ou "bleu" (posé dans Webflow) et suit
+// directement la nav. En haut de page, menus fermés : nav transparente posée sur
+// le hero, texte crème, bouton contact et survols couleur accent du thème. Nav
+// scrollée ou menu ouvert : apparence normale du header.
 $creme: var(--_work-n-share---color--beige--50, #fffbe7);
+$nav-themes: (
+  "vert": (
+    var(--_work-n-share---color--vert--900, #121404),
+    var(--_work-n-share---color--vert--100, #eefc96),
+  ),
+  "bleu": (
+    var(--_work-n-share---color--bleu--900, #0e1b3a),
+    var(--_work-n-share---color--bleu--300, #a3c4ff),
+  ),
+);
 
-[data-nav]:has(+ [data-nav-theme="vert"]):not(.is-scrolled):not(:has([data-mega-panel].is-open, [data-nav-panel].is-open)) {
-  background-color: transparent;
+@each $name, $c in $nav-themes {
+  $fonce: list.nth($c, 1);
+  $accent: list.nth($c, 2);
 
-  .navbar_link,
-  .logo {
-    color: $creme;
-  }
-
-  .navbar_link:hover,
-  .navbar_link:focus-visible {
-    background-color: $vert-100;
-    color: $vert-900;
-  }
-
-  .button {
-    background-color: $vert-100;
-    color: $vert-900;
-  }
-
-  .button.is-secondary {
+  [data-nav]:has(+ [data-nav-theme="#{$name}"]):not(.is-scrolled):not(:has([data-mega-panel].is-open, [data-nav-panel].is-open)) {
     background-color: transparent;
-    color: $vert-100;
-    border-color: currentColor;
+
+    .navbar_link,
+    .logo {
+      color: $creme;
+    }
+
+    .navbar_link:hover,
+    .navbar_link:focus-visible {
+      background-color: $accent;
+      color: $fonce;
+    }
+
+    .button {
+      background-color: $accent;
+      color: $fonce;
+    }
+
+    .button.is-secondary {
+      background-color: transparent;
+      color: $accent;
+      border-color: currentColor;
+    }
   }
 }
 
-[data-nav]:has(+ [data-nav-theme="vert"]) {
+[data-nav]:has(+ [data-nav-theme]) {
   .navbar_link,
   .logo,
   .button {
@@ -362,16 +377,16 @@ $creme: var(--_work-n-share---color--beige--50, #fffbe7);
   }
 }
 
-// Le hero vert remonte sous la nav : son fond passe derrière la nav
-// transparente ; la bordure transparente (de la hauteur de la nav) redescend son
-// contenu à la même place (même principe que la variante Événementiel).
-[data-nav] + [data-nav-theme="vert"] {
+// Le hero remonte sous la nav : son fond passe derrière la nav transparente ;
+// la bordure transparente (de la hauteur de la nav) redescend son contenu à la
+// même place (même principe que la variante Événementiel).
+[data-nav] + [data-nav-theme] {
   margin-top: calc(var(--nav-height, 96px) * -1);
   border-top: var(--nav-height, 96px) solid transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-nav]:has(+ [data-nav-theme="vert"]) {
+  [data-nav]:has(+ [data-nav-theme]) {
     .navbar_link,
     .logo,
     .button {

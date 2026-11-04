@@ -761,28 +761,34 @@ h1 em{font-style:normal;color:var(--amber)}
    --_work-n-share---*). La mécanique d'origine (états, animations,
    calculs) n'est pas touchée.
    ===================================================================== */
+/* Thème : --fort (fond sombre, titres), --accent (boutons, mots clés).
+   Pour revenir au vert : vert--700 / vert--100 / vert--900. */
 :root{
-  --teal:var(--_work-n-share---color--vert--700,#3B400F);
-  --teal-d:var(--_work-n-share---color--vert--900,#121404);
-  --teal-x:var(--_work-n-share---color--vert--900,#121404);
-  --teal-m:#5A6224; --teal-s:#7C8540; --teal-w:var(--_work-n-share---color--vert--700,#3B400F);
-  --amber:var(--_work-n-share---color--vert--100,#EEFC96);
-  --amber-d:var(--_work-n-share---color--vert--700,#3B400F);
+  --fort:var(--_work-n-share---color--bleu--900,#0E1B3A);
+  --accent:var(--_work-n-share---color--bleu--300,#A3C4FF);
+  --accent-h:#C2D8FF;
+  --teal:var(--fort); --teal-d:var(--fort); --teal-x:var(--fort);
+  --teal-m:#2A3A63; --teal-s:#4A5D8C; --teal-w:var(--fort);
+  --amber:var(--accent); --amber-d:var(--fort);
   --amber-p:var(--_work-n-share---color--beige--50,#FFFBE7);
   --wine:var(--_work-n-share---color--bordeaux--900,#2C0C10); --wine-p:#FFE3F5;
-  --ink:var(--_work-n-share---color--vert--900,#121404); --ink2:var(--_work-n-share---color--vert--900,#121404);
-  --ink3:#4A4F2A; --ink4:#7A7F5C; --grey:#7A7F5C;
+  --ink:var(--fort); --ink2:var(--fort);
+  --ink3:#3A4766; --ink4:#6B7899; --grey:#6B7899;
   --paper:var(--_work-n-share---color--blanc,#fff);
   --fond:var(--_work-n-share---color--beige--50,#FFFBE7); --fond2:#F6F0D2;
-  --rule:var(--_work-n-share---color--vert--700-a16,rgba(59,64,15,.16));
+  --rule:color-mix(in srgb,var(--fort) 16%,transparent);
+  --accent-24:color-mix(in srgb,var(--accent) 24%,transparent);
+  --accent-06:color-mix(in srgb,var(--accent) 6%,transparent);
+  --fort-08:color-mix(in srgb,var(--fort) 8%,transparent);
+  --fort-70:color-mix(in srgb,var(--fort) 70%,transparent);
   --font:var(--_work-n-share---font--texte,"Google Sans Flex",Arial,sans-serif);
   --display:var(--_work-n-share---font--display,Boldonse,Arial,sans-serif);
   --t-mic:12px;
 }
 body{background:var(--fond);color:var(--ink);font-weight:400;letter-spacing:-.01em}
 
-/* ---------- En-tête (fond vert uni, comme le hero Bureaux flexibles) ---------- */
-.enc{background:var(--_work-n-share---color--vert--700,#3B400F);color:var(--_work-n-share---color--beige--50,#FFFBE7);
+/* ---------- En-tête (fond uni du thème) ---------- */
+.enc{background:var(--fort);color:var(--_work-n-share---color--beige--50,#FFFBE7);
   min-height:calc(100svh - 96px);padding:var(--_work-n-share---space--24,24px) 0 var(--_work-n-share---space--64,64px)}
 .enc.plie{min-height:auto;padding-top:var(--_work-n-share---space--24,24px);padding-bottom:var(--_work-n-share---space--64,64px)}
 .enc::before,.grain{display:none}
@@ -790,20 +796,20 @@ body{background:var(--fond);color:var(--ink);font-weight:400;letter-spacing:-.01
 .enc h1{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.01em;line-height:1.25;
   font-size:var(--_work-n-share---typo--display-xl,64px);color:var(--_work-n-share---color--beige--50,#FFFBE7);max-width:16em}
 .enc h1 em{color:var(--amber)}
-.inst{background:rgba(238,252,150,.06);border:1px solid var(--_work-n-share---color--vert--100-a24,rgba(238,252,150,.24));
+.inst{background:var(--accent-06);border:1px solid var(--accent-24);
   border-radius:var(--_work-n-share---radius--l,24px);backdrop-filter:none;-webkit-backdrop-filter:none}
-.inst::after,.fld::after{background:var(--_work-n-share---color--vert--100-a24,rgba(238,252,150,.24))}
-.fld+.fld::before{background:var(--_work-n-share---color--vert--100-a24,rgba(238,252,150,.24))}
+.inst::after,.fld::after{background:var(--accent-24)}
+.fld+.fld::before{background:var(--accent-24)}
 .mic{font-family:var(--display);font-weight:400;letter-spacing:0;font-size:12px;line-height:1.4}
 .fld .mic{color:var(--amber)}
 .fld .mic i{font-family:var(--font);font-weight:600}
 .ci,.stp input,.val{font-family:var(--font);font-weight:500;letter-spacing:-.01em}
-.stp button{border-color:var(--_work-n-share---color--vert--100-a24,rgba(238,252,150,.24));color:var(--amber);font-family:var(--font)}
-/* Bouton « Découvrir mes économies » = bouton Lime du site */
+.stp button{border-color:var(--accent-24);color:var(--amber);font-family:var(--font)}
+/* Bouton « Découvrir mes économies » = bouton accent du thème */
 .decl{font-family:var(--font);font-weight:500;font-size:16px;letter-spacing:-.01em;line-height:1.2;
   min-height:0;padding:12px 24px;border-radius:var(--_work-n-share---radius--pill,999px);gap:8px}
-.decl.pret{background:var(--amber);color:var(--_work-n-share---color--vert--900,#121404);box-shadow:none;filter:none}
-.decl.pret:hover{filter:none;box-shadow:none;background:#F4FDB9}
+.decl.pret{background:var(--amber);color:var(--fort);box-shadow:none;filter:none}
+.decl.pret:hover{filter:none;box-shadow:none;background:var(--accent-h)}
 .decl:focus-visible{outline-color:var(--amber)}
 
 /* ---------- Résultat ---------- */
@@ -812,7 +818,7 @@ body{background:var(--fond);color:var(--ink);font-weight:400;letter-spacing:-.01
   font-size:var(--_work-n-share---typo--display-xxl,clamp(54px,9vw,110px))}
 .verd .ph{font-family:var(--font);font-size:var(--_work-n-share---typo--texte-l,20px);line-height:1.45;color:var(--ink);font-weight:400;max-width:36em}
 .verd .esp a{background:var(--amber);color:var(--ink);font-weight:500;font-size:14px;padding:10px 18px;border-radius:var(--_work-n-share---radius--pill,999px)}
-.verd .esp a:hover{background:#F4FDB9;color:var(--ink);transform:none}
+.verd .esp a:hover{background:var(--accent-h);color:var(--ink);transform:none}
 .verd .esp a::before{background:var(--teal);box-shadow:none}
 .verd .esp b{color:var(--ink);font-weight:600}
 .trio .v{font-family:var(--display);font-weight:400;letter-spacing:-.01em;color:var(--teal)}
@@ -829,7 +835,7 @@ body{background:var(--fond);color:var(--ink);font-weight:400;letter-spacing:-.01
 .dnom{font-family:var(--display);font-weight:400;font-size:10px;letter-spacing:0;color:var(--ink4)}
 .dval{font-family:var(--font);font-weight:500}
 .djauge{background:var(--rule)}
-.ja{background:#C9C6A6}
+.ja{background:#C3CDE3}
 .jb{background:var(--teal)}
 .see{font-family:var(--display);font-weight:400;letter-spacing:0;color:var(--teal)}
 .det td{font-size:14px;color:var(--ink)}
@@ -841,7 +847,7 @@ body{background:var(--fond);color:var(--ink);font-weight:400;letter-spacing:-.01
 .det .incO b{font-family:var(--display);font-weight:400;letter-spacing:0;font-size:10px}
 .det .incO u{font-weight:600;color:var(--teal)}
 
-/* ---------- Appel final : section lime du site, sans dégradé ---------- */
+/* ---------- Appel final : section accent du thème, sans dégradé ---------- */
 .fin,.fin{background:var(--amber);color:var(--teal)}
 .fin::before,.fin::after{display:none}
 .fin .mic{color:var(--teal);opacity:1}
@@ -853,9 +859,9 @@ body{background:var(--fond);color:var(--ink);font-weight:400;letter-spacing:-.01
 .go2:hover{background:var(--ink);color:var(--amber);box-shadow:none;transform:none}
 .act2 button{font-family:var(--font);font-weight:500;font-size:16px;padding:12px 24px;min-height:0;background:none;
   border:1.5px solid var(--teal);color:var(--teal)}
-.act2 button:hover{background:rgba(59,64,15,.08);border-color:var(--teal);transform:none}
+.act2 button:hover{background:var(--fort-08);border-color:var(--teal);transform:none}
 .preuve{color:var(--teal);font-weight:500;font-size:14px}
-.legal{color:rgba(59,64,15,.7);font-size:12px}
+.legal{color:var(--fort-70);font-size:12px}
 .legal::before{background:var(--teal)}
 .legal a{color:inherit}
 
