@@ -1,0 +1,19 @@
+// Formes « maison » aux angles arrondis (components/house-shape.js).
+// Le JS remplace le polygon de Webflow par un path() arrondi, à la taille de
+// l'élément. !important : passe aussi devant les surcharges de breakpoint
+// (ex. bloc « Venez visiter » en mobile, _visit-form.scss).
+.is-house {
+  clip-path: var(--house-path) !important;
+}
+
+// Carte espace : la photo zoome au survol, la forme est réduite d'autant pour
+// que le contour visible ne bouge pas (cf. _card-zoom.scss)
+.space-card:is(:hover, :focus-visible) .space-card_image.is-house {
+  clip-path: var(--house-path-zoom) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .space-card:is(:hover, :focus-visible) .space-card_image.is-house {
+    clip-path: var(--house-path) !important;
+  }
+}

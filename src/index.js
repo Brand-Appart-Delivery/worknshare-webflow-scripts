@@ -36,6 +36,7 @@ import { initComparateur } from "./components/comparateur.js";
 import { initComparatorBanners } from "./components/comparator-banner.js";
 import { initBlogFilters } from "./components/blog-filter.js";
 import { initContactForms } from "./components/contact-form.js";
+import { initHouseShapes } from "./components/house-shape.js";
 
 onReady(() => {
   initCore();
@@ -50,6 +51,7 @@ onReady(() => {
   initComparatorBanners(); // bandeau qui pré-remplit le comparateur
   initBlogFilters(); // page Blog : filtre par rubrique
   initContactForms(); // page Nous contacter
+  initHouseShapes(); // formes maison aux angles arrondis
   initFormulas();
   initSliders();
   initPhotoSliders();
