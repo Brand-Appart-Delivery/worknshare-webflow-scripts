@@ -15,7 +15,8 @@ import { loadMapLibre, STYLE_URL, applyTheme, PIN_SVG } from "../utils/map-base.
 import { prefersReducedMotion } from "../utils/motion.js";
 
 const PIN_STAGGER = 50; // ms entre deux pins à l'apparition
-const PADDING = 32; // px autour des pins
+// px autour des pins (plus en haut : le pin dépasse au-dessus de son point)
+const PADDING = { top: 40, bottom: 16, left: 24, right: 24 };
 
 export function initMiniMaps(root = document) {
   const images = [...root.querySelectorAll("img[data-mini-map]")];
