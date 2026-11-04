@@ -1,0 +1,115 @@
+// Listes déroulantes des formulaires (components/custom-select.js).
+// Le bouton reprend les classes Webflow du <select> (bordure, padding, fond) ;
+// le menu reprend celui de la recherche du hero (_space-search.scss).
+
+$vert-700: var(--_work-n-share---color--vert--700, #3b400f);
+$chevron: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 8" fill="none" stroke="%23000" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M1 1.5l5 5 5-5"/%3E%3C/svg%3E');
+$check: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="%23000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M3 8.5l3.2 3L13 4.5"/%3E%3C/svg%3E');
+
+.custom-select {
+  position: relative;
+}
+
+// Select de Webflow : gardé pour l'envoi et la validation, invisible
+.custom-select_native {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+// Polices et couleurs héritées si la classe Webflow ne les fixe pas
+:where(.custom-select_button) {
+  font: inherit;
+  color: inherit;
+}
+
+.custom-select_button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-right: 44px !important; // place du chevron, quelle que soit la classe
+  text-align: left;
+  background-image: none; // l'ancien chevron Webflow, remplacé par ::after
+  cursor: pointer;
+
+  // Chevron fin, 16 px du bord, qui pivote à l'ouverture
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 12px;
+    height: 8px;
+    margin-top: -4px;
+    background-color: currentColor;
+    mask: $chevron center / contain no-repeat;
+    -webkit-mask: $chevron center / contain no-repeat;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+  }
+
+  &.is-placeholder .custom-select_value {
+    color: $vert-700;
+    opacity: 0.7;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.custom-select_value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Menu : même largeur que le champ, apparition douce
+.custom-select_panel {
+  min-width: 0;
+  z-index: 95;
+  animation: custom-select-in 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+
+  .search_suggest-item[aria-disabled="true"] {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  // Coche sur l'option choisie
+  .search_suggest-item.is-selected::after {
+    content: "";
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    background-color: currentColor;
+    mask: $check center / contain no-repeat;
+    -webkit-mask: $check center / contain no-repeat;
+  }
+}
+
+@keyframes custom-select-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-select_button::after {
+    transition: none;
+  }
+
+  .custom-select_panel {
+    animation: none;
+  }
+}

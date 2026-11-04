@@ -40,6 +40,7 @@ import { initContactForms } from "./components/contact-form.js";
 import { initDevisForms } from "./components/devis-form.js";
 import { initFormLabels } from "./utils/form-labels.js";
 import { initHouseShapes } from "./components/house-shape.js";
+import { initCustomSelects } from "./components/custom-select.js";
 
 onReady(() => {
   initCore();
@@ -74,6 +75,7 @@ onReady(() => {
   initSpaceGalleries();
   initVisitForms();
   initSpaceSearch();
+  initCustomSelects(); // en dernier : lit les valeurs pré-remplies des formulaires
 });
 
 console.log(`%c[Work'n'Share] main.js — build ${__BUILD_DATE__}`, "color:#7dd3fc");

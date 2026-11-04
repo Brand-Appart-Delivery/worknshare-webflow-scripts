@@ -11,3 +11,23 @@
   outline: 2px solid var(--_work-n-share---color--vert--700, #3b400f);
   outline-offset: 2px;
 }
+
+// Récap du message de succès : lignes et valeurs vides masquées par le JS
+[data-contact-recap-row][hidden],
+[data-contact-recap-value][hidden] {
+  display: none !important;
+}
+
+// Envoyé : colonne de gauche masquée, succès centré sur la page
+.contact-hero.is-sent {
+  .contact-hero_intro {
+    display: none;
+  }
+
+  .contact-form {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 720px;
+    margin-inline: auto;
+  }
+}
