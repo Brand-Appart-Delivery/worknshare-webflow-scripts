@@ -1,0 +1,262 @@
+// Module carte en mobile (components/map-sheet.js, Figma 4681:27710 / 27712) :
+// carte plein écran, recherche en haut, panneau en bas qui se déplie.
+
+$vert-900: var(--_work-n-share---color--vert--900, #121404);
+$vert-700a16: var(--_work-n-share---color--vert--700-a16, rgba(59, 64, 15, 0.16));
+$blanc: var(--_work-n-share---color--blanc, #ffffff);
+$sheet-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+@media screen and (max-width: 767px) {
+  // ---------- Module : hauteur d'écran, carte en fond ----------
+  [data-map-module].is-sheet {
+    position: relative;
+    display: block !important;
+    height: 100svh;
+    min-height: 560px;
+    overflow: hidden;
+  }
+
+  .is-sheet [data-map] {
+    position: absolute !important;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  // Sur mobile : ni zoom (pincer), ni fiche, ni bouton « Afficher la liste »
+  .is-sheet .map-controls,
+  .is-sheet [data-place-card],
+  .is-sheet .map-list-open {
+    display: none !important;
+  }
+
+  // Crédits de la carte au-dessus du panneau
+  .is-sheet [data-map-attribution] {
+    bottom: calc(var(--sheet-peek, 280px) + 8px) !important;
+  }
+
+  // ---------- Recherche posée en haut de la carte ----------
+  .map-sheet_top {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    left: 16px;
+    z-index: 3;
+    padding: 12px;
+    border-radius: 24px;
+    background-color: $blanc;
+    box-shadow: 0 8px 24px rgba(18, 20, 4, 0.12);
+
+    [data-search] {
+      width: 100%;
+      gap: 8px;
+    }
+
+    .search_tabs {
+      width: 100%;
+    }
+
+    .search_tab {
+      flex: 1 1 0;
+      justify-content: center;
+    }
+  }
+
+  .is-sheet-open .map-sheet_top {
+    display: none;
+  }
+
+  // ---------- Panneau ----------
+  .is-sheet [data-map-list] {
+    position: absolute !important;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 0 24px !important;
+    border-radius: 24px 24px 0 0;
+    background-color: $blanc;
+    box-shadow: 0 -8px 24px rgba(18, 20, 4, 0.1);
+    overflow: hidden !important;
+    transform: translateY(calc(100% - var(--sheet-peek, 280px)));
+    transition: transform 0.5s $sheet-ease, border-radius 0.5s $sheet-ease;
+  }
+
+  .is-sheet-open [data-map-list] {
+    overflow-y: auto !important;
+    border-radius: 0;
+    transform: none;
+  }
+
+  .is-sheet-dragging [data-map-list] {
+    transition: none;
+  }
+
+  // Poignée (zone de glissé large, trait au centre)
+  .map-sheet_handle {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    flex: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0 12px;
+    border: 0;
+    background-color: $blanc;
+    cursor: grab;
+    touch-action: none;
+  }
+
+  .map-sheet_grip {
+    width: 40px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: $vert-700a16;
+  }
+
+  // En-tête de la liste : marges du panneau, plus de bloc collant
+  .is-sheet .map-module_head {
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 24px 12px !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  .is-sheet .scroll-indicator {
+    display: none;
+  }
+
+  .is-sheet:not(.is-sheet-open) .map-module_title {
+    display: none;
+  }
+
+  // Déplié : « Voir la liste » remplacé par le bouton flottant « Voir la carte »
+  .is-sheet-open [data-map-list-toggle] {
+    display: none !important;
+  }
+
+  .is-sheet [data-space-list] {
+    padding: 0 24px;
+  }
+
+  // ---------- Replié : espaces en slider horizontal ----------
+  .map-sheet_title {
+    margin: 0 24px 12px !important;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .is-sheet-open .map-sheet_title {
+    display: none;
+  }
+
+  .is-sheet:not(.is-sheet-open) {
+    .w-dyn-list:has([data-space-list]) {
+      width: 100%;
+    }
+
+    [data-space-list] {
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 12px !important;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 24px;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      // Dernière carte : le slider finit sur la marge
+      &::after {
+        content: "";
+        flex: 0 0 12px;
+      }
+
+      [data-map-group] {
+        display: none;
+      }
+
+      > .w-dyn-item,
+      > [role="listitem"] {
+        flex: 0 0 calc(100% - 48px);
+        min-width: 0;
+        scroll-snap-align: start;
+      }
+    }
+
+    // Une ligne par info, coupée par « … »
+    .space-item_muted,
+    .space-item_small {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  // Points sous le slider
+  .map-sheet_dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 14px;
+
+    span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: $vert-700a16;
+      transition: background-color 0.2s ease, width 0.2s ease;
+    }
+
+    span.is-active {
+      background-color: $vert-900;
+    }
+  }
+
+  .is-sheet-open .map-sheet_dots {
+    display: none;
+  }
+
+  // ---------- Déplié : bouton « Voir la carte » ----------
+  .map-sheet_back {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    z-index: 5;
+    display: none;
+    transform: translateX(-50%);
+    box-shadow: 0 8px 24px rgba(18, 20, 4, 0.18);
+  }
+
+  .is-sheet-open .map-sheet_back {
+    display: inline-flex;
+  }
+
+  .is-sheet-open [data-space-list] {
+    padding-bottom: 88px; // place pour le bouton flottant
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .is-sheet [data-map-list] {
+      transition: none;
+    }
+  }
+}
+
+// Hors mobile : éléments du panneau absents
+.map-sheet_back {
+  display: none;
+}

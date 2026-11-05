@@ -32,6 +32,7 @@ import { initScrollZone } from "../utils/scroll-zone.js";
 import { createScrollIndicator } from "../utils/scroll-indicator.js";
 import { getLenis } from "../core/core.js";
 import { createPlaceCarousel } from "./place-carousel.js";
+import { createMapSheet } from "./map-sheet.js";
 
 const PIN_STAGGER = 70; // ms entre deux pins à l'apparition
 
@@ -78,6 +79,7 @@ function initModule(module) {
   const startType = module.getAttribute("data-map-tab") === "salles" ? "salles" : "bureaux";
   const state = { origin: null, active: null, type: startType, map: null, markers: new Map(), originMarker: null };
   const card = module.querySelector("[data-place-card]");
+  let sheet = null; // panneau mobile (map-sheet.js), créé plus bas
   const carousel = createPlaceCarousel(card);
 
   // ---------- Liste : tri, groupes, distances ----------
@@ -135,6 +137,8 @@ function initModule(module) {
       }
       items.forEach((s) => list.appendChild(s.el.closest(".w-dyn-item") || s.el));
     });
+
+    sheet?.refresh(groups[0]?.title || "", Boolean(state.origin));
 
     const count = module.querySelector("[data-map-count]");
     if (count) count.textContent = shown.length === 1 ? t("map.countOne") : t("map.count", { n: shown.length });
@@ -196,6 +200,8 @@ function initModule(module) {
     }
     // L'élément reste visible dans la liste, sous l'en-tête fixe (titre,
     // onglets, recherche) : on ne défile que s'il est caché ou coupé
+    // Mobile, panneau replié : l'espace vient au bord du slider horizontal
+    if (sheet?.active && !sheet.open) return sheet.reveal(space.el);
     const scroller = module.querySelector("[data-map-list]");
     if (scroller && scroller.scrollHeight > scroller.clientHeight) {
       const head = scroller.querySelector(".map-module_head");
@@ -248,7 +254,13 @@ function initModule(module) {
     // revient à la vue de départ (comme le pin). La fiche s'ouvre depuis la
     // carte de l'espace, ou au Cmd / Ctrl + clic (nouvel onglet).
     s.el.addEventListener("click", (e) => {
-      if (e.metaKey || e.ctrlKey || e.shiftKey || !DESKTOP.matches) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+      // Mobile : sélection sur la carte (2e clic : page de l'espace)
+      if (sheet?.active) {
+        if (sheet.onItemClick(s.slug)) e.preventDefault();
+        return;
+      }
+      if (!DESKTOP.matches) return;
       e.preventDefault();
       if (state.active === s) {
         select(null);
@@ -310,9 +322,17 @@ function initModule(module) {
 
   toggle?.addEventListener("click", (e) => {
     e.preventDefault();
+    if (sheet?.onToggle()) return; // mobile : déplie / replie le panneau
     setListHidden(!module.classList.contains("is-list-hidden"));
   });
   reopen?.addEventListener("click", () => setListHidden(false));
+
+  // ---------- Mobile : carte plein écran + panneau en bas ----------
+  sheet = createMapSheet(module, {
+    select: (slug) => select(slug),
+    isActive: (slug) => state.active?.slug === slug,
+    resizeMap: () => state.map?.resize(),
+  });
 
   // ---------- Événements de la recherche ----------
 

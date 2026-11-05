@@ -52,9 +52,11 @@ export function initExpand(root = document) {
     // Bord de départ : comme un contenu dans .padding-global > .container-large
     const edge0 = Math.max(padding, (vw - MAX_WIDTH) / 2);
     // Lectures d'abord…
+    // Mobile : pas d'effet, bloc pleine largeur d'emblée
+    const mobile = window.matchMedia("(max-width: 767px)").matches;
     const states = blocks.map((el) => {
       const top = el.getBoundingClientRect().top;
-      const raw = (vh * START - top) / (vh * (START - END));
+      const raw = mobile ? 1 : (vh * START - top) / (vh * (START - END));
       return [el, easeInOut(Math.min(Math.max(raw, 0), 1))];
     });
     // … puis écritures
