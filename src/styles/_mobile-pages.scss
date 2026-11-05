@@ -24,6 +24,11 @@
     display: none !important;
   }
 
+  // Tableau à 2 colonnes : aucun intitulé (titre en gras puis texte)
+  .w-richtext table:not(:has(td:nth-child(3))) td::before {
+    display: none !important;
+  }
+
   .w-richtext table tr > :first-child {
     font-size: 0.875rem;
     font-weight: 600;
@@ -46,12 +51,13 @@
 
   .notfound_actions {
     flex-direction: column;
+    align-items: stretch;
     gap: 12px;
   }
 
   .notfound_actions .button {
     justify-content: center;
-    width: 100%;
+    width: 100% !important;
   }
 
   // « Nos espaces » : bouton « Voir tous les espaces » sous le slider, pleine largeur
