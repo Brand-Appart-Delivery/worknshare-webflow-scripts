@@ -138,6 +138,15 @@ $sheet-ease: cubic-bezier(0.22, 1, 0.36, 1);
     display: none;
   }
 
+  // « Voir la liste » : chevron après le texte, vers la droite (Figma)
+  .is-sheet [data-map-list-toggle] {
+    flex-direction: row-reverse;
+
+    > span:first-child {
+      transform: rotate(180deg);
+    }
+  }
+
   // Déplié : « Voir la liste » remplacé par le bouton flottant « Voir la carte »
   .is-sheet-open [data-map-list-toggle] {
     display: none !important;
