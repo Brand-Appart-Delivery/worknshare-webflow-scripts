@@ -29,3 +29,13 @@
   transition: clip-path 0.85s cubic-bezier(0.22, 1, 0.36, 1); // fini avant la fin de .is-dealing
   transition-delay: calc(var(--stack-delay, 0ms) + 100ms);
 }
+
+// Forme seule à apparition (data-house-reveal, ex. hero Bureaux flexibles) :
+// même effet que les cartes empilées, au moment où elle arrive à l'écran
+[data-house-reveal].is-house {
+  transition: clip-path 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+
+[data-house-reveal].is-house:not(.is-house-in) {
+  clip-path: var(--house-path-reveal, var(--house-path)) !important;
+}

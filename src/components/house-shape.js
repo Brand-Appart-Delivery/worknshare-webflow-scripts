@@ -13,6 +13,11 @@
 // la classe), sinon l'arrondi des coins de l'élément dans Webflow (border
 // radius), sinon 16 px comme Figma.
 //
+// OPTION (sur une forme hors cartes empilées, ex. photo d'un hero) :
+//   data-house-reveal          la forme part réduite et s'agrandit quand elle
+//                              arrive à l'écran (la photo ne bouge pas) ; même
+//                              effet que dans les cartes empilées. Une fois.
+//
 // Classe posée : .is-house, avec --house-path (forme), --house-path-zoom
 // (même forme réduite de 1/1,05, pour le zoom au survol des cartes, cf.
 // _card-zoom.scss) et --house-path-reveal (réduite à 85 %, départ de
@@ -63,6 +68,7 @@ export function initHouseShapes(root = document) {
   };
 
   shapes.forEach(update);
+  initReveal(shapes);
 
   // Taille ou breakpoint qui change : on redessine
   if (typeof ResizeObserver !== "undefined") {
@@ -113,4 +119,26 @@ function roundedPath(points, radius) {
     d += `${i === 0 ? "M" : "L"}${r(a[0])} ${r(a[1])}Q${r(v[0])} ${r(v[1])} ${r(b[0])} ${r(b[1])}`;
   });
   return `${d}Z`;
+}
+
+// Apparition des formes [data-house-reveal] : .is-house-in à l'arrivée à l'écran
+function initReveal(shapes) {
+  const els = shapes.filter((el) => el.hasAttribute("data-house-reveal"));
+  if (!els.length) return;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced || !("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("is-house-in"));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        // une image après le premier rendu, pour que la transition parte bien de la forme réduite
+        requestAnimationFrame(() => e.target.classList.add("is-house-in"));
+      }),
+    { threshold: 0.2 },
+  );
+  els.forEach((el) => io.observe(el));
 }
