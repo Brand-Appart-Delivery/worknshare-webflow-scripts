@@ -10,8 +10,9 @@ $blanc: var(--_work-n-share---color--blanc, #ffffff);
 
 // Barre de recherche : Webflow ajoute après le bouton un bloc vide (anti-spam
 // Cloudflare Turnstile). Dans la barre en flex, l'espacement s'appliquait aussi
-// devant lui : 18 px à droite du bouton au lieu de 6. On le sort du flux.
-[data-search-form] > :not(label):not(input) {
+// devant lui : 18 px à droite du bouton au lieu de 6. On le sort du flux
+// (le bouton d'envoi, un <button> créé par space-search.js, reste dans le flux).
+[data-search-form] > :not(label):not(input):not(button) {
   position: absolute;
 }
 

@@ -56,13 +56,10 @@
     padding: 0 12px;
   }
 
-  // Webflow le pose en absolu sur le champ en mobile : on le remet sous le champ
   [data-hero-video] .search_submit {
-    position: static !important;
     flex: 1 1 100%;
     justify-content: center;
     width: 100%;
-    transform: none !important;
   }
 
   .search_submit .button_icon {
