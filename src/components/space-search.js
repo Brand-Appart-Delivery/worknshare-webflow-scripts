@@ -121,6 +121,17 @@ function initSearch(block) {
 
   // ---------- Onglets Bureaux / Salles (fond glissant comme « Quelle formule ») ----------
   const tabs = [...block.querySelectorAll("[data-search-tab]")];
+  // Libellé court pour le mobile (« Bureaux », « Événements ») à côté du libellé
+  // complet ; l'un ou l'autre est affiché selon l'écran (_mobile-home.scss)
+  tabs.forEach((tab) => {
+    const label = [...tab.querySelectorAll("span")].find((s) => !s.children.length && s.textContent.trim());
+    if (!label || label.classList.contains("search_tab-full")) return;
+    label.classList.add("search_tab-full");
+    const short = document.createElement("span");
+    short.className = "search_tab-short";
+    short.textContent = t(`search.tabShort.${tab.getAttribute("data-search-tab")}`);
+    label.after(short);
+  });
   let currentTab = tabs.find((tab) => tab.classList.contains("is-active")) || tabs[0];
   const indicator = tabs.length
     ? createTabIndicator(tabs[0].parentElement, { getActive: () => currentTab, className: "search_indicator" })
@@ -235,10 +246,30 @@ function initSearch(block) {
     }
   });
 
-  // Le formulaire Webflow ne doit jamais être envoyé
+  // Bouton d'envoi : <input> Webflow (désactivé par Webflow, sans icône)
+  // remplacé par un vrai bouton avec flèche (affichée en mobile)
+  const submit = form?.querySelector('input[type="submit"]');
+  if (submit) {
+    const button = document.createElement("button");
+    button.type = "submit";
+    button.className = `${submit.className} search_submit`;
+    button.innerHTML = '<span class="button_label"></span><span class="button_icon" aria-hidden="true"><span class="ico-arrow-right"></span></span>';
+    button.querySelector(".button_label").textContent = submit.value;
+    submit.replaceWith(button);
+  }
+
+  // Le formulaire Webflow ne doit jamais être envoyé : le bouton lance la
+  // recherche (première suggestion), ou ouvre la carte de tous les espaces
   form?.addEventListener("submit", (e) => {
     e.preventDefault();
     e.stopPropagation();
+    if (!input.value.trim()) {
+      if (!module) location.href = type === "salles" ? `${MAP_PAGE}?type=salles` : MAP_PAGE;
+      return;
+    }
+    const opt = options.find((o) => o.kind !== "nearme");
+    if (opt) choose(opt);
+    else if (!module) location.href = `${MAP_PAGE}?${new URLSearchParams({ q: input.value.trim() })}`;
   });
 
   // Clic en dehors : on décide à l'appui (pointerdown), pas au « click ».

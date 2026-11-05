@@ -21,7 +21,10 @@ const MAX_PANEL_HEIGHT = 320; // px
 let uid = 0;
 
 export function initCustomSelects(root = document) {
-  root.querySelectorAll("form select:not([multiple]):not([data-native-select])").forEach(initSelect);
+  // Selects des formulaires, et ceux créés par le JS hors formulaire (data-enhance-select)
+  root
+    .querySelectorAll("form select:not([multiple]):not([data-native-select]), select[data-enhance-select]")
+    .forEach(initSelect);
 }
 
 function initSelect(select) {

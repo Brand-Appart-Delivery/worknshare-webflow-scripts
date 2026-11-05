@@ -10,9 +10,13 @@
 // Le JS ajoute dans la barre un fond qui glisse sous l'onglet actif et prend
 // sa couleur (utils/tab-indicator.js). États : .is-active sur l'onglet,
 // attribut hidden sur les panneaux inactifs. Styles : _formula.scss.
+//
+// En mobile, les onglets sont remplacés par une liste déroulante (même choix,
+// libellés des onglets), habillée par custom-select.js (_mobile-home.scss).
 
 import { requestScrollRefresh } from "../utils/scroll-refresh.js";
 import { createTabIndicator } from "../utils/tab-indicator.js";
+import { t } from "../utils/i18n.js";
 
 export function initFormulas(root = document) {
   root.querySelectorAll("[data-formula]").forEach(initFormula);
@@ -48,6 +52,10 @@ function initFormula(formula) {
     });
 
     indicator.move();
+    if (list && list.value !== tab.getAttribute("data-formula-tab")) {
+      list.value = tab.getAttribute("data-formula-tab");
+      list.dispatchEvent(new Event("change", { bubbles: true }));
+    }
     if (focus) tab.focus();
 
     // Barre qui défile (mobile) : l'onglet choisi reste visible
@@ -70,6 +78,22 @@ function initFormula(formula) {
     const panel = getPanel(tab);
     if (panel) panel.toggleAttribute("hidden", !isActive);
   });
+
+  // Liste déroulante pour le mobile : une option par onglet
+  const list = document.createElement("select");
+  list.className = "form_input";
+  list.setAttribute("data-enhance-select", "");
+  list.setAttribute("aria-label", tablist.getAttribute("aria-label") || t("formula.choose"));
+  tabs.forEach((tab) => list.add(new Option(tab.textContent.trim(), tab.getAttribute("data-formula-tab"))));
+  list.value = current.getAttribute("data-formula-tab");
+  list.addEventListener("change", () => {
+    const tab = tabs.find((t) => t.getAttribute("data-formula-tab") === list.value);
+    if (tab) select(tab);
+  });
+  const listWrap = document.createElement("div");
+  listWrap.className = "formula_select";
+  listWrap.appendChild(list);
+  tablist.after(listWrap);
 
   // Fond glissant, placé derrière les onglets (couleur selon data-formula-theme)
   const indicator = createTabIndicator(tablist, {

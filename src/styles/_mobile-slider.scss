@@ -1,0 +1,79 @@
+// Carrousel mobile (≤ 767 px) en défilement natif, sans bibliothèque :
+// la grille de cartes devient une rangée qui glisse au doigt, la carte suivante
+// dépasse à droite et le défilement s'arrête sur chaque carte.
+//
+// STRUCTURE (attributs à poser dans Webflow) :
+//   [data-mobile-slider]                 grille de cartes (enfants directs = cartes)
+//     [data-mobile-slider-contents]      conteneur intermédiaire à « aplatir »
+//                                        (ex. colonnes et rangées du bento) : ses
+//                                        enfants deviennent des cartes du carrousel
+//
+// OPTIONS (valeur de data-mobile-slider) :
+//   (vide)     cartes de 300 px
+//   "narrow"   cartes de 280 px
+//   "square"   cartes carrées de 220 px
+//
+// La rangée déborde jusqu'aux bords de l'écran (marges du site compensées) :
+// les cartes entrent et sortent par les côtés. Au-dessus de 767 px : rien ne change.
+
+@media screen and (max-width: 767px) {
+  [data-mobile-slider] {
+    --slide-w: 300px;
+    --slider-edge: 24px; // marge du site (padding-global)
+
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
+    align-items: stretch;
+    gap: 16px !important;
+    width: auto !important;
+    margin-inline: calc(var(--slider-edge) * -1) !important;
+    padding: 0 var(--slider-edge) 4px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--slider-edge);
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > *,
+    [data-mobile-slider-contents] > * {
+      flex: 0 0 var(--slide-w) !important;
+      width: var(--slide-w) !important;
+      max-width: none !important;
+      min-width: 0;
+      margin: 0 !important;
+      scroll-snap-align: start;
+    }
+
+    // Dernière carte : la rangée finit sur la marge du site
+    &::after {
+      content: "";
+      flex: 0 0 1px;
+    }
+  }
+
+  [data-mobile-slider] [data-mobile-slider-contents] {
+    display: contents !important;
+  }
+
+  [data-mobile-slider="narrow"] {
+    --slide-w: 280px;
+  }
+
+  [data-mobile-slider="square"] {
+    --slide-w: 220px;
+
+    > *,
+    [data-mobile-slider-contents] > * {
+      height: 220px !important;
+      min-height: 0 !important;
+      aspect-ratio: 1;
+    }
+  }
+}
