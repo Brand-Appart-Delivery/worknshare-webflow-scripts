@@ -132,33 +132,33 @@ function initRoom(room, getAll) {
   return api;
 }
 
-// Icône de chaque équipement, choisie d'après son texte. ico-* = icônes du
-// site (Webflow) ; screen, mic, video, split = icônes ajoutées (_room-details.scss)
+// Icône de chaque équipement, choisie d'après son texte. Toutes viennent du
+// même jeu (.room-icon, _room-details.scss) pour garder la même graisse.
 const FEATURE_ICONS = [
-  [/lumi[eè]re|fen[eê]tre|soleil|jour/i, "ico-sun"],
-  [/paperboard|tableau|whiteboard/i, "ico-presentation"],
-  [/[ée]cran|visio|t[ée]l[ée]|projecteur/i, "room-icon is-screen"],
-  [/r[ée]gie|vid[ée]o|cam[ée]ra|captation/i, "room-icon is-video"],
-  [/micro|sono|son\b|enceinte|audio/i, "room-icon is-mic"],
-  [/divisible|modulable|cloison/i, "room-icon is-split"],
-  [/bistrot|caf[ée]|restaura|bar\b|cocktail|traiteur/i, "ico-coffee"],
-  [/rooftop|terrasse|jardin/i, "ico-rooftop"],
-  [/wi-?fi|internet|fibre/i, "ico-wifi"],
-  [/parking/i, "ico-parking"],
-  [/mobilier|fauteuil|canap|lounge/i, "ico-sofa"],
-  [/acc[eè]s|badge|24/i, "ico-key"],
+  [/lumi[eè]re|fen[eê]tre|soleil|jour/i, "sun"],
+  [/paperboard|tableau|whiteboard/i, "board"],
+  [/[ée]cran|visio|t[ée]l[ée]|projecteur/i, "screen"],
+  [/r[ée]gie|vid[ée]o|cam[ée]ra|captation/i, "video"],
+  [/micro|sono|son\b|enceinte|audio/i, "mic"],
+  [/divisible|modulable|cloison/i, "split"],
+  [/bistrot|caf[ée]|restaura|bar\b|cocktail|traiteur/i, "coffee"],
+  [/rooftop|terrasse|jardin/i, "terrace"],
+  [/wi-?fi|internet|fibre/i, "wifi"],
+  [/parking/i, "parking"],
+  [/mobilier|fauteuil|canap|lounge/i, "sofa"],
+  [/acc[eè]s|badge|24/i, "key"],
 ];
 
 function addFeatureIcons(panel) {
   panel.querySelectorAll("[data-room-equipements] li").forEach((li) => {
     if (li.querySelector(".room-feature_icon")) return;
     const text = li.textContent;
-    const cls = (FEATURE_ICONS.find(([re]) => re.test(text)) || [, "ico-check-circle"])[1];
+    const name = (FEATURE_ICONS.find(([re]) => re.test(text)) || [, "check"])[1];
     const puce = document.createElement("span");
     puce.className = "room-feature_icon";
     puce.setAttribute("aria-hidden", "true");
     const icon = document.createElement("span");
-    icon.className = cls;
+    icon.className = `room-icon is-${name}`;
     puce.appendChild(icon);
     li.prepend(puce);
   });
