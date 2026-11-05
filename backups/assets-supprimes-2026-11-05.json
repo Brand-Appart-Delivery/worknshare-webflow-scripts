@@ -1,0 +1,1817 @@
+[
+ {
+  "id": "6ae8fddca570c1025665525a",
+  "originalFileName": "6ae8fddca570c1025665525a_logo-client-biogroup.webp",
+  "displayName": "logo-client-biogroup.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T21:17:16.172Z",
+  "lastUpdated": "2026-11-02T21:48:01.813Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae8fddca570c1025665525a_logo-client-biogroup.webp",
+  "variants": [],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6ae8fedd6e9109b1984207a6",
+  "originalFileName": "6ae8fedd6e9109b1984207a6_espace-levallois-01.webp",
+  "displayName": "espace-levallois-01.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T21:21:33.730Z",
+  "lastUpdated": "2026-11-02T21:48:01.933Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae8fedd6e9109b1984207a6_espace-levallois-01.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae8fedd6e9109b1984207a6_espace-levallois-01-p-500.webp",
+    "originalFileName": "espace-levallois-01-p-500.webp",
+    "displayName": "6ae8fedd6e9109b1984207a6_espace-levallois-01-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6ae8fedd9ab19fb5ad8feb87",
+  "originalFileName": "6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire.webp",
+  "displayName": "carte-fond-esri-provisoire.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T21:21:33.850Z",
+  "lastUpdated": "2026-11-02T21:48:04.061Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire-p-500.webp",
+    "originalFileName": "carte-fond-esri-provisoire-p-500.webp",
+    "displayName": "6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire-p-800.webp",
+    "originalFileName": "carte-fond-esri-provisoire-p-800.webp",
+    "displayName": "6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire-p-1080.webp",
+    "originalFileName": "carte-fond-esri-provisoire-p-1080.webp",
+    "displayName": "6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire-p-1080.webp",
+    "format": "webp",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire-p-1600.webp",
+    "originalFileName": "carte-fond-esri-provisoire-p-1600.webp",
+    "displayName": "6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire-p-1600.webp",
+    "format": "webp",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire-p-2000.webp",
+    "originalFileName": "carte-fond-esri-provisoire-p-2000.webp",
+    "displayName": "6ae8fedd9ab19fb5ad8feb87_carte-fond-esri-provisoire-p-2000.webp",
+    "format": "webp",
+    "width": 2000,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6ae900f71160c48707fe08fd",
+  "originalFileName": "6ae900f71160c48707fe08fd_offre-bureaux-privatifs-provisoire.png",
+  "displayName": "offre-bureaux-privatifs-provisoire.png",
+  "contentType": "image/png",
+  "size": 335152,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T21:30:31.939Z",
+  "lastUpdated": "2026-11-02T21:48:02.074Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae900f71160c48707fe08fd_offre-bureaux-privatifs-provisoire.png",
+  "variants": [],
+  "altText": "Équipe dans un bureau privatif",
+  "folderId": null
+ },
+ {
+  "id": "6ae900f9426f766f02406a96",
+  "originalFileName": "6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+  "displayName": "offre-bureaux-operes-provisoire.png",
+  "contentType": "image/png",
+  "size": 330115,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T21:30:33.616Z",
+  "lastUpdated": "2026-11-02T21:48:02.071Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire.png",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire-p-500.png",
+    "originalFileName": "offre-bureaux-operes-provisoire-p-500.png",
+    "displayName": "6ae900f9426f766f02406a96_offre-bureaux-operes-provisoire-p-500.png",
+    "format": "png",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": "Plateau de bureaux opérés",
+  "folderId": null
+ },
+ {
+  "id": "6ae90690df3c7e8c7f46ec21",
+  "originalFileName": "6ae90690df3c7e8c7f46ec21_evenementiel-hero-pleniere-eos.webp",
+  "displayName": "evenementiel-hero-pleniere-eos.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T21:54:24.831Z",
+  "lastUpdated": "2026-11-02T21:58:41.740Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae90690df3c7e8c7f46ec21_evenementiel-hero-pleniere-eos.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae90690df3c7e8c7f46ec21_evenementiel-hero-pleniere-eos-p-500.webp",
+    "originalFileName": "evenementiel-hero-pleniere-eos-p-500.webp",
+    "displayName": "6ae90690df3c7e8c7f46ec21_evenementiel-hero-pleniere-eos-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae90690df3c7e8c7f46ec21_evenementiel-hero-pleniere-eos-p-800.webp",
+    "originalFileName": "evenementiel-hero-pleniere-eos-p-800.webp",
+    "displayName": "6ae90690df3c7e8c7f46ec21_evenementiel-hero-pleniere-eos-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6ae906916d5eaa230c184959",
+  "originalFileName": "6ae906916d5eaa230c184959_evenementiel-lieu-saint-ouen.webp",
+  "displayName": "evenementiel-lieu-saint-ouen.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T21:54:25.169Z",
+  "lastUpdated": "2026-11-02T21:58:45.525Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae906916d5eaa230c184959_evenementiel-lieu-saint-ouen.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae906916d5eaa230c184959_evenementiel-lieu-saint-ouen-p-500.webp",
+    "originalFileName": "evenementiel-lieu-saint-ouen-p-500.webp",
+    "displayName": "6ae906916d5eaa230c184959_evenementiel-lieu-saint-ouen-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae906916d5eaa230c184959_evenementiel-lieu-saint-ouen-p-800.webp",
+    "originalFileName": "evenementiel-lieu-saint-ouen-p-800.webp",
+    "displayName": "6ae906916d5eaa230c184959_evenementiel-lieu-saint-ouen-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae906916d5eaa230c184959_evenementiel-lieu-saint-ouen-p-1080.webp",
+    "originalFileName": "evenementiel-lieu-saint-ouen-p-1080.webp",
+    "displayName": "6ae906916d5eaa230c184959_evenementiel-lieu-saint-ouen-p-1080.webp",
+    "format": "webp",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6ae906917a0c6a0c5749b7ad",
+  "originalFileName": "6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+  "displayName": "evenementiel-emma-portrait.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T21:54:25.863Z",
+  "lastUpdated": "2026-11-02T21:58:41.600Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae906917a0c6a0c5749b7ad_evenementiel-emma-portrait.webp",
+  "variants": [],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6ae90775cc3aabf59681a7de",
+  "originalFileName": "6ae90775cc3aabf59681a7de_home-event-reunion.webp",
+  "displayName": "home-event-reunion.webp",
+  "contentType": "image/webp",
+  "size": 64394,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T21:58:13.484Z",
+  "lastUpdated": "2026-11-02T22:04:13.467Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae90775cc3aabf59681a7de_home-event-reunion.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae90775cc3aabf59681a7de_home-event-reunion-p-500.webp",
+    "originalFileName": "home-event-reunion-p-500.webp",
+    "displayName": "6ae90775cc3aabf59681a7de_home-event-reunion-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae90775cc3aabf59681a7de_home-event-reunion-p-800.webp",
+    "originalFileName": "home-event-reunion-p-800.webp",
+    "displayName": "6ae90775cc3aabf59681a7de_home-event-reunion-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae90775cc3aabf59681a7de_home-event-reunion-p-1080.webp",
+    "originalFileName": "home-event-reunion-p-1080.webp",
+    "displayName": "6ae90775cc3aabf59681a7de_home-event-reunion-p-1080.webp",
+    "format": "webp",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": "Grande salle de réunion lumineuse avec une longue table",
+  "folderId": null
+ },
+ {
+  "id": "6ae907d0df3c7e8c7f4741eb",
+  "originalFileName": "6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+  "displayName": "offices-atout-rooftop.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T21:59:44.003Z",
+  "lastUpdated": "2026-11-02T22:54:48.917Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop-p-500.webp",
+    "originalFileName": "offices-atout-rooftop-p-500.webp",
+    "displayName": "6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop-p-800.webp",
+    "originalFileName": "offices-atout-rooftop-p-800.webp",
+    "displayName": "6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop-p-1080.webp",
+    "originalFileName": "offices-atout-rooftop-p-1080.webp",
+    "displayName": "6ae907d0df3c7e8c7f4741eb_offices-atout-rooftop-p-1080.webp",
+    "format": "webp",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": "Rooftop aménagé d'un espace Work & Share",
+  "folderId": null
+ },
+ {
+  "id": "6ae907d04e7f98592f454f15",
+  "originalFileName": "6ae907d04e7f98592f454f15_offices-hero-maison.webp",
+  "displayName": "offices-hero-maison.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T21:59:44.290Z",
+  "lastUpdated": "2026-11-02T22:54:47.814Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae907d04e7f98592f454f15_offices-hero-maison.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae907d04e7f98592f454f15_offices-hero-maison-p-500.webp",
+    "originalFileName": "offices-hero-maison-p-500.webp",
+    "displayName": "6ae907d04e7f98592f454f15_offices-hero-maison-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae907d04e7f98592f454f15_offices-hero-maison-p-800.webp",
+    "originalFileName": "offices-hero-maison-p-800.webp",
+    "displayName": "6ae907d04e7f98592f454f15_offices-hero-maison-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": "Espace de travail lumineux avec des résidentes Work & Share",
+  "folderId": null
+ },
+ {
+  "id": "6ae908bedf58de3522aa0cee",
+  "originalFileName": "6ae908bedf58de3522aa0cee_home-maison-managers.webp",
+  "displayName": "home-maison-managers.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T22:03:42.163Z",
+  "lastUpdated": "2026-11-02T22:54:47.499Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae908bedf58de3522aa0cee_home-maison-managers.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae908bedf58de3522aa0cee_home-maison-managers-p-500.webp",
+    "originalFileName": "home-maison-managers-p-500.webp",
+    "displayName": "6ae908bedf58de3522aa0cee_home-maison-managers-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6ae908bedf58de3522aa0d10",
+  "originalFileName": "6ae908bedf58de3522aa0d10_home-maison-bistrot.webp",
+  "displayName": "home-maison-bistrot.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T22:03:42.327Z",
+  "lastUpdated": "2026-11-02T22:54:47.530Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae908bedf58de3522aa0d10_home-maison-bistrot.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae908bedf58de3522aa0d10_home-maison-bistrot-p-500.webp",
+    "originalFileName": "home-maison-bistrot-p-500.webp",
+    "displayName": "6ae908bedf58de3522aa0d10_home-maison-bistrot-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6ae908bedf58de3522aa0d2d",
+  "originalFileName": "6ae908bedf58de3522aa0d2d_home-maison-famille.webp",
+  "displayName": "home-maison-famille.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T22:03:42.445Z",
+  "lastUpdated": "2026-11-02T22:54:48.493Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae908bedf58de3522aa0d2d_home-maison-famille.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae908bedf58de3522aa0d2d_home-maison-famille-p-500.webp",
+    "originalFileName": "home-maison-famille-p-500.webp",
+    "displayName": "6ae908bedf58de3522aa0d2d_home-maison-famille-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6ae916f7783676a1c0ccd555",
+  "originalFileName": "6ae916f7783676a1c0ccd555_post-colombes-equipe.webp",
+  "displayName": "post-colombes-equipe.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T23:04:23.444Z",
+  "lastUpdated": "2026-11-02T23:06:19.456Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae916f7783676a1c0ccd555_post-colombes-equipe.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae916f7783676a1c0ccd555_post-colombes-equipe-p-500.webp",
+    "originalFileName": "post-colombes-equipe-p-500.webp",
+    "displayName": "6ae916f7783676a1c0ccd555_post-colombes-equipe-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae916f7783676a1c0ccd555_post-colombes-equipe-p-800.webp",
+    "originalFileName": "post-colombes-equipe-p-800.webp",
+    "displayName": "6ae916f7783676a1c0ccd555_post-colombes-equipe-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae916f7783676a1c0ccd555_post-colombes-equipe-p-1080.webp",
+    "originalFileName": "post-colombes-equipe-p-1080.webp",
+    "displayName": "6ae916f7783676a1c0ccd555_post-colombes-equipe-p-1080.webp",
+    "format": "webp",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae916f7783676a1c0ccd555_post-colombes-equipe-p-1600.webp",
+    "originalFileName": "post-colombes-equipe-p-1600.webp",
+    "displayName": "6ae916f7783676a1c0ccd555_post-colombes-equipe-p-1600.webp",
+    "format": "webp",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": "Résidents au travail autour de grandes tables dans l’espace Work & Share de Colombes",
+  "folderId": null
+ },
+ {
+  "id": "6ae9172c9a2a76a53ec0137c",
+  "originalFileName": "6ae9172c9a2a76a53ec0137c_lieu-clichy-hero-maison.webp",
+  "displayName": "lieu-clichy-hero-maison.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-02T23:05:16.968Z",
+  "lastUpdated": "2026-11-02T23:06:18.696Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae9172c9a2a76a53ec0137c_lieu-clichy-hero-maison.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae9172c9a2a76a53ec0137c_lieu-clichy-hero-maison-p-500.webp",
+    "originalFileName": "lieu-clichy-hero-maison-p-500.webp",
+    "displayName": "6ae9172c9a2a76a53ec0137c_lieu-clichy-hero-maison-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6ae9172c9a2a76a53ec0137c_lieu-clichy-hero-maison-p-800.webp",
+    "originalFileName": "lieu-clichy-hero-maison-p-800.webp",
+    "displayName": "6ae9172c9a2a76a53ec0137c_lieu-clichy-hero-maison-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aeb4ade6956313d26ab5104",
+  "originalFileName": "6aeb4ade6956313d26ab5104_blog-workshare-groupe-studiofalour-5-6-1-scaled.jpg",
+  "displayName": "blog-workshare-groupe-studiofalour-5-6-1-scaled.jpg",
+  "contentType": "image/jpeg",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T15:10:22.138Z",
+  "lastUpdated": "2026-11-04T15:39:24.114Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb4ade6956313d26ab5104_blog-workshare-groupe-studiofalour-5-6-1-scaled.jpg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb4ade6956313d26ab5104_blog-workshare-groupe-studiofalour-5-6-1-scaled-p-500.jpg",
+    "originalFileName": "blog-workshare-groupe-studiofalour-5-6-1-scaled-p-500.jpg",
+    "displayName": "6aeb4ade6956313d26ab5104_blog-workshare-groupe-studiofalour-5-6-1-scaled-p-500.jpg",
+    "format": "jpg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb4ade6956313d26ab5104_blog-workshare-groupe-studiofalour-5-6-1-scaled-p-800.jpg",
+    "originalFileName": "blog-workshare-groupe-studiofalour-5-6-1-scaled-p-800.jpg",
+    "displayName": "6aeb4ade6956313d26ab5104_blog-workshare-groupe-studiofalour-5-6-1-scaled-p-800.jpg",
+    "format": "jpg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb4ade6956313d26ab5104_blog-workshare-groupe-studiofalour-5-6-1-scaled-p-1080.jpg",
+    "originalFileName": "blog-workshare-groupe-studiofalour-5-6-1-scaled-p-1080.jpg",
+    "displayName": "6aeb4ade6956313d26ab5104_blog-workshare-groupe-studiofalour-5-6-1-scaled-p-1080.jpg",
+    "format": "jpg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb4ade6956313d26ab5104_blog-workshare-groupe-studiofalour-5-6-1-scaled-p-1600.jpg",
+    "originalFileName": "blog-workshare-groupe-studiofalour-5-6-1-scaled-p-1600.jpg",
+    "displayName": "6aeb4ade6956313d26ab5104_blog-workshare-groupe-studiofalour-5-6-1-scaled-p-1600.jpg",
+    "format": "jpg",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aeb6918b080db8b41b9aae2",
+  "originalFileName": "6aeb6918b080db8b41b9aae2_recrutement-hero-maison.webp",
+  "displayName": "recrutement-hero-maison.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T17:19:20.766Z",
+  "lastUpdated": "2026-11-04T17:33:18.829Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6918b080db8b41b9aae2_recrutement-hero-maison.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6918b080db8b41b9aae2_recrutement-hero-maison-p-500.webp",
+    "originalFileName": "recrutement-hero-maison-p-500.webp",
+    "displayName": "6aeb6918b080db8b41b9aae2_recrutement-hero-maison-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6918b080db8b41b9aae2_recrutement-hero-maison-p-800.webp",
+    "originalFileName": "recrutement-hero-maison-p-800.webp",
+    "displayName": "6aeb6918b080db8b41b9aae2_recrutement-hero-maison-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aeb6918c568485c58663646",
+  "originalFileName": "6aeb6918c568485c58663646_recrutement-equipe.webp",
+  "displayName": "recrutement-equipe.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T17:19:20.870Z",
+  "lastUpdated": "2026-11-04T17:33:18.845Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6918c568485c58663646_recrutement-equipe.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6918c568485c58663646_recrutement-equipe-p-500.webp",
+    "originalFileName": "recrutement-equipe-p-500.webp",
+    "displayName": "6aeb6918c568485c58663646_recrutement-equipe-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6918c568485c58663646_recrutement-equipe-p-800.webp",
+    "originalFileName": "recrutement-equipe-p-800.webp",
+    "displayName": "6aeb6918c568485c58663646_recrutement-equipe-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6918c568485c58663646_recrutement-equipe-p-1080.webp",
+    "originalFileName": "recrutement-equipe-p-1080.webp",
+    "displayName": "6aeb6918c568485c58663646_recrutement-equipe-p-1080.webp",
+    "format": "webp",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aeb6919cf20cf3cda5298b9",
+  "originalFileName": "6aeb6919cf20cf3cda5298b9_ambiance-clichy.webp",
+  "displayName": "ambiance-clichy.webp",
+  "contentType": "image/webp",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T17:19:21.720Z",
+  "lastUpdated": "2026-11-04T17:33:20.765Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6919cf20cf3cda5298b9_ambiance-clichy.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6919cf20cf3cda5298b9_ambiance-clichy-p-500.webp",
+    "originalFileName": "ambiance-clichy-p-500.webp",
+    "displayName": "6aeb6919cf20cf3cda5298b9_ambiance-clichy-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6919cf20cf3cda5298b9_ambiance-clichy-p-800.webp",
+    "originalFileName": "ambiance-clichy-p-800.webp",
+    "displayName": "6aeb6919cf20cf3cda5298b9_ambiance-clichy-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6919cf20cf3cda5298b9_ambiance-clichy-p-1080.webp",
+    "originalFileName": "ambiance-clichy-p-1080.webp",
+    "displayName": "6aeb6919cf20cf3cda5298b9_ambiance-clichy-p-1080.webp",
+    "format": "webp",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb6919cf20cf3cda5298b9_ambiance-clichy-p-1600.webp",
+    "originalFileName": "ambiance-clichy-p-1600.webp",
+    "displayName": "6aeb6919cf20cf3cda5298b9_ambiance-clichy-p-1600.webp",
+    "format": "webp",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aeb74759ff384ec7850d1ff",
+  "originalFileName": "6aeb74759ff384ec7850d1ff_og-comparateur.png",
+  "displayName": "og-comparateur.png",
+  "contentType": "image/png",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T18:07:49.174Z",
+  "lastUpdated": "2026-11-04T18:53:43.428Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb74759ff384ec7850d1ff_og-comparateur.png",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb74759ff384ec7850d1ff_og-comparateur-p-500.png",
+    "originalFileName": "og-comparateur-p-500.png",
+    "displayName": "6aeb74759ff384ec7850d1ff_og-comparateur-p-500.png",
+    "format": "png",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb74759ff384ec7850d1ff_og-comparateur-p-800.png",
+    "originalFileName": "og-comparateur-p-800.png",
+    "displayName": "6aeb74759ff384ec7850d1ff_og-comparateur-p-800.png",
+    "format": "png",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeb74759ff384ec7850d1ff_og-comparateur-p-1080.png",
+    "originalFileName": "og-comparateur-p-1080.png",
+    "displayName": "6aeb74759ff384ec7850d1ff_og-comparateur-p-1080.png",
+    "format": "png",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aeba1e1dbd3845ebe19b227",
+  "originalFileName": "6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1.jpeg",
+  "displayName": "1.jpeg",
+  "contentType": "image/jpeg",
+  "size": 3367429,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T21:21:37.307Z",
+  "lastUpdated": "2026-11-04T22:00:10.169Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1.jpeg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-500.jpeg",
+    "originalFileName": "47dedc84b5d7aef050ab1cb13d35db36_1-p-500.jpeg",
+    "displayName": "6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-500.jpeg",
+    "format": "jpeg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-800.jpeg",
+    "originalFileName": "47dedc84b5d7aef050ab1cb13d35db36_1-p-800.jpeg",
+    "displayName": "6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-800.jpeg",
+    "format": "jpeg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-1080.jpeg",
+    "originalFileName": "47dedc84b5d7aef050ab1cb13d35db36_1-p-1080.jpeg",
+    "displayName": "6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-1080.jpeg",
+    "format": "jpeg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-1600.jpeg",
+    "originalFileName": "47dedc84b5d7aef050ab1cb13d35db36_1-p-1600.jpeg",
+    "displayName": "6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-1600.jpeg",
+    "format": "jpeg",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-2000.jpeg",
+    "originalFileName": "47dedc84b5d7aef050ab1cb13d35db36_1-p-2000.jpeg",
+    "displayName": "6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-2000.jpeg",
+    "format": "jpeg",
+    "width": 2000,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-2600.jpeg",
+    "originalFileName": "47dedc84b5d7aef050ab1cb13d35db36_1-p-2600.jpeg",
+    "displayName": "6aeba1e1dbd3845ebe19b227_47dedc84b5d7aef050ab1cb13d35db36_1-p-2600.jpeg",
+    "format": "jpeg",
+    "width": 2600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aeba1ec63919882892f9773",
+  "originalFileName": "6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2.jpeg",
+  "displayName": "2.jpeg",
+  "contentType": "image/jpeg",
+  "size": 3934383,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T21:21:48.123Z",
+  "lastUpdated": "2026-11-04T22:00:10.163Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2.jpeg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-500.jpeg",
+    "originalFileName": "f0b8682065ea76262d92fb947ec9aa2a_2-p-500.jpeg",
+    "displayName": "6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-500.jpeg",
+    "format": "jpeg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-800.jpeg",
+    "originalFileName": "f0b8682065ea76262d92fb947ec9aa2a_2-p-800.jpeg",
+    "displayName": "6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-800.jpeg",
+    "format": "jpeg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-1080.jpeg",
+    "originalFileName": "f0b8682065ea76262d92fb947ec9aa2a_2-p-1080.jpeg",
+    "displayName": "6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-1080.jpeg",
+    "format": "jpeg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-1600.jpeg",
+    "originalFileName": "f0b8682065ea76262d92fb947ec9aa2a_2-p-1600.jpeg",
+    "displayName": "6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-1600.jpeg",
+    "format": "jpeg",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-2000.jpeg",
+    "originalFileName": "f0b8682065ea76262d92fb947ec9aa2a_2-p-2000.jpeg",
+    "displayName": "6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-2000.jpeg",
+    "format": "jpeg",
+    "width": 2000,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-2600.jpeg",
+    "originalFileName": "f0b8682065ea76262d92fb947ec9aa2a_2-p-2600.jpeg",
+    "displayName": "6aeba1ec63919882892f9773_f0b8682065ea76262d92fb947ec9aa2a_2-p-2600.jpeg",
+    "format": "jpeg",
+    "width": 2600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aeba1f70d4d10dd7303a5b0",
+  "originalFileName": "6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3.jpeg",
+  "displayName": "3.jpeg",
+  "contentType": "image/jpeg",
+  "size": 2432486,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T21:21:59.080Z",
+  "lastUpdated": "2026-11-04T22:00:10.166Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3.jpeg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-500.jpeg",
+    "originalFileName": "34bae4cb9387525634032ef07e14723a_3-p-500.jpeg",
+    "displayName": "6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-500.jpeg",
+    "format": "jpeg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-800.jpeg",
+    "originalFileName": "34bae4cb9387525634032ef07e14723a_3-p-800.jpeg",
+    "displayName": "6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-800.jpeg",
+    "format": "jpeg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-1080.jpeg",
+    "originalFileName": "34bae4cb9387525634032ef07e14723a_3-p-1080.jpeg",
+    "displayName": "6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-1080.jpeg",
+    "format": "jpeg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-1600.jpeg",
+    "originalFileName": "34bae4cb9387525634032ef07e14723a_3-p-1600.jpeg",
+    "displayName": "6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-1600.jpeg",
+    "format": "jpeg",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-2000.jpeg",
+    "originalFileName": "34bae4cb9387525634032ef07e14723a_3-p-2000.jpeg",
+    "displayName": "6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-2000.jpeg",
+    "format": "jpeg",
+    "width": 2000,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-2600.jpeg",
+    "originalFileName": "34bae4cb9387525634032ef07e14723a_3-p-2600.jpeg",
+    "displayName": "6aeba1f70d4d10dd7303a5b0_34bae4cb9387525634032ef07e14723a_3-p-2600.jpeg",
+    "format": "jpeg",
+    "width": 2600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aeba343aade44c74db1c078",
+  "originalFileName": "6aeba343aade44c74db1c078_image (9).webp",
+  "displayName": "image (9).webp",
+  "contentType": "image/webp",
+  "size": 290828,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T21:27:31.378Z",
+  "lastUpdated": "2026-11-04T21:27:47.763Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba343aade44c74db1c078_image%20(9).webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba343aade44c74db1c078_image%20(9)-p-500.webp",
+    "originalFileName": "image%20(9)-p-500.webp",
+    "displayName": "6aeba343aade44c74db1c078_image (9)-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba343aade44c74db1c078_image%20(9)-p-800.webp",
+    "originalFileName": "image%20(9)-p-800.webp",
+    "displayName": "6aeba343aade44c74db1c078_image (9)-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba343aade44c74db1c078_image%20(9)-p-1080.webp",
+    "originalFileName": "image%20(9)-p-1080.webp",
+    "displayName": "6aeba343aade44c74db1c078_image (9)-p-1080.webp",
+    "format": "webp",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba343aade44c74db1c078_image%20(9)-p-1600.webp",
+    "originalFileName": "image%20(9)-p-1600.webp",
+    "displayName": "6aeba343aade44c74db1c078_image (9)-p-1600.webp",
+    "format": "webp",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba343aade44c74db1c078_image%20(9)-p-2000.webp",
+    "originalFileName": "image%20(9)-p-2000.webp",
+    "displayName": "6aeba343aade44c74db1c078_image (9)-p-2000.webp",
+    "format": "webp",
+    "width": 2000,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba343aade44c74db1c078_image%20(9)-p-2600.webp",
+    "originalFileName": "image%20(9)-p-2600.webp",
+    "displayName": "6aeba343aade44c74db1c078_image (9)-p-2600.webp",
+    "format": "webp",
+    "width": 2600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba343aade44c74db1c078_image%20(9)-p-3200.webp",
+    "originalFileName": "image%20(9)-p-3200.webp",
+    "displayName": "6aeba343aade44c74db1c078_image (9)-p-3200.webp",
+    "format": "webp",
+    "width": 3200,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aeba53ce2c0a6253dcf9aa2",
+  "originalFileName": "6aeba53ce2c0a6253dcf9aa2_image (10).webp",
+  "displayName": "image (10).webp",
+  "contentType": "image/webp",
+  "size": 736452,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T21:35:56.391Z",
+  "lastUpdated": "2026-11-04T21:36:10.999Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba53ce2c0a6253dcf9aa2_image%20(10).webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba53ce2c0a6253dcf9aa2_image%20(10)-p-500.webp",
+    "originalFileName": "image%20(10)-p-500.webp",
+    "displayName": "6aeba53ce2c0a6253dcf9aa2_image (10)-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba53ce2c0a6253dcf9aa2_image%20(10)-p-800.webp",
+    "originalFileName": "image%20(10)-p-800.webp",
+    "displayName": "6aeba53ce2c0a6253dcf9aa2_image (10)-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba53ce2c0a6253dcf9aa2_image%20(10)-p-1080.webp",
+    "originalFileName": "image%20(10)-p-1080.webp",
+    "displayName": "6aeba53ce2c0a6253dcf9aa2_image (10)-p-1080.webp",
+    "format": "webp",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba53ce2c0a6253dcf9aa2_image%20(10)-p-1600.webp",
+    "originalFileName": "image%20(10)-p-1600.webp",
+    "displayName": "6aeba53ce2c0a6253dcf9aa2_image (10)-p-1600.webp",
+    "format": "webp",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba53ce2c0a6253dcf9aa2_image%20(10)-p-2000.webp",
+    "originalFileName": "image%20(10)-p-2000.webp",
+    "displayName": "6aeba53ce2c0a6253dcf9aa2_image (10)-p-2000.webp",
+    "format": "webp",
+    "width": 2000,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aeba53ce2c0a6253dcf9aa2_image%20(10)-p-2600.webp",
+    "originalFileName": "image%20(10)-p-2600.webp",
+    "displayName": "6aeba53ce2c0a6253dcf9aa2_image (10)-p-2600.webp",
+    "format": "webp",
+    "width": 2600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aebb717c82a956a971a3fe3",
+  "originalFileName": "6aebb717c82a956a971a3fe3_730f18daed34a24c3f62e46453113af9_Photo (forme maison).webp",
+  "displayName": "Photo (forme maison).webp",
+  "contentType": "image/webp",
+  "size": 38518,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T22:52:07.485Z",
+  "lastUpdated": "2026-11-04T22:53:32.370Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb717c82a956a971a3fe3_730f18daed34a24c3f62e46453113af9_Photo%20%28forme%20maison%29.webp",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb717c82a956a971a3fe3_730f18daed34a24c3f62e46453113af9_Photo%20%28forme%20maison%29-p-500.webp",
+    "originalFileName": "730f18daed34a24c3f62e46453113af9_Photo%20%28forme%20maison%29-p-500.webp",
+    "displayName": "6aebb717c82a956a971a3fe3_730f18daed34a24c3f62e46453113af9_Photo (forme maison)-p-500.webp",
+    "format": "webp",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb717c82a956a971a3fe3_730f18daed34a24c3f62e46453113af9_Photo%20%28forme%20maison%29-p-800.webp",
+    "originalFileName": "730f18daed34a24c3f62e46453113af9_Photo%20%28forme%20maison%29-p-800.webp",
+    "displayName": "6aebb717c82a956a971a3fe3_730f18daed34a24c3f62e46453113af9_Photo (forme maison)-p-800.webp",
+    "format": "webp",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb717c82a956a971a3fe3_730f18daed34a24c3f62e46453113af9_Photo%20%28forme%20maison%29-p-1080.webp",
+    "originalFileName": "730f18daed34a24c3f62e46453113af9_Photo%20%28forme%20maison%29-p-1080.webp",
+    "displayName": "6aebb717c82a956a971a3fe3_730f18daed34a24c3f62e46453113af9_Photo (forme maison)-p-1080.webp",
+    "format": "webp",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aebb7bea21655ffdc971a9e",
+  "originalFileName": "6aebb7bea21655ffdc971a9e_image (12).jpeg",
+  "displayName": "image (12).jpeg",
+  "contentType": "image/jpeg",
+  "size": 2080817,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T22:54:54.056Z",
+  "lastUpdated": "2026-11-05T00:11:59.476Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb7bea21655ffdc971a9e_image%20(12).jpeg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb7bea21655ffdc971a9e_image%20(12)-p-500.jpeg",
+    "originalFileName": "image%20(12)-p-500.jpeg",
+    "displayName": "6aebb7bea21655ffdc971a9e_image%20(12)-p-500.jpeg",
+    "format": "jpeg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb7bea21655ffdc971a9e_image%20(12)-p-800.jpeg",
+    "originalFileName": "image%20(12)-p-800.jpeg",
+    "displayName": "6aebb7bea21655ffdc971a9e_image%20(12)-p-800.jpeg",
+    "format": "jpeg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb7bea21655ffdc971a9e_image%20(12)-p-1080.jpeg",
+    "originalFileName": "image%20(12)-p-1080.jpeg",
+    "displayName": "6aebb7bea21655ffdc971a9e_image%20(12)-p-1080.jpeg",
+    "format": "jpeg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb7bea21655ffdc971a9e_image%20(12)-p-1600.jpeg",
+    "originalFileName": "image%20(12)-p-1600.jpeg",
+    "displayName": "6aebb7bea21655ffdc971a9e_image%20(12)-p-1600.jpeg",
+    "format": "jpeg",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb7bea21655ffdc971a9e_image%20(12)-p-2000.jpeg",
+    "originalFileName": "image%20(12)-p-2000.jpeg",
+    "displayName": "6aebb7bea21655ffdc971a9e_image%20(12)-p-2000.jpeg",
+    "format": "jpeg",
+    "width": 2000,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb7bea21655ffdc971a9e_image%20(12)-p-2600.jpeg",
+    "originalFileName": "image%20(12)-p-2600.jpeg",
+    "displayName": "6aebb7bea21655ffdc971a9e_image%20(12)-p-2600.jpeg",
+    "format": "jpeg",
+    "width": 2600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb7bea21655ffdc971a9e_image%20(12)-p-3200.jpeg",
+    "originalFileName": "image%20(12)-p-3200.jpeg",
+    "displayName": "6aebb7bea21655ffdc971a9e_image%20(12)-p-3200.jpeg",
+    "format": "jpeg",
+    "width": 3200,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aebb8857a3edc00049cc435",
+  "originalFileName": "6aebb8857a3edc00049cc435_HeroBan.png",
+  "displayName": "HeroBan.png",
+  "contentType": "image/png",
+  "size": 377431,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-04T22:58:13.124Z",
+  "lastUpdated": "2026-11-05T00:11:59.473Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aebb8857a3edc00049cc435_HeroBan.png",
+  "variants": [],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec8098f3ea0a383c2be621",
+  "originalFileName": "6aec8098f3ea0a383c2be621_image (13).jpeg",
+  "displayName": "image (13).jpeg",
+  "contentType": "image/jpeg",
+  "size": 1634572,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T13:11:52.859Z",
+  "lastUpdated": "2026-11-05T13:15:29.849Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec8098f3ea0a383c2be621_image%20(13).jpeg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec8098f3ea0a383c2be621_image%20(13)-p-500.jpeg",
+    "originalFileName": "image%20(13)-p-500.jpeg",
+    "displayName": "6aec8098f3ea0a383c2be621_image%20(13)-p-500.jpeg",
+    "format": "jpeg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec8098f3ea0a383c2be621_image%20(13)-p-800.jpeg",
+    "originalFileName": "image%20(13)-p-800.jpeg",
+    "displayName": "6aec8098f3ea0a383c2be621_image%20(13)-p-800.jpeg",
+    "format": "jpeg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec8098f3ea0a383c2be621_image%20(13)-p-1080.jpeg",
+    "originalFileName": "image%20(13)-p-1080.jpeg",
+    "displayName": "6aec8098f3ea0a383c2be621_image%20(13)-p-1080.jpeg",
+    "format": "jpeg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec8098f3ea0a383c2be621_image%20(13)-p-1600.jpeg",
+    "originalFileName": "image%20(13)-p-1600.jpeg",
+    "displayName": "6aec8098f3ea0a383c2be621_image%20(13)-p-1600.jpeg",
+    "format": "jpeg",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec8098f3ea0a383c2be621_image%20(13)-p-2000.jpeg",
+    "originalFileName": "image%20(13)-p-2000.jpeg",
+    "displayName": "6aec8098f3ea0a383c2be621_image%20(13)-p-2000.jpeg",
+    "format": "jpeg",
+    "width": 2000,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec8098f3ea0a383c2be621_image%20(13)-p-2600.jpeg",
+    "originalFileName": "image%20(13)-p-2600.jpeg",
+    "displayName": "6aec8098f3ea0a383c2be621_image%20(13)-p-2600.jpeg",
+    "format": "jpeg",
+    "width": 2600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec8098f3ea0a383c2be621_image%20(13)-p-3200.jpeg",
+    "originalFileName": "image%20(13)-p-3200.jpeg",
+    "displayName": "6aec8098f3ea0a383c2be621_image%20(13)-p-3200.jpeg",
+    "format": "jpeg",
+    "width": 3200,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec84f067aef696c63012d1",
+  "originalFileName": "6aec84f067aef696c63012d1_comme-maison-bistrot.jpg",
+  "displayName": "comme-maison-bistrot.jpg",
+  "contentType": "image/jpeg",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T13:30:24.449Z",
+  "lastUpdated": "2026-11-05T15:25:58.366Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec84f067aef696c63012d1_comme-maison-bistrot.jpg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec84f067aef696c63012d1_comme-maison-bistrot-p-500.jpg",
+    "originalFileName": "comme-maison-bistrot-p-500.jpg",
+    "displayName": "6aec84f067aef696c63012d1_comme-maison-bistrot-p-500.jpg",
+    "format": "jpg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec84f067aef696c63012d1_comme-maison-bistrot-p-800.jpg",
+    "originalFileName": "comme-maison-bistrot-p-800.jpg",
+    "displayName": "6aec84f067aef696c63012d1_comme-maison-bistrot-p-800.jpg",
+    "format": "jpg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec84f067aef696c63012d1_comme-maison-bistrot-p-1080.jpg",
+    "originalFileName": "comme-maison-bistrot-p-1080.jpg",
+    "displayName": "6aec84f067aef696c63012d1_comme-maison-bistrot-p-1080.jpg",
+    "format": "jpg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec85160602862b3a396b87",
+  "originalFileName": "6aec85160602862b3a396b87_image (15).jpeg",
+  "displayName": "image (15).jpeg",
+  "contentType": "image/jpeg",
+  "size": 1350469,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T13:31:02.004Z",
+  "lastUpdated": "2026-11-05T15:25:55.222Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec85160602862b3a396b87_image%20(15).jpeg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec85160602862b3a396b87_image%20(15)-p-500.jpeg",
+    "originalFileName": "image%20(15)-p-500.jpeg",
+    "displayName": "6aec85160602862b3a396b87_image%20(15)-p-500.jpeg",
+    "format": "jpeg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec85160602862b3a396b87_image%20(15)-p-800.jpeg",
+    "originalFileName": "image%20(15)-p-800.jpeg",
+    "displayName": "6aec85160602862b3a396b87_image%20(15)-p-800.jpeg",
+    "format": "jpeg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec85160602862b3a396b87_image%20(15)-p-1080.jpeg",
+    "originalFileName": "image%20(15)-p-1080.jpeg",
+    "displayName": "6aec85160602862b3a396b87_image%20(15)-p-1080.jpeg",
+    "format": "jpeg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec85160602862b3a396b87_image%20(15)-p-1600.jpeg",
+    "originalFileName": "image%20(15)-p-1600.jpeg",
+    "displayName": "6aec85160602862b3a396b87_image%20(15)-p-1600.jpeg",
+    "format": "jpeg",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec85160602862b3a396b87_image%20(15)-p-2000.jpeg",
+    "originalFileName": "image%20(15)-p-2000.jpeg",
+    "displayName": "6aec85160602862b3a396b87_image%20(15)-p-2000.jpeg",
+    "format": "jpeg",
+    "width": 2000,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec861179eba04b4d968c2e",
+  "originalFileName": "6aec861179eba04b4d968c2e_Rectangle 2.jpg",
+  "displayName": "Rectangle 2.jpg",
+  "contentType": "image/jpeg",
+  "size": 807737,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T13:35:13.398Z",
+  "lastUpdated": "2026-11-05T15:25:55.223Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec861179eba04b4d968c2e_Rectangle%202.jpg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec861179eba04b4d968c2e_Rectangle%202-p-500.jpg",
+    "originalFileName": "Rectangle%202-p-500.jpg",
+    "displayName": "6aec861179eba04b4d968c2e_Rectangle%202-p-500.jpg",
+    "format": "jpg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec861179eba04b4d968c2e_Rectangle%202-p-800.jpg",
+    "originalFileName": "Rectangle%202-p-800.jpg",
+    "displayName": "6aec861179eba04b4d968c2e_Rectangle%202-p-800.jpg",
+    "format": "jpg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec861179eba04b4d968c2e_Rectangle%202-p-1080.jpg",
+    "originalFileName": "Rectangle%202-p-1080.jpg",
+    "displayName": "6aec861179eba04b4d968c2e_Rectangle%202-p-1080.jpg",
+    "format": "jpg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec887da21c0ac23d6144da",
+  "originalFileName": "6aec887da21c0ac23d6144da_evenementiel-hero.jpg",
+  "displayName": "evenementiel-hero.jpg",
+  "contentType": "image/jpeg",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T13:45:33.231Z",
+  "lastUpdated": "2026-11-05T15:25:59.343Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec887da21c0ac23d6144da_evenementiel-hero.jpg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec887da21c0ac23d6144da_evenementiel-hero-p-500.jpg",
+    "originalFileName": "evenementiel-hero-p-500.jpg",
+    "displayName": "6aec887da21c0ac23d6144da_evenementiel-hero-p-500.jpg",
+    "format": "jpg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec887da21c0ac23d6144da_evenementiel-hero-p-800.jpg",
+    "originalFileName": "evenementiel-hero-p-800.jpg",
+    "displayName": "6aec887da21c0ac23d6144da_evenementiel-hero-p-800.jpg",
+    "format": "jpg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec887da21c0ac23d6144da_evenementiel-hero-p-1080.jpg",
+    "originalFileName": "evenementiel-hero-p-1080.jpg",
+    "displayName": "6aec887da21c0ac23d6144da_evenementiel-hero-p-1080.jpg",
+    "format": "jpg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec89e9dc32bbf66fb660aa",
+  "originalFileName": "6aec89e9dc32bbf66fb660aa_service-parking-location.svg",
+  "displayName": "service-parking-location.svg",
+  "contentType": "image/svg+xml",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T13:51:37.377Z",
+  "lastUpdated": "2026-11-05T15:25:58.325Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec89e9dc32bbf66fb660aa_service-parking-location.svg",
+  "variants": [],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec89e96bd4f3a166d66fda",
+  "originalFileName": "6aec89e96bd4f3a166d66fda_service-privatisation-espace.svg",
+  "displayName": "service-privatisation-espace.svg",
+  "contentType": "image/svg+xml",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T13:51:37.494Z",
+  "lastUpdated": "2026-11-05T15:25:58.338Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec89e96bd4f3a166d66fda_service-privatisation-espace.svg",
+  "variants": [],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec89e9e973126e6c29b7a2",
+  "originalFileName": "6aec89e9e973126e6c29b7a2_service-impression-scan.svg",
+  "displayName": "service-impression-scan.svg",
+  "contentType": "image/svg+xml",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T13:51:37.595Z",
+  "lastUpdated": "2026-11-05T15:25:58.342Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec89e9e973126e6c29b7a2_service-impression-scan.svg",
+  "variants": [],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec94f765cfebad6df694b5",
+  "originalFileName": "6aec94f765cfebad6df694b5_service-domiciliation.svg",
+  "displayName": "service-domiciliation.svg",
+  "contentType": "image/svg+xml",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T14:38:47.476Z",
+  "lastUpdated": "2026-11-05T15:25:58.306Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec94f765cfebad6df694b5_service-domiciliation.svg",
+  "variants": [],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec975514166a68c64f021d",
+  "originalFileName": "6aec975514166a68c64f021d_home-comparateur-loop.mp4",
+  "displayName": "home-comparateur-loop.mp4",
+  "contentType": "video/mp4",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T14:48:53.912Z",
+  "lastUpdated": "2026-11-05T14:48:53.912Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec975514166a68c64f021d_home-comparateur-loop.mp4",
+  "variants": [],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec975574c97264937e83a1",
+  "originalFileName": "6aec975574c97264937e83a1_home-comparateur-loop.webm",
+  "displayName": "home-comparateur-loop.webm",
+  "contentType": "video/webm",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T14:48:53.999Z",
+  "lastUpdated": "2026-11-05T14:48:53.999Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec975574c97264937e83a1_home-comparateur-loop.webm",
+  "variants": [],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec9756afc7b58073736938",
+  "originalFileName": "6aec9756afc7b58073736938_home-comparateur-loop-poster.jpg",
+  "displayName": "home-comparateur-loop-poster.jpg",
+  "contentType": "image/jpeg",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T14:48:54.088Z",
+  "lastUpdated": "2026-11-05T15:25:58.327Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec9756afc7b58073736938_home-comparateur-loop-poster.jpg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec9756afc7b58073736938_home-comparateur-loop-poster-p-500.jpg",
+    "originalFileName": "home-comparateur-loop-poster-p-500.jpg",
+    "displayName": "6aec9756afc7b58073736938_home-comparateur-loop-poster-p-500.jpg",
+    "format": "jpg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec9756afc7b58073736938_home-comparateur-loop-poster-p-800.jpg",
+    "originalFileName": "home-comparateur-loop-poster-p-800.jpg",
+    "displayName": "6aec9756afc7b58073736938_home-comparateur-loop-poster-p-800.jpg",
+    "format": "jpg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": null,
+    "originalFileName": "home-comparateur-loop-poster-p-1080.jpg",
+    "displayName": "6aec9756afc7b58073736938_home-comparateur-loop-poster-p-1080.jpg",
+    "format": "jpg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": "FILESIZE_EXCEEDS_CAP"
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec97fdd471c3e5eb16366d",
+  "originalFileName": "6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis.jpg",
+  "displayName": "-p676cLYJ_r3B68CW_4qw_nn68Pwis.jpg",
+  "contentType": "image/jpeg",
+  "size": 2290610,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T14:51:41.915Z",
+  "lastUpdated": "2026-11-05T15:25:55.226Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis.jpg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-500.jpg",
+    "originalFileName": "-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-500.jpg",
+    "displayName": "6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-500.jpg",
+    "format": "jpg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-800.jpg",
+    "originalFileName": "-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-800.jpg",
+    "displayName": "6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-800.jpg",
+    "format": "jpg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-1080.jpg",
+    "originalFileName": "-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-1080.jpg",
+    "displayName": "6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-1080.jpg",
+    "format": "jpg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-1600.jpg",
+    "originalFileName": "-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-1600.jpg",
+    "displayName": "6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-1600.jpg",
+    "format": "jpg",
+    "width": 1600,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-2000.jpg",
+    "originalFileName": "-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-2000.jpg",
+    "displayName": "6aec97fdd471c3e5eb16366d_-p676cLYJ_r3B68CW_4qw_nn68Pwis-p-2000.jpg",
+    "format": "jpg",
+    "width": 2000,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ },
+ {
+  "id": "6aec9dabeb0921e38e81f30f",
+  "originalFileName": "6aec9dabeb0921e38e81f30f_og-work-and-share.jpg",
+  "displayName": "og-work-and-share.jpg",
+  "contentType": "image/jpeg",
+  "size": 0,
+  "siteId": "6ae871211732c36f025d09e1",
+  "createdOn": "2026-11-05T15:15:55.317Z",
+  "lastUpdated": "2026-11-05T15:25:58.332Z",
+  "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec9dabeb0921e38e81f30f_og-work-and-share.jpg",
+  "variants": [
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec9dabeb0921e38e81f30f_og-work-and-share-p-500.jpg",
+    "originalFileName": "og-work-and-share-p-500.jpg",
+    "displayName": "6aec9dabeb0921e38e81f30f_og-work-and-share-p-500.jpg",
+    "format": "jpg",
+    "width": 500,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec9dabeb0921e38e81f30f_og-work-and-share-p-800.jpg",
+    "originalFileName": "og-work-and-share-p-800.jpg",
+    "displayName": "6aec9dabeb0921e38e81f30f_og-work-and-share-p-800.jpg",
+    "format": "jpg",
+    "width": 800,
+    "height": null,
+    "quality": 100,
+    "error": null
+   },
+   {
+    "hostedUrl": "https://s3.amazonaws.com/webflow-prod-assets/6ae871211732c36f025d09e1/6aec9dabeb0921e38e81f30f_og-work-and-share-p-1080.jpg",
+    "originalFileName": "og-work-and-share-p-1080.jpg",
+    "displayName": "6aec9dabeb0921e38e81f30f_og-work-and-share-p-1080.jpg",
+    "format": "jpg",
+    "width": 1080,
+    "height": null,
+    "quality": 100,
+    "error": null
+   }
+  ],
+  "altText": null,
+  "folderId": null
+ }
+]
