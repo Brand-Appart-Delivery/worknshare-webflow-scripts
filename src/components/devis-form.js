@@ -18,8 +18,11 @@
 //   a[data-devis-format="seminaire"]                carte de format (hors formulaire) :
 //                                                   au clic, présélectionne ce format
 //
-// Pastilles : clic, Entrée / Espace, flèches = comme un groupe de boutons radio.
+// Pastilles : clic, Entrée / Espace, flèches = comme un groupe de boutons radio ;
+// le fond de la pastille choisie glisse de l'une à l'autre (utils/tab-indicator.js).
 // Pré-remplissage depuis l'adresse : /evenementiel?format=seminaire&lieu=clichy#devis
+
+import { createSegmentedIndicator } from "../utils/tab-indicator.js";
 
 export function initDevisForms(root = document) {
   root.querySelectorAll('form[data-form="devis"]').forEach(initDevisForm);
@@ -86,8 +89,13 @@ function radioGroup(form, optionAttr, inputAttr, valueOf) {
   const options = [...form.querySelectorAll(`[${optionAttr}]`)];
   if (!options.length) return null;
   const input = form.querySelector(`[${inputAttr}]`);
+  let current = options.find((o) => o.getAttribute("aria-checked") === "true") || null;
+  // Fond glissant seulement si une pastille est choisie au départ (sa couleur sert de modèle)
+  const indicator = current ? createSegmentedIndicator(options[0].parentElement, () => current) : null;
 
   const select = (option, focus = false) => {
+    current = option;
+    indicator?.move();
     options.forEach((o) => {
       const on = o === option;
       o.classList.toggle("is-active", on);
@@ -119,8 +127,7 @@ function radioGroup(form, optionAttr, inputAttr, valueOf) {
   });
 
   // État de départ : celui de Webflow, sinon la première reçoit la tabulation
-  const initial = options.find((o) => o.getAttribute("aria-checked") === "true");
-  if (initial) select(initial);
+  if (current) select(current);
   else options.forEach((o, i) => (o.tabIndex = i === 0 ? 0 : -1));
 
   return {

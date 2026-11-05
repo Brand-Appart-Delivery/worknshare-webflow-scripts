@@ -7,6 +7,9 @@
 //   indicator.move();            // après chaque changement d'onglet
 //   indicator.move(false);       // sans animation (placement initial)
 //
+// Groupe de pastilles (role="radio") : createSegmentedIndicator(groupe, getActive)
+// reprend la couleur de fond de la pastille active posée dans Webflow.
+//
 // Le JS ajoute dans la barre un <span class="tab-indicator"> et la classe
 // .is-sliding sur la barre. Couleurs et transitions : _tab-indicator.scss.
 // Le thème de l'onglet (attribut themeAttr, ex. data-formula-theme) est recopié
@@ -39,4 +42,14 @@ export function createTabIndicator(tablist, { getActive, themeAttr = null, class
   move(false);
 
   return { move, element: indicator };
+}
+
+// Pastilles « segmented » (role="radio") : même fond glissant, à la couleur de
+// la pastille active dans Webflow (lue avant que le CSS ne la rende transparente)
+export function createSegmentedIndicator(group, getActive) {
+  const active = getActive();
+  const color = active ? getComputedStyle(active).backgroundColor : "";
+  const indicator = createTabIndicator(group, { getActive, className: "segmented-indicator" });
+  if (color && color !== "rgba(0, 0, 0, 0)") indicator.element.style.backgroundColor = color;
+  return indicator;
 }

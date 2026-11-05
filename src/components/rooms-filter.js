@@ -15,11 +15,13 @@
 // aucune, on montre les salles assez grandes pour le groupe (capacité ≥ début
 // de la fourchette), pour ne jamais laisser la liste vide. Pastilles = groupe
 // de boutons radio (flèches au clavier). Le nombre de salles affichées est
-// annoncé aux lecteurs d'écran.
+// annoncé aux lecteurs d'écran. Le fond de la pastille active glisse d'une
+// pastille à l'autre (utils/tab-indicator.js).
 
 import { t } from "../utils/i18n.js";
 import { prefersReducedMotion } from "../utils/motion.js";
 import { requestScrollRefresh } from "../utils/scroll-refresh.js";
+import { createSegmentedIndicator } from "../utils/tab-indicator.js";
 
 export function initRoomsFilters(root = document) {
   root.querySelectorAll("[data-rooms]").forEach(initRoomsFilter);
@@ -71,7 +73,11 @@ function initRoomsFilter(section) {
     requestScrollRefresh();
   }
 
+  let current = options.find((o) => o.getAttribute("aria-checked") === "true") || options[0];
+  const indicator = createSegmentedIndicator(options[0].parentElement, () => current);
+
   const select = (option, focus = false) => {
+    current = option;
     options.forEach((o) => {
       const on = o === option;
       o.classList.toggle("is-active", on);
@@ -79,6 +85,7 @@ function initRoomsFilter(section) {
       o.tabIndex = on ? 0 : -1; // un seul arrêt de tabulation dans le groupe
     });
     if (focus) option.focus();
+    indicator.move();
     apply(option.getAttribute("data-room-filter-option"));
   };
 
@@ -102,6 +109,5 @@ function initRoomsFilter(section) {
   });
 
   // Départ : la pastille active posée dans Webflow (« Toutes »)
-  const initial = options.find((o) => o.getAttribute("aria-checked") === "true") || options[0];
-  options.forEach((o) => (o.tabIndex = o === initial ? 0 : -1));
+  options.forEach((o) => (o.tabIndex = o === current ? 0 : -1));
 }
