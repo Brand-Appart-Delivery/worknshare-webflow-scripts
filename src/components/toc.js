@@ -5,9 +5,14 @@
 //   [data-toc]                 nav du sommaire (ex. .post-toc, aria-label="Sommaire")
 //     [data-toc-list]          conteneur des liens (optionnel : créé sinon)
 //   [data-toc-source]          texte riche dont on lit les h2
+//   [data-toc-include]         bloc hors du texte ajouté en fin de sommaire, par
+//                              son premier h2 (ex. FAQ de l'article, id="faq") ;
+//                              ignoré s'il est vide
 //
-// Si la liste ne contient aucun lien, elle est construite depuis les h2 du
-// texte (classe .post-toc_link). Les h2 sans id en reçoivent un, tiré de leur
+// Les liens posés dans Webflow sont gardés s'ils mènent tous à un intertitre de
+// la page (pages légales). Sinon (liste vide, ou liens d'exemple d'un autre
+// article dans le gabarit), la liste est reconstruite depuis les h2 du texte
+// (classe .post-toc_link). Les h2 sans id en reçoivent un, tiré de leur
 // texte (« 1. Définitions » → #definitions). Le défilement vers l'ancre est
 // géré par core.js (header et Lenis compris).
 //
@@ -40,6 +45,14 @@ function initToc(nav) {
   if (!source) return;
   const levels = nav.getAttribute("data-toc-levels") || "h2";
   const headings = [...source.querySelectorAll(levels)].filter((h) => h.textContent.trim());
+  // Blocs ajoutés en fin de sommaire (FAQ…), seulement s'ils ont du contenu
+  document.querySelectorAll("[data-toc-include]").forEach((block) => {
+    const empty = block.querySelector(".w-dyn-empty") || block.closest(".w-condition-invisible, [hidden]");
+    const title = block.querySelector("h2");
+    if (empty || !title?.textContent.trim()) return;
+    if (!title.id && block.id && !block.querySelector(`#${CSS.escape(block.id)}`)) title.dataset.tocTarget = block.id;
+    headings.push(title);
+  });
   if (!headings.length) {
     nav.hidden = true;
     return;
@@ -57,10 +70,16 @@ function initToc(nav) {
     used.add(h.id);
   });
 
-  // Liste : on garde les liens posés dans Webflow, sinon on la construit
+  // Ancre d'un intertitre : celle de son bloc (#faq) si on l'a notée, sinon son id
+  const anchor = (h) => h.dataset.tocTarget || h.id;
+
+  // Liste : on garde les liens posés dans Webflow s'ils mènent tous à un
+  // intertitre de la page, sinon on la reconstruit
   let list = nav.querySelector("[data-toc-list]");
   let links = [...nav.querySelectorAll('a[href^="#"]')];
-  if (!links.length) {
+  const valid = links.length && links.every((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))));
+  if (!valid) {
+    links.forEach((a) => a.remove());
     if (!list) {
       list = document.createElement("div");
       list.className = "post-toc_list";
@@ -69,7 +88,7 @@ function initToc(nav) {
     links = headings.map((h) => {
       const a = document.createElement("a");
       a.className = "post-toc_link";
-      a.href = `#${h.id}`;
+      a.href = `#${anchor(h)}`;
       a.textContent = h.textContent.trim();
       list.appendChild(a);
       return a;

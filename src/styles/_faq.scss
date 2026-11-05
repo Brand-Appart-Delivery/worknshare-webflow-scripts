@@ -31,3 +31,13 @@
     transition: none;
   }
 }
+
+// FAQ d'un article de blog (fond blanc) : questions sur fond beige, serrées
+// (Figma 4681:29466 · WS/Question FAQ, fond color/beige/50)
+.post-faq .faq_list {
+  gap: 4px;
+}
+
+.post-faq .faq_item {
+  background-color: var(--_work-n-share---color--beige--50, #fffbe7);
+}
