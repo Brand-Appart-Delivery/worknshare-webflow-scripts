@@ -50,6 +50,12 @@
   }
 
   // ---------- « Combien serez-vous ? » : pastilles qui défilent ----------
+  .venue-rooms_filter {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
   .venue-rooms_options {
     flex-wrap: nowrap !important;
     max-width: 100%;
