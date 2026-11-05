@@ -16,6 +16,7 @@ import { initFooter } from "./components/footer.js";
 import { initFormulas } from "./components/formula.js";
 import { initSliders } from "./components/slider.js";
 import { initPhotoSliders } from "./components/photo-slider.js";
+import { initRoomsFilters } from "./components/rooms-filter.js";
 import { initCounters } from "./animations/counter.js";
 import { initReveal } from "./animations/reveal.js";
 import { initCardsStack } from "./animations/cards-stack.js";
@@ -68,6 +69,7 @@ onReady(() => {
   initFormulas();
   initSliders();
   initPhotoSliders();
+  initRoomsFilters(); // pages lieux : filtre « Combien serez-vous ? »
   initCounters();
   initReveal();
   initCardsStack();

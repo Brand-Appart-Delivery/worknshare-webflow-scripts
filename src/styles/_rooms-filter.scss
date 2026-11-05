@@ -1,0 +1,34 @@
+// Filtre « Combien serez-vous ? » (components/rooms-filter.js)
+
+// Salles filtrées : Webflow met display:block sur les éléments de liste
+[data-rooms] [data-room][hidden] {
+  display: none !important;
+}
+
+// Apparition des salles qui reviennent dans la liste
+[data-rooms] [data-room].is-room-in {
+  animation: room-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes room-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Annonce pour lecteurs d'écran seulement
+.rooms-filter_status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
