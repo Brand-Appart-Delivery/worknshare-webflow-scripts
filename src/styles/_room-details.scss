@@ -188,3 +188,47 @@ $beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
     transition: none;
   }
 }
+
+// Sélecteur de configuration sous le plan (Réunion, Théâtre, En U, Cocktail)
+.room-plan-switch {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background-color: #fff;
+  transform: translateX(-50%);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.room-plan-switch_option {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: $bordeaux-900;
+  font: inherit;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid $bordeaux-900;
+    outline-offset: 2px;
+  }
+}
+
+.room-plan-switch .segmented-indicator {
+  background-color: $bordeaux-900;
+}
+
+.room-plan-switch .room-plan-switch_option.is-active {
+  color: $rose-300;
+}

@@ -11,6 +11,10 @@
 //       [data-room-views]                photo / plan
 //         [data-room-view-toggle="photo|plan"]   onglets (role="tab")
 //         img.venue-room_view            photo ; img.venue-room_view.is-plan = plan
+//         img.is-plan[data-room-plan="reunion|theatre|en-u|cocktail"]
+//                                        plan par configuration (champs CMS
+//                                        « Plan · Réunion »…) : sélecteur sous le
+//                                        plan, seulement pour les plans renseignés
 //
 // Clic sur « Voir la salle » : la carte passe en rose (is-open), son bouton
 // devient « Refermer », le détail s'ouvre sur toute la largeur sous la rangée
@@ -144,20 +148,39 @@ function formatConfigurations(panel) {
   });
 }
 
-// Onglets Photos / Plan de la salle
+// Onglets Photos / Plan de la salle, et sous le plan, sélecteur de configuration
+// (Réunion, Théâtre, En U, Cocktail) qui change le plan affiché
+const PLAN_KEYS = ["reunion", "theatre", "en-u", "cocktail"];
+const isFilled = (img) => img && !img.classList.contains("w-dyn-bind-empty") && img.getAttribute("src");
+
 function initViews(room) {
   const box = room.querySelector("[data-room-views]");
   if (!box) return null;
   const tabs = [...box.querySelectorAll("[data-room-view-toggle]")];
   if (!tabs.length) return null;
   const photo = box.querySelector(".venue-room_view:not(.is-plan)");
-  const plan = box.querySelector(".venue-room_view.is-plan");
-  const hasPlan = plan && !plan.classList.contains("w-dyn-bind-empty") && plan.getAttribute("src");
+  const mainPlan = box.querySelector(".venue-room_view.is-plan:not([data-room-plan])");
+  // Plans par configuration renseignés dans le CMS, dans l'ordre du sélecteur
+  const configPlans = [...box.querySelectorAll("[data-room-plan]")]
+    .filter(isFilled)
+    .sort((a, b) => PLAN_KEYS.indexOf(a.dataset.roomPlan) - PLAN_KEYS.indexOf(b.dataset.roomPlan));
+  const allPlans = [...box.querySelectorAll(".venue-room_view.is-plan")];
 
-  // Pas de plan : onglets inutiles
-  if (!hasPlan) {
+  // Pas de plan du tout : onglets inutiles
+  if (!isFilled(mainPlan) && !configPlans.length) {
     tabs[0].parentElement.hidden = true;
     return null;
+  }
+
+  // Plan affiché en vue « Plan » : celui de la configuration choisie, sinon le plan général
+  let plan = configPlans[0] || mainPlan;
+  const configs = configPlans.length > 1 ? createConfigSwitch(box, configPlans, (img) => {
+    plan = img;
+    if (box.classList.contains("is-plan-view")) showPlan();
+  }) : null;
+
+  function showPlan() {
+    allPlans.forEach((img) => (img.hidden = img !== plan));
   }
 
   let current = tabs.find((t) => t.getAttribute("aria-selected") === "true") || tabs[0];
@@ -174,7 +197,12 @@ function initViews(room) {
     });
     box.classList.toggle("is-plan-view", isPlan);
     if (photo) photo.hidden = isPlan;
-    if (plan) plan.hidden = !isPlan;
+    if (isPlan) showPlan();
+    else allPlans.forEach((img) => (img.hidden = true));
+    if (configs) {
+      configs.element.hidden = !isPlan;
+      if (isPlan) configs.refresh();
+    }
     indicator.move();
     if (focus) tab.focus();
   };
@@ -190,6 +218,57 @@ function initViews(room) {
   });
   show(current);
 
-  // Le panneau était masqué à la création : on recale le fond à l'ouverture
-  return { refresh: () => indicator.move(false) };
+  // Le panneau était masqué à la création : on recale les fonds à l'ouverture
+  return {
+    refresh: () => {
+      indicator.move(false);
+      configs?.refresh();
+    },
+  };
+}
+
+// Pastilles de configuration sous le plan (créées ici, libellés via t())
+function createConfigSwitch(box, plans, onChange) {
+  const group = document.createElement("div");
+  group.className = "room-plan-switch";
+  group.setAttribute("role", "radiogroup");
+  group.setAttribute("aria-label", t("rooms.planConfig"));
+
+  let current = null;
+  const buttons = plans.map((img) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "room-plan-switch_option";
+    btn.setAttribute("role", "radio");
+    btn.textContent = t(`rooms.plan.${img.dataset.roomPlan}`);
+    group.appendChild(btn);
+    return btn;
+  });
+  box.appendChild(group);
+  const indicator = createSegmentedIndicator(group, () => current, { copyColor: false });
+
+  const select = (i, focus = false) => {
+    current = buttons[i];
+    buttons.forEach((b, k) => {
+      b.classList.toggle("is-active", k === i);
+      b.setAttribute("aria-checked", String(k === i));
+      b.tabIndex = k === i ? 0 : -1;
+    });
+    indicator.move();
+    if (focus) current.focus();
+    onChange(plans[i]);
+  };
+
+  buttons.forEach((btn, i) => {
+    btn.addEventListener("click", () => select(i));
+    btn.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      e.preventDefault();
+      const step = e.key === "ArrowRight" ? 1 : -1;
+      select((i + step + buttons.length) % buttons.length, true);
+    });
+  });
+  select(0);
+
+  return { element: group, refresh: () => indicator.move(false) };
 }
