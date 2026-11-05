@@ -32,3 +32,8 @@
   white-space: nowrap;
   border: 0;
 }
+
+// Bloc du bouton « Afficher toutes les salles » masqué quand tout est visible
+[data-rooms] [hidden]:has(> [data-room-more]) {
+  display: none !important;
+}
