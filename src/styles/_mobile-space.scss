@@ -70,6 +70,31 @@
     justify-content: center;
   }
 
+  .space-hero_title,
+  .space-hero_title > * {
+    justify-content: center;
+    text-align: center;
+  }
+
+  // ---------- Près de… : slider (grille d'une colonne qui ne doit pas
+  // s'élargir avec Swiper)
+  .space-near_grid > *,
+  [data-space-near],
+  [data-space-near] > .w-dyn-list {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  // ---------- Salles : grande carte, titre qui revient à la ligne ----------
+  .space-rooms_grid .bento-card_content {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .space-rooms_grid .bento-card_content .space-inline-row {
+    flex-wrap: wrap;
+  }
+
   // ---------- L'espace en quelques mots : galerie en premier ----------
   [data-space-section="intro"] [data-gallery] {
     order: -1;

@@ -47,6 +47,8 @@
 // [data-slider] (section pleine largeur), sans barre de défilement horizontale.
 .slider_viewport.swiper {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   overflow: visible;
 }
 
