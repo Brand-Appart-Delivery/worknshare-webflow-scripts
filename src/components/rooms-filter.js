@@ -21,9 +21,9 @@
 // de boutons radio (flèches au clavier). Le nombre de salles affichées est
 // annoncé aux lecteurs d'écran.
 //
-// « Afficher toutes les salles » : au départ seules les premières salles sont
-// visibles ; le bouton remet le filtre sur « Toutes » et montre la liste
-// complète, puis disparaît. Il est aussi visible quand un filtre masque des salles. Le fond de la pastille active glisse d'une
+// « Afficher toutes les salles » : seulement si la liste (filtrée ou non)
+// compte plus de salles que la limite ; il montre les salles restantes de
+// cette liste, puis disparaît. Le fond de la pastille active glisse d'une
 // pastille à l'autre (utils/tab-indicator.js).
 
 import { t } from "../utils/i18n.js";
@@ -87,11 +87,11 @@ function initRoomsFilter(section) {
       }
     });
 
-    // Bouton : utile tant qu'une salle est masquée (limite ou filtre)
+    // Bouton : seulement si la liste filtrée dépasse la limite
     if (more) {
-      const hiddenCount = rooms.length - visible.length;
-      more.parentElement.hidden = hiddenCount === 0;
-      more.setAttribute("aria-expanded", String(hiddenCount === 0));
+      const hasMore = matched.length > visible.length;
+      more.parentElement.hidden = !hasMore;
+      more.setAttribute("aria-expanded", String(!hasMore));
     }
 
     if (announce) {
@@ -149,12 +149,7 @@ function initRoomsFilter(section) {
     const showAll = () => {
       const before = rooms.filter((r) => !r.hidden);
       expanded = true;
-      const all = options.find((o) => isAll(o.getAttribute("data-room-filter-option")));
-      if (all && all !== current) select(all);
-      else {
-        filter = "toutes";
-        render();
-      }
+      render();
       // Focus sur la première salle apparue (sinon il serait perdu avec le bouton)
       const first = rooms.find((r) => !r.hidden && !before.includes(r));
       first?.querySelector("a, button")?.focus({ preventScroll: true });
