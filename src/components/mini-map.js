@@ -1,6 +1,6 @@
 // src/components/mini-map.js — petite carte décorative (mega menu « Nos espaces ») :
 // même carte que les autres (MapLibre + OpenFreeMap, couleurs Work & Share,
-// pins « maison » qui poppent), sans aucun bouton ni interaction.
+// pins « maison »), sans aucun bouton, interaction ni animation des pins.
 //
 // STRUCTURE (attributs posés dans Webflow) :
 //   img[data-mini-map]                image de repli : la carte prend sa place
@@ -9,12 +9,10 @@
 //                                     page (liens des villes du mega menu)
 //
 // Chargée seulement quand l'image devient visible (ouverture du menu) :
-// MapLibre est lourd. Sans animation si l'utilisateur les a réduites.
+// MapLibre est lourd. Les pins sont affichés d'emblée (pas d'apparition animée).
 
 import { loadMapLibre, STYLE_URL, applyTheme, PIN_SVG } from "../utils/map-base.js";
-import { prefersReducedMotion } from "../utils/motion.js";
 
-const PIN_STAGGER = 50; // ms entre deux pins à l'apparition
 // px autour des pins (plus en haut : le pin dépasse au-dessus de son point)
 const PADDING = { top: 40, bottom: 16, left: 24, right: 24 };
 
@@ -76,15 +74,12 @@ async function createMap(img, pins) {
   });
   map.on("style.load", () => applyTheme(map));
 
-  const reduced = prefersReducedMotion();
-  const markers = pins.map((lngLat) => {
+  pins.forEach((lngLat) => {
     const el = document.createElement("div");
     el.className = "map-pin mini-map_pin";
-    if (!reduced) el.classList.add("is-pending");
     el.setAttribute("aria-hidden", "true");
     el.innerHTML = PIN_SVG;
     new maplibregl.Marker({ element: el, anchor: "bottom" }).setLngLat(lngLat).addTo(map);
-    return el;
   });
 
   map.once("load", () => {
@@ -92,12 +87,5 @@ async function createMap(img, pins) {
     map.resize();
     map.fitBounds(bounds, { padding: PADDING, duration: 0 });
     box.classList.add("is-ready");
-    if (reduced) return;
-    // Pins qui poppent l'un après l'autre, dans un ordre aléatoire
-    const order = [...markers].sort(() => Math.random() - 0.5);
-    order.forEach((el, i) => {
-      el.style.setProperty("--pin-delay", `${200 + i * PIN_STAGGER}ms`);
-      el.classList.replace("is-pending", "is-popping");
-    });
   });
 }

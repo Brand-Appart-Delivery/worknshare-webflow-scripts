@@ -1,0 +1,12 @@
+# robots.txt de PRODUCTION (domaine final www.workandshare.com).
+# À coller le 23/11 dans Webflow : Site settings → SEO → robots.txt
+# (sur le staging, garder « Disallow: / » tant que le site n'est pas lancé).
+
+User-agent: *
+Allow: /
+
+# Pages techniques et de test, hors moteurs
+Disallow: /ui-kit
+Disallow: /401
+
+Sitemap: https://www.workandshare.com/sitemap.xml
