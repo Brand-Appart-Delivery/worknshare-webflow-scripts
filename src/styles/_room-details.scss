@@ -232,3 +232,71 @@ $beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
 .room-plan-switch .room-plan-switch_option.is-active {
   color: $rose-300;
 }
+
+// ---------- Plan dessiné (components/room-plan.js) ----------
+[data-room-views].is-plan-view {
+  background-color: $beige-50;
+}
+
+.room-plan {
+  position: absolute;
+  inset: 56px 16px 60px;
+  user-select: none;
+
+  &[hidden] {
+    display: none;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Palette : plateaux couleur du fond, traits bordeaux plus ou moins marqués
+  path {
+    fill: $beige-50;
+    stroke: rgba(44, 12, 16, 0.32);
+    stroke-width: 0.9;
+    vector-effect: non-scaling-stroke;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    transition: stroke 0.26s cubic-bezier(0.5, 0, 0.1, 1);
+  }
+
+  .nf {
+    fill: none;
+  }
+
+  .sil {
+    stroke: rgba(44, 12, 16, 0.6);
+  }
+
+  .hi {
+    stroke: $bordeaux-900;
+  }
+
+  .lo {
+    stroke: rgba(44, 12, 16, 0.14);
+  }
+
+  .dash {
+    stroke-dasharray: 1 3;
+  }
+}
+
+// Jauge de la configuration affichée, en haut à droite
+.room-plan_read {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  z-index: 2;
+  margin: 0;
+  color: $bordeaux-900;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &[hidden] {
+    display: none;
+  }
+}

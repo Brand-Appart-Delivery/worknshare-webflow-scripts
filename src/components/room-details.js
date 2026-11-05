@@ -11,10 +11,10 @@
 //       [data-room-views]                photo / plan
 //         [data-room-view-toggle="photo|plan"]   onglets (role="tab")
 //         img.venue-room_view            photo ; img.venue-room_view.is-plan = plan
-//         img.is-plan[data-room-plan="reunion|theatre|en-u|cocktail"]
-//                                        plan par configuration (champs CMS
-//                                        « Plan · Réunion »…) : sélecteur sous le
-//                                        plan, seulement pour les plans renseignés
+//
+// Vue « Plan » : plan dessiné (room-plan.js) d'après la surface de la carte
+// (« 40 m² ») et les capacités (« 16 · Réunion », « 14 · En U »…) ; sélecteur
+// des seules configurations renseignées. Sans capacité : image du plan CMS.
 //
 // Clic sur « Voir la salle » : la carte passe en rose (is-open), son bouton
 // devient « Refermer », le détail s'ouvre sur toute la largeur sous la rangée
@@ -27,6 +27,7 @@ import { prefersReducedMotion } from "../utils/motion.js";
 import { requestScrollRefresh } from "../utils/scroll-refresh.js";
 import { getLenis } from "../core/core.js";
 import { createSegmentedIndicator } from "../utils/tab-indicator.js";
+import { createRoomPlan } from "./room-plan.js";
 
 let uid = 0;
 
@@ -123,6 +124,7 @@ function initRoom(room, getAll) {
     if (e.key === "Escape") close();
   });
 
+  room.roomConfigs = readConfigs(panel); // avant la mise en forme ci-dessous
   formatConfigurations(panel);
 
   const api = { close };
@@ -148,10 +150,42 @@ function formatConfigurations(panel) {
   });
 }
 
-// Onglets Photos / Plan de la salle, et sous le plan, sélecteur de configuration
-// (Réunion, Théâtre, En U, Cocktail) qui change le plan affiché
-const PLAN_KEYS = ["reunion", "theatre", "en-u", "cocktail"];
+// Onglets Photos / Plan de la salle. Si la salle a des capacités par
+// configuration (Réunion, En U, Théâtre, Cocktail), la vue « Plan » montre le
+// plan dessiné (room-plan.js) et, sous lui, un sélecteur des configurations
+// renseignées ; sinon l'image « Plan de la salle » du CMS.
+const PLAN_KEYS = ["reunion", "en-u", "theatre", "cocktail"];
 const isFilled = (img) => img && !img.classList.contains("w-dyn-bind-empty") && img.getAttribute("src");
+const plain = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+
+// « Réunion » -> reunion ; « En U » / « U » -> en-u ; autres (classe…) : ignorées
+function configKey(label) {
+  const l = plain(label);
+  if (l.startsWith("reunion") || l.startsWith("meeting")) return "reunion";
+  if (l.startsWith("theatre")) return "theatre";
+  if (l === "u" || l.startsWith("en u") || l.startsWith("u-")) return "en-u";
+  if (l.startsWith("cocktail")) return "cocktail";
+  return null;
+}
+
+// Capacités lues dans [data-room-configurations] (« 16 · Réunion »)
+function readConfigs(panel) {
+  const box = panel.querySelector("[data-room-configurations]");
+  if (!box) return [];
+  const found = {};
+  box.querySelectorAll("li, p").forEach((item) => {
+    const m = item.textContent.replace(/\s+/g, " ").trim().match(/^(\d+)\s*[·:–-]?\s*(.+)$/);
+    const key = m && configKey(m[2]);
+    if (key && !found[key]) found[key] = parseInt(m[1], 10);
+  });
+  return PLAN_KEYS.filter((k) => found[k]).map((k) => ({ key: k, n: found[k] }));
+}
+
+// Surface en m² (« 40 m² ») lue dans la carte
+function readSurface(room) {
+  const m = (room.querySelector(".venue-room_meta")?.textContent || "").match(/(\d+[.,]?\d*)\s*m/);
+  return m ? parseFloat(m[1].replace(",", ".")) : 40;
+}
 
 function initViews(room) {
   const box = room.querySelector("[data-room-views]");
@@ -159,49 +193,59 @@ function initViews(room) {
   const tabs = [...box.querySelectorAll("[data-room-view-toggle]")];
   if (!tabs.length) return null;
   const photo = box.querySelector(".venue-room_view:not(.is-plan)");
-  const mainPlan = box.querySelector(".venue-room_view.is-plan:not([data-room-plan])");
-  // Plans par configuration renseignés dans le CMS, dans l'ordre du sélecteur
-  const configPlans = [...box.querySelectorAll("[data-room-plan]")]
-    .filter(isFilled)
-    .sort((a, b) => PLAN_KEYS.indexOf(a.dataset.roomPlan) - PLAN_KEYS.indexOf(b.dataset.roomPlan));
-  const allPlans = [...box.querySelectorAll(".venue-room_view.is-plan")];
+  const planImgs = [...box.querySelectorAll(".venue-room_view.is-plan")];
+  const mainPlan = planImgs.find((img) => !img.hasAttribute("data-room-plan"));
+  const configs = room.roomConfigs || [];
 
-  // Pas de plan du tout : onglets inutiles
-  if (!isFilled(mainPlan) && !configPlans.length) {
+  // Ni capacités ni image de plan : onglets inutiles
+  if (!configs.length && !isFilled(mainPlan)) {
     tabs[0].parentElement.hidden = true;
     return null;
   }
 
-  // Plan affiché en vue « Plan » : celui de la configuration choisie, sinon le plan général
-  let plan = configPlans[0] || mainPlan;
-  const configs = configPlans.length > 1 ? createConfigSwitch(box, configPlans, (img) => {
-    plan = img;
-    if (box.classList.contains("is-plan-view")) showPlan();
-  }) : null;
-
-  function showPlan() {
-    allPlans.forEach((img) => (img.hidden = img !== plan));
+  // Plan dessiné, créé à la première ouverture de la vue « Plan »
+  let drawn = null, stage = null, read = null, picker = null;
+  function ensurePlan() {
+    if (drawn || !configs.length) return;
+    stage = document.createElement("div");
+    stage.className = "room-plan";
+    stage.setAttribute("role", "img");
+    box.appendChild(stage);
+    read = document.createElement("p");
+    read.className = "room-plan_read";
+    box.appendChild(read);
+    drawn = createRoomPlan(stage, { surface: readSurface(room), configs });
+    const label = (c) => t(`rooms.plan.${c.key}`);
+    const select = (c) => {
+      drawn.show(c.key);
+      read.textContent = t("rooms.planSeats", { n: c.n });
+      stage.setAttribute("aria-label", t("rooms.planAlt", { config: label(c), n: c.n }));
+    };
+    if (configs.length > 1) picker = createConfigSwitch(box, configs.map(label), (i) => select(configs[i]));
+    else select(configs[0]);
   }
 
-  let current = tabs.find((t) => t.getAttribute("aria-selected") === "true") || tabs[0];
+  let current = tabs.find((tb) => tb.getAttribute("aria-selected") === "true") || tabs[0];
   const indicator = createSegmentedIndicator(tabs[0].parentElement, () => current, { copyColor: false });
 
   const show = (tab, focus = false) => {
     current = tab;
     const isPlan = tab.getAttribute("data-room-view-toggle") === "plan";
-    tabs.forEach((t) => {
-      const on = t === tab;
-      t.classList.toggle("is-active", on);
-      t.setAttribute("aria-selected", String(on));
-      t.tabIndex = on ? 0 : -1;
+    tabs.forEach((tb) => {
+      const on = tb === tab;
+      tb.classList.toggle("is-active", on);
+      tb.setAttribute("aria-selected", String(on));
+      tb.tabIndex = on ? 0 : -1;
     });
+    if (isPlan) ensurePlan();
     box.classList.toggle("is-plan-view", isPlan);
     if (photo) photo.hidden = isPlan;
-    if (isPlan) showPlan();
-    else allPlans.forEach((img) => (img.hidden = true));
-    if (configs) {
-      configs.element.hidden = !isPlan;
-      if (isPlan) configs.refresh();
+    // Image du CMS seulement sans plan dessiné
+    planImgs.forEach((img) => (img.hidden = !(isPlan && !drawn && img === mainPlan)));
+    [stage, read].forEach((el) => el && (el.hidden = !isPlan));
+    if (picker) {
+      picker.element.hidden = !isPlan;
+      if (isPlan) picker.refresh();
     }
     indicator.move();
     if (focus) tab.focus();
@@ -222,25 +266,25 @@ function initViews(room) {
   return {
     refresh: () => {
       indicator.move(false);
-      configs?.refresh();
+      picker?.refresh();
     },
   };
 }
 
-// Pastilles de configuration sous le plan (créées ici, libellés via t())
-function createConfigSwitch(box, plans, onChange) {
+// Pastilles de configuration sous le plan (libellés via t())
+function createConfigSwitch(box, labels, onChange) {
   const group = document.createElement("div");
   group.className = "room-plan-switch";
   group.setAttribute("role", "radiogroup");
   group.setAttribute("aria-label", t("rooms.planConfig"));
 
   let current = null;
-  const buttons = plans.map((img) => {
+  const buttons = labels.map((label) => {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "room-plan-switch_option";
     btn.setAttribute("role", "radio");
-    btn.textContent = t(`rooms.plan.${img.dataset.roomPlan}`);
+    btn.textContent = label;
     group.appendChild(btn);
     return btn;
   });
@@ -256,7 +300,7 @@ function createConfigSwitch(box, plans, onChange) {
     });
     indicator.move();
     if (focus) current.focus();
-    onChange(plans[i]);
+    onChange(i);
   };
 
   buttons.forEach((btn, i) => {
