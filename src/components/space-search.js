@@ -12,7 +12,7 @@
 //   (API Adresse de l'État, Géoplateforme, gratuite et sans clé).
 //
 // Dans un module carte : envoie des événements au module (voir spaces-map.js).
-// Ailleurs (hero) : redirige vers /nos-espaces/ avec la recherche dans l'URL.
+// Ailleurs (hero) : redirige vers /espaces (page Nos espaces) avec la recherche dans l'URL.
 
 import { normalize, isInIdf } from "../utils/geo.js";
 import { readSpaces } from "../utils/spaces-data.js";
@@ -23,7 +23,7 @@ import { createScrollIndicator } from "../utils/scroll-indicator.js";
 import { getLenis } from "../core/core.js";
 import { prefersReducedMotion } from "../utils/motion.js";
 
-const MAP_PAGE = "/nos-espaces/";
+const MAP_PAGE = "/espaces";
 const GEOCODER = "https://data.geopf.fr/geocodage/completion/";
 const DEBOUNCE = 220; // ms
 const MAX = { spaces: 4, stations: 4, addresses: 4 };

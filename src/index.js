@@ -43,6 +43,7 @@ import { initHouseShapes } from "./components/house-shape.js";
 import { initCustomSelects } from "./components/custom-select.js";
 import { initMiniMaps } from "./components/mini-map.js";
 import { initLinePills } from "./components/line-pills.js";
+import { initPageSchema } from "./schema/page-schema.js";
 
 onReady(() => {
   initCore();
@@ -54,6 +55,7 @@ onReady(() => {
   initTocs(); // sommaires (article, pages légales) : avant les animations
   initCardLinks();
   initLinePills(); // pastilles de lignes (couleur selon la ligne)
+  initPageSchema(); // JSON-LD : fil d'Ariane et FAQ de la page
   initComparateur(); // page /comparateur : charge son propre JS et CSS
   initComparatorBanners(); // bandeau qui pré-remplit le comparateur
   initBlogFilters(); // page Blog : filtre par rubrique
