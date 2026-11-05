@@ -52,10 +52,16 @@ function initDevisForm(form) {
   };
 
   // Cartes de format de la page : présélectionnent le format (l'ancre #devis
-  // fait défiler jusqu'au formulaire)
-  document.querySelectorAll("a[data-devis-format]").forEach((card) => {
-    card.addEventListener("click", () => pickFormat(card.getAttribute("data-devis-format")));
-  });
+  // fait défiler jusqu'au formulaire). Écoute sur le document en capture : le
+  // scroll vers les ancres (core.js) arrête la propagation du clic.
+  document.addEventListener(
+    "click",
+    (e) => {
+      const card = e.target.closest?.("a[data-devis-format]");
+      if (card) pickFormat(card.getAttribute("data-devis-format"));
+    },
+    true,
+  );
 
   // Champ « Espace » des pages lieux : nom du lieu
   const espace = form.querySelector("[data-venue-espace-input]");
