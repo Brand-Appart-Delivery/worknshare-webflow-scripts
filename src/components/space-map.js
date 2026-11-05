@@ -6,6 +6,8 @@
 //   [data-map][data-lat][data-lng]   zone carte (hors [data-map-module])
 //     data-map-label="Villejuif"     nom affiché sous le pin
 //     data-map-zoom="14"             zoom de départ (optionnel)
+//     data-map-theme="salles"        pin bordeaux / rose (pages lieux événementiels,
+//                                    cf. _map-module.scss)
 //     img, .space-map_pin, .space-map_credit   image, faux pin et crédits de
 //                                    repli (masqués une fois la carte prête)
 //

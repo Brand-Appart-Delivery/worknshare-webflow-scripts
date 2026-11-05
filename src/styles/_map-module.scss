@@ -69,12 +69,14 @@
   background-color: var(--_work-n-share---color--blanc, #ffffff);
 }
 
-// ---------- Variante Événementiel (module avec data-map-tab="salles") ----------
-// Même module, couleurs bordeaux / rose au lieu de vert / citron (Figma 4681:29118).
+// ---------- Variante Événementiel : bordeaux / rose au lieu de vert / citron ----------
+// (Figma 4681:29118). Sur le module carte + liste : data-map-tab="salles" ;
+// sur une carte d'accès seule (page d'un lieu) : data-map-theme="salles".
 $bordeaux-900: var(--_work-n-share---color--bordeaux--900, #2c0c10);
 $rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
 
-[data-map-module][data-map-tab="salles"] {
+[data-map-module][data-map-tab="salles"],
+[data-map][data-map-theme="salles"] {
   // Pins : maison bordeaux, « W/ » rose
   .map-pin {
     color: $bordeaux-900;
@@ -117,7 +119,9 @@ $rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
   .map-list-open {
     color: $bordeaux-900;
   }
+}
 
+[data-map-module][data-map-tab="salles"] {
   // Pastille « 14 espaces »
   .map-module_count {
     background-color: $rose-300;
