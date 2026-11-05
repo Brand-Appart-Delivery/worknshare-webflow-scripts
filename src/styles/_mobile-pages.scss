@@ -1,0 +1,16 @@
+// Pages secondaires en mobile (≤ 767 px) : Recrutement (Figma 4726:65650),
+// pages légales et 404.
+
+@media screen and (max-width: 767px) {
+  // ---------- Recrutement ----------
+  // Bouton du hero pleine largeur
+  .offices-hero.is-light .button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  // Flèches des sliders inutiles au doigt (on glisse les cartes)
+  [data-slider] [data-slider-arrows] {
+    display: none !important;
+  }
+}
