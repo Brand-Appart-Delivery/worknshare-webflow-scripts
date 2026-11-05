@@ -31,7 +31,10 @@ export function initBackgroundVideos(root = document) {
   };
 
   videos.forEach((video) => {
+    // Webflow retire loop et muted des <video> posées en élément personnalisé
     video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
     video.setAttribute("aria-hidden", "true"); // décor : pas d'information
     if (prefersReducedMotion()) video.pause();
   });
