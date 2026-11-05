@@ -99,22 +99,22 @@ $blanc: var(--_work-n-share---color--blanc, #ffffff);
 .map-pin_shape {
   display: block;
   width: 32px;
-  height: 35px;
+  height: 21px;
+  overflow: visible;
   filter: drop-shadow(0 2px 4px rgba(18, 20, 4, 0.25));
   transition: width 0.2s ease, height 0.2s ease;
+}
 
-  path {
-    fill: currentColor;
-    stroke: $blanc;
-    stroke-width: 1.5;
-  }
+// Maison foncée, logo WS citron (couleur de la maison = color du pin)
+.map-pin_house {
+  fill: currentColor;
+  stroke: none;
+  transition: fill 0.2s ease;
+}
 
-  text {
-    fill: $vert-100;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-  }
+.map-pin_logo {
+  fill: $vert-100;
+  transition: fill 0.2s ease;
 }
 
 // Apparition des pins (spaces-map.js) : chacun « poppe » (léger dépassement de
@@ -186,17 +186,20 @@ $blanc: var(--_work-n-share---color--blanc, #ffffff);
   z-index: 3;
 
   .map-pin_shape {
-    width: 44px;
-    height: 48px;
+    width: 56px;
+    height: 37px;
+  }
 
-    path {
-      fill: $vert-100;
-      stroke: $vert-900;
-    }
+  // Maison citron cerclée de vert foncé, logo foncé
+  .map-pin_house {
+    fill: $vert-100;
+    stroke: $vert-900;
+    stroke-width: 2.5;
+    vector-effect: non-scaling-stroke;
+  }
 
-    text {
-      fill: $vert-900;
-    }
+  .map-pin_logo {
+    fill: $vert-900;
   }
 
   .map-pin_label {

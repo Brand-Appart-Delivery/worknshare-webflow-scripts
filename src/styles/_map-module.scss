@@ -77,12 +77,12 @@ $rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
 
 [data-map-module][data-map-tab="salles"],
 [data-map][data-map-theme="salles"] {
-  // Pins : maison bordeaux, « W/ » rose
+  // Pins : maison bordeaux, logo WS rose
   .map-pin {
     color: $bordeaux-900;
   }
 
-  .map-pin_shape text {
+  .map-pin_logo {
     fill: $rose-300;
   }
 
@@ -96,12 +96,12 @@ $rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
 
   // Pin actif : maison rose cerclée bordeaux, nom en pastille bordeaux
   .map-pin.is-active {
-    .map-pin_shape path {
+    .map-pin_house {
       fill: $rose-300;
       stroke: $bordeaux-900;
     }
 
-    .map-pin_shape text {
+    .map-pin_logo {
       fill: $bordeaux-900;
     }
 
