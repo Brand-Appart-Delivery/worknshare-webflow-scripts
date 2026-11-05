@@ -124,6 +124,17 @@ $rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
     color: $bordeaux-900;
   }
 
+  // Textes de la liste : bordeaux au lieu de vert
+  .map-module_group,
+  .space-item_name {
+    color: $bordeaux-900;
+  }
+
+  .space-item_muted,
+  .space-item_small {
+    color: rgba(44, 12, 16, 0.8);
+  }
+
   // Espace actif de la liste : fond bordeaux, nom et horaire en rose
   .space-item.is-active {
     background-color: $bordeaux-900;
@@ -131,6 +142,11 @@ $rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
     .space-item_name,
     .space-item_time {
       color: $rose-300;
+    }
+
+    .space-item_muted,
+    .space-item_small {
+      color: var(--_work-n-share---texte--sur-fonce, #fffbe7);
     }
   }
 
