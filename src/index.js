@@ -44,6 +44,7 @@ import { initCustomSelects } from "./components/custom-select.js";
 import { initMiniMaps } from "./components/mini-map.js";
 import { initLinePills } from "./components/line-pills.js";
 import { initPageSchema } from "./schema/page-schema.js";
+import { initCmsLinks } from "./utils/cms-links.js";
 
 onReady(() => {
   initCore();
@@ -53,6 +54,7 @@ onReady(() => {
   initFooter();
   initCollapses();
   initTocs(); // sommaires (article, pages légales) : avant les animations
+  initCmsLinks(); // liens des cartes CMS imbriquées (avant les cartes cliquables)
   initCardLinks();
   initLinePills(); // pastilles de lignes (couleur selon la ligne)
   initPageSchema(); // JSON-LD : fil d'Ariane et FAQ de la page
