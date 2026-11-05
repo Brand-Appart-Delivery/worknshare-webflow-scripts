@@ -56,7 +56,14 @@ $beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
   }
 }
 
+// Espace entre l'en-tête (nom, surface) et le contenu
+[data-room-panel] .venue-room_detail-head {
+  margin-bottom: 40px;
+}
+
 // Équipements : pastille rose ronde avec coche devant chaque ligne
+// (.w-richtext pour passer devant les styles globaux du texte riche)
+[data-room-equipements].w-richtext ul,
 [data-room-equipements] ul {
   display: flex;
   flex-direction: column;
@@ -66,8 +73,11 @@ $beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
   list-style: none;
 }
 
+[data-room-equipements].w-richtext li,
 [data-room-equipements] li {
   position: relative;
+  font-size: 1rem;
+  line-height: 1.4;
   display: flex;
   align-items: center;
   min-height: 40px;
@@ -101,6 +111,7 @@ $beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
 }
 
 // Capacités : pastilles beiges « 16 / Réunion »
+[data-room-configurations].w-richtext ul,
 [data-room-configurations] ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -110,7 +121,9 @@ $beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
   list-style: none;
 }
 
+[data-room-configurations].w-richtext li,
 [data-room-configurations] li {
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   margin: 0;
