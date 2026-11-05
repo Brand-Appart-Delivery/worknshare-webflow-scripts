@@ -1,6 +1,6 @@
-// src/components/photo-slider.js — carrousel photo en fondu (bloc « Le rooftop
-// de Clichy » de la page Événementiel) : les photos se superposent, la carte de
-// texte reste fixe.
+// src/components/photo-slider.js — carrousel photo qui glisse (bloc « Le rooftop
+// de Clichy » de la page Événementiel) : l'ancienne photo part d'un côté, la
+// nouvelle arrive de l'autre ; la carte de texte reste fixe.
 //
 // STRUCTURE (attributs à poser dans Webflow) :
 //   [data-photo-slider]        le bloc
@@ -41,15 +41,34 @@ function initPhotoSlider(block) {
   let index = 0;
   let dots = [];
 
-  function show(i) {
+  // Place une photo à x % (0 = visible, 100 = à droite, -100 = à gauche),
+  // avec ou sans transition
+  function place(slide, x, animate) {
+    slide.classList.toggle("is-instant", !animate);
+    slide.style.setProperty("--slide-x", `${x}%`);
+  }
+
+  // dir : 1 = suivante (arrive de la droite), -1 = précédente (de la gauche)
+  function show(i, dir = Math.sign(i - index) || 1, first = false) {
+    const old = index;
     index = (i + slides.length) % slides.length;
     slides.forEach((slide, k) => {
       const on = k === index;
       slide.classList.toggle("is-active", on);
       slide.setAttribute("aria-hidden", on ? "false" : "true");
-      // Photos suivantes chargées à l'avance (Webflow les met en lazy)
-      if (k === (index + 1) % slides.length) slide.loading = "eager";
+      // Photos voisines chargées à l'avance (Webflow les met en lazy)
+      const n = slides.length;
+      if (k === (index + 1) % n || k === (index - 1 + n) % n) slide.loading = "eager";
     });
+    if (first) {
+      slides.forEach((slide, k) => place(slide, k === index ? 0 : 100, false));
+    } else if (old !== index) {
+      const incoming = slides[index];
+      place(incoming, dir * 100, false); // posée hors cadre, côté d'arrivée
+      void incoming.offsetWidth; // force le navigateur à prendre ce point de départ
+      place(incoming, 0, true);
+      place(slides[old], -dir * 100, true); // l'ancienne sort de l'autre côté
+    }
     dots.forEach((dot, k) => {
       dot.classList.toggle(activeClass, k === index);
       dot.setAttribute("aria-current", k === index ? "true" : "false");
@@ -86,7 +105,7 @@ function initPhotoSlider(block) {
     }
     arrow.addEventListener("click", (e) => {
       e.preventDefault();
-      show(index + step);
+      show(index + step, step);
       restart();
     });
     arrow.addEventListener("keydown", (e) => {
@@ -109,7 +128,7 @@ function initPhotoSlider(block) {
     const dx = e.clientX - startX;
     startX = null;
     if (Math.abs(dx) > SWIPE && !single) {
-      show(index + (dx < 0 ? 1 : -1));
+      show(index + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
       restart();
     }
   });
@@ -120,7 +139,8 @@ function initPhotoSlider(block) {
   block.addEventListener("keydown", (e) => {
     if (single || (e.key !== "ArrowLeft" && e.key !== "ArrowRight")) return;
     e.preventDefault();
-    show(index + (e.key === "ArrowRight" ? 1 : -1));
+    const step = e.key === "ArrowRight" ? 1 : -1;
+    show(index + step, step);
     restart();
   });
 
@@ -131,7 +151,7 @@ function initPhotoSlider(block) {
   function restart() {
     clearInterval(timer);
     if (!delay || single || paused || prefersReducedMotion()) return;
-    timer = setInterval(() => show(index + 1), delay);
+    timer = setInterval(() => show(index + 1, 1), delay);
   }
   const pause = (on) => () => {
     paused = on;
@@ -143,6 +163,6 @@ function initPhotoSlider(block) {
   block.addEventListener("focusout", pause(false));
 
   block.classList.add("is-photo-ready");
-  show(0);
+  show(0, 1, true);
   restart();
 }

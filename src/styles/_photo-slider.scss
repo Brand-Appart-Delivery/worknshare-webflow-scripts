@@ -1,18 +1,25 @@
-// Carrousel photo en fondu (components/photo-slider.js) : photos superposées
-// (position réglée dans Webflow), seule la photo active est visible.
-
-[data-photo-slide] {
-  transition: opacity 0.6s ease;
-}
+// Carrousel photo qui glisse (components/photo-slider.js) : photos superposées
+// (position réglée dans Webflow) ; le JS place chacune via --slide-x
+// (0 = visible, 100% = à droite, -100% = à gauche).
 
 // Avant le JS : seule la première photo
-[data-photo-slider]:not(.is-photo-ready) [data-photo-slide] ~ [data-photo-slide],
-[data-photo-slider].is-photo-ready [data-photo-slide]:not(.is-active) {
+[data-photo-slider]:not(.is-photo-ready) [data-photo-slide] ~ [data-photo-slide] {
   opacity: 0;
 }
 
 [data-photo-slider] {
+  overflow: hidden; // les photos hors cadre restent cachées
   touch-action: pan-y; // glisser horizontal = changer de photo
+}
+
+[data-photo-slider].is-photo-ready [data-photo-slide] {
+  transform: translateX(var(--slide-x, 0));
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+
+  // Mise en place hors cadre, sans animation
+  &.is-instant {
+    transition: none;
+  }
 }
 
 // Points devenus des boutons
@@ -30,7 +37,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-photo-slide] {
+  [data-photo-slider].is-photo-ready [data-photo-slide] {
     transition: none;
   }
 }
