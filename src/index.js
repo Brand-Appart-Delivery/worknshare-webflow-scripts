@@ -15,7 +15,6 @@ import { initNav } from "./components/nav.js";
 import { initFooter } from "./components/footer.js";
 import { initFormulas } from "./components/formula.js";
 import { initSliders } from "./components/slider.js";
-import { initClampPreview } from "./utils/clamp-preview.js";
 import { initPhotoSliders } from "./components/photo-slider.js";
 import { initRoomsFilters } from "./components/rooms-filter.js";
 import { initRoomDetails } from "./components/room-details.js";
@@ -50,7 +49,6 @@ import { initPageSchema } from "./schema/page-schema.js";
 import { initCmsLinks } from "./utils/cms-links.js";
 
 onReady(() => {
-  initClampPreview(); // ESSAI titres fluides (?clamp=1)
   initCore();
   initNav();
   initHeroIntro();

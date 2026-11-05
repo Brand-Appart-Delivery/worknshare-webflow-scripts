@@ -1,10 +1,12 @@
-// ESSAI : titres fluides avec clamp() (activé par ?clamp=1, cf. utils/clamp-preview.js).
-// Chaque taille de titre glisse en continu de sa valeur mobile (écran 390 px)
-// à sa valeur desktop (1440 px), au lieu de sauter d'un coup à 767 px.
-// Mêmes valeurs posées sur la variable desktop et sur la variable mobile, pour
-// que les règles Webflow (qui changent de variable sous 767 px) donnent la même taille.
+// Titres fluides : chaque taille de titre glisse en continu de sa valeur
+// mobile (écran 390 px) à sa valeur desktop (1440 px), au lieu de sauter d'un
+// coup à 767 px. Les variables Webflow restent la référence (valeurs fixes) :
+// l'API Webflow refuse les valeurs calculées (clamp, calc), on les surcharge ici.
+// Même valeur sur la variable desktop et la variable mobile, pour que les
+// règles Webflow (qui changent de variable sous 767 px) donnent la même taille.
+// html:root : passe devant le :root de Webflow.
 
-html.is-clamp {
+html:root {
   --_work-n-share---typo--display-xxl: clamp(2.5rem, 1.386rem + 4.571vw, 5.5rem);
   --_work-n-share---typo--mobile--display-xxl: clamp(2.5rem, 1.386rem + 4.571vw, 5.5rem);
   --_work-n-share---typo--display-xl: clamp(2.125rem, 1.429rem + 2.857vw, 4rem);
