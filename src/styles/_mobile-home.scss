@@ -87,7 +87,9 @@
 
   .formula_select .custom-select,
   .formula_select .custom-select_button {
-    width: 100%;
+    display: flex;
+    width: 100% !important;
+    max-width: none !important;
   }
 
   // ---------- Footer : pas de marge autour de la carte ----------
