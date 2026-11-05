@@ -126,9 +126,42 @@ function initRoom(room, getAll) {
 
   room.roomConfigs = readConfigs(panel); // avant la mise en forme ci-dessous
   formatConfigurations(panel);
+  addFeatureIcons(panel);
 
   const api = { close };
   return api;
+}
+
+// Icône de chaque équipement, choisie d'après son texte. ico-* = icônes du
+// site (Webflow) ; screen, mic, video, split = icônes ajoutées (_room-details.scss)
+const FEATURE_ICONS = [
+  [/lumi[eè]re|fen[eê]tre|soleil|jour/i, "ico-sun"],
+  [/paperboard|tableau|whiteboard/i, "ico-presentation"],
+  [/[ée]cran|visio|t[ée]l[ée]|projecteur/i, "room-icon is-screen"],
+  [/r[ée]gie|vid[ée]o|cam[ée]ra|captation/i, "room-icon is-video"],
+  [/micro|sono|son\b|enceinte|audio/i, "room-icon is-mic"],
+  [/divisible|modulable|cloison/i, "room-icon is-split"],
+  [/bistrot|caf[ée]|restaura|bar\b|cocktail|traiteur/i, "ico-coffee"],
+  [/rooftop|terrasse|jardin/i, "ico-rooftop"],
+  [/wi-?fi|internet|fibre/i, "ico-wifi"],
+  [/parking/i, "ico-parking"],
+  [/mobilier|fauteuil|canap|lounge/i, "ico-sofa"],
+  [/acc[eè]s|badge|24/i, "ico-key"],
+];
+
+function addFeatureIcons(panel) {
+  panel.querySelectorAll("[data-room-equipements] li").forEach((li) => {
+    if (li.querySelector(".room-feature_icon")) return;
+    const text = li.textContent;
+    const cls = (FEATURE_ICONS.find(([re]) => re.test(text)) || [, "ico-check-circle"])[1];
+    const puce = document.createElement("span");
+    puce.className = "room-feature_icon";
+    puce.setAttribute("aria-hidden", "true");
+    const icon = document.createElement("span");
+    icon.className = cls;
+    puce.appendChild(icon);
+    li.prepend(puce);
+  });
 }
 
 // Capacités « 16 · Réunion » -> chiffre + libellé (mis en forme en pastilles)
@@ -154,7 +187,7 @@ function formatConfigurations(panel) {
 // configuration (Réunion, En U, Théâtre, Cocktail), la vue « Plan » montre le
 // plan dessiné (room-plan.js) et, sous lui, un sélecteur des configurations
 // renseignées ; sinon l'image « Plan de la salle » du CMS.
-const PLAN_KEYS = ["reunion", "en-u", "theatre", "cocktail"];
+const PLAN_KEYS = ["reunion", "theatre", "en-u", "cocktail"]; // ordre Figma
 const isFilled = (img) => img && !img.classList.contains("w-dyn-bind-empty") && img.getAttribute("src");
 const plain = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 
@@ -288,7 +321,7 @@ function createConfigSwitch(box, labels, onChange) {
     group.appendChild(btn);
     return btn;
   });
-  box.appendChild(group);
+  box.after(group); // sous la boîte photo / plan, hors du cadre (Figma)
   const indicator = createSegmentedIndicator(group, () => current, { copyColor: false });
 
   const select = (i, focus = false) => {
