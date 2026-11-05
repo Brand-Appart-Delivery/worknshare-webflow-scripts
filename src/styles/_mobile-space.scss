@@ -96,11 +96,11 @@
     column-gap: 0.25em;
   }
 
-  // Titre de la grande carte à la taille de la maquette (40 px)
+  // Titre de la grande carte : tient dans la largeur (« PARTICIPANTS »)
   .space-rooms_grid > .bento-card:first-child .space-inline-row,
   .space-rooms_grid > .bento-card:first-child .space-inline-row > * {
-    font-size: 2.5rem !important;
-    line-height: 1 !important;
+    font-size: 2.125rem !important;
+    line-height: 1.1 !important;
   }
 
   // ---------- L'espace en quelques mots : galerie en premier ----------
