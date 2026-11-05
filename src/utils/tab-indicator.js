@@ -22,8 +22,11 @@ export function createTabIndicator(tablist, { getActive, themeAttr = null, class
   tablist.prepend(indicator);
   tablist.classList.add("is-sliding");
 
+  let animatingUntil = 0; // fin du glissement en cours
+
   function move(animate = true) {
     const tab = getActive();
+    if (animate) animatingUntil = performance.now() + 450;
     if (!tab || !tab.offsetWidth) return; // barre masquée (mobile, onglet replié…)
     if (!animate) indicator.classList.add("is-instant");
     indicator.style.width = `${tab.offsetWidth}px`;
@@ -36,8 +39,11 @@ export function createTabIndicator(tablist, { getActive, themeAttr = null, class
     }
   }
 
-  // Taille des onglets qui change (police chargée, redimensionnement) : on recale
-  if (typeof ResizeObserver !== "undefined") new ResizeObserver(() => move(false)).observe(tablist);
+  // Taille des onglets qui change (police chargée, redimensionnement) : on recale.
+  // Pendant un glissement (la pastille active peut changer de largeur), on
+  // réajuste la cible sans couper l'animation.
+  const recalc = () => move(performance.now() < animatingUntil);
+  if (typeof ResizeObserver !== "undefined") new ResizeObserver(recalc).observe(tablist);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => move(false));
   move(false);
 
