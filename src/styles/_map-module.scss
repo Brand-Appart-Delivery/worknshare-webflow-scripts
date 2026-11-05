@@ -68,3 +68,80 @@
 .expand-wrap {
   background-color: var(--_work-n-share---color--blanc, #ffffff);
 }
+
+// ---------- Variante Événementiel (module avec data-map-tab="salles") ----------
+// Même module, couleurs bordeaux / rose au lieu de vert / citron (Figma 4681:29118).
+$bordeaux-900: var(--_work-n-share---color--bordeaux--900, #2c0c10);
+$rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
+
+[data-map-module][data-map-tab="salles"] {
+  // Pins : maison bordeaux, « W/ » rose
+  .map-pin {
+    color: $bordeaux-900;
+  }
+
+  .map-pin_shape text {
+    fill: $rose-300;
+  }
+
+  .map-pin_label {
+    color: $bordeaux-900;
+  }
+
+  .map-pin:focus-visible {
+    outline-color: $bordeaux-900;
+  }
+
+  // Pin actif : maison rose cerclée bordeaux, nom en pastille bordeaux
+  .map-pin.is-active {
+    .map-pin_shape path {
+      fill: $rose-300;
+      stroke: $bordeaux-900;
+    }
+
+    .map-pin_shape text {
+      fill: $bordeaux-900;
+    }
+
+    .map-pin_label {
+      background-color: $bordeaux-900;
+      color: $rose-300;
+    }
+  }
+
+  .map-origin {
+    background-color: $bordeaux-900;
+    box-shadow: 0 0 0 6px rgba(44, 12, 16, 0.18);
+  }
+
+  .map-list-open {
+    color: $bordeaux-900;
+  }
+
+  // Pastille « 14 espaces »
+  .map-module_count {
+    background-color: $rose-300;
+    color: $bordeaux-900;
+  }
+
+  // Espace actif de la liste : fond bordeaux, nom et horaire en rose
+  .space-item.is-active {
+    background-color: $bordeaux-900;
+
+    .space-item_name,
+    .space-item_time {
+      color: $rose-300;
+    }
+  }
+
+  // Boutons de la fiche : principal bordeaux / texte rose, secondaire contour bordeaux
+  [data-place-card] .button:not(.is-secondary) {
+    background-color: $bordeaux-900;
+    color: $rose-300;
+  }
+
+  [data-place-card] .button.is-secondary {
+    border-color: $bordeaux-900;
+    color: $bordeaux-900;
+  }
+}
