@@ -75,6 +75,15 @@
     order: -1;
   }
 
+  // Colonnes de la grille : pas plus larges que l'écran (le slider de
+  // vignettes défile dedans au lieu d'élargir la page)
+  [data-space-section="intro"] [data-gallery],
+  [data-space-section="intro"] [data-gallery] > *,
+  [data-space-section="intro"] .space-intro_content {
+    min-width: 0;
+    max-width: 100%;
+  }
+
   // Vignettes sous la photo principale (slider : _mobile-slider.scss)
   [data-gallery] .space-gallery_thumb,
   [data-gallery] .space-gallery_more {

@@ -30,6 +30,8 @@
     align-items: stretch;
     gap: 16px !important;
     width: auto !important;
+    min-width: 0;
+    max-width: none !important;
     margin-inline: calc(var(--slider-edge) * -1) !important;
     padding: 0 var(--slider-edge) 4px !important;
     overflow-x: auto !important;
