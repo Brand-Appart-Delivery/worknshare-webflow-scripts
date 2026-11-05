@@ -1,0 +1,20 @@
+// ESSAI : titres fluides avec clamp() (activé par ?clamp=1, cf. utils/clamp-preview.js).
+// Chaque taille de titre glisse en continu de sa valeur mobile (écran 390 px)
+// à sa valeur desktop (1440 px), au lieu de sauter d'un coup à 767 px.
+// Mêmes valeurs posées sur la variable desktop et sur la variable mobile, pour
+// que les règles Webflow (qui changent de variable sous 767 px) donnent la même taille.
+
+html.is-clamp {
+  --_work-n-share---typo--display-xxl: clamp(2.5rem, 1.386rem + 4.571vw, 5.5rem);
+  --_work-n-share---typo--mobile--display-xxl: clamp(2.5rem, 1.386rem + 4.571vw, 5.5rem);
+  --_work-n-share---typo--display-xl: clamp(2.125rem, 1.429rem + 2.857vw, 4rem);
+  --_work-n-share---typo--mobile--display-xl: clamp(2.125rem, 1.429rem + 2.857vw, 4rem);
+  --_work-n-share---typo--display-l: clamp(1.75rem, 1.379rem + 1.524vw, 2.75rem);
+  --_work-n-share---typo--mobile--display-l: clamp(1.75rem, 1.379rem + 1.524vw, 2.75rem);
+  --_work-n-share---typo--display-m: clamp(1.375rem, 1.236rem + 0.5714vw, 1.75rem);
+  --_work-n-share---typo--mobile--display-m: clamp(1.375rem, 1.236rem + 0.5714vw, 1.75rem);
+  --_work-n-share---typo--display-carte: clamp(1.25rem, 1.204rem + 0.1905vw, 1.375rem);
+  --_work-n-share---typo--mobile--display-carte: clamp(1.25rem, 1.204rem + 0.1905vw, 1.375rem);
+  --_work-n-share---typo--display-s: clamp(1rem, 0.9536rem + 0.1905vw, 1.125rem);
+  --_work-n-share---typo--mobile--display-s: clamp(1rem, 0.9536rem + 0.1905vw, 1.125rem);
+}
