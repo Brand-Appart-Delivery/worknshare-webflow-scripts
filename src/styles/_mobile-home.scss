@@ -24,6 +24,12 @@
   }
 
   // ---------- Hero ----------
+  // Titre, onglets et recherche calés en bas du bloc : même marge (16 px) en
+  // bas que sur les côtés (Figma)
+  [data-hero-video] .hero-video_media {
+    padding-bottom: 16px;
+  }
+
   .search_tab-full {
     display: none;
   }
