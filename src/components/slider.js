@@ -16,6 +16,9 @@
 //   data-slider-per-view="3"      slides visibles en desktop (≥ 992 px)
 //   data-slider-per-view-tablet="2.2"  de 768 à 991 px
 //   data-slider-per-view-mobile="1.15" en dessous de 768 px
+//   data-slider-mobile-only="true"  slider seulement en mobile (≤ 767 px) :
+//                                 au-dessus, la grille Webflow reste telle quelle
+//                                 (Swiper retiré si on agrandit la fenêtre)
 //   data-slider-gap="edge"        les slides hors vue sont repoussées hors de la
 //                                 page (marge jusqu'au bord de l'écran + 24 px) et
 //                                 entrent / sortent par les côtés ; l'espace entre
@@ -31,9 +34,25 @@ import { t } from "../utils/i18n.js";
 
 const EDGE_EXTRA = 24; // px au-delà du bord de l'écran (option data-slider-gap="edge")
 
+const MOBILE = "(max-width: 767px)";
+
 export function initSliders(root = document) {
   if (typeof window.Swiper === "undefined") return;
-  root.querySelectorAll("[data-slider]").forEach(initSlider);
+  root.querySelectorAll("[data-slider]").forEach((block) => {
+    if (!readBool(block, "data-slider-mobile-only")) return initSlider(block);
+    // Mobile seulement : créé en entrant en mobile, retiré en sortant
+    const mq = window.matchMedia(MOBILE);
+    let destroy = null;
+    const sync = () => {
+      if (mq.matches && !destroy) destroy = initSlider(block, { mobileOnly: true });
+      else if (!mq.matches && destroy) {
+        destroy();
+        destroy = null;
+      }
+    };
+    sync();
+    mq.addEventListener("change", sync);
+  });
 }
 
 function readBool(el, name) {
@@ -45,7 +64,7 @@ function readNumber(el, name, fallback) {
   return Number.isFinite(value) ? value : fallback;
 }
 
-function initSlider(block) {
+function initSlider(block, { mobileOnly = false } = {}) {
   const track = block.querySelector("[data-slider-track]");
   if (!track || track.closest("[data-slider]") !== block || track.swiper) return;
   const slides = [...track.children];
@@ -100,7 +119,9 @@ function initSlider(block) {
   const perView = readNumber(block, "data-slider-per-view", 0);
   const perViewTablet = readNumber(block, "data-slider-per-view-tablet", perView);
   const perViewMobile = readNumber(block, "data-slider-per-view-mobile", perViewTablet);
-  const sizing = perView
+  const sizing = mobileOnly
+    ? { slidesPerView: perViewMobile || "auto" }
+    : perView
     ? {
         slidesPerView: perViewMobile,
         breakpoints: { 768: { slidesPerView: perViewTablet }, 992: { slidesPerView: perView } },
@@ -171,5 +192,18 @@ function initSlider(block) {
   }
 
   block.classList.add("is-slider-ready");
-  return swiper;
+
+  // Retrait complet (mode mobile seulement, en repassant en desktop) : la
+  // piste retrouve sa place et ses classes Webflow
+  return () => {
+    swiper.destroy(true, true);
+    viewport.before(track);
+    viewport.remove();
+    track.classList.remove("swiper-wrapper");
+    slides.forEach((slide) => slide.classList.remove("swiper-slide", "is-offside-prev", "is-offside-next"));
+    block.classList.remove("is-slider-ready", "is-slider-edge");
+    block.style.removeProperty("--slider-edge");
+    block.style.removeProperty("--slider-speed");
+    requestScrollRefresh();
+  };
 }

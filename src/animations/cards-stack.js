@@ -35,8 +35,8 @@ export function initCardsStack(root = document) {
 function initGrid(grid) {
   const cards = [...grid.children];
   if (cards.length < 2) return;
-  // Carrousel mobile (_mobile-slider.scss) : cartes à faire glisser, pas de paquet
-  if (grid.hasAttribute("data-mobile-slider") && window.matchMedia("(max-width: 767px)").matches) return;
+  // Carrousel mobile (slider ou _mobile-slider.scss) : cartes à faire glisser, pas de paquet
+  if (grid.matches("[data-mobile-slider], [data-slider-track]") && window.matchMedia("(max-width: 767px)").matches) return;
 
   // Cartes côte à côte (même ligne) ? Sinon pas d'effet
   const sameRow = () => cards.every((card) => Math.abs(card.offsetTop - cards[0].offsetTop) < 4);
