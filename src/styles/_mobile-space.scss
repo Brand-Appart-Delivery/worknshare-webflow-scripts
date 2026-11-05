@@ -124,3 +124,11 @@
     overflow: hidden;
   }
 }
+
+// Tablette (768–991 px) : hero en une colonne, la photo « maison » (500 px)
+// est centrée sous le texte au lieu d'être calée à gauche
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .space-hero_photo {
+    align-self: center;
+  }
+}
