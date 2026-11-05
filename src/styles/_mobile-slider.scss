@@ -12,6 +12,8 @@
 //   (vide)     cartes de 300 px
 //   "narrow"   cartes de 280 px
 //   "square"   cartes carrées de 220 px
+//   "tile"     tuiles de 240 × 220 px (bento des salles d'un espace)
+//   "thumb"    vignettes de 120 × 96 px (galerie photo d'un espace)
 //
 // La rangée déborde jusqu'aux bords de l'écran (marges du site compensées) :
 // les cartes entrent et sortent par les côtés. Au-dessus de 767 px : rien ne change.
@@ -65,6 +67,27 @@
 
   [data-mobile-slider="narrow"] {
     --slide-w: 280px;
+  }
+
+  [data-mobile-slider="tile"] {
+    --slide-w: 240px;
+
+    > *,
+    [data-mobile-slider-contents] > * {
+      height: 220px !important;
+      min-height: 0 !important;
+    }
+  }
+
+  [data-mobile-slider="thumb"] {
+    --slide-w: 120px;
+    gap: 8px !important;
+
+    > *,
+    [data-mobile-slider-contents] > * {
+      height: 96px !important;
+      min-height: 0 !important;
+    }
   }
 
   [data-mobile-slider="square"] {

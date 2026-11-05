@@ -1,0 +1,84 @@
+// Page d'un espace en mobile (≤ 767 px), Figma 4681:28019.
+
+@media screen and (max-width: 767px) {
+  // ---------- Hero centré ----------
+  .space-hero .breadcrumb {
+    justify-content: center;
+  }
+
+  .space-hero_content,
+  .space-hero_heading,
+  .space-hero_display {
+    align-items: center;
+    text-align: center;
+  }
+
+  .space-hero_title {
+    justify-content: center;
+  }
+
+  .space-hero .space-tags {
+    justify-content: center;
+  }
+
+  .space-hero_access {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .space-hero_access .space-address {
+    justify-content: center;
+  }
+
+  .space-hero_access .w-dyn-list {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .space-hero .space-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .space-hero .space-actions .button {
+    justify-content: center;
+    min-width: 210px;
+  }
+
+  // Chiffres : grille 2 × 2 centrée sous un filet
+  .space-hero .space-facts {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--_work-n-share---color--vert--700-a16, rgba(59, 64, 15, 0.16));
+  }
+
+  .space-hero .space-facts_sep {
+    display: none !important;
+  }
+
+  .space-hero .fact {
+    align-items: center;
+    text-align: center;
+  }
+
+  .space-hero .fact .space-inline-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  // ---------- L'espace en quelques mots : galerie en premier ----------
+  [data-space-section="intro"] [data-gallery] {
+    order: -1;
+  }
+
+  // Vignettes sous la photo principale (slider : _mobile-slider.scss)
+  [data-gallery] .space-gallery_thumb,
+  [data-gallery] .space-gallery_more {
+    border-radius: 16px;
+    overflow: hidden;
+  }
+}
