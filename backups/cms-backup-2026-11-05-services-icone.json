@@ -1,0 +1,16 @@
+{
+  "collection": "Services (6ae9130d9c91e630c06762d4)",
+  "note": "Sauvegarde avant ajout des icônes : le champ icone était vide (null) sur les 9 fiches, en FR et en EN.",
+  "locales": { "fr": "6ae9130c9b633fa64cb835c2", "en": "6aeb5d9ef4c99dd494ea722f" },
+  "items": {
+    "6ae914428f31c3daf261eb17": { "slug": "gestion-du-courrier", "icone": null },
+    "6ae914428f31c3daf261eb19": { "slug": "wifi-haut-debit", "icone": null },
+    "6ae914428f31c3daf261eb1b": { "slug": "menage-regulier", "icone": null },
+    "6ae914428f31c3daf261eb1d": { "slug": "cuisine-et-bistrot", "icone": null },
+    "6ae914428f31c3daf261eb1f": { "slug": "salles-phonebox-alcoves", "icone": null },
+    "6ae914428f31c3daf261eb21": { "slug": "acces-6h-21h", "icone": null },
+    "6ae914428f31c3daf261eb23": { "slug": "parking-location", "icone": null },
+    "6ae914428f31c3daf261eb25": { "slug": "privatisation-espace", "icone": null },
+    "6ae914428f31c3daf261eb27": { "slug": "impression-scan", "icone": null }
+  }
+}

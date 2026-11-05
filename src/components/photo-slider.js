@@ -21,6 +21,7 @@ import { prefersReducedMotion } from "../utils/motion.js";
 import { t } from "../utils/i18n.js";
 
 const SWIPE = 40; // px de glissé pour changer de photo
+const DURATION = 800; // ms, durée de la glissade (cf. _photo-slider.scss)
 
 export function initPhotoSliders(root = document) {
   root.querySelectorAll("[data-photo-slider]").forEach(initPhotoSlider);
@@ -63,6 +64,8 @@ function initPhotoSlider(block) {
     if (first) {
       slides.forEach((slide, k) => place(slide, k === index ? 0 : 100, false));
     } else if (old !== index) {
+      // Les autres photos se rangent hors cadre, sans animation
+      slides.forEach((slide, k) => k !== index && k !== old && place(slide, 100, false));
       const incoming = slides[index];
       place(incoming, dir * 100, false); // posée hors cadre, côté d'arrivée
       void incoming.offsetWidth; // force le navigateur à prendre ce point de départ
@@ -75,6 +78,27 @@ function initPhotoSlider(block) {
     });
   }
 
+  // Un changement à la fois : pendant la glissade, le dernier clic attend
+  // son tour (sinon une photo en mouvement repartirait d'un bond)
+  let busy = false;
+  let pending = null;
+  function go(change) {
+    if (busy) {
+      pending = change;
+      return;
+    }
+    change();
+    restart();
+    if (prefersReducedMotion()) return;
+    busy = true;
+    setTimeout(() => {
+      busy = false;
+      const next = pending;
+      pending = null;
+      if (next) go(next);
+    }, DURATION + 20);
+  }
+
   // Points : un par photo, cliquables
   if (dotsWrap) {
     dotsWrap.innerHTML = "";
@@ -83,10 +107,7 @@ function initPhotoSlider(block) {
       dot.type = "button";
       dot.className = "slider_dot";
       dot.setAttribute("aria-label", t("map.photoGo", { n: k + 1 }));
-      dot.addEventListener("click", () => {
-        show(k);
-        restart();
-      });
+      dot.addEventListener("click", () => go(() => show(k)));
       dotsWrap.appendChild(dot);
       return dot;
     });
@@ -105,8 +126,7 @@ function initPhotoSlider(block) {
     }
     arrow.addEventListener("click", (e) => {
       e.preventDefault();
-      show(index + step, step);
-      restart();
+      go(() => show(index + step, step));
     });
     arrow.addEventListener("keydown", (e) => {
       if (e.key !== "Enter" && e.key !== " ") return;
@@ -128,8 +148,8 @@ function initPhotoSlider(block) {
     const dx = e.clientX - startX;
     startX = null;
     if (Math.abs(dx) > SWIPE && !single) {
-      show(index + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
-      restart();
+      const step = dx < 0 ? 1 : -1;
+      go(() => show(index + step, step));
     }
   });
   block.addEventListener("pointercancel", () => (startX = null));
@@ -140,8 +160,7 @@ function initPhotoSlider(block) {
     if (single || (e.key !== "ArrowLeft" && e.key !== "ArrowRight")) return;
     e.preventDefault();
     const step = e.key === "ArrowRight" ? 1 : -1;
-    show(index + step, step);
-    restart();
+    go(() => show(index + step, step));
   });
 
   // Défilement automatique (option)
@@ -151,7 +170,7 @@ function initPhotoSlider(block) {
   function restart() {
     clearInterval(timer);
     if (!delay || single || paused || prefersReducedMotion()) return;
-    timer = setInterval(() => show(index + 1, 1), delay);
+    timer = setInterval(() => !busy && show(index + 1, 1), delay);
   }
   const pause = (on) => () => {
     paused = on;

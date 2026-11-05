@@ -1,0 +1,30 @@
+{
+  "collection": "Lieux (6ae9133a7f810025d154e738)",
+  "note": "Sauvegarde avant remplacement de photo-hero-forme-maison (photo pré-découpée → photo rectangulaire + masque maison)",
+  "items": [
+    {
+      "id": "6ae91e660a5af0daef0e87c3",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "locale": "fr",
+      "fieldData": {
+        "photo-hero-forme-maison": {
+          "fileId": "6ae91e650a5af0daef0e87b9",
+          "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91e650a5af0daef0e87b9_6ae9172c9a2a76a53ec0137c_lieu-clichy-hero-maison.webp",
+          "alt": "Grande salle de réunion de Clichy, en forme de maison"
+        }
+      }
+    },
+    {
+      "id": "6ae91e660a5af0daef0e87c3",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "locale": "en",
+      "fieldData": {
+        "photo-hero-forme-maison": {
+          "fileId": "6ae91e650a5af0daef0e87b9",
+          "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6ae91e650a5af0daef0e87b9_6ae9172c9a2a76a53ec0137c_lieu-clichy-hero-maison.webp",
+          "alt": "Large meeting room in Clichy, in a house shape"
+        }
+      }
+    }
+  ]
+}
