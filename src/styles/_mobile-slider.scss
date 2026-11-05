@@ -22,6 +22,7 @@
     --slider-edge: 24px; // marge du site (padding-global)
 
     display: flex !important;
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
     grid-template-columns: none !important;
     align-items: stretch;

@@ -52,12 +52,17 @@
 
   [data-hero-video] [data-search-form] .search_field {
     flex: 1 1 100%;
+    min-height: 44px;
+    padding: 0 12px;
   }
 
+  // Webflow le pose en absolu sur le champ en mobile : on le remet sous le champ
   [data-hero-video] .search_submit {
+    position: static !important;
     flex: 1 1 100%;
     justify-content: center;
     width: 100%;
+    transform: none !important;
   }
 
   .search_submit .button_icon {
@@ -77,6 +82,12 @@
 
   .formula_select {
     display: block;
+    margin-bottom: 16px;
+  }
+
+  .formula_select .custom-select,
+  .formula_select .custom-select_button {
+    width: 100%;
   }
 
   // ---------- Footer : pas de marge autour de la carte ----------
