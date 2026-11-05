@@ -49,6 +49,11 @@
     display: none !important;
   }
 
+  // 3e chiffre (rooftop) seul sur sa ligne, centré
+  .venue-fact[data-venue-rooftop] {
+    grid-column: 1 / -1;
+  }
+
   // ---------- « Combien serez-vous ? » : pastilles qui défilent ----------
   .venue-rooms_filter {
     width: 100%;
