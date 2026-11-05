@@ -14,3 +14,77 @@
     display: none !important;
   }
 }
+
+// ---------- Pages légales (Figma 4726:29065, 29423, 29462) ----------
+// Tableaux empilés : la 1re cellule de chaque ligne devient le titre du bloc
+// (son intitulé de colonne est masqué), comme sur la maquette
+@media screen and (max-width: 767px) {
+  .w-richtext table td:first-child::before,
+  .w-richtext table th:first-child::before {
+    display: none !important;
+  }
+
+  .w-richtext table tr > :first-child {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--_work-n-share---color--vert--700, #3b400f);
+  }
+}
+
+// ---------- 404 (Figma 4726:29210) ----------
+@media screen and (max-width: 767px) {
+  // Illustration et légende au-dessus du titre
+  .notfound_figure {
+    order: -1;
+    align-items: center;
+  }
+
+  .notfound_caption {
+    text-align: center;
+  }
+
+  .notfound_actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .notfound_actions .button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  // « Nos espaces » : bouton « Voir tous les espaces » sous le slider, pleine largeur
+  .offices-is-white[data-slider] .container-large {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .offices-is-white[data-slider] .offices-slider_head,
+  .offices-is-white[data-slider] .offices-slider_bottom {
+    display: contents;
+  }
+
+  .offices-is-white[data-slider] .offices-title {
+    margin-bottom: 16px;
+  }
+
+  .offices-is-white[data-slider] .offices-intro {
+    margin-bottom: 32px;
+  }
+
+  .offices-is-white[data-slider] .offices-slider_arrows {
+    order: 2;
+    margin-top: 40px;
+  }
+
+  .offices-is-white[data-slider] .offices-slider_arrows .button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .offices-is-white[data-slider] [data-slider-prev],
+  .offices-is-white[data-slider] [data-slider-next] {
+    display: none !important;
+  }
+}
