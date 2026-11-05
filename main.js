@@ -1,12 +1,5558 @@
-(()=>{function xt(e){document.readyState==="loading"?document.addEventListener("DOMContentLoaded",e):e()}var Te=null,At=0;function j(e=150){if(typeof window.ScrollTrigger=="undefined")return;let t=Date.now()+e;Te&&t<=At||(clearTimeout(Te),At=t,Te=setTimeout(()=>{Te=null,window.ScrollTrigger.refresh()},e))}var no=window.matchMedia("(prefers-reduced-motion: reduce)");function I(){return no.matches}var oo=!0,so="[data-nav]",Ct=2,ro=400,Q=null,ao=e=>e<.5?4*e*e*e:1-Math.pow(-2*e+2,3)/2;function io(){let e=document.querySelector(so);return e?-e.getBoundingClientRect().height:0}function ze(e,{instant:t=!1}={}){if(!e||e==="#")return!1;let o=null;try{o=document.querySelector(e)}catch(s){return!1}if(!o)return!1;let n=io();if(Q)Q.scrollTo(o,{offset:n,duration:t?0:Ct,easing:ao,immediate:t,force:!0});else{let s=o.getBoundingClientRect().top+window.scrollY+n;window.scrollTo({top:s,behavior:t?"auto":"smooth"})}return!0}function co(){if(document.addEventListener("click",e=>{let t=e.target.closest&&e.target.closest("a[href*='#']");if(!t||t.matches("[role='tab'], [role='button'], [data-formula-tab], [data-slider-prev], [data-slider-next]"))return;let o=new URL(t.href,window.location.href);!(o.origin===location.origin&&o.pathname===location.pathname)||!o.hash||o.hash==="#"||ze(o.hash)&&(e.preventDefault(),e.stopPropagation(),history.pushState(null,"",o.hash))},!0),window.location.hash){let e=window.location.hash;window.scrollTo(0,0);let t=()=>{window.scrollY>50||(ze(e),setTimeout(()=>ze(e,{instant:!0}),Ct*1e3+100))},o=()=>setTimeout(t,ro);document.readyState==="complete"?o():window.addEventListener("load",o,{once:!0})}}function lo(){if(Q)return Q;if(!oo||typeof window.Lenis=="undefined"||I())return null;if(Q=new window.Lenis({lerp:.1,smoothWheel:!0,anchors:!1}),typeof window.gsap!="undefined")typeof window.ScrollTrigger!="undefined"&&(window.gsap.registerPlugin(window.ScrollTrigger),Q.on("scroll",window.ScrollTrigger.update)),window.gsap.ticker.add(t=>Q.raf(t*1e3)),window.gsap.ticker.lagSmoothing(0);else{let t=o=>{Q.raf(o),requestAnimationFrame(t)};requestAnimationFrame(t)}if(typeof ResizeObserver!="undefined"){let t=0,o=null;new ResizeObserver(()=>{clearTimeout(o),o=setTimeout(()=>{let n=document.body.scrollHeight;n!==t&&(t=n,Q.resize(),j(0))},150)}).observe(document.body)}return Q}function z(){return Q}function uo(){var t;let e=(t=performance.getEntriesByType)==null?void 0:t.call(performance,"navigation")[0];return!!e&&e.type==="reload"&&!location.hash}function St(){window.scrollTo(0,0),Q==null||Q.scrollTo(0,{immediate:!0,force:!0})}function po(){if(!uo())return;"scrollRestoration"in history&&(history.scrollRestoration="manual"),St();let e=()=>requestAnimationFrame(St);document.readyState==="complete"?e():window.addEventListener("load",e,{once:!0})}function Mt(){lo(),po(),co()}function kt(e=document){e.querySelectorAll("[data-collapse]").forEach(t=>{let o=t.querySelector("[data-collapse-trigger]"),n=t.querySelector("[data-collapse-content]");!o||!n||(o.setAttribute("aria-expanded","false"),o.addEventListener("click",s=>{o.tagName==="A"&&s.preventDefault();let a=!t.classList.contains("is-open");t.classList.toggle("is-open",a),o.setAttribute("aria-expanded",String(a))}))})}var de={fr:{tag:"fr-FR",prefix:""},en:{tag:"en-GB",prefix:"/en"}},qt={fr:{"menu.open":"Menu","menu.close":"Fermer","nav.open":"Ouvrir le menu","nav.close":"Fermer le menu","slider.prev":"\xC9l\xE9ment pr\xE9c\xE9dent","slider.next":"\xC9l\xE9ment suivant","slider.goto":"Aller \xE0 l'\xE9l\xE9ment {{index}}","slider.first":"Premier \xE9l\xE9ment","slider.last":"Dernier \xE9l\xE9ment","map.count":"{n} espaces","map.countOne":"1 espace","map.hideList":"Masquer la liste","map.showList":"Afficher la liste","map.seeList":"Voir la liste","map.showMap":"Voir la carte","map.nearest":"Les plus proches {of}","map.nearestMe":"Les plus proches de vous","map.others":"Autres espaces \xB7 {dept}","map.distance":"\xE0 vol d'oiseau","map.walk":"{station} \xB7 {min} min \xE0 pied","map.pin":"Espace Work & Share de {name}","map.photo":"{name}, photo {n} sur {total}","map.photoGo":"Voir la photo {n}","rooms.count":"{n} salles correspondent","rooms.countOne":"1 salle correspond","rooms.closeRoom":"Refermer","rooms.planConfig":"Configuration de la salle","rooms.plan.reunion":"R\xE9union","rooms.plan.theatre":"Th\xE9\xE2tre","rooms.plan.en-u":"En U","rooms.plan.cocktail":"Cocktail","rooms.planSeats":"{n} personnes","rooms.planAlt":"Plan de la salle en configuration {config}, {n} personnes","map.building":"Immeuble {name}","map.zoomIn":"Zoom avant","map.zoomOut":"Zoom arri\xE8re","map.recenter":"Recentrer sur l'espace","hero.pause":"Mettre la vid\xE9o en pause","hero.play":"Lire la vid\xE9o","lightbox.label":"Photos de l'espace","lightbox.close":"Fermer","lightbox.prev":"Photo pr\xE9c\xE9dente","lightbox.next":"Photo suivante","lightbox.thumbs":"Toutes les photos","lightbox.goto":"Voir la photo {n}","gallery.tour":"Visite 360\xB0 de l'espace","gallery.tourSoon":"La visite 360\xB0 de cet espace arrive bient\xF4t.","visit.title":"Venez visiter {name}","visit.leadHostBuilding":"{host} vous fait faire le tour de l\u2019immeuble {building} et r\xE9pond \xE0 toutes vos questions.","visit.leadHost":"{host} vous fait faire le tour de l\u2019espace et r\xE9pond \xE0 toutes vos questions.","visit.lead":"L\u2019\xE9quipe sur place vous fait faire le tour et r\xE9pond \xE0 toutes vos questions.","visit.noteHost":"{host}, l\u2019h\xF4te de {name}, vous rappelle avant demain midi.","visit.note":"L\u2019\xE9quipe de l\u2019espace vous rappelle avant demain midi.","visit.call":"Appeler l\u2019espace au {phone}","map.origin":"Point de recherche : {place}","map.attribution":"\xA9 OpenFreeMap \xA9 OpenMapTiles \xB7 \xA9 contributeurs OpenStreetMap","map.noRooms":"Aucun espace avec salles ne correspond.","search.nearMe":"Autour de moi","search.tabShort.bureaux":"Bureaux","search.tabShort.salles":"\xC9v\xE9nements","formula.choose":"Votre situation","search.nearMeHint":"Utiliser ma position","search.locating":"Localisation\u2026","search.geoError":"Position indisponible. Tapez une ville ou une adresse.","search.spaces":"Nos espaces","search.stations":"Gares et stations","search.addresses":"Adresses et communes","search.noResult":"Aucun r\xE9sultat. Essayez une ville, une adresse ou une station.","search.outsideIdf":"hors \xCEle-de-France","search.results":"{n} suggestions","comparator.city":"Commune d\u2019implantation","comparator.cities":"Communes propos\xE9es","comparator.noCity":"Commune inconnue du comparateur. Essayez la commune voisine.","blog.count":"{n} articles affich\xE9s","blog.countOne":"1 article affich\xE9"},en:{"menu.open":"Menu","menu.close":"Close","nav.open":"Open menu","nav.close":"Close menu","slider.prev":"Previous item","slider.next":"Next item","slider.goto":"Go to item {{index}}","slider.first":"First item","slider.last":"Last item","map.count":"{n} spaces","map.countOne":"1 space","map.hideList":"Hide the list","map.showList":"Show the list","map.seeList":"See the list","map.showMap":"See the map","map.nearest":"Closest to {place}","map.nearestMe":"Closest to you","map.others":"Other spaces \xB7 {dept}","map.distance":"as the crow flies","map.walk":"{station} \xB7 {min} min walk","map.pin":"Work & Share space in {name}","map.photo":"{name}, photo {n} of {total}","map.photoGo":"Show photo {n}","rooms.count":"{n} matching rooms","rooms.countOne":"1 matching room","rooms.closeRoom":"Close","rooms.planConfig":"Room layout","rooms.plan.reunion":"Meeting","rooms.plan.theatre":"Theatre","rooms.plan.en-u":"U-shape","rooms.plan.cocktail":"Cocktail","rooms.planSeats":"{n} people","rooms.planAlt":"Room plan, {config} layout, {n} people","map.building":"{name} building","map.zoomIn":"Zoom in","map.zoomOut":"Zoom out","map.recenter":"Recenter on the space","hero.pause":"Pause the video","hero.play":"Play the video","lightbox.label":"Photos of the space","lightbox.close":"Close","lightbox.prev":"Previous photo","lightbox.next":"Next photo","lightbox.thumbs":"All photos","lightbox.goto":"Show photo {n}","gallery.tour":"360\xB0 tour of the space","gallery.tourSoon":"The 360\xB0 tour of this space is coming soon.","visit.title":"Come and visit {name}","visit.leadHostBuilding":"{host} will show you around the {building} building and answer all your questions.","visit.leadHost":"{host} will show you around the space and answer all your questions.","visit.lead":"The on-site team will show you around and answer all your questions.","visit.noteHost":"{host}, your host in {name}, will call you back before noon tomorrow.","visit.note":"The space team will call you back before noon tomorrow.","visit.call":"Call the space on {phone}","map.origin":"Search point: {place}","map.attribution":"\xA9 OpenFreeMap \xA9 OpenMapTiles \xB7 \xA9 OpenStreetMap contributors","map.noRooms":"No space with meeting rooms matches.","search.nearMe":"Near me","search.tabShort.bureaux":"Offices","search.tabShort.salles":"Events","formula.choose":"Your situation","search.nearMeHint":"Use my location","search.locating":"Locating\u2026","search.geoError":"Location unavailable. Type a town or an address.","search.spaces":"Our spaces","search.stations":"Stations","search.addresses":"Addresses and towns","search.noResult":"No result. Try a town, an address or a station.","search.outsideIdf":"outside \xCEle-de-France","search.results":"{n} suggestions","comparator.city":"Office location (town)","comparator.cities":"Suggested towns","comparator.noCity":"Town not covered by the comparator. Try a neighbouring one.","blog.count":"{n} articles shown","blog.countOne":"1 article shown"}};function ce(){let e=location.pathname;return Object.keys(de).find(o=>{let n=de[o].prefix;return n&&(e===n||e.startsWith(`${n}/`))})||"fr"}function Tt(){return de[ce()]}function S(e,t={}){var n,s;return((s=(n=qt[ce()][e])!=null?n:qt.fr[e])!=null?s:e).replace(/\{(\w+)\}/g,(a,r)=>r in t?t[r]:`{${r}}`)}function le(e,t=null){if(!e)return null;let o=!t;o&&(t=document.createElement("div"),t.className="scroll-indicator_holder",t.setAttribute("aria-hidden","true"));let n=document.createElement("div");n.className="scroll-indicator",n.setAttribute("aria-hidden","true");let s=document.createElement("div");s.className="scroll-indicator_thumb",n.appendChild(s),t.appendChild(n),o&&e.prepend(t),e.classList.add("has-scroll-indicator"),o&&n.classList.add("is-sticky");let a=()=>{(o&&t.parentElement!==e||o&&e.firstElementChild!==t)&&e.prepend(t),u()},r=0,i=0,c=()=>{let y=e.scrollHeight-e.clientHeight;if(n.hidden=y<=1,!n.hidden){if(o){let d=n.getBoundingClientRect().top-e.getBoundingClientRect().top-e.clientTop;r=Math.max(e.clientHeight-d*2,0)}else r=Math.max(e.clientHeight-t.offsetHeight-24,0);i=Math.max(32,r*e.clientHeight/e.scrollHeight),n.style.height=`${r}px`,s.style.height=`${i}px`,s.style.transform=`translateY(${(r-i)*e.scrollTop/y}px)`}},l=0;function u(){l||(l=requestAnimationFrame(()=>(l=0,c())))}let p=null;if(e.addEventListener("scroll",()=>{u(),n.classList.add("is-active"),clearTimeout(p),p=setTimeout(()=>n.classList.remove("is-active"),800)},{passive:!0}),window.addEventListener("resize",u,{passive:!0}),typeof ResizeObserver!="undefined"){let y=new ResizeObserver(u);y.observe(e),y.observe(t),[...e.children].forEach(d=>y.observe(d))}return s.addEventListener("pointerdown",y=>{y.preventDefault(),y.stopPropagation();let d=y.clientY,m=e.scrollTop,g=(e.scrollHeight-e.clientHeight)/Math.max(r-i,1);s.setPointerCapture(y.pointerId),n.classList.add("is-dragging");let f=h=>e.scrollTop=m+(h.clientY-d)*g,v=()=>{n.classList.remove("is-dragging"),s.removeEventListener("pointermove",f),s.removeEventListener("pointerup",v),s.removeEventListener("pointercancel",v)};s.addEventListener("pointermove",f),s.addEventListener("pointerup",v),s.addEventListener("pointercancel",v)}),n.addEventListener("pointerdown",y=>{if(y.target!==n)return;let d=y.clientY-n.getBoundingClientRect().top-i/2,m=e.scrollHeight-e.clientHeight;e.scrollTo({top:d/Math.max(r-i,1)*m,behavior:"smooth"})}),c(),{update:c,attach:a}}var Re=window.matchMedia("(min-width: 992px)"),Ye=window.matchMedia("(hover: hover) and (pointer: fine)"),fo=250,mo="M4 7h16M4 12h16M4 17h16",ho="M6 6l12 12M18 6L6 18";function $t(e=document){let t=e.querySelector("[data-nav]");t&&(go(t),yo(t),bo(t),wo(t),Eo(t),Lo(t),document.addEventListener("keydown",o=>{if(o.key!=="Escape")return;let n=t.querySelector("[data-mega-trigger][aria-expanded='true'], [data-nav-toggle][aria-expanded='true']");je(t),n&&n.focus()}),document.addEventListener("click",o=>{t.contains(o.target)||je(t)}),Re.addEventListener("change",()=>je(t)))}function Xe(e,t){let o=t.getAttribute("data-mega-trigger");return e.querySelector(`[data-mega-panel="${o}"]`)}function pe(e,t,o){t.classList.toggle("is-open",o),e.setAttribute("aria-expanded",String(o))}function go(e){e.querySelectorAll("[data-mega-trigger]").forEach(t=>{let o=Xe(e,t);if(!o)return;t.setAttribute("aria-expanded","false");let n=()=>pe(t,o,!o.classList.contains("is-open"));if(t.addEventListener("click",i=>{i.preventDefault(),!t.closest("[data-nav-panel]")&&Re.matches&&Ye.matches?pe(t,o,!0):n()}),t.addEventListener("keydown",i=>{(i.key==="Enter"||i.key===" ")&&(i.preventDefault(),n())}),t.closest("[data-nav-panel]"))return;let s=null,a=()=>{!Re.matches||!Ye.matches||(clearTimeout(s),pe(t,o,!0))},r=()=>{!Re.matches||!Ye.matches||(clearTimeout(s),s=setTimeout(()=>pe(t,o,!1),fo))};t.addEventListener("mouseenter",a),o.addEventListener("mouseenter",a),e.addEventListener("mouseleave",r),t.parentElement.querySelectorAll("a").forEach(i=>{i!==t&&i.addEventListener("mouseenter",r)}),e.addEventListener("focusout",i=>{let c=i.relatedTarget;(!c||!t.contains(c)&&!o.contains(c))&&o.classList.contains("is-open")&&!o.matches(":hover")&&pe(t,o,!1)})})}function yo(e){let t=e.querySelector("[data-nav-toggle]"),o=e.querySelector("[data-nav-panel]");!t||!o||(t.setAttribute("aria-expanded","false"),t.setAttribute("aria-label",S("nav.open")),o.setAttribute("data-lenis-prevent",""),le(o),t.addEventListener("click",n=>{n.preventDefault(),_e(e,!o.classList.contains("is-open"))}),t.addEventListener("keydown",n=>{(n.key==="Enter"||n.key===" ")&&(n.preventDefault(),_e(e,!o.classList.contains("is-open")))}),e.addEventListener("keydown",n=>{if(n.key!=="Tab"||!o.classList.contains("is-open"))return;let s=[t,...o.querySelectorAll("a[href], [role='button'], button, input")].filter(i=>i.offsetParent!==null),a=s[0],r=s[s.length-1];n.shiftKey&&document.activeElement===a?(n.preventDefault(),r.focus()):!n.shiftKey&&document.activeElement===r&&(n.preventDefault(),a.focus())}),o.addEventListener("click",n=>{let s=n.target.closest("a[href]");if(!s||s.matches("[data-mega-trigger]"))return;let a=s.getAttribute("href");!a||a==="#"||_e(e,!1)}))}function _e(e,t){let o=e.querySelector("[data-nav-toggle]"),n=e.querySelector("[data-nav-panel]");if(!o||!n)return;n.classList.toggle("is-open",t),o.setAttribute("aria-expanded",String(t)),o.setAttribute("aria-label",S(t?"nav.close":"nav.open"));let s=o.querySelector("svg path");s&&s.setAttribute("d",t?ho:mo),document.documentElement.classList.toggle("is-nav-open",t);let a=z();a&&(t?a.stop():a.start()),t||n.querySelectorAll("[data-mega-trigger]").forEach(r=>{let i=Xe(e,r);i&&pe(r,i,!1)})}function je(e){e.querySelectorAll("[data-mega-trigger]").forEach(t=>{let o=Xe(e,t);o&&pe(t,o,!1)}),e.querySelector("[data-nav-panel].is-open")&&_e(e,!1)}var vo=8,Rt=6;function bo(e){let t="flow",o=window.scrollY,n=0,s=!1,a=document.querySelector("[data-hero-video], [data-hero]")||[...document.querySelectorAll("main section, .page-wrapper section")].find(y=>!e.contains(y)),r=()=>!!a&&(a.matches("[data-hero-video], [data-hero]")||a.offsetHeight<=window.innerHeight*1.2&&!a.querySelector("form")),i=y=>r()&&y<a.getBoundingClientRect().bottom+y-e.offsetHeight,c=()=>e.querySelector("[data-mega-panel].is-open, [data-nav-panel].is-open")||e.contains(document.activeElement)||document.documentElement.classList.contains("is-hero-intro-running"),l=()=>{let y=Math.max(window.scrollY,0),d=e.offsetHeight;e.classList.toggle("is-flow",t==="flow"),e.classList.toggle("is-hidden",t==="hidden"),e.classList.toggle("is-scrolled",t!=="flow"&&y>vo),e.style.translate=t==="flow"?`0 ${-Math.min(y,d)}px`:""},u=()=>{s=!1;let y=Math.max(window.scrollY,0),d=y-o;o=y,d!==0&&(n=Math.sign(d)===Math.sign(n)?n+d:d),y<=0?t="flow":i(y)&&!c()?t=t==="flow"||y<e.offsetHeight?"flow":"hidden":c()?t=t==="flow"&&y<e.offsetHeight?"flow":"shown":n<-Rt&&t!=="shown"?t=y>0?"shown":"flow":n>Rt&&t==="shown"&&(t="hidden"),l()},p=()=>{s||(s=!0,requestAnimationFrame(u))};window.addEventListener("scroll",p,{passive:!0}),e.addEventListener("focusin",p),e.addEventListener("click",p),window.scrollY>e.offsetHeight&&(t="shown"),l()}function Eo(e){let t=e.querySelector(".navbar_menu"),o=t?[...t.querySelectorAll(".navbar_link")]:[];if(!o.length)return;let n=document.createElement("span");n.className="navbar_pill",n.setAttribute("aria-hidden","true"),t.prepend(n),t.classList.add("has-pill");let s=null,a=u=>{n.style.width=`${u.offsetWidth}px`,n.style.height=`${u.offsetHeight}px`,n.style.transform=`translate(${u.offsetLeft}px, ${u.offsetTop}px)`},r=u=>{!u||!u.offsetWidth||(n.classList.contains("is-visible")?a(u):(n.classList.add("is-instant"),a(u),n.getBoundingClientRect(),n.classList.remove("is-instant"),n.classList.add("is-visible")),o.forEach(p=>p.classList.toggle("is-pill",p===u)),s=u)},i=()=>o.find(u=>u.getAttribute("aria-expanded")==="true"),c=()=>{let u=i();if(u)return r(u);n.classList.remove("is-visible"),o.forEach(p=>p.classList.remove("is-pill")),s=null};o.forEach(u=>{u.addEventListener("pointerenter",()=>r(u)),u.addEventListener("focus",()=>r(u))}),t.addEventListener("pointerleave",c),t.addEventListener("focusout",u=>{t.contains(u.relatedTarget)||c()});let l=new MutationObserver(()=>{t.matches(":hover")||c()});o.forEach(u=>l.observe(u,{attributes:!0,attributeFilter:["aria-expanded"]})),typeof ResizeObserver!="undefined"&&new ResizeObserver(()=>s&&a(s)).observe(t)}function wo(e){let t=()=>{document.documentElement.style.setProperty("--nav-height",`${e.offsetHeight}px`)};t(),typeof ResizeObserver!="undefined"&&new ResizeObserver(t).observe(e)}function _t(e){return e.replace(/\/+$/,"")||"/"}function Lo(e){let t=_t(location.pathname);e.querySelectorAll("a[href]").forEach(o=>{let n=new URL(o.href,location.href);if(n.origin!==location.origin||n.hash)return;let s=_t(n.pathname);s!=="/"&&(t===s||t.startsWith(`${s}/`))&&o.setAttribute("aria-current",t===s?"page":"true")})}function Pt(e=document){let t=String(new Date().getFullYear());e.querySelectorAll("[data-footer-year]").forEach(o=>{let n=document.createTreeWalker(o,NodeFilter.SHOW_TEXT);for(;n.nextNode();){let s=n.currentNode;if(/\b(19|20)\d{2}\b/.test(s.nodeValue)){s.nodeValue=s.nodeValue.replace(/\b(19|20)\d{2}\b/,t);break}}})}function fe(e,{getActive:t,themeAttr:o=null,className:n=""}={}){let s=document.createElement("span");s.className=`tab-indicator ${n}`.trim(),s.setAttribute("aria-hidden","true"),e.prepend(s),e.classList.add("is-sliding");let a=0;function r(c=!0){let l=t();c&&(a=performance.now()+450),!(!l||!l.offsetWidth)&&(c||s.classList.add("is-instant"),s.style.width=`${l.offsetWidth}px`,s.style.height=`${l.offsetHeight}px`,s.style.transform=`translate(${l.offsetLeft}px, ${l.offsetTop}px)`,o&&s.setAttribute("data-theme",l.getAttribute(o)||""),c||(s.getBoundingClientRect(),s.classList.remove("is-instant")))}let i=()=>r(performance.now()<a);return typeof ResizeObserver!="undefined"&&new ResizeObserver(i).observe(e),document.fonts&&document.fonts.ready&&document.fonts.ready.then(()=>r(!1)),r(!1),{move:r,element:s}}function me(e,t,{copyColor:o=!0}={}){let n=t(),s=o&&n?getComputedStyle(n).backgroundColor:"";e.classList.add("is-segmented");let a=fe(e,{getActive:t,className:"segmented-indicator"});return s&&s!=="rgba(0, 0, 0, 0)"&&(a.element.style.backgroundColor=s),a}function Nt(e=document){e.querySelectorAll("[data-formula]").forEach(xo)}function xo(e){let t=[...e.querySelectorAll("[data-formula-tab]")];if(!t.length)return;let o=t[0].parentElement,n=l=>e.querySelector(`[data-formula-panel="${l.getAttribute("data-formula-tab")}"]`),s=t.find(l=>l.classList.contains("is-active"))||t[0];function a(l,{focus:u=!1}={}){if(l===s)return;s=l,t.forEach(y=>{let d=y===l;y.classList.toggle("is-active",d),y.setAttribute("aria-selected",String(d)),y.setAttribute("tabindex",d?"0":"-1");let m=n(y);m&&(d?(m.removeAttribute("hidden"),m.classList.add("is-entering"),m.addEventListener("animationend",()=>m.classList.remove("is-entering"),{once:!0})):m.setAttribute("hidden",""))}),c.move(),r&&r.value!==l.getAttribute("data-formula-tab")&&(r.value=l.getAttribute("data-formula-tab"),r.dispatchEvent(new Event("change",{bubbles:!0}))),u&&l.focus();let p=l.offsetLeft-(o.clientWidth-l.offsetWidth)/2;o.scrollTo({left:p,behavior:"smooth"}),j()}t.forEach(l=>{l.removeAttribute("href");let u=l===s;l.classList.toggle("is-active",u),l.setAttribute("aria-selected",String(u)),l.setAttribute("tabindex",u?"0":"-1");let p=n(l);p&&p.toggleAttribute("hidden",!u)});let r=document.createElement("select");r.className="form_input",r.setAttribute("data-enhance-select",""),r.setAttribute("aria-label",o.getAttribute("aria-label")||S("formula.choose")),t.forEach(l=>r.add(new Option(l.textContent.trim(),l.getAttribute("data-formula-tab")))),r.value=s.getAttribute("data-formula-tab"),r.addEventListener("change",()=>{let l=t.find(u=>u.getAttribute("data-formula-tab")===r.value);l&&a(l)});let i=document.createElement("div");i.className="formula_select",i.appendChild(r),o.after(i);let c=fe(o,{getActive:()=>s,themeAttr:"data-formula-theme",className:"formula_indicator"});t.forEach((l,u)=>{l.addEventListener("click",p=>{p.preventDefault(),p.stopPropagation(),a(l)}),l.addEventListener("keydown",p=>{let y=null;p.key==="ArrowRight"?y=t[(u+1)%t.length]:p.key==="ArrowLeft"?y=t[(u-1+t.length)%t.length]:p.key==="Home"?y=t[0]:p.key==="End"?y=t[t.length-1]:(p.key===" "||p.key==="Enter")&&(y=l),y&&(p.preventDefault(),a(y,{focus:!0}))})})}var Ao=24,So="(max-width: 767px)";function Ot(e=document){typeof window.Swiper!="undefined"&&e.querySelectorAll("[data-slider]").forEach(t=>{if(!Ke(t,"data-slider-mobile-only"))return It(t);let o=window.matchMedia(So),n=null,s=()=>{o.matches&&!n?n=It(t,{mobileOnly:!0}):!o.matches&&n&&(n(),n=null)};s(),o.addEventListener("change",s)})}function Ke(e,t){return e.getAttribute(t)==="true"}function xe(e,t,o){let n=parseFloat(e.getAttribute(t));return Number.isFinite(n)?n:o}function It(e,{mobileOnly:t=!1}={}){let o=e.querySelector("[data-slider-track]");if(!o||o.closest("[data-slider]")!==e||o.swiper)return;let n=[...o.children];if(!n.length)return;let s=getComputedStyle(o),a=parseFloat(s.columnGap)||parseFloat(s.gap)||0,r=e.getAttribute("data-slider-gap")==="edge",i=()=>e.style.setProperty("--slider-edge",`${Math.round(o.getBoundingClientRect().left)+Ao}px`);r&&(e.classList.add("is-slider-edge"),i());let c=document.createElement("div");c.className="swiper slider_viewport",o.parentNode.insertBefore(c,o),c.appendChild(o),o.classList.add("swiper-wrapper"),n.forEach(w=>w.classList.add("swiper-slide"));let l=e.querySelector("[data-slider-prev]"),u=e.querySelector("[data-slider-next]"),p=e.querySelector("[data-slider-dots]"),y=I(),d=xe(e,"data-slider-autoplay",0);[l,u].forEach(w=>{w&&(w.addEventListener("click",A=>A.preventDefault()),w.tagName==="A"&&(w.removeAttribute("href"),w.setAttribute("role","button"),w.hasAttribute("tabindex")||w.setAttribute("tabindex","0"),w.addEventListener("keydown",A=>{A.key!=="Enter"&&A.key!==" "||(A.preventDefault(),w.click())})))});let m=xe(e,"data-slider-per-view",0),g=xe(e,"data-slider-per-view-tablet",m),f=xe(e,"data-slider-per-view-mobile",g),v=t?{slidesPerView:f||"auto"}:m?{slidesPerView:f,breakpoints:{768:{slidesPerView:g},992:{slidesPerView:m}}}:{slidesPerView:"auto"},h=new window.Swiper(c,{...v,spaceBetween:a,speed:y?0:xe(e,"data-slider-speed",600),loop:Ke(e,"data-slider-loop"),centeredSlides:Ke(e,"data-slider-center"),grabCursor:!0,watchOverflow:!0,autoplay:d&&!y?{delay:d,pauseOnMouseEnter:!0,disableOnInteraction:!1}:!1,navigation:{prevEl:l,nextEl:u,disabledClass:"is-disabled",lockClass:"is-locked"},pagination:p?{el:p,clickable:!0,bulletClass:"slider_dot",bulletActiveClass:"is-active"}:!1,a11y:{prevSlideMessage:S("slider.prev"),nextSlideMessage:S("slider.next"),paginationBulletMessage:S("slider.goto"),firstSlideMessage:S("slider.first"),lastSlideMessage:S("slider.last")},keyboard:{enabled:!0,onlyInViewport:!0},on:{afterInit:()=>j()}});if(r){let w=()=>{let A=typeof h.params.slidesPerView=="number"?h.params.slidesPerView:1,$=h.activeIndex,_=$+Math.ceil(A)-1;h.slides.forEach((H,E)=>{H.classList.toggle("is-offside-prev",E<$),H.classList.toggle("is-offside-next",E>_)})};e.style.setProperty("--slider-speed",`${h.params.speed}ms`),w(),h.on("slideChange",w),h.on("breakpoint",w),h.on("resize",()=>{i(),w()})}return e.classList.add("is-slider-ready"),()=>{h.destroy(!0,!0),c.before(o),c.remove(),o.classList.remove("swiper-wrapper"),n.forEach(w=>w.classList.remove("swiper-slide","is-offside-prev","is-offside-next")),e.classList.remove("is-slider-ready","is-slider-edge"),e.style.removeProperty("--slider-edge"),e.style.removeProperty("--slider-speed"),j()}}var Co=40;function Bt(e=document){e.querySelectorAll("[data-photo-slider]").forEach(Mo)}function Mo(e){let t=[...e.querySelectorAll("[data-photo-slide]")];if(!t.length)return;let o=e.querySelector("[data-slider-prev]"),n=e.querySelector("[data-slider-next]"),s=e.querySelector(".slider_dots, [data-slider-dots]"),a=s==null?void 0:s.querySelector("[aria-current='true'], .slider_dot"),r=[...(a==null?void 0:a.classList)||[]].find(h=>h!=="slider_dot"&&/active/.test(h))||"is-active",i=0,c=[];function l(h,w,A){h.classList.toggle("is-instant",!A),h.style.setProperty("--slide-x",`${w}%`)}function u(h,w=Math.sign(h-i)||1,A=!1){let $=i;if(i=(h+t.length)%t.length,t.forEach((_,H)=>{let E=H===i;_.classList.toggle("is-active",E),_.setAttribute("aria-hidden",E?"false":"true");let R=t.length;(H===(i+1)%R||H===(i-1+R)%R)&&(_.loading="eager")}),A)t.forEach((_,H)=>l(_,H===i?0:100,!1));else if($!==i){let _=t[i];l(_,w*100,!1),_.offsetWidth,l(_,0,!0),l(t[$],-w*100,!0)}c.forEach((_,H)=>{_.classList.toggle(r,H===i),_.setAttribute("aria-current",H===i?"true":"false")})}s&&(s.innerHTML="",c=t.map((h,w)=>{let A=document.createElement("button");return A.type="button",A.className="slider_dot",A.setAttribute("aria-label",S("map.photoGo",{n:w+1})),A.addEventListener("click",()=>{u(w),f()}),s.appendChild(A),A})),[[o,-1],[n,1]].forEach(([h,w])=>{h&&(h.tagName==="A"&&(h.removeAttribute("href"),h.setAttribute("role","button"),h.hasAttribute("tabindex")||h.setAttribute("tabindex","0")),h.addEventListener("click",A=>{A.preventDefault(),u(i+w,w),f()}),h.addEventListener("keydown",A=>{A.key!=="Enter"&&A.key!==" "||(A.preventDefault(),h.click())}))});let p=t.length<2;[o,n,s].forEach(h=>h&&(h.hidden=p));let y=null;e.addEventListener("pointerdown",h=>{h.target.closest("a, button")||(y=h.clientX)}),e.addEventListener("pointerup",h=>{if(y==null)return;let w=h.clientX-y;y=null,Math.abs(w)>Co&&!p&&(u(i+(w<0?1:-1),w<0?1:-1),f())}),e.addEventListener("pointercancel",()=>y=null),t.forEach(h=>h.draggable=!1),e.addEventListener("keydown",h=>{if(p||h.key!=="ArrowLeft"&&h.key!=="ArrowRight")return;h.preventDefault();let w=h.key==="ArrowRight"?1:-1;u(i+w,w),f()});let d=parseInt(e.getAttribute("data-photo-slider-autoplay"),10)||0,m=null,g=!1;function f(){clearInterval(m),!(!d||p||g||I())&&(m=setInterval(()=>u(i+1,1),d))}let v=h=>()=>{g=h,f()};e.addEventListener("mouseenter",v(!0)),e.addEventListener("mouseleave",v(!1)),e.addEventListener("focusin",v(!0)),e.addEventListener("focusout",v(!1)),e.classList.add("is-photo-ready"),u(0,1,!0),f()}function Dt(e=document){e.querySelectorAll("[data-rooms]").forEach(qo)}function ko(e){if(/^moins|^less|^under/i.test(e))return 0;let t=e.match(/\d+/);return t?parseInt(t[0],10):0}var $e=e=>(e||"").replace(/\s+/g," ").trim().toLowerCase();function qo(e){let t=[...e.querySelectorAll("[data-room-filter-option]")],o=[...e.querySelectorAll("[data-room]")];if(!o.length)return;let n=e.querySelector("[data-room-more]"),s=parseInt(n==null?void 0:n.getAttribute("data-room-more"),10)||4,a=!n,r="toutes",i=document.createElement("p");i.className="rooms-filter_status",i.setAttribute("role","status"),(e.querySelector("[data-room-filter]")||e).appendChild(i);let c=m=>!m||$e(m)==="toutes"||$e(m)==="all";function l(m){if(c(m))return o;let g=o.filter(v=>$e(v.getAttribute("data-room-jauge"))===$e(m));if(g.length)return g;let f=ko(m);return o.filter(v=>(parseInt(v.getAttribute("data-room-capacite"),10)||0)>=f)}function u(m=!0){let g=l(r),f=a?g:g.slice(0,s);if(o.forEach(v=>{let h=f.includes(v),w=v.hidden;v.hidden=!h,h&&w&&!I()&&(v.classList.remove("is-room-in"),v.offsetWidth,v.classList.add("is-room-in"))}),n){let v=g.length>f.length;n.parentElement.hidden=!v,n.setAttribute("aria-expanded",String(!v))}if(m){let v=f.length;i.textContent=S(v===1?"rooms.countOne":"rooms.count",{n:v})}j()}let p=t.find(m=>m.getAttribute("aria-checked")==="true")||t[0],y=p?me(p.parentElement,()=>p):null,d=(m,g=!1)=>{p=m,t.forEach(f=>{let v=f===m;f.classList.toggle("is-active",v),f.setAttribute("aria-checked",String(v)),f.tabIndex=v?0:-1}),g&&m.focus(),y==null||y.move(),r=m.getAttribute("data-room-filter-option"),u()};if(t.forEach((m,g)=>{m.addEventListener("click",f=>{f.preventDefault(),d(m)}),m.addEventListener("keydown",f=>{f.key===" "||f.key==="Enter"?(f.preventDefault(),d(m)):f.key==="ArrowRight"||f.key==="ArrowDown"?(f.preventDefault(),d(t[(g+1)%t.length],!0)):(f.key==="ArrowLeft"||f.key==="ArrowUp")&&(f.preventDefault(),d(t[(g-1+t.length)%t.length],!0))})}),t.forEach(m=>m.tabIndex=m===p?0:-1),p&&(r=p.getAttribute("data-room-filter-option")),n){n.tagName==="A"&&n.removeAttribute("href"),n.hasAttribute("tabindex")||(n.tabIndex=0);let m=()=>{var v;let g=o.filter(h=>!h.hidden);a=!0,u();let f=o.find(h=>!h.hidden&&!g.includes(h));(v=f==null?void 0:f.querySelector("a, button"))==null||v.focus({preventScroll:!0})};n.addEventListener("click",g=>{g.preventDefault(),m()}),n.addEventListener("keydown",g=>{g.key!=="Enter"&&g.key!==" "||(g.preventDefault(),m())})}u(!1)}var To="http://www.w3.org/2000/svg",re=(e,t,o)=>Math.max(t,Math.min(o,e)),Ht=e=>e*Math.PI/180,ue=e=>Math.round(e*100)/100,Pe=e=>"M"+e.map(t=>ue(t[0])+" "+ue(t[1])).join("L")+"Z",Ne=(e,t)=>`M${ue(e[0])} ${ue(e[1])}L${ue(t[0])} ${ue(t[1])}`,Ro=e=>e.length<2?"":"M"+e.map(t=>ue(t[0])+" "+ue(t[1])).join("L"),Vt=(e,t,o)=>({az:Ht(e),k:t,S:o,ox:0,oy:0});function Qe(e){let t=Math.cos(e.az),o=Math.sin(e.az),n=Math.sqrt(1-e.k*e.k);return(s,a,r)=>{let i=s*t-a*o,c=s*o+a*t;return[e.ox+e.S*i,e.oy+e.S*(c*e.k-r*n)]}}function Je(e,t){let o=Qe({...e,ox:0,oy:0}),n=1e9,s=-1e9,a=1e9,r=-1e9;for(let i of t){let c=o(i[0],i[1],i[2]);n=Math.min(n,c[0]),s=Math.max(s,c[0]),a=Math.min(a,c[1]),r=Math.max(r,c[1])}return{x0:n,x1:s,y0:a,y1:r}}function Ut(e,t,o,n){let s=Je(e,t);e.ox=o-(s.x0+s.x1)/2,e.oy=n-(s.y0+s.y1)/2}var Gt=e=>{let t=Math.sin(e.az),o=Math.cos(e.az);return n=>n.nu*t+n.nv*o>=-1e-6};function Ft(e,t,o,n,s,a=4){s=Math.max(0,Math.min(s,(o-e)/2,(n-t)/2));let r=[];for(let[i,c,l]of[[o-s,n-s,0],[e+s,n-s,90],[e+s,t+s,180],[o-s,t+s,270]])for(let u=0;u<=a;u++){let p=Ht(l+90*u/a),y=Math.cos(p),d=Math.sin(p);r.push({u:i+s*y,v:c+s*d,nu:y,nv:d})}return r}function Ae(e,t,o,n=20){let s=[];for(let a=0;a<n;a++){let r=a/n*Math.PI*2,i=Math.cos(r),c=Math.sin(r);s.push({u:e+o*i,v:t+o*c,nu:i,nv:c})}return s}function _o(e){let t=e.slice().sort((a,r)=>a[0]-r[0]||a[1]-r[1]),o=(a,r,i)=>(r[0]-a[0])*(i[1]-a[1])-(r[1]-a[1])*(i[0]-a[0]),n=[],s=[];for(let a of t){for(;n.length>1&&o(n[n.length-2],n[n.length-1],a)<=0;)n.pop();n.push(a)}for(let a=t.length-1;a>=0;a--){let r=t[a];for(;s.length>1&&o(s[s.length-2],s[s.length-1],r)<=0;)s.pop();s.push(r)}return n.pop(),s.pop(),n.concat(s)}var Ze=(e,t,o)=>t.map(n=>e(n.u,n.v,o));function $o(e,t){let o=e.length,n=-1;for(let a=0;a<o;a++)if(t(e[a])&&!t(e[(a+o-1)%o])){n=a;break}if(n<0)return t(e[0])?e.slice():[];let s=[];for(let a=0;a<o&&t(e[(n+a)%o]);a++)s.push(e[(n+a)%o]);return s}function he(e,t,o,n,s,a){return{sil:Pe(_o(Ze(e,o,a).concat(Ze(e,o,s)))),crease:n?Ro(Ze(e,$o(n,t),a)):""}}var Se=(e,t,o,n,s,a)=>[Ft(e,t,o,n,s),Ft(e+a,t+a,o-a,n-a,Math.max(.3,s-a))];function Wt(e,t){let o=t.map(r=>e(r.u,r.v,0)),n=0,s=0,a=0;return o.forEach((r,i)=>{r[0]<o[n][0]&&(n=i),r[0]>o[s][0]&&(s=i),r[1]>o[a][1]&&(a=i)}),[t[n],t[s],t[a]]}function Po(e,t,o,n){let s=3*e,a=3*(o-e)-s,r=1-s-a,i=3*t,c=3*(n-t)-i,l=1-i-c,u=d=>((r*d+a)*d+s)*d,p=d=>((l*d+c)*d+i)*d,y=d=>(3*r*d+2*a)*d+s;return d=>{if(d<=0)return 0;if(d>=1)return 1;let m=d;for(let g=0;g<8;g++){let f=u(m)-d;if(Math.abs(f)<1e-5)break;let v=y(m);if(Math.abs(v)<1e-6)break;m-=f/v}return p(re(m,0,1))}}var No=Po(.32,.72,0,1),zt=(e,t=700)=>({from:e,to:e,t0:-1e9,dur:t,instant:!1}),et=(e,t)=>{if(e.instant)return e.to;let o=re((t-e.t0)/e.dur,0,1);return e.from+(e.to-e.from)*No(o)},tt=(e,t,o,n,s=!1)=>{e.to===t&&!s||(e.from=et(e,o),e.to=t,e.t0=o+n,e.instant=s)},Yt=(e,t)=>e.instant||t>=e.t0+e.dur;function ne(e,t,o){let n=document.createElementNS(To,e);if(t)for(let s in t)n.setAttribute(s,String(t[s]));return o&&o.appendChild(n),n}function Ce(e){let t=ne("g",{},e);return{g:t,sil:ne("path",{class:"sil"},t),cr:ne("path",{class:"nf lo"},t)}}var ge=(e,t)=>{e.sil.setAttribute("d",t.sil),e.cr.setAttribute("d",t.crease)};var Io=450,Oo=40,Me=24,ae=1.2,nt=4.2,Bo=9,Do=7.2,Fo=10.5,ot=10.4,Z=4.2;function Ho(e,t,o){let n=[],a=Math.max(2,Math.floor((t-26)/6.4)),r=re(Math.ceil(e/(2*a)),1,Math.max(1,Math.floor(o/26))),i=e;for(let c=0;c<r;c++){let l=Math.ceil(i/(r-c));i-=l;let u=Math.ceil(l/2),p=u*6.4+3,y=(t-p)/2+3,d=o/r*(c+.5);n.push(["table",y,d-6,[p,12]]);for(let m=0;m<u;m++){let g=y+1.5+m*6.4;n.push(["chair",g,d-11.5,"-y"]),m<l-u&&n.push(["chair",g,d+7.5,"+y"])}}return n}function Vo(e,t,o){let n=[],a=t-18,r=6,i=o-12;n.push(["table",14,r,[a-14,6]],["table",14,i,[a-14,6]],["table",a,r,[6,i+6-r]]);let c=a-14-4,l=i-r-8,u=re(Math.round(e*l/(2*c+l)),1,Math.max(1,Math.floor(l/6)));e<6&&(u=0);let p=Math.ceil((e-u)/2),y=e-u-p,d=(m,g,f)=>Array.from({length:m},(v,h)=>g+(h+.5)*f/m-Z/2);return d(p,16,c).forEach(m=>n.push(["chair",m,r-4.6,"-y"])),d(y,16,c).forEach(m=>n.push(["chair",m,i+6.6,"+y"])),d(u,r+10,l).forEach(m=>n.push(["chair",a+7.4,m,"+x"])),n}function Uo(e,t,o){let n=[],s=Math.max(1,Math.floor((o-10)/6.6)),a=Math.ceil(e/s),r=re((t-22)/Math.max(a,1),6,11),i=e;for(let c=0;c<a;c++){let l=Math.min(s,i);i-=l;let u=(o-l*6.6)/2+1.2;for(let p=0;p<l;p++)n.push(["chair",16+c*r,u+p*6.6,"+x"])}return n}var Go=e=>()=>(e=(e*9301+49297)%233280,e/233280);function Wo(e,t,o){let n=[];t>40&&n.push(["bar",t*.42,3,[Math.min(26,t*.33),6]]);let s=re(Math.round(e/4.5),2,60),a=14,r=t-8,i=14,c=o-6,l=r-a,u=c-i,p=Math.max(1,Math.round(Math.sqrt(s*l/u))),y=Math.ceil(s/p),d=Go(e*7+Math.round(t)),m=0;for(let g=0;g<y&&m<s;g++)for(let f=0;f<p&&m<s;f++,m++){let v=(d()-.5)*(l/p)*.4,h=(d()-.5)*(u/y)*.4,w=a+(f+.5)*l/p+v+(g%2?l/p/4:0);n.push(["high",re(w,a,r),i+(g+.5)*u/y+h])}return n}var st={reunion:Ho,"en-u":Vo,theatre:Uo,cocktail:Wo};function zo(e){let t=(c,l)=>c.b[2]<=l.b[0]||c.b[3]<=l.b[1],o=c=>(c.b[0]+c.b[2]+c.b[1]+c.b[3])/2,n=e.length,s=new Array(n).fill(0),a=e.map(()=>[]);for(let c=0;c<n;c++)for(let l=0;l<n;l++)c!==l&&t(e[c],e[l])&&!t(e[l],e[c])&&(a[c].push(l),s[l]++);let r=e.map((c,l)=>l).filter(c=>s[c]===0),i=[];for(;r.length;){r.sort((l,u)=>o(e[l])-o(e[u]));let c=r.shift();i.push(e[c]);for(let l of a[c])--s[l]===0&&r.push(l)}e.splice(0,n,...i)}function jt(e,{surface:t=40,configs:o=[]}={}){let n=re(t||40,12,400)*100,s=Math.sqrt(n*1.6),a=n/s,r=ne("svg",{viewBox:"0 0 400 320","aria-hidden":"true"},e),i=[[-ae,-ae,Me],[s,-ae,Me],[-ae,a,Me],[s,a,0],[-ae,a,0],[s,-ae,0]],c=Vt(45,.5,1),l=Je(c,i);c.S=Math.min(360/(l.x1-l.x0),270/(l.y1-l.y0)),Ut(c,i,200,165);let u=Qe(c),p=Gt(c),y=ne("g",{},r),d=(x,V,O,b,C,k,M=.6,T=.3)=>{let G=Ce(y),[N,P]=Se(x,V,O,b,M,T);ge(G,he(u,p,N,P,C,k))};d(0,0,s,a,-1.2,0,2.5,1.2),d(-ae,-ae,s,0,0,Me,.4,.2),d(-ae,0,0,a,0,Me,.4,.2);let m=x=>Pe(x.map(([V,O])=>u(V,0,O))),g=x=>Pe(x.map(([V,O])=>u(0,V,O))),f=Math.max(1,Math.floor((s-12)/23)),v=(s-12)/f;for(let x=0;x<f;x++){let V=10+x*v+(v-16)/2;ne("path",{d:m([[V,9],[V+16,9],[V+16,22],[V,22]]),class:"nf lo"},y),ne("path",{d:Ne(u(V+8,0,9),u(V+8,0,22)),class:"nf lo"},y)}let h=Math.min(10,a*.2),w=ne("path",{d:g([[a/2-h,10],[a/2+h,10],[a/2+h,21],[a/2-h,21]]),class:"nf hi"},y);ne("path",{d:g([[a-13,0],[a-4,0],[a-4,21],[a-13,21]]),class:"nf lo"},y);let A=o.map(x=>x.key),$=[];o.forEach(({key:x,n:V})=>{var O;(((O=st[x])==null?void 0:O.call(st,V,s,a))||[]).forEach(([b,C,k,M])=>$.push({key:x,kind:b,x:C,y:k,d:M}))});let _=x=>x.kind==="table"||x.kind==="bar",H=x=>_(x)?[x.x+x.d[0]/2,x.y+x.d[1]/2]:x.kind==="high"?[x.x,x.y]:[x.x+Z/2,x.y+Z/2],E=x=>_(x)?[x.x,x.y,x.x+x.d[0],x.y+x.d[1]]:x.kind==="high"?[x.x-3.5,x.y-3.5,x.x+3.5,x.y+3.5]:[x.x,x.y,x.x+Z,x.y+Z];for(let x of $)x.b=E(x);zo($);for(let x of $)x.g=ne("g",{},y),x.h=zt(0),x.parts=x.kind==="chair"||x.kind==="high"?[Ce(x.g),Ce(x.g)]:[Ce(x.g)],(x.kind==="table"||x.kind==="high")&&(x.drop=ne("path",{class:"nf dash"},x.g),x.g.insertBefore(x.drop,x.g.firstChild));function R(x,V){var C;if(V<.03){for(let k of x.parts)k.sil.setAttribute("d",""),k.cr.setAttribute("d","");(C=x.drop)==null||C.setAttribute("d","");return}let{x:O,y:b}=x;if(x.kind==="chair"){let[k,M]=x.parts,[T,G]=Se(O,b,O+Z,b+Z,.8,.4);ge(k,he(u,p,T,G,nt*V-.4,nt*V));let N={"+x":[O+Z-.5,b,O+Z,b+Z],"-x":[O,b,O+.5,b+Z],"+y":[O,b+Z-.5,O+Z,b+Z],"-y":[O,b,O+Z,b+.5]}[x.d];[T,G]=Se(N[0],N[1],N[2],N[3],.2,.1),ge(M,he(u,p,T,G,nt*V,Bo*V))}else if(_(x)){let k=x.kind==="table"?Do:Fo,[M,T]=Se(O,b,O+x.d[0],b+x.d[1],1,x.kind==="table"?1.2:.8);if(ge(x.parts[0],he(u,p,M,T,x.kind==="table"?(k-.5)*V:0,k*V)),x.drop){let G=Wt(u,M).map(N=>[u(N.u,N.v,(k-.5)*V),u(N.u,N.v,0)]);x.drop.setAttribute("d",G.map(([N,P])=>Ne(N,P)).join(""))}}else ge(x.parts[0],he(u,p,Ae(O,b,2.5),Ae(O,b,1.6),0,.3*V)),ge(x.parts[1],he(u,p,Ae(O,b,3.5),Ae(O,b,2.4),(ot-.4)*V,ot*V)),x.drop.setAttribute("d",Ne(u(O,b,.3*V),u(O,b,(ot-.4)*V)))}let B=0;function W(){let x=performance.now(),V=!1;for(let O of $)R(O,et(O.h,x)),Yt(O.h,x)||(V=!0);B=V?requestAnimationFrame(W):0}let X=()=>{B||(B=requestAnimationFrame(W))},J=null;function K(x){if(!A.includes(x)||x===J)return;let V=J===null;J=x;let O=performance.now(),b=V||I(),[C,k]=[s/2,a/2];for(let M of $){let[T,G]=H(M),N=Math.hypot(T-C,G-k)/10*Oo;M.key===x?tt(M.h,1,O,Io+N,b):tt(M.h,0,O,N/2,b)}w.setAttribute("class",x==="cocktail"?"nf lo":"nf hi");for(let M of $)M.kind==="bar"&&M.parts[0].sil.classList.toggle("hi",x==="cocktail");b?W():X()}return K(A[0]),{show:K,keys:A}}var Yo=0;function Xt(e=document){e.querySelectorAll("[data-rooms]").forEach(t=>{let o=[...t.querySelectorAll("[data-room]")].filter(s=>s.querySelector("[data-room-toggle]")&&s.querySelector("[data-room-panel]"));if(!o.length)return;let n=o.map(s=>jo(s,()=>n))})}function rt(e,t){e.tagName==="A"&&e.removeAttribute("href"),e.hasAttribute("tabindex")||(e.tabIndex=0),e.addEventListener("click",o=>{o.preventDefault(),t()}),e.addEventListener("keydown",o=>{o.key!=="Enter"&&o.key!==" "||(o.preventDefault(),t())})}function jo(e,t){let o=e.querySelector("[data-room-toggle]"),n=e.querySelector("[data-room-panel]"),s=o.querySelector("span")||o,a=s.textContent.trim(),r=n.id||`room-detail-${++Yo}`;n.id=r,o.setAttribute("aria-controls",r),n.setAttribute("role","region");let i=n.querySelector(".venue-room_detail-title, h3, h4, p");i&&(i.id=i.id||`${r}-title`,n.setAttribute("aria-labelledby",i.id));let c=!1,l=null;function u(){t().forEach(m=>m!==d&&m.close(!1)),c=!0,e.classList.add("is-open"),o.setAttribute("aria-expanded","true"),s.textContent=S("rooms.closeRoom"),l||(l=ss(e)),l==null||l.refresh(),I()||(n.classList.remove("is-panel-in"),n.offsetWidth,n.classList.add("is-panel-in")),j(),requestAnimationFrame(()=>{let m=n.getBoundingClientRect().top;if(m>window.innerHeight*.6||m<0){let g=e.querySelector("[data-room-card]"),f=z();f?f.scrollTo(g,{offset:-120}):g.scrollIntoView({behavior:I()?"auto":"smooth",block:"start"})}})}function p(m=!0){c&&(c=!1,e.classList.remove("is-open"),n.classList.remove("is-panel-in"),o.setAttribute("aria-expanded","false"),s.textContent=a,j(),m&&o.focus({preventScroll:!0}))}rt(o,()=>c?p(!1):u());let y=e.querySelector("[data-room-card]");y==null||y.addEventListener("click",m=>{m.target.closest("[data-room-toggle]")||(c?p(!1):u())}),e.querySelectorAll("[data-room-close]").forEach(m=>rt(m,()=>p())),n.addEventListener("keydown",m=>{m.key==="Escape"&&p()}),e.roomConfigs=ns(n),Zo(n),Ko(n);let d={close:p};return d}var Xo=[[/lumi[eè]re|fen[eê]tre|soleil|jour/i,"sun"],[/paperboard|tableau|whiteboard/i,"board"],[/[ée]cran|visio|t[ée]l[ée]|projecteur/i,"screen"],[/r[ée]gie|vid[ée]o|cam[ée]ra|captation/i,"video"],[/micro|sono|son\b|enceinte|audio/i,"mic"],[/divisible|modulable|cloison/i,"split"],[/bistrot|caf[ée]|restaura|bar\b|cocktail|traiteur/i,"coffee"],[/rooftop|terrasse|jardin/i,"terrace"],[/wi-?fi|internet|fibre/i,"wifi"],[/parking/i,"parking"],[/mobilier|fauteuil|canap|lounge/i,"sofa"],[/acc[eè]s|badge|24/i,"key"]];function Ko(e){e.querySelectorAll("[data-room-equipements] li").forEach(t=>{if(t.querySelector(".room-feature_icon"))return;let o=t.textContent,n=(Xo.find(([r])=>r.test(o))||[,"check"])[1],s=document.createElement("span");s.className="room-feature_icon",s.setAttribute("aria-hidden","true");let a=document.createElement("span");a.className=`room-icon is-${n}`,s.appendChild(a),t.prepend(s)})}function Zo(e){let t=e.querySelector("[data-room-configurations]");t&&t.querySelectorAll("li, p").forEach(o=>{if(o.querySelector(".room-config_value"))return;let n=o.textContent.trim().match(/^(\d[\d\s  ]*)\s*[·:–-]\s*(.+)$/);if(!n)return;o.textContent="";let s=document.createElement("strong");s.className="room-config_value",s.textContent=n[1].trim();let a=document.createElement("span");a.className="room-config_label",a.textContent=n[2].trim(),o.append(s,a)})}var Qo=["reunion","theatre","en-u","cocktail"],Jo=e=>e&&!e.classList.contains("w-dyn-bind-empty")&&e.getAttribute("src"),es=e=>e.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();function ts(e){let t=es(e);return t.startsWith("reunion")||t.startsWith("meeting")?"reunion":t.startsWith("theatre")?"theatre":t==="u"||t.startsWith("en u")||t.startsWith("u-")?"en-u":t.startsWith("cocktail")?"cocktail":null}function ns(e){let t=e.querySelector("[data-room-configurations]");if(!t)return[];let o={};return t.querySelectorAll("li, p").forEach(n=>{let s=n.textContent.replace(/\s+/g," ").trim().match(/^(\d+)\s*[·:–-]?\s*(.+)$/),a=s&&ts(s[2]);a&&!o[a]&&(o[a]=parseInt(s[1],10))}),Qo.filter(n=>o[n]).map(n=>({key:n,n:o[n]}))}function os(e){var o;let t=(((o=e.querySelector(".venue-room_meta"))==null?void 0:o.textContent)||"").match(/(\d+[.,]?\d*)\s*m/);return t?parseFloat(t[1].replace(",",".")):40}function ss(e){let t=e.querySelector("[data-room-views]");if(!t)return null;let o=[...t.querySelectorAll("[data-room-view-toggle]")];if(!o.length)return null;let n=t.querySelector(".venue-room_view:not(.is-plan)"),s=[...t.querySelectorAll(".venue-room_view.is-plan")],a=s.find(g=>!g.hasAttribute("data-room-plan")),r=e.roomConfigs||[];if(!r.length&&!Jo(a))return o[0].parentElement.hidden=!0,null;let i=null,c=null,l=null,u=null;function p(){if(i||!r.length)return;c=document.createElement("div"),c.className="room-plan",c.setAttribute("role","img"),t.appendChild(c),l=document.createElement("p"),l.className="room-plan_read",t.appendChild(l),i=jt(c,{surface:os(e),configs:r});let g=v=>S(`rooms.plan.${v.key}`),f=v=>{i.show(v.key),l.textContent=S("rooms.planSeats",{n:v.n}),c.setAttribute("aria-label",S("rooms.planAlt",{config:g(v),n:v.n}))};r.length>1?u=rs(t,r.map(g),v=>f(r[v])):f(r[0])}let y=o.find(g=>g.getAttribute("aria-selected")==="true")||o[0],d=me(o[0].parentElement,()=>y,{copyColor:!1}),m=(g,f=!1)=>{y=g;let v=g.getAttribute("data-room-view-toggle")==="plan";o.forEach(h=>{let w=h===g;h.classList.toggle("is-active",w),h.setAttribute("aria-selected",String(w)),h.tabIndex=w?0:-1}),v&&p(),t.classList.toggle("is-plan-view",v),n&&(n.hidden=v),s.forEach(h=>h.hidden=!(v&&!i&&h===a)),[c,l].forEach(h=>h&&(h.hidden=!v)),u&&(u.element.hidden=!v,v&&u.refresh()),d.move(),f&&g.focus()};return o.forEach((g,f)=>{rt(g,()=>m(g)),g.addEventListener("keydown",v=>{if(v.key!=="ArrowRight"&&v.key!=="ArrowLeft")return;v.preventDefault();let h=v.key==="ArrowRight"?1:-1;m(o[(f+h+o.length)%o.length],!0)})}),m(y),{refresh:()=>{d.move(!1),u==null||u.refresh()}}}function rs(e,t,o){let n=document.createElement("div");n.className="room-plan-switch",n.setAttribute("role","radiogroup"),n.setAttribute("aria-label",S("rooms.planConfig"));let s=null,a=t.map(l=>{let u=document.createElement("button");return u.type="button",u.className="room-plan-switch_option",u.setAttribute("role","radio"),u.textContent=l,n.appendChild(u),u}),r=document.createElement("div");r.className="room-media-col",e.before(r),r.append(e,n);let i=me(n,()=>s,{copyColor:!1}),c=(l,u=!1)=>{s=a[l],a.forEach((p,y)=>{p.classList.toggle("is-active",y===l),p.setAttribute("aria-checked",String(y===l)),p.tabIndex=y===l?0:-1}),i.move(),u&&s.focus(),o(l)};return a.forEach((l,u)=>{l.addEventListener("click",()=>c(u)),l.addEventListener("keydown",p=>{if(p.key!=="ArrowRight"&&p.key!=="ArrowLeft")return;p.preventDefault();let y=p.key==="ArrowRight"?1:-1;c((u+y+a.length)%a.length,!0)})}),c(0),{element:n,refresh:()=>i.move(!1)}}var as=1800,is=/\d[\d\s  .,]*\d|\d/,cs=.35,ls=.06,us=e=>1-Math.pow(1-e,3);function ds(e){let t=e.match(is);if(!t)return null;let o=t[0],n=(o.match(/[\s  .,]/)||[""])[0],s=parseInt(o.replace(/\D/g,""),10);return Number.isFinite(s)?{value:s,separator:n,before:e.slice(0,t.index),after:e.slice(t.index+o.length)}:null}function ps(e,t){let o=String(Math.round(e));return t?o.replace(/\B(?=(\d{3})+(?!\d))/g,t):o}var at=e=>e.before+ps(e.value,e.separator)+e.after;function fs(e,t){let o=at(t);e.textContent="";let n=document.createElement("span");n.className="count-roll",[...o].forEach(g=>{let f=document.createElement("span");f.textContent=g,n.appendChild(f)}),e.appendChild(n);let s=n.getBoundingClientRect().height,a=[...n.children].map(g=>g.getBoundingClientRect().width);n.remove();let r=document.createElement("span");r.className="count-sr",r.textContent=o;let i=document.createElement("span");i.className="count-roll",i.setAttribute("aria-hidden","true");let c=Math.round(s*cs),l=Math.round(s*ls);i.style.setProperty("--count-line",`${s}px`),i.style.setProperty("--count-gap",`${c}px`),i.style.setProperty("--count-win",`${l}px`);let u=(o.match(/\d/g)||[]).length,p=0,y=[],d=t.before.length,m=o.length-t.after.length;return[...o].forEach((g,f)=>{if(!(/\d/.test(g)&&f>=d&&f<m)){let $=document.createElement("span");$.className="count-char",$.textContent=g,i.appendChild($);return}let h=u-1-p++,w=document.createElement("span");w.className="count-col",w.style.width=`${a[f]}px`;let A=document.createElement("span");A.className="count-strip";for(let $=0;$<=10;$++){let _=document.createElement("span");_.textContent=$%10,A.appendChild(_)}w.appendChild(A),i.appendChild(w),y.push({col:w,strip:A,power:h})}),e.append(r,i),{roll:i,columns:y,pitch:s+c*2,offset:l-c}}function ms(e,t){let o=[...e].sort((a,r)=>a.power-r.power),n=new Map,s=null;return o.forEach(a=>{let r=Math.pow(10,a.power),i;if(a.power===0)i=t;else{let c=s%10;i=Math.floor(t/r)+Math.max(c-9,0)}n.set(a,i),s=i}),n}function Kt(e,t){let{columns:o,pitch:n,offset:s}=e,a=ms(o,t);o.forEach(r=>{let i=Math.pow(10,r.power);r.strip.style.transform=`translateY(${s-a.get(r)%10*n}px)`,r.col.style.opacity=r.power===0?1:Math.min(Math.max(t/i-.6,0)*2.5,1)})}function hs(e){let t=e._count;if(!t||t.done)return;e.style.minWidth=e.style.maxWidth=e.style.minHeight="";let o=e.querySelector(".count-roll"),n=[...e.childNodes];e.textContent=at(t);let s=e.getBoundingClientRect();return e.textContent="",e.append(...n),e.style.minWidth=e.style.maxWidth=`${s.width}px`,e.style.minHeight=`${s.height}px`,o}function gs(e,t){t.done=!0,e.textContent=at(t),e.style.minWidth=e.style.maxWidth=e.style.minHeight="",e.classList.remove("is-counting")}function ys(e,t,o){let n=e._roll,s=performance.now(),a=r=>{let i=Math.min((r-s)/o,1);if(i>=1)return gs(e,t);Kt(n,t.value*us(i)),requestAnimationFrame(a)};requestAnimationFrame(a)}function Zt(e=document){var a;let t=[...e.querySelectorAll("[data-count]")];if(!t.length||I()||!("IntersectionObserver"in window))return;let o=new IntersectionObserver(r=>{r.forEach(i=>{if(!i.isIntersecting)return;o.unobserve(i.target);let c=i.target;c._count.started=!0,ys(c,c._count,parseFloat(c.getAttribute("data-count-duration"))||as)})},{threshold:.4}),n=r=>{r._roll=fs(r,r._count),Kt(r._roll,0),hs(r)};t.forEach(r=>{let i=ds(r.textContent.trim());i&&(r._count=i,getComputedStyle(r).display==="inline"&&(r.style.display="inline-block"),r.classList.add("is-counting"),n(r),o.observe(r))});let s=()=>t.forEach(r=>{!r._count||r._count.done||r._count.started||n(r)});(a=document.fonts)==null||a.ready.then(s),window.addEventListener("resize",s,{passive:!0})}var Qt=140,vs=32;function Jt(e=document){let t=[...e.querySelectorAll("[data-reveal-stagger]")];if(!t.length||I()||!("IntersectionObserver"in window))return;let o=new IntersectionObserver(n=>{n.forEach(s=>{s.isIntersecting&&(o.unobserve(s.target),bs(s.target))})},{threshold:.2,rootMargin:"0px 0px -10% 0px"});t.forEach(n=>{let s=parseFloat(n.getAttribute("data-reveal-stagger"))||Qt,a=parseFloat(n.getAttribute("data-reveal-distance"))||vs;n.style.setProperty("--reveal-distance",`${a}px`),[...n.children].forEach((r,i)=>{r.style.setProperty("--reveal-delay",`${i*s}ms`)}),n.classList.add("is-reveal-pending"),o.observe(n)})}function bs(e){e.classList.add("is-revealed"),e.classList.remove("is-reveal-pending");let t=e.children.length,o=parseFloat(e.getAttribute("data-reveal-stagger"))||Qt;setTimeout(()=>e.classList.add("is-reveal-done"),t*o+800)}var en=[-7,5,-3,6,-5,3],tn=[[-10,6],[8,-4],[-4,-8],[10,4],[-8,-2],[4,8]],Es=90,ws=900;function nn(e=document){I()||!("IntersectionObserver"in window)||e.querySelectorAll("[data-cards-stack]").forEach(Ls)}function Ls(e){let t=[...e.children];if(t.length<2||e.matches("[data-mobile-slider], [data-slider-track]")&&window.matchMedia("(max-width: 767px)").matches)return;let o=()=>t.every(c=>Math.abs(c.offsetTop-t[0].offsetTop)<4),n=()=>{let c=e.classList.contains("is-stacked");e.classList.remove("is-stacked");let l=e.getBoundingClientRect(),u=t.map(d=>d.getBoundingClientRect()),p=l.left+l.width/2,y=Math.min(...u.map(d=>d.top+d.height/2));t.forEach((d,m)=>{let g=u[m],[f,v]=tn[m%tn.length];d.style.setProperty("--stack-x",`${p-(g.left+g.width/2)+f}px`),d.style.setProperty("--stack-y",`${y-(g.top+g.height/2)+v}px`),d.style.setProperty("--stack-r",`${en[m%en.length]}deg`),d.style.zIndex=String(t.length-m)}),c&&e.classList.add("is-stacked")};if(!o())return;n(),e.classList.add("is-stacked");let s=parseFloat(e.getAttribute("data-cards-stack-delay"))||Es,a=()=>{t.forEach((c,l)=>c.style.setProperty("--stack-delay",`${l*s}ms`)),e.classList.add("is-dealing"),e.classList.remove("is-stacked"),setTimeout(()=>{e.classList.remove("is-dealing"),t.forEach(c=>{["--stack-x","--stack-y","--stack-r","--stack-delay"].forEach(l=>c.style.removeProperty(l)),c.style.zIndex=""})},ws+s*t.length+50)},r=new IntersectionObserver(c=>{c.some(l=>l.isIntersecting)&&(r.disconnect(),window.removeEventListener("resize",i),a())},{threshold:.35});r.observe(e);function i(){e.classList.contains("is-stacked")&&(o()?n():(e.classList.remove("is-stacked"),r.disconnect(),window.removeEventListener("resize",i)))}window.addEventListener("resize",i,{passive:!0})}var xs="(min-width: 992px)",As=16,Ss=.08,on=2,Cs="0 32px 64px rgba(18, 20, 4, 0.22)",Ms="0 0px 0px rgba(18, 20, 4, 0)";function sn(e=document){let{gsap:t,ScrollTrigger:o}=window;!t||!o||I()||(t.registerPlugin(o),e.querySelectorAll("[data-stack-reveal]").forEach(n=>{let s=[...n.querySelectorAll("[data-stack-reveal-item]")];if(s.length<2)return;t.matchMedia().add(xs,()=>{s.forEach((l,u)=>{l.style.position="relative",l.style.zIndex=String(s.length-u)});let r=s[0],i=()=>r.getBoundingClientRect().top+window.scrollY,c=l=>i()+l.offsetTop-r.offsetTop;return s.slice(1).forEach((l,u)=>{let p=u+1,y=s[u],d=t.timeline({scrollTrigger:{trigger:r,start:()=>i()-window.innerHeight*.3,end:()=>c(l)+l.offsetHeight-window.innerHeight,scrub:!0,invalidateOnRefresh:!0}});d.fromTo(l,{y:()=>r.offsetTop+r.offsetHeight-l.offsetTop-l.offsetHeight+p*As,scale:1-p*Ss,rotation:p%2?-on:on,transformOrigin:"50% 100%"},{y:0,scale:1,rotation:0,ease:"none"},0),d.fromTo(y,{boxShadow:Cs},{boxShadow:Ms,ease:"none"},0)}),j(),()=>s.forEach(l=>{l.style.position="",l.style.zIndex="",l.style.boxShadow=""})})}))}var ks=".event-card",qs=450,Ts=800;function rn(e=document){I()||!("IntersectionObserver"in window)||e.querySelectorAll("[data-bento-reveal]").forEach(Rs)}function Rs(e){if(e.matches("[data-slider-track]")&&window.matchMedia("(max-width: 767px)").matches)return;let t=e.getAttribute("data-bento-reveal")||ks,o=t==="self"?[e]:[...e.querySelectorAll(t)];if(!o.length)return;let n=parseFloat(e.getAttribute("data-bento-reveal-spread"))||qs,s=e.getBoundingClientRect(),a=o.map(c=>c.getBoundingClientRect().left-s.left),r=Math.max(...a,1);o.forEach((c,l)=>{c.classList.add("bento-tile"),c.style.setProperty("--bento-delay",`${Math.round(a[l]/r*n)}ms`)}),e.classList.add("is-bento-pending");let i=new IntersectionObserver(c=>{c.some(l=>l.isIntersecting)&&(i.disconnect(),e.classList.add("is-bento-revealing"),e.classList.remove("is-bento-pending"),setTimeout(()=>{e.classList.remove("is-bento-revealing"),o.forEach(l=>{l.classList.remove("bento-tile"),l.style.removeProperty("--bento-delay")})},Ts+n+50))},{threshold:.3});i.observe(e)}var _s=90,$s=350;function an(e=document){if(I()||!("IntersectionObserver"in window))return;let t=[...e.querySelectorAll("[data-stars], .review-card_stars")];if(!t.length)return;t.forEach(n=>{let s=n.closest(".bento-tile"),a=s&&parseFloat(getComputedStyle(s).getPropertyValue("--bento-delay"))||0,r=(s?$s:0)+a;[...n.children].forEach((i,c)=>i.style.setProperty("--star-delay",`${r+c*_s}ms`)),n.classList.add("is-stars-pending")});let o=new IntersectionObserver(n=>n.forEach(s=>{if(!s.isIntersecting)return;o.unobserve(s.target);let a=s.target;a.classList.add("is-stars-in"),a.classList.remove("is-stars-pending")}),{threshold:.6});t.forEach(n=>o.observe(n))}var Ps=24,Ns="(min-width: 992px)";function cn(e=document){let t=[...e.querySelectorAll("[data-widen]")];if(!t.length||I())return;let o=new Map;t.forEach(d=>{let m=d.getAttribute("data-widen")||"";o.has(m)||o.set(m,[]),o.get(m).push(d)});let n=window.matchMedia(Ns),s=t.map(d=>{let m=d.querySelector(".padding-global"),g=m&&m.querySelector(".container-large"),f=g&&g.firstElementChild;return m?{block:d,pad:m,box:g,card:f,pad0:0,max0:0,card0:0,edge0:0}:null}).filter(Boolean),a=new Map(s.map(d=>[d.block,d])),r=()=>s.forEach(({pad:d,box:m,card:g})=>{d.style.paddingLeft=d.style.paddingRight="",m&&(m.style.maxWidth=""),g&&(g.style.paddingLeft=g.style.paddingRight="")}),i=()=>{r(),s.forEach(d=>{d.pad0=parseFloat(getComputedStyle(d.pad).paddingLeft)||0;let m=d.box&&parseFloat(getComputedStyle(d.box).maxWidth);d.max0=Number.isFinite(m)?m:0,d.card0=d.card&&parseFloat(getComputedStyle(d.card).paddingLeft)||0;let g=d.pad.clientWidth,f=d.max0?Math.min(d.max0,g-d.pad0*2):g-d.pad0*2;d.edge0=(g-f)/2})},c=(d,m)=>{let g=d.edge0+(Ps-d.edge0)*m;d.pad.style.paddingLeft=d.pad.style.paddingRight=`${g}px`,d.box&&(d.box.style.maxWidth="none"),d.card&&(d.card.style.paddingLeft=d.card.style.paddingRight=`${d.card0+d.edge0-g}px`)},l=()=>{if(!n.matches)return;let d=window.innerHeight,m=window.scrollY,g=document.documentElement.scrollHeight-d;[...o.values()].map(v=>{let h=v[0].getBoundingClientRect().top+m,w=h-d/2,A=Math.max(Math.min(h,g),w+1);return[v,Math.min(Math.max((m-w)/(A-w),0),1)]}).forEach(([v,h])=>v.forEach(w=>a.has(w)&&c(a.get(w),h)))},u=0,p=()=>{u||(u=requestAnimationFrame(()=>(u=0,l())))},y=()=>{i(),n.matches&&l()};y(),window.addEventListener("scroll",p,{passive:!0}),window.addEventListener("resize",y,{passive:!0}),n.addEventListener("change",y),window.addEventListener("load",y)}var ln=1,Is=.15,Os=24,Bs=1280,Ds=e=>e<.5?2*e*e:1-Math.pow(-2*e+2,2)/2;function un(e=document){let t=[...e.querySelectorAll("[data-expand]")];if(!t.length||I())return;let o=()=>{let i=document.querySelector(".padding-global");return i&&parseFloat(getComputedStyle(i).paddingLeft)||0},n=o(),s=0,a=()=>{s=0;let i=document.documentElement.clientWidth,c=window.innerHeight,l=Math.max(n,(i-Bs)/2),u=window.matchMedia("(max-width: 767px)").matches;t.map(y=>{let d=y.getBoundingClientRect().top,m=u?1:(c*ln-d)/(c*(ln-Is));return[y,Ds(Math.min(Math.max(m,0),1))]}).forEach(([y,d])=>{let m=parseFloat(y.getAttribute("data-expand-radius"))||Os,g=y.offsetWidth||i,f=Math.min((g-l*2)/g,1),v=f+(1-f)*d;d>=1?(y.style.transform="",y.style.borderRadius=""):(y.style.transform=`scale(${v})`,y.style.borderRadius=`${m*(1-d)/v}px`),y.classList.toggle("is-expanded",d>=1)})},r=()=>{s||(s=requestAnimationFrame(a))};window.addEventListener("scroll",r,{passive:!0}),window.addEventListener("resize",()=>{n=o(),r()},{passive:!0}),t.forEach(i=>{var u;if(i.classList.add("has-expand"),(u=i.parentElement)!=null&&u.classList.contains("expand-wrap"))return;let c=document.createElement("div");c.className="expand-wrap";let l=i.getAttribute("data-expand-bg");l&&(c.style.backgroundColor=l),i.before(c),c.appendChild(i)}),a()}var Fs='<svg viewBox="0 0 16 16" width="100%" height="100%" fill="none" aria-hidden="true"><path d="M5 3.5v9l7-4.5-7-4.5Z" fill="currentColor"/></svg>';function dn(e=document){let t=e.querySelector("[data-hero-video]"),o=t==null?void 0:t.querySelector("video");if(!o)return;t.classList.add("has-video"),o.muted=!0,o.loop=!0,o.playsInline=!0,o.setAttribute("playsinline","");let n=t.querySelector("[data-hero-video-toggle]"),s=n==null?void 0:n.querySelector("span"),a=(s==null?void 0:s.innerHTML)||"",r=()=>{if(!n)return;let c=o.paused;n.setAttribute("aria-label",c?S("hero.play"):S("hero.pause")),n.setAttribute("aria-pressed",c?"true":"false"),s&&(s.innerHTML=c?Fs:a),t.classList.toggle("is-video-paused",c)},i=()=>{let c=o.play();c&&c.catch&&c.catch(()=>r())};I()?o.pause():o.paused&&i(),o.addEventListener("play",r),o.addEventListener("pause",r),n&&(n.tagName==="A"&&(n.removeAttribute("href"),n.setAttribute("role","button"),n.setAttribute("tabindex","0")),n.addEventListener("click",c=>{c.preventDefault(),o.paused?i():o.pause()}),n.addEventListener("keydown",c=>{c.key!=="Enter"&&c.key!==" "||(c.preventDefault(),n.click())})),r()}var Hs=1400,Vs=150,Us=32,Gs=e=>1-(1-e)**3,Ws=e=>e<.5?8*e**4:1-(-2*e+2)**4/2;function pn(e=document){let t=e.querySelector("[data-hero-video]"),o=t&&(t.querySelector(".hero-video_media > .w-background-video, .hero-video_media > video")||t.querySelector("img")),n=o&&o.parentElement;if(o==null||o.setAttribute("data-hero-bg",""),!n)return;let s=()=>{let m=n.getBoundingClientRect();t.style.setProperty("--hero-vw",`${document.documentElement.clientWidth}px`),t.style.setProperty("--hero-vh",`${window.innerHeight}px`),t.style.setProperty("--hero-x",`${m.left+window.scrollX}px`),t.style.setProperty("--hero-y",`${m.top+window.scrollY}px`)};s(),t.classList.add("is-framed"),window.addEventListener("resize",s,{passive:!0});let a=()=>{t.classList.remove("is-intro-pending","is-intro-running"),t.classList.add("is-intro-done")};if(I()||window.scrollY>40)return document.documentElement.classList.add("is-hero-intro-skipped"),a();t.classList.add("is-intro-running"),t.classList.remove("is-intro-pending");let r=document.querySelector("[data-nav]");document.documentElement.classList.add("is-hero-intro-running"),n.style.transformOrigin="50% 50%";let i=[...n.children].filter(m=>m!==o&&m.tagName!=="IMG"&&(m.children.length||m.textContent.trim())),c=.5,l=16,u=()=>{n.style.transform="none",o.style.transform="none",i.forEach(h=>h.style.transform="none");let m=document.documentElement.clientWidth,g=window.innerHeight,f=n.getBoundingClientRect(),v=o.getBoundingClientRect();return o.style.transformOrigin=`${f.left+f.width/2-v.left}px ${f.top+f.height/2-v.top}px`,i.forEach(h=>{let w=h.getBoundingClientRect();h.style.transformOrigin=`${f.left+f.width/2-w.left}px ${f.top+f.height/2-w.top}px`}),{sx0:m/f.width,sy0:g/f.height,tx0:m/2-(f.left+f.width/2),ty0:g/2-(f.top+f.height/2)}},p=m=>{let{sx0:g,sy0:f,tx0:v,ty0:h}=u(),w=1-Ws(m),A=1+(g-1)*w,$=1+(f-1)*w,_=v*w,H=h*w;n.style.transform=`translate(${_}px, ${H}px) scale(${A}, ${$})`,o.style.transform=`translate(${-_/A}px, ${-H/$}px) scale(${1/A}, ${1/$})`;let E=Us*(1-w);n.style.borderRadius=`${E/A}px / ${E/$}px`,r&&(r.style.transform=`translateY(${-100*w}%)`);let R=Gs(Math.min(Math.max((m-c)/(1-c),0),1));i.forEach(B=>{B.style.opacity=String(R),B.style.transform=`translate(${-_/A}px, ${-H/$}px) scale(${1/A}, ${1/$}) translateY(${l*(1-R)}px)`})};p(0);let y=performance.now()+Vs,d=m=>{let g=Math.min(Math.max((m-y)/Hs,0),1);if(p(g),g<1){requestAnimationFrame(d);return}n.style.transform="",n.style.borderRadius="",o.style.transform="",r&&(r.style.transform=""),i.forEach(f=>{f.style.opacity="",f.style.transform="",f.style.transformOrigin=""}),document.documentElement.classList.remove("is-hero-intro-running"),document.documentElement.classList.add("is-hero-intro-done"),a()};requestAnimationFrame(d)}var ve=new Map;function Ie(e){return ve.has(e)||ve.set(e,new Promise((t,o)=>{let n=document.createElement("script");n.src=e,n.async=!0,n.onload=t,n.onerror=()=>o(new Error(`\xC9chec du chargement : ${e}`)),document.head.appendChild(n)})),ve.get(e)}function Oe(e){return ve.has(e)||ve.set(e,new Promise((t,o)=>{let n=document.createElement("link");n.rel="stylesheet",n.href=e,n.onload=t,n.onerror=()=>o(new Error(`\xC9chec du chargement : ${e}`)),document.head.appendChild(n)})),ve.get(e)}var fn=document.currentScript&&document.currentScript.src,ke=fn?fn.replace(/[^/]*$/,""):"";var mn="4.7.1",zs=`https://unpkg.com/maplibre-gl@${mn}/dist/maplibre-gl.js`,Ys=`https://unpkg.com/maplibre-gl@${mn}/dist/maplibre-gl.css`,be="https://tiles.openfreemap.org/styles/positron";async function Ee(){return await Promise.all([Oe(Ys),Ie(zs)]),window.maplibregl||null}var ie={background:"#fbf3d5",water:"#d6e2d3",park:"#ecebc4",building:"#f3e8c2",roadMajor:"#ffffff",roadMinor:"#fdf9ea",label:"#4a4d2c",labelHalo:"#fbf3d5"},js="M57.124 0C57.5655 0 57.9237 0.355883 57.9238 0.794922C57.9238 1.20466 57.6074 1.54533 57.2002 1.60742C48.2446 2.97316 45.6529 13.2223 45.6221 17.6855C45.5878 22.2667 48.1198 25.5007 52.7588 25.7705C57.3967 26.0403 59.0722 22.2331 62.4941 13.1719C65.9135 4.10938 68.5442 1.8861 74.0381 1.21289C76.0902 0.961397 77.6286 1.12776 78.75 1.43555C79.6133 1.6725 79.2753 2.34755 78.3877 2.46582C73.4269 3.1268 73.3957 12.0463 70.1562 22.1992C66.3759 34.0557 53.7789 32.9104 49.1396 29.542C46.0903 27.3268 44.6476 23.7929 43.9648 20.9189C43.7348 19.9521 41.9479 19.7078 41.5781 20.6309L37.3301 31.2324C37.1931 31.5742 36.8602 31.7987 36.4902 31.7988H35.7139C35.3404 31.7988 35.0057 31.5702 34.8711 31.2236L26.4492 9.54102C26.1534 8.77981 25.0733 8.77294 24.7676 9.53027L16.0498 31.1348C15.9123 31.4756 15.5802 31.6992 15.2109 31.6992H14.707C14.329 31.699 13.9944 31.4728 13.8633 31.1201C12.7929 28.243 7.99807 15.3504 5.49316 8.52441C3.50982 3.11277 1.60634 1.7294 0.646484 1.38574C0.321876 1.26956 0 0.966166 0 0.623047C0.000155884 0.317057 0.250951 0.0697539 0.558594 0.0722656L15.0215 0.197266C15.319 0.200032 15.5586 0.441345 15.5586 0.737305C15.5585 1.02305 15.3308 1.25572 15.0469 1.2998C10.9822 1.92953 12.96 7.04102 12.96 7.04102L17.5625 19.6387C17.8478 20.4197 18.9578 20.4343 19.2637 19.6611C20.3338 16.9544 22.2407 12.1901 24.1768 7.64648C26.5679 2.02988 23.1607 1.25118 21.8359 1.1543C21.5717 1.13499 21.3477 0.921777 21.3477 0.658203C21.3479 0.40641 21.5535 0.202148 21.8066 0.202148H36.1865C36.5105 0.202148 36.7734 0.463893 36.7734 0.786133C36.7733 1.09905 36.5204 1.35204 36.209 1.39648C31.9025 2.00992 34.209 7.51172 34.209 7.51172L38.7607 19.583C39.0493 20.3481 40.1304 20.3677 40.4414 19.6113C41.7087 16.5302 44.0804 10.7502 45.6543 6.83789C47.3761 2.55973 45.1008 1.51508 43.9629 1.26074C43.6452 1.18976 43.385 0.92049 43.3848 0.59668C43.3848 0.267373 43.6532 0 43.9844 0H57.124Z",we=`<svg viewBox="0 0 48 32" aria-hidden="true" class="map-pin_shape"><path class="map-pin_house" d="M22.6 1.5a3 3 0 0 1 2.8 0l18.9 9.2a3.5 3.5 0 0 1 2 3.1V27.5a3 3 0 0 1-3 3H4.7a3 3 0 0 1-3-3V13.8a3.5 3.5 0 0 1 2-3.1Z"/><path class="map-pin_logo" transform="translate(11 13.4) scale(0.328)" d="${js}"/></svg>`;function Le(e){let t=e.getStyle();!t||!t.layers||t.layers.forEach(o=>{let n=o.id,s=(a,r)=>{try{e.setPaintProperty(n,a,r)}catch(i){}};o.type==="background"?s("background-color",ie.background):o.type==="fill"&&/water/.test(n)?s("fill-color",ie.water):o.type==="fill"&&/park|landcover|landuse|wood|grass/.test(n)?s("fill-color",ie.park):o.type==="fill"&&/building/.test(n)?s("fill-color",ie.building):o.type==="line"&&/water|river/.test(n)?s("line-color",ie.water):o.type==="line"&&/motorway|trunk|primary|major/.test(n)?s("line-color",ie.roadMajor):o.type==="line"&&/road|street|minor|secondary|tertiary|path/.test(n)?s("line-color",ie.roadMinor):o.type==="symbol"&&(s("text-color",ie.label),s("text-halo-color",ie.labelHalo))})}function Be(e){return String(e).replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[t])}function De(e,t){let n=i=>i*Math.PI/180,s=n(t.lat-e.lat),a=n(t.lng-e.lng),r=Math.sin(s/2)**2+Math.cos(n(e.lat))*Math.cos(n(t.lat))*Math.sin(a/2)**2;return 2*6371*Math.asin(Math.sqrt(r))}function hn(e){let t=Tt().tag;return e<1?`${Math.round(e*1e3/10)*10} m`:`${new Intl.NumberFormat(t,{maximumFractionDigits:e<10?1:0}).format(e)} km`}function ye(e=""){return e.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[-'’]/g," ").replace(/\s+/g," ").trim()}function Fe(e=""){return/^(75|77|78|91|92|93|94|95)/.test(e)}var Xs=e=>e==="true"||e==="1";function Ks(e,t){let o=e.getAttribute("href")||"";if(o.split(/[?#]/)[0].replace(/\/$/,"").endsWith(`/${t}`))return o;let s=`${(de[ce()]||{}).prefix||""}/espaces/${t}`;return e.tagName==="A"&&e.setAttribute("href",s),s}function it(e,t){let o=e.getAttribute(`data-${t}`);if(o!=null)return Xs(o);let n=e.querySelector(`[data-offer="${t}"]`);return!!n&&!n.classList.contains("w-condition-invisible")}function ct(e){let t=e.getAttribute("srcset");if(t){let o=t.split(",").map(n=>n.trim().split(/\s+/)).map(([n,s])=>({url:n,w:parseFloat(s)||0})).sort((n,s)=>s.w-n.w)[0];if(o&&o.url)return o.url}return e.getAttribute("src")||""}function Zs(e,t){let o=e.closest(".w-dyn-item")||e.parentElement,n=[...(o==null?void 0:o.querySelectorAll("[data-space-gallery] img"))||[]].filter(a=>!a.closest(".w-condition-invisible, .w-dyn-empty")).map(ct).filter(a=>a&&!/placeholder/i.test(a)),s=t?ct(t):"";return[...new Set([s,...n].filter(Boolean))]}function He(e=document){let t=new Map;return e.querySelectorAll("[data-space][data-lat][data-lng]").forEach(o=>{let n=o.getAttribute("data-space"),s=parseFloat(o.getAttribute("data-lat")),a=parseFloat(o.getAttribute("data-lng"));if(!n||!Number.isFinite(s)||!Number.isFinite(a)||t.has(n))return;let r=o.querySelector("img:not([data-space-gallery] img)");t.set(n,{slug:n,lat:s,lng:a,el:o,name:o.getAttribute("data-name")||n,city:o.getAttribute("data-city")||"",dept:o.getAttribute("data-dept")||"",building:o.getAttribute("data-building")||"",address:o.getAttribute("data-address")||"",postcode:o.getAttribute("data-postcode")||"",station:o.getAttribute("data-station")||"",coworking:it(o,"coworking"),offices:it(o,"offices"),rooms:it(o,"rooms"),url:Ks(o,n),photo:r?ct(r):"",photos:Zs(o,r),photoAlt:r?r.alt:""})}),[...t.values()]}var Qs=80,Js=1.3,Ve={M:0,RER:1,T:2,TRAM:3,BUS:4,VAL:5,CABLE:6},lt=null;function qe(){return lt||(lt=fetch(`${ke}stations.json`).then(e=>e.ok?e.json():[]).then(e=>e.map(([t,o,n,s])=>({name:t,lat:o,lng:n,key:ye(t),lines:s?s.split("|").map(a=>a.split(":")).sort((a,r)=>{var i,c;return((i=Ve[a[0]])!=null?i:9)-((c=Ve[r[0]])!=null?c:9)||a[1].localeCompare(r[1],"fr",{numeric:!0})}):[]}))).catch(()=>[])),lt}function er(e){return Math.max(1,Math.ceil(e*1e3*Js/Qs))}function gn(e,t,{radiusKm:o=1.2,max:n=2,prefer:s=""}={}){let a=e.map(i=>({...i,km:De(t,i)})).filter(i=>i.km<=o).sort((i,c)=>i.km-c.km),r=ye(s);if(r){let i=a.findIndex(c=>c.key===r||c.key.includes(r)||r.includes(c.key));i>0&&a.unshift(a.splice(i,1)[0])}return a.slice(0,n).map(i=>({...i,walk:er(i.km)}))}function Ue(e,{maxLines:t=4}={}){let o=[];return e.forEach(n=>o.push(...n.lines)),ar(o,{maxLines:t})}function tr(e){return[...e].sort((t,o)=>{var n,s;return((n=Ve[t[0]])!=null?n:9)-((s=Ve[o[0]])!=null?s:9)||t[1].localeCompare(o[1],"fr",{numeric:!0})})}var nr={M:"M\xE9tro",RER:"RER",T:"Train",TRAM:"Tramway",BUS:"Bus",VAL:"Navette",CABLE:"C\xE2ble"};function or([e,t]){return e==="TRAM"?`Tram T${t}`:`${nr[e]||e} ${t}`}var sr={M:"M\xE9tro",RER:"RER",T:"Train",TRAM:"Tram",BUS:"Bus",VAL:"Navette",CABLE:"C\xE2ble"};function rr([e,t]){let o=String(t).toLowerCase();return{M:`metro-${o}`,RER:`rer-${o}`,T:`train-${o}`,TRAM:`tram-t${o}`,BUS:`bus-${o}`}[e]||`${e.toLowerCase()}-${o}`}function ar(e,{maxLines:t=4,sort:o=!1}={}){let n=document.createElement("span");n.className="transport-lines",n.setAttribute("data-space-lines","");let s=new Set,a=[];return(o?tr(e):e).forEach(([r,i])=>{let c=`${r}-${i}`;s.has(c)||(s.add(c),a.push([r,i]))}),a.slice(0,t).forEach(([r,i])=>{let c=document.createElement("span");c.className=r==="T"||r==="RER"?"transport-line is-square":"transport-line",c.setAttribute("data-line",rr([r,i])),c.setAttribute("data-line-mode",sr[r]||r),c.title=or([r,i]),c.textContent=r==="TRAM"?`T${i}`:i,n.appendChild(c)}),n.setAttribute("aria-hidden","true"),a.length?n:null}var ut="data-lenis-prevent",ir=200,cr=1.5,dt=[],yn=0,vn=!1;function bn(e){if(!e)return;e.setAttribute(ut,"");let t=z();if(!t)return;let o={zone:e,pointerMoved:!0};dt.push(o),e.addEventListener("pointermove",n=>{(n.movementX||n.movementY)&&(o.pointerMoved=!0)},{passive:!0}),!vn&&(vn=!0,window.addEventListener("wheel",n=>{let s=performance.now(),a=s-yn>ir;if(yn=s,!a)return;let r=Math.abs(t.velocity||0)<cr;dt.forEach(i=>{i.zone.contains(n.target)&&(r||i.pointerMoved)?i.zone.setAttribute(ut,""):i.zone.removeAttribute(ut)})},{passive:!0,capture:!0}),t.on("scroll",()=>dt.forEach(n=>n.pointerMoved=!1)))}var lr=40;function En(e){let t=e==null?void 0:e.querySelector("[data-place-photo]");if(!t)return{set(){}};let o=e.querySelector("[data-place-prev]"),n=e.querySelector("[data-place-next]"),s=e.querySelector("[data-place-dots]"),a=t.parentElement,r=[],i=0,c="",l=0,u=()=>S("map.photo",{name:c,n:i+1,total:r.length});function p(g,{instant:f=!1}={}){if(!r.length)return;i=(g+r.length)%r.length;let v=r[i],h=++l,w=()=>{h===l&&(t.src=v,t.removeAttribute("srcset"),t.alt=u(),t.classList.remove("is-changing"))};if(f||I())w();else{t.classList.add("is-changing");let A=new Image;A.onload=A.onerror=w,A.src=v}s==null||s.querySelectorAll(".slider_dot").forEach((A,$)=>{A.classList.toggle("is-active",$===i),A.setAttribute("aria-current",$===i?"true":"false")}),r.length>1&&(new Image().src=r[(i+1)%r.length])}function y(){s&&(s.innerHTML="",r.forEach((g,f)=>{let v=document.createElement("button");v.type="button",v.className="slider_dot",v.setAttribute("aria-label",S("map.photoGo",{n:f+1})),v.addEventListener("click",h=>{h.preventDefault(),h.stopPropagation(),p(f)}),s.appendChild(v)}))}let d=g=>f=>{f.preventDefault(),f.stopPropagation(),p(i+g)};o==null||o.addEventListener("click",d(-1)),n==null||n.addEventListener("click",d(1));let m=null;return a.addEventListener("pointerdown",g=>{g.target.closest("a, button")||(m=g.clientX)}),a.addEventListener("pointerup",g=>{if(m==null)return;let f=g.clientX-m;m=null,Math.abs(f)>lr&&r.length>1&&p(i+(f<0?1:-1))}),a.addEventListener("pointercancel",()=>m=null),t.draggable=!1,e.addEventListener("keydown",g=>{r.length<2||g.key!=="ArrowLeft"&&g.key!=="ArrowRight"||g.target.closest("input, textarea")||(g.preventDefault(),p(i+(g.key==="ArrowRight"?1:-1)))}),{set(g,f){r=g.filter(Boolean),c=f||"";let v=r.length>1;[o,n,s].forEach(h=>h&&(h.hidden=!v)),y(),p(0,{instant:!0})}}}var wn=window.matchMedia("(max-width: 767px)"),Ln=24,ur=6;function xn(e,{select:t,isActive:o,resizeMap:n}){let s=e.querySelector("[data-map-list]"),a=e.querySelector("[data-space-list]"),r=e.querySelector("[data-search]"),i=e.querySelector("[data-map-list-toggle]");if(!s||!a)return null;let c=s.querySelector(".map-module_head"),l=a.closest(".w-dyn-list")||a,u=r?{parent:r.parentElement,next:r.nextSibling}:null,p=document.createElement("button");p.type="button",p.className="map-sheet_handle",p.setAttribute("aria-label",S("map.showList")),p.setAttribute("aria-expanded","false"),p.innerHTML='<span class="map-sheet_grip" aria-hidden="true"></span>';let y=document.createElement("div");y.className="map-sheet_top";let d=document.createElement("p");d.className="map-module_group map-sheet_title";let m=document.createElement("div");m.className="map-sheet_dots",m.setAttribute("aria-hidden","true");let g=document.createElement("button");g.type="button",g.className="button map-sheet_back",g.innerHTML='<span class="button_label"></span>',g.firstChild.textContent=S("map.showMap");let f=!1,v=!1,h=()=>[...a.querySelectorAll("[data-space]")].filter(M=>!M.closest("[hidden]"));function w(){f||(f=!0,e.classList.add("is-sheet"),s.prepend(p),e.appendChild(y),e.appendChild(g),l.before(d),l.after(m),$(),_(),x(),n())}function A(){if(f){if(f=!1,E(!1,{instant:!0}),e.classList.remove("is-sheet","is-sheet-open"),[p,y,g,d,m].forEach(M=>M.remove()),r&&u&&u.parent.insertBefore(r,u.next),s.style.removeProperty("--sheet-peek"),i){let M=i.querySelectorAll("span");M.length&&(M[M.length-1].textContent=S("map.hideList"))}n()}}function $(){!r||!u||(v?u.parent.insertBefore(r,u.next):y.appendChild(r))}function _(){if(!i)return;let M=i.querySelectorAll("span");M.length&&(M[M.length-1].textContent=S("map.seeList"))}function H(){if(!f||v)return;let M=Math.ceil(m.offsetTop+m.offsetHeight+16);s.style.setProperty("--sheet-peek",`${M}px`)}function E(M,{instant:T=!1}={}){if(M!==v)if(v=M,e.classList.toggle("is-sheet-open",v),p.setAttribute("aria-expanded",String(v)),p.setAttribute("aria-label",v?S("map.showMap"):S("map.showList")),$(),v){s.scrollTop=0;let G=z(),N=e.getBoundingClientRect().top+window.scrollY;G?G.scrollTo(N,{duration:T||I()?0:.6,force:!0}):window.scrollTo({top:N,behavior:T||I()?"auto":"smooth"})}else requestAnimationFrame(()=>{H(),K()})}function R(){let M=Math.min(h().length,ur);m.innerHTML="";for(let T=0;T<M;T++)m.appendChild(document.createElement("span"));B()}function B(){let M=[...m.children];if(!M.length)return;let T=a.scrollWidth-a.clientWidth,G=T>0?a.scrollLeft/T:0,N=Math.round(G*(M.length-1));M.forEach((P,L)=>P.classList.toggle("is-active",L===N))}function W(){let M=a.getBoundingClientRect().left+Ln,T=null,G=1/0;return h().forEach(N=>{let P=Math.abs(N.getBoundingClientRect().left-M);P<G&&(G=P,T=N)}),T}let X=0,J=!1;a.addEventListener("scroll",()=>{!f||v||(B(),clearTimeout(X),X=setTimeout(()=>{if(J){J=!1;return}let M=W(),T=M==null?void 0:M.getAttribute("data-space");T&&!o(T)&&t(T,{fromSheet:!0})},140))},{passive:!0});function K(M=a.querySelector("[data-space].is-active")){if(!f||v||!M)return;let T=M.getBoundingClientRect().left-a.getBoundingClientRect().left-Ln;Math.abs(T)<2||(J=!0,a.scrollBy({left:T,behavior:I()?"auto":"smooth"}))}function x(M=(G=>(G=a.querySelector("[data-map-group]"))==null?void 0:G.textContent)()||"",T=!1){f&&(d.textContent=T?M:"",d.hidden=!T,a.scrollLeft=0,R(),requestAnimationFrame(H))}function V(M){return!f||o(M)&&!v?!1:(v&&E(!1),t(M,{fromSheet:!0}),!0)}let O=null;p.addEventListener("pointerdown",M=>{if(!f)return;let T=s.offsetHeight-(parseFloat(getComputedStyle(s).getPropertyValue("--sheet-peek"))||280);O={y:M.clientY,t:performance.now(),start:v?0:T,range:T,moved:!1,last:v?0:T},p.setPointerCapture(M.pointerId)}),p.addEventListener("pointermove",M=>{if(!O)return;let T=M.clientY-O.y;!O.moved&&Math.abs(T)<6||(O.moved=!0,e.classList.add("is-sheet-dragging"),O.last=Math.min(Math.max(O.start+T,0),O.range),s.style.transform=`translateY(${O.last}px)`)});let b=M=>{if(!O)return;let T=O;if(O=null,e.classList.remove("is-sheet-dragging"),s.style.transform="",!T.moved)return E(!v);let G=(M.clientY-T.y)/Math.max(performance.now()-T.t,1);G<-.4?E(!0):G>.4?E(!1):E(T.last<T.range/2)};p.addEventListener("pointerup",b),p.addEventListener("pointercancel",b),g.addEventListener("click",()=>E(!1)),e.addEventListener("keydown",M=>{M.key==="Escape"&&v&&E(!1)});function C(){return f?(E(!v),!0):!1}window.addEventListener("resize",()=>f&&H(),{passive:!0});let k=()=>wn.matches?w():A();return wn.addEventListener("change",k),k(),{get active(){return f},get open(){return v},refresh:x,reveal:K,onItemClick:V,onToggle:C}}var dr=70,An=window.matchMedia("(min-width: 992px)"),pt=3,Sn=16;function Cn(e=document){e.querySelectorAll("[data-map-module]").forEach(mr)}var pr="[data-map-list-toggle], [data-place-close], [data-place-prev], [data-place-next], [data-map-zoom-in], [data-map-zoom-out], [data-map-reset]";function fr(e){e.tagName==="A"&&(e.setAttribute("role","button"),e.addEventListener("keydown",t=>{t.key===" "&&(t.preventDefault(),e.click())}))}function mr(e){var O;e.querySelectorAll(pr).forEach(fr);let t=e.querySelector("[data-map-list]");bn(t),t&&hr(t);let o=e.querySelector("[data-space-list]"),n=e.querySelector("[data-map]"),s=He(e);if(!s.length)return;let r={origin:null,active:null,type:e.getAttribute("data-map-tab")==="salles"?"salles":"bureaux",map:null,markers:new Map,originMarker:null},i=e.querySelector("[data-place-card]"),c=null,l=En(i);function u(){return r.type==="salles"?s.filter(b=>b.rooms):s}function p(){var N;if(!o)return;let b=u();s.forEach(P=>{var D;P.distance=r.origin?De(r.origin,P):null;let L=P.el.querySelector("[data-space-time]"),q=P.el.querySelector("[data-space-time-label]");L&&(L.textContent=P.distance!=null?hn(P.distance):""),q&&(q.textContent=P.distance!=null?S("map.distance"):""),(D=P.el.closest("[role='listitem'], .w-dyn-item"))==null||D.toggleAttribute("hidden",!b.includes(P))});let C=r.origin?[...b].sort((P,L)=>P.distance-L.distance):b;o.querySelectorAll("[data-map-group]").forEach(P=>P.remove());let k=[],M=C;if(r.origin){let P=r.origin.label,L=/^[aeiouyhàâäéèêëîïôöûü]/i.test(P)?`d\u2019${P}`:`de ${P}`,q=r.origin.isUser?S("map.nearestMe"):S("map.nearest",{place:P,of:L});k.push({title:q,items:C.slice(0,pt)}),M=C.slice(pt)}let T=new Map;M.forEach(P=>{let L=P.dept||"";T.has(L)||T.set(L,[]),T.get(L).push(P)}),T.forEach((P,L)=>{k.push({title:r.origin&&L?S("map.others",{dept:L}):L,items:P})}),k.forEach(({title:P,items:L})=>{if(P){let q=document.createElement("p");q.className="map-module_group",q.setAttribute("data-map-group",""),q.textContent=P,o.appendChild(q)}L.forEach(q=>o.appendChild(q.el.closest(".w-dyn-item")||q.el))}),c==null||c.refresh(((N=k[0])==null?void 0:N.title)||"",!!r.origin);let G=e.querySelector("[data-map-count]");G&&(G.textContent=b.length===1?S("map.countOne"):S("map.count",{n:b.length})),r.markers.forEach((P,L)=>{P.getElement().hidden=!b.some(q=>q.slug===L)})}function y(b){let C=b.access&&b.access[0];return C?S("map.walk",{station:C.name,min:C.walk}):b.station}function d(b,C,k){if(!b)return;b.querySelectorAll("[data-space-lines]").forEach(T=>T.remove());let M=k.access?Ue(k.access):null;M&&b.insertBefore(M,C||b.firstChild),C&&(C.textContent=y(k))}function m(b){let C=b.querySelector("[data-space-access]")||b.querySelector(".space-item_access"),k=C&&(C.querySelector("[data-space-station]")||C.lastElementChild);return{box:C,text:k}}qe().then(b=>{b.length&&(s.forEach(C=>{C.access=gn(b,C,{prefer:C.station});let{box:k,text:M}=m(C.el);d(k,M,C)}),r.active&&f(r.active))});function g(b,{fly:C=!0}={}){let k=s.find(T=>T.slug===b);if(r.active=k||null,s.forEach(T=>T.el.classList.toggle("is-active",T===k)),r.markers.forEach((T,G)=>T.getElement().classList.toggle("is-active",G===b)),!k)return v();if(f(k),C&&r.map){let T={center:[k.lng,k.lat],zoom:Math.max(r.map.getZoom(),12.5)};I()?r.map.jumpTo(T):r.map.easeTo({...T,duration:700})}if(c!=null&&c.active&&!c.open)return c.reveal(k.el);let M=e.querySelector("[data-map-list]");if(M&&M.scrollHeight>M.clientHeight){let T=M.querySelector(".map-module_head"),G=M.getBoundingClientRect(),N=k.el.getBoundingClientRect(),P=G.top+(T?T.offsetHeight:0)+Sn,L=G.bottom-Sn,q=0;N.top<P?q=N.top-P:N.bottom>L&&(q=Math.min(N.top-P,N.bottom-L)),q&&M.scrollBy({top:q,behavior:I()?"auto":"smooth"})}}function f(b){if(!i)return;let C=(k,M)=>i.querySelectorAll(k).forEach(M);l.set(b.photos.length?b.photos:[b.photo],b.name),C("[data-place-name]",k=>k.textContent=b.name),C("[data-place-building]",k=>{k.textContent=b.building?S("map.building",{name:b.building}):"",k.hidden=!b.building}),C("[data-place-address]",k=>{k.textContent=[b.address,[b.postcode,b.city].filter(Boolean).join(" ")].filter(Boolean).join(", ")}),C("[data-place-station]",k=>{d(k.parentElement,k,b),k.hidden=!k.textContent}),C("[data-place-link]",k=>k.setAttribute("href",b.url)),C("[data-place-visit]",k=>k.setAttribute("href",`/nous-contacter/?motif=visite&espace=${b.slug}`)),i.setAttribute("aria-label",b.name),i.classList.add("is-open")}function v(){i==null||i.classList.remove("is-open")}(O=i==null?void 0:i.querySelector("[data-place-close]"))==null||O.addEventListener("click",b=>{b.preventDefault(),g(null)}),s.forEach(b=>{b.el.addEventListener("click",C=>{if(!(C.metaKey||C.ctrlKey||C.shiftKey)){if(c!=null&&c.active){c.onItemClick(b.slug)&&C.preventDefault();return}An.matches&&(C.preventDefault(),r.active===b?(g(null),W()):g(b.slug))}}),b.el.addEventListener("mouseenter",()=>{var C;return(C=r.markers.get(b.slug))==null?void 0:C.getElement().classList.add("is-hover")}),b.el.addEventListener("mouseleave",()=>{var C;return(C=r.markers.get(b.slug))==null?void 0:C.getElement().classList.remove("is-hover")})});let h=e.querySelector("[data-map-list-toggle]"),w=e.querySelector("[data-map-list]"),A=null;h&&n&&(A=document.createElement("button"),A.type="button",A.className="map-list-open",A.innerHTML='<span class="map-list-open_icon" aria-hidden="true"></span><span></span>',A.lastChild.textContent=S("map.showList"),w&&(w.id=w.id||`map-list-${Math.random().toString(36).slice(2,8)}`,A.setAttribute("aria-controls",w.id),h.setAttribute("aria-controls",w.id)),A.setAttribute("aria-expanded","false"),n.appendChild(A));function $(b){w&&e.style.setProperty("--list-width",`${w.offsetWidth}px`),e.classList.toggle("is-list-hidden",b),h==null||h.setAttribute("aria-expanded",String(!b));let C=h?h.querySelectorAll("span"):[];C.length&&(C[C.length-1].textContent=b?S("map.showList"):S("map.hideList")),_(550),b?A==null||A.focus():h==null||h.focus()}function _(b){if(!r.map)return;let C=performance.now()+b,k=()=>{r.map.resize(),performance.now()<C&&requestAnimationFrame(k)};requestAnimationFrame(k)}h==null||h.addEventListener("click",b=>{b.preventDefault(),!(c!=null&&c.onToggle())&&$(!e.classList.contains("is-list-hidden"))}),A==null||A.addEventListener("click",()=>$(!1)),c=xn(e,{select:b=>g(b),isActive:b=>{var C;return((C=r.active)==null?void 0:C.slug)===b},resizeMap:()=>{var b;return(b=r.map)==null?void 0:b.resize()}}),e.addEventListener("spaces:origin",b=>H(b.detail)),e.addEventListener("spaces:select",b=>g(b.detail.slug)),e.addEventListener("spaces:type",b=>{r.type=b.detail.type==="salles"?"salles":"bureaux",p(),r.active&&!u().includes(r.active)&&g(null),E()});function H(b){if(r.origin=b&&Number.isFinite(b.lat)?b:null,p(),X(),r.origin){let C=[...u()].sort((k,M)=>k.distance-M.distance)[0];C&&g(C.slug,{fly:!1}),R()}else E()}function E(){if(!r.map)return;let b=u();if(!b.length)return;let C=new window.maplibregl.LngLatBounds;b.forEach(k=>C.extend([k.lng,k.lat])),r.map.fitBounds(C,{padding:60,maxZoom:13,duration:I()?0:600})}function R(){if(!r.map||!r.origin)return;let b=new window.maplibregl.LngLatBounds;b.extend([r.origin.lng,r.origin.lat]),[...u()].sort((C,k)=>C.distance-k.distance).slice(0,pt).forEach(C=>b.extend([C.lng,C.lat])),r.map.fitBounds(b,{padding:80,maxZoom:13.5,duration:I()?0:700})}function B(){let b=document.querySelector("[data-nav]"),C=b?b.getBoundingClientRect().height:0,k=e.getBoundingClientRect(),M=window.innerHeight-C,T=C+Math.max((M-k.height)/2,0),G=Math.max(k.top+window.scrollY-T,0);if(Math.abs(G-window.scrollY)<4)return;let N=I(),P=z();P?P.scrollTo(G,{duration:N?0:.8,immediate:N,force:!0}):window.scrollTo({top:G,behavior:N?"auto":"smooth"})}function W(){r.origin?R():E()}function X(){var C;if(!r.map||((C=r.originMarker)==null||C.remove(),r.originMarker=null,!r.origin))return;let b=document.createElement("div");b.className="map-origin",b.setAttribute("role","img"),b.setAttribute("aria-label",S("map.origin",{place:r.origin.label||S("search.nearMe")})),r.originMarker=new window.maplibregl.Marker({element:b}).setLngLat([r.origin.lng,r.origin.lat]).addTo(r.map)}async function J(){let b=await Ee();if(!b)return;let C=document.createElement("div");C.className="map-module_canvas",n.prepend(C);let k=new b.Map({container:C,style:be,center:[2.3,48.88],zoom:10.5,attributionControl:!1,scrollZoom:!1,cooperativeGestures:!An.matches,dragRotate:!1,pitchWithRotate:!1});k.touchZoomRotate.disableRotation(),r.map=k,k.on("style.load",()=>Le(k)),k.once("load",()=>{e.classList.add("is-map-ready"),E(),X(),r.origin&&R(),r.active&&g(r.active.slug),M()}),s.forEach(N=>{let P=document.createElement("button");P.type="button",P.className="map-pin",I()||P.classList.add("is-pending"),P.setAttribute("aria-label",S("map.pin",{name:N.name})),P.innerHTML=`${we}<span class="map-pin_label">${Be(N.name)}</span>`,P.addEventListener("click",q=>{q.stopPropagation(),B(),r.active&&r.active.slug===N.slug?(g(null),W()):g(N.slug)});let L=new b.Marker({element:P,anchor:"bottom"}).setLngLat([N.lng,N.lat]).addTo(k);r.markers.set(N.slug,L)}),p(),r.active&&g(r.active.slug,{fly:!1});function M(){let N=[...r.markers.values()].map(L=>L.getElement()).filter(L=>L.classList.contains("is-pending"));if(!N.length)return;for(let L=N.length-1;L>0;L--){let q=Math.floor(Math.random()*(L+1));[N[L],N[q]]=[N[q],N[L]]}let P=new IntersectionObserver(L=>{L.some(q=>q.isIntersecting)&&(P.disconnect(),N.forEach((q,D)=>{var F;q.style.setProperty("--pin-delay",`${D*dr}ms`),q.classList.replace("is-pending","is-popping"),(F=q.querySelector(".map-pin_shape"))==null||F.addEventListener("animationend",()=>q.classList.remove("is-popping"),{once:!0})}))},{threshold:.3});P.observe(n)}let T=(N,P)=>{var L;return(L=e.querySelector(N))==null?void 0:L.addEventListener("click",q=>{q.preventDefault(),P()})};T("[data-map-zoom-in]",()=>k.zoomIn()),T("[data-map-zoom-out]",()=>k.zoomOut()),T("[data-map-reset]",()=>{g(null),E()});let G=e.querySelector("[data-map-attribution]");G&&(G.textContent=S("map.attribution"))}if(n){let b=new IntersectionObserver(C=>{C.some(k=>k.isIntersecting)&&(b.disconnect(),J().catch(k=>console.warn("[Work'n'Share] carte indisponible :",k)))},{rootMargin:"400px"});b.observe(n)}v();let K=new URLSearchParams(location.search);K.get("type")==="salles"&&(r.type="salles");let x=parseFloat(K.get("lat")),V=parseFloat(K.get("lng"));Number.isFinite(x)&&Number.isFinite(V)?H({lat:x,lng:V,label:K.get("q")||"",isUser:K.get("me")==="1"}):p(),K.get("espace")&&g(K.get("espace"),{fly:!1}),e._spacesMap={spaces:s,state:r}}function hr(e){var i,c;let t=((i=e.querySelector("[data-space-list]"))==null?void 0:i.closest(".w-dyn-list"))||((c=e.querySelector(".space-item"))==null?void 0:c.parentElement),o=[...e.children],n=t?o.indexOf(t.closest("[data-map-list] > *")||t):-1,s=o.slice(0,n>0?n:0).filter(l=>!l.matches(".map-module_group, [data-map-group]"));if(!s.length)return;let a=document.createElement("div");a.className="map-module_head",e.insertBefore(a,s[0]),s.forEach(l=>a.appendChild(l));let r=()=>{let l=getComputedStyle(e),u=parseFloat(l.rowGap)||0;a.style.margin=`-${l.paddingTop} -${l.paddingRight} 0 -${l.paddingLeft}`,a.style.top=`-${l.paddingTop}`,a.style.padding=`${l.paddingTop} ${l.paddingRight} ${u}px ${l.paddingLeft}`,a.style.rowGap=`${u}px`,a.style.backgroundColor=l.backgroundColor};r(),window.addEventListener("resize",r,{passive:!0}),le(e,a),e.addEventListener("scroll",()=>a.classList.toggle("is-stuck",e.scrollTop>4),{passive:!0})}var gr=window.matchMedia("(min-width: 992px)"),yr=14.5,vr="M10 4v12M4 10h12",br="M4 10h12",Er="M7 3H5a2 2 0 0 0-2 2v2M13 3h2a2 2 0 0 1 2 2v2M13 17h2a2 2 0 0 0 2-2v-2M7 17H5a2 2 0 0 1-2-2v-2M12.5 10a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z";function kn(e=document){let t=[...e.querySelectorAll("[data-map][data-lat][data-lng]")].filter(n=>!n.closest("[data-map-module]"));if(!t.length)return;if(!("IntersectionObserver"in window))return t.forEach(Mn);let o=new IntersectionObserver(n=>n.forEach(s=>{s.isIntersecting&&(o.unobserve(s.target),Mn(s.target))}),{rootMargin:"600px 0px"});t.forEach(n=>o.observe(n))}function ft(e,t,o){let n=document.createElement("button");return n.type="button",n.className="map-control",n.setAttribute("aria-label",t),n.innerHTML=`<span class="icon-20"><svg viewBox="0 0 20 20" width="100%" height="100%" fill="none" aria-hidden="true"><path d="${e}" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`,n.addEventListener("click",s=>{s.preventDefault(),o()}),n}async function Mn(e){let t=parseFloat(e.getAttribute("data-lat")),o=parseFloat(e.getAttribute("data-lng"));if(!Number.isFinite(t)||!Number.isFinite(o))return;let n=e.getAttribute("data-map-label")||"",s=parseFloat(e.getAttribute("data-map-zoom"))||yr,a=await Ee();if(!a)return;let r=document.createElement("div");r.className="map-module_canvas",e.prepend(r);let i=[o,t],c=new a.Map({container:r,style:be,center:i,zoom:s,attributionControl:!1,scrollZoom:!1,cooperativeGestures:!gr.matches,dragRotate:!1,pitchWithRotate:!1});c.touchZoomRotate.disableRotation(),c.on("style.load",()=>Le(c)),c.once("load",()=>e.classList.add("is-map-ready"));let l=document.createElement("div");l.className="map-pin is-active",l.setAttribute("role","img"),l.setAttribute("aria-label",S("map.pin",{name:n})),l.innerHTML=`${we}${n?`<span class="map-pin_label">${Be(n)}</span>`:""}`,new a.Marker({element:l,anchor:"bottom"}).setLngLat(i).addTo(c);let u=!I(),p=document.createElement("div");p.className="map-controls",p.append(ft(vr,S("map.zoomIn"),()=>c.zoomIn({animate:u})),ft(br,S("map.zoomOut"),()=>c.zoomOut({animate:u})),ft(Er,S("map.recenter"),()=>c.easeTo({center:i,zoom:s,duration:u?600:0}))),e.appendChild(p);let y=e.querySelector(".space-map_credit, [data-map-attribution]");y&&(y.textContent=S("map.attribution"))}var wr=40,mt=e=>`<svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><path d="${e}" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,Lr="M18 6 6 18M6 6l12 12",xr="M14.5 7.5S10 10.8 10 12c0 1.2 4.5 4.5 4.5 4.5",Ar="M9.5 7.5S14 10.8 14 12c0 1.2-4.5 4.5-4.5 4.5",Ge=null;function qn(){if(Ge)return Ge;let e=document.createElement("div");e.className="lightbox",e.hidden=!0,e.setAttribute("role","dialog"),e.setAttribute("aria-modal","true"),e.setAttribute("aria-label",S("lightbox.label")),e.setAttribute("data-lenis-prevent",""),e.innerHTML=`
+(() => {
+  // src/utils/on-ready.js
+  function onReady(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+
+  // src/utils/scroll-refresh.js
+  var timer = null;
+  var dueAt = 0;
+  function requestScrollRefresh(delay = 150) {
+    if (typeof window.ScrollTrigger === "undefined") return;
+    const target = Date.now() + delay;
+    if (timer && target <= dueAt) return;
+    clearTimeout(timer);
+    dueAt = target;
+    timer = setTimeout(() => {
+      timer = null;
+      window.ScrollTrigger.refresh();
+    }, delay);
+  }
+
+  // src/utils/motion.js
+  var query = window.matchMedia("(prefers-reduced-motion: reduce)");
+  function prefersReducedMotion() {
+    return query.matches;
+  }
+
+  // src/core/core.js
+  var SMOOTH_SCROLL_ENABLED = true;
+  var NAV_SELECTOR = "[data-nav]";
+  var ANCHOR_DURATION = 2;
+  var HASH_LOAD_DELAY = 400;
+  var lenisInstance = null;
+  var easeInOutCubic = (t2) => t2 < 0.5 ? 4 * t2 * t2 * t2 : 1 - Math.pow(-2 * t2 + 2, 3) / 2;
+  function getAnchorOffset() {
+    const nav = document.querySelector(NAV_SELECTOR);
+    return nav ? -nav.getBoundingClientRect().height : 0;
+  }
+  function scrollToHash(hash, { instant = false } = {}) {
+    if (!hash || hash === "#") return false;
+    let target = null;
+    try {
+      target = document.querySelector(hash);
+    } catch (e) {
+      return false;
+    }
+    if (!target) return false;
+    const offset = getAnchorOffset();
+    if (lenisInstance) {
+      lenisInstance.scrollTo(target, {
+        offset,
+        duration: instant ? 0 : ANCHOR_DURATION,
+        easing: easeInOutCubic,
+        immediate: instant,
+        force: true
+        // Lenis ignore scrollTo() quand il est arrêté (menu ouvert)
+      });
+    } else {
+      const top = target.getBoundingClientRect().top + window.scrollY + offset;
+      window.scrollTo({ top, behavior: instant ? "auto" : "smooth" });
+    }
+    return true;
+  }
+  function initAnchors() {
+    document.addEventListener(
+      "click",
+      (e) => {
+        const link = e.target.closest && e.target.closest("a[href*='#']");
+        if (!link) return;
+        if (link.matches("[role='tab'], [role='button'], [data-formula-tab], [data-slider-prev], [data-slider-next]")) return;
+        const url = new URL(link.href, window.location.href);
+        const samePage = url.origin === location.origin && url.pathname === location.pathname;
+        if (!samePage || !url.hash || url.hash === "#") return;
+        if (scrollToHash(url.hash)) {
+          e.preventDefault();
+          e.stopPropagation();
+          history.pushState(null, "", url.hash);
+        }
+      },
+      true
+    );
+    if (window.location.hash) {
+      const hash = window.location.hash;
+      window.scrollTo(0, 0);
+      const go = () => {
+        if (window.scrollY > 50) return;
+        scrollToHash(hash);
+        setTimeout(() => scrollToHash(hash, { instant: true }), ANCHOR_DURATION * 1e3 + 100);
+      };
+      const start = () => setTimeout(go, HASH_LOAD_DELAY);
+      if (document.readyState === "complete") start();
+      else window.addEventListener("load", start, { once: true });
+    }
+  }
+  function initLenis() {
+    if (lenisInstance) return lenisInstance;
+    if (!SMOOTH_SCROLL_ENABLED || typeof window.Lenis === "undefined") return null;
+    if (prefersReducedMotion()) return null;
+    lenisInstance = new window.Lenis({ lerp: 0.1, smoothWheel: true, anchors: false });
+    const hasGsap = typeof window.gsap !== "undefined";
+    if (hasGsap) {
+      if (typeof window.ScrollTrigger !== "undefined") {
+        window.gsap.registerPlugin(window.ScrollTrigger);
+        lenisInstance.on("scroll", window.ScrollTrigger.update);
+      }
+      window.gsap.ticker.add((time) => lenisInstance.raf(time * 1e3));
+      window.gsap.ticker.lagSmoothing(0);
+    } else {
+      const raf = (time) => {
+        lenisInstance.raf(time);
+        requestAnimationFrame(raf);
+      };
+      requestAnimationFrame(raf);
+    }
+    if (typeof ResizeObserver !== "undefined") {
+      let lastHeight = 0;
+      let timer2 = null;
+      new ResizeObserver(() => {
+        clearTimeout(timer2);
+        timer2 = setTimeout(() => {
+          const height = document.body.scrollHeight;
+          if (height === lastHeight) return;
+          lastHeight = height;
+          lenisInstance.resize();
+          requestScrollRefresh(0);
+        }, 150);
+      }).observe(document.body);
+    }
+    return lenisInstance;
+  }
+  function getLenis() {
+    return lenisInstance;
+  }
+  function isPlainReload() {
+    var _a;
+    const nav = (_a = performance.getEntriesByType) == null ? void 0 : _a.call(performance, "navigation")[0];
+    return !!nav && nav.type === "reload" && !location.hash;
+  }
+  function scrollTopNow() {
+    window.scrollTo(0, 0);
+    lenisInstance == null ? void 0 : lenisInstance.scrollTo(0, { immediate: true, force: true });
+  }
+  function resetScrollOnReload() {
+    if (!isPlainReload()) return;
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    scrollTopNow();
+    const again = () => requestAnimationFrame(scrollTopNow);
+    if (document.readyState === "complete") again();
+    else window.addEventListener("load", again, { once: true });
+  }
+  function initCore() {
+    initLenis();
+    resetScrollOnReload();
+    initAnchors();
+  }
+
+  // src/components/collapse.js
+  function initCollapses(root = document) {
+    root.querySelectorAll("[data-collapse]").forEach((el) => {
+      const trigger = el.querySelector("[data-collapse-trigger]");
+      const content = el.querySelector("[data-collapse-content]");
+      if (!trigger || !content) return;
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.addEventListener("click", (e) => {
+        if (trigger.tagName === "A") e.preventDefault();
+        const isOpen = !el.classList.contains("is-open");
+        el.classList.toggle("is-open", isOpen);
+        trigger.setAttribute("aria-expanded", String(isOpen));
+      });
+    });
+  }
+
+  // src/utils/i18n.js
+  var DEFAULT_LANG = "fr";
+  var LOCALES = {
+    fr: { tag: "fr-FR", prefix: "" },
+    en: { tag: "en-GB", prefix: "/en" }
+  };
+  var DICT = {
+    fr: {
+      "menu.open": "Menu",
+      "menu.close": "Fermer",
+      "nav.open": "Ouvrir le menu",
+      "nav.close": "Fermer le menu",
+      "slider.prev": "\xC9l\xE9ment pr\xE9c\xE9dent",
+      "slider.next": "\xC9l\xE9ment suivant",
+      "slider.goto": "Aller \xE0 l'\xE9l\xE9ment {{index}}",
+      "slider.first": "Premier \xE9l\xE9ment",
+      "slider.last": "Dernier \xE9l\xE9ment",
+      "map.count": "{n} espaces",
+      "map.countOne": "1 espace",
+      "map.hideList": "Masquer la liste",
+      "map.showList": "Afficher la liste",
+      "map.seeList": "Voir la liste",
+      "map.showMap": "Voir la carte",
+      "map.nearest": "Les plus proches {of}",
+      "map.nearestMe": "Les plus proches de vous",
+      "map.others": "Autres espaces \xB7 {dept}",
+      "map.distance": "\xE0 vol d'oiseau",
+      "map.walk": "{station} \xB7 {min} min \xE0 pied",
+      "map.pin": "Espace Work & Share de {name}",
+      "map.photo": "{name}, photo {n} sur {total}",
+      "map.photoGo": "Voir la photo {n}",
+      "rooms.count": "{n} salles correspondent",
+      "rooms.countOne": "1 salle correspond",
+      "rooms.closeRoom": "Refermer",
+      "rooms.planConfig": "Configuration de la salle",
+      "rooms.plan.reunion": "R\xE9union",
+      "rooms.plan.theatre": "Th\xE9\xE2tre",
+      "rooms.plan.en-u": "En U",
+      "rooms.plan.cocktail": "Cocktail",
+      "rooms.planSeats": "{n} personnes",
+      "rooms.planAlt": "Plan de la salle en configuration {config}, {n} personnes",
+      "map.building": "Immeuble {name}",
+      "map.zoomIn": "Zoom avant",
+      "map.zoomOut": "Zoom arri\xE8re",
+      "map.recenter": "Recentrer sur l'espace",
+      "hero.pause": "Mettre la vid\xE9o en pause",
+      "hero.play": "Lire la vid\xE9o",
+      "lightbox.label": "Photos de l'espace",
+      "lightbox.close": "Fermer",
+      "lightbox.prev": "Photo pr\xE9c\xE9dente",
+      "lightbox.next": "Photo suivante",
+      "lightbox.thumbs": "Toutes les photos",
+      "lightbox.goto": "Voir la photo {n}",
+      "gallery.tour": "Visite 360\xB0 de l'espace",
+      "gallery.tourSoon": "La visite 360\xB0 de cet espace arrive bient\xF4t.",
+      "visit.title": "Venez visiter {name}",
+      "visit.leadHostBuilding": "{host} vous fait faire le tour de l\u2019immeuble {building} et r\xE9pond \xE0 toutes vos questions.",
+      "visit.leadHost": "{host} vous fait faire le tour de l\u2019espace et r\xE9pond \xE0 toutes vos questions.",
+      "visit.lead": "L\u2019\xE9quipe sur place vous fait faire le tour et r\xE9pond \xE0 toutes vos questions.",
+      "visit.noteHost": "{host}, l\u2019h\xF4te de {name}, vous rappelle avant demain midi.",
+      "visit.note": "L\u2019\xE9quipe de l\u2019espace vous rappelle avant demain midi.",
+      "visit.call": "Appeler l\u2019espace au {phone}",
+      "map.origin": "Point de recherche : {place}",
+      "map.attribution": "\xA9 OpenFreeMap \xA9 OpenMapTiles \xB7 \xA9 contributeurs OpenStreetMap",
+      "map.noRooms": "Aucun espace avec salles ne correspond.",
+      "search.nearMe": "Autour de moi",
+      "search.tabShort.bureaux": "Bureaux",
+      "search.tabShort.salles": "\xC9v\xE9nements",
+      "formula.choose": "Votre situation",
+      "search.nearMeHint": "Utiliser ma position",
+      "search.locating": "Localisation\u2026",
+      "search.geoError": "Position indisponible. Tapez une ville ou une adresse.",
+      "search.spaces": "Nos espaces",
+      "search.stations": "Gares et stations",
+      "search.addresses": "Adresses et communes",
+      "search.noResult": "Aucun r\xE9sultat. Essayez une ville, une adresse ou une station.",
+      "search.outsideIdf": "hors \xCEle-de-France",
+      "search.results": "{n} suggestions",
+      "comparator.city": "Commune d\u2019implantation",
+      "comparator.cities": "Communes propos\xE9es",
+      "comparator.noCity": "Commune inconnue du comparateur. Essayez la commune voisine.",
+      "blog.count": "{n} articles affich\xE9s",
+      "blog.countOne": "1 article affich\xE9"
+    },
+    en: {
+      "menu.open": "Menu",
+      "menu.close": "Close",
+      "nav.open": "Open menu",
+      "nav.close": "Close menu",
+      "slider.prev": "Previous item",
+      "slider.next": "Next item",
+      "slider.goto": "Go to item {{index}}",
+      "slider.first": "First item",
+      "slider.last": "Last item",
+      "map.count": "{n} spaces",
+      "map.countOne": "1 space",
+      "map.hideList": "Hide the list",
+      "map.showList": "Show the list",
+      "map.seeList": "See the list",
+      "map.showMap": "See the map",
+      "map.nearest": "Closest to {place}",
+      "map.nearestMe": "Closest to you",
+      "map.others": "Other spaces \xB7 {dept}",
+      "map.distance": "as the crow flies",
+      "map.walk": "{station} \xB7 {min} min walk",
+      "map.pin": "Work & Share space in {name}",
+      "map.photo": "{name}, photo {n} of {total}",
+      "map.photoGo": "Show photo {n}",
+      "rooms.count": "{n} matching rooms",
+      "rooms.countOne": "1 matching room",
+      "rooms.closeRoom": "Close",
+      "rooms.planConfig": "Room layout",
+      "rooms.plan.reunion": "Meeting",
+      "rooms.plan.theatre": "Theatre",
+      "rooms.plan.en-u": "U-shape",
+      "rooms.plan.cocktail": "Cocktail",
+      "rooms.planSeats": "{n} people",
+      "rooms.planAlt": "Room plan, {config} layout, {n} people",
+      "map.building": "{name} building",
+      "map.zoomIn": "Zoom in",
+      "map.zoomOut": "Zoom out",
+      "map.recenter": "Recenter on the space",
+      "hero.pause": "Pause the video",
+      "hero.play": "Play the video",
+      "lightbox.label": "Photos of the space",
+      "lightbox.close": "Close",
+      "lightbox.prev": "Previous photo",
+      "lightbox.next": "Next photo",
+      "lightbox.thumbs": "All photos",
+      "lightbox.goto": "Show photo {n}",
+      "gallery.tour": "360\xB0 tour of the space",
+      "gallery.tourSoon": "The 360\xB0 tour of this space is coming soon.",
+      "visit.title": "Come and visit {name}",
+      "visit.leadHostBuilding": "{host} will show you around the {building} building and answer all your questions.",
+      "visit.leadHost": "{host} will show you around the space and answer all your questions.",
+      "visit.lead": "The on-site team will show you around and answer all your questions.",
+      "visit.noteHost": "{host}, your host in {name}, will call you back before noon tomorrow.",
+      "visit.note": "The space team will call you back before noon tomorrow.",
+      "visit.call": "Call the space on {phone}",
+      "map.origin": "Search point: {place}",
+      "map.attribution": "\xA9 OpenFreeMap \xA9 OpenMapTiles \xB7 \xA9 OpenStreetMap contributors",
+      "map.noRooms": "No space with meeting rooms matches.",
+      "search.nearMe": "Near me",
+      "search.tabShort.bureaux": "Offices",
+      "search.tabShort.salles": "Events",
+      "formula.choose": "Your situation",
+      "search.nearMeHint": "Use my location",
+      "search.locating": "Locating\u2026",
+      "search.geoError": "Location unavailable. Type a town or an address.",
+      "search.spaces": "Our spaces",
+      "search.stations": "Stations",
+      "search.addresses": "Addresses and towns",
+      "search.noResult": "No result. Try a town, an address or a station.",
+      "search.outsideIdf": "outside \xCEle-de-France",
+      "search.results": "{n} suggestions",
+      "comparator.city": "Office location (town)",
+      "comparator.cities": "Suggested towns",
+      "comparator.noCity": "Town not covered by the comparator. Try a neighbouring one.",
+      "blog.count": "{n} articles shown",
+      "blog.countOne": "1 article shown"
+    }
+  };
+  function getLang() {
+    const path = location.pathname;
+    const found = Object.keys(LOCALES).find((lang) => {
+      const prefix = LOCALES[lang].prefix;
+      return prefix && (path === prefix || path.startsWith(`${prefix}/`));
+    });
+    return found || DEFAULT_LANG;
+  }
+  function getLocale() {
+    return LOCALES[getLang()];
+  }
+  function t(key2, vars = {}) {
+    var _a, _b;
+    const str = (_b = (_a = DICT[getLang()][key2]) != null ? _a : DICT[DEFAULT_LANG][key2]) != null ? _b : key2;
+    return str.replace(/\{(\w+)\}/g, (_, name) => name in vars ? vars[name] : `{${name}}`);
+  }
+
+  // src/utils/scroll-indicator.js
+  var GAP = 12;
+  var MIN_THUMB = 32;
+  function createScrollIndicator(zone, anchor = null) {
+    if (!zone) return null;
+    const sticky = !anchor;
+    if (sticky) {
+      anchor = document.createElement("div");
+      anchor.className = "scroll-indicator_holder";
+      anchor.setAttribute("aria-hidden", "true");
+    }
+    const track = document.createElement("div");
+    track.className = "scroll-indicator";
+    track.setAttribute("aria-hidden", "true");
+    const thumb = document.createElement("div");
+    thumb.className = "scroll-indicator_thumb";
+    track.appendChild(thumb);
+    anchor.appendChild(track);
+    if (sticky) zone.prepend(anchor);
+    zone.classList.add("has-scroll-indicator");
+    if (sticky) track.classList.add("is-sticky");
+    const attach = () => {
+      if (sticky && anchor.parentElement !== zone) zone.prepend(anchor);
+      else if (sticky && zone.firstElementChild !== anchor) zone.prepend(anchor);
+      schedule();
+    };
+    let trackHeight = 0;
+    let thumbHeight = 0;
+    const update = () => {
+      const max = zone.scrollHeight - zone.clientHeight;
+      track.hidden = max <= 1;
+      if (track.hidden) return;
+      if (sticky) {
+        const offset = track.getBoundingClientRect().top - zone.getBoundingClientRect().top - zone.clientTop;
+        trackHeight = Math.max(zone.clientHeight - offset * 2, 0);
+      } else {
+        trackHeight = Math.max(zone.clientHeight - anchor.offsetHeight - GAP * 2, 0);
+      }
+      thumbHeight = Math.max(MIN_THUMB, trackHeight * zone.clientHeight / zone.scrollHeight);
+      track.style.height = `${trackHeight}px`;
+      thumb.style.height = `${thumbHeight}px`;
+      thumb.style.transform = `translateY(${(trackHeight - thumbHeight) * zone.scrollTop / max}px)`;
+    };
+    let frame = 0;
+    function schedule() {
+      if (!frame) frame = requestAnimationFrame(() => (frame = 0, update()));
+    }
+    let idle = null;
+    zone.addEventListener(
+      "scroll",
+      () => {
+        schedule();
+        track.classList.add("is-active");
+        clearTimeout(idle);
+        idle = setTimeout(() => track.classList.remove("is-active"), 800);
+      },
+      { passive: true }
+    );
+    window.addEventListener("resize", schedule, { passive: true });
+    if (typeof ResizeObserver !== "undefined") {
+      const observer = new ResizeObserver(schedule);
+      observer.observe(zone);
+      observer.observe(anchor);
+      [...zone.children].forEach((child) => observer.observe(child));
+    }
+    thumb.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const startY = e.clientY;
+      const startScroll = zone.scrollTop;
+      const ratio = (zone.scrollHeight - zone.clientHeight) / Math.max(trackHeight - thumbHeight, 1);
+      thumb.setPointerCapture(e.pointerId);
+      track.classList.add("is-dragging");
+      const move = (ev) => zone.scrollTop = startScroll + (ev.clientY - startY) * ratio;
+      const up = () => {
+        track.classList.remove("is-dragging");
+        thumb.removeEventListener("pointermove", move);
+        thumb.removeEventListener("pointerup", up);
+        thumb.removeEventListener("pointercancel", up);
+      };
+      thumb.addEventListener("pointermove", move);
+      thumb.addEventListener("pointerup", up);
+      thumb.addEventListener("pointercancel", up);
+    });
+    track.addEventListener("pointerdown", (e) => {
+      if (e.target !== track) return;
+      const y = e.clientY - track.getBoundingClientRect().top - thumbHeight / 2;
+      const max = zone.scrollHeight - zone.clientHeight;
+      zone.scrollTo({ top: y / Math.max(trackHeight - thumbHeight, 1) * max, behavior: "smooth" });
+    });
+    update();
+    return { update, attach };
+  }
+
+  // src/components/nav.js
+  var DESKTOP_QUERY = window.matchMedia("(min-width: 992px)");
+  var HOVER_QUERY = window.matchMedia("(hover: hover) and (pointer: fine)");
+  var HOVER_CLOSE_DELAY = 250;
+  var ICON_MENU = "M4 7h16M4 12h16M4 17h16";
+  var ICON_CLOSE = "M6 6l12 12M18 6L6 18";
+  function initNav(root = document) {
+    const header = root.querySelector("[data-nav]");
+    if (!header) return;
+    initMegaPanels(header);
+    initDrawer(header);
+    initScrollState(header);
+    initNavHeight(header);
+    initNavPill(header);
+    markCurrentLinks(header);
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      const openTrigger = header.querySelector("[data-mega-trigger][aria-expanded='true'], [data-nav-toggle][aria-expanded='true']");
+      closeAll(header);
+      if (openTrigger) openTrigger.focus();
+    });
+    document.addEventListener("click", (e) => {
+      if (!header.contains(e.target)) closeAll(header);
+    });
+    DESKTOP_QUERY.addEventListener("change", () => closeAll(header));
+  }
+  function getPanel(header, trigger) {
+    const name = trigger.getAttribute("data-mega-trigger");
+    return header.querySelector(`[data-mega-panel="${name}"]`);
+  }
+  function setPanel(trigger, panel, open2) {
+    panel.classList.toggle("is-open", open2);
+    trigger.setAttribute("aria-expanded", String(open2));
+  }
+  function initMegaPanels(header) {
+    header.querySelectorAll("[data-mega-trigger]").forEach((trigger) => {
+      const panel = getPanel(header, trigger);
+      if (!panel) return;
+      trigger.setAttribute("aria-expanded", "false");
+      const toggle = () => setPanel(trigger, panel, !panel.classList.contains("is-open"));
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        const isHoverMenu = !trigger.closest("[data-nav-panel]") && DESKTOP_QUERY.matches && HOVER_QUERY.matches;
+        if (isHoverMenu) setPanel(trigger, panel, true);
+        else toggle();
+      });
+      trigger.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggle();
+        }
+      });
+      if (trigger.closest("[data-nav-panel]")) return;
+      let closeTimer = null;
+      const open2 = () => {
+        if (!DESKTOP_QUERY.matches || !HOVER_QUERY.matches) return;
+        clearTimeout(closeTimer);
+        setPanel(trigger, panel, true);
+      };
+      const scheduleClose = () => {
+        if (!DESKTOP_QUERY.matches || !HOVER_QUERY.matches) return;
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => setPanel(trigger, panel, false), HOVER_CLOSE_DELAY);
+      };
+      trigger.addEventListener("mouseenter", open2);
+      panel.addEventListener("mouseenter", open2);
+      header.addEventListener("mouseleave", scheduleClose);
+      trigger.parentElement.querySelectorAll("a").forEach((link) => {
+        if (link !== trigger) link.addEventListener("mouseenter", scheduleClose);
+      });
+      header.addEventListener("focusout", (e) => {
+        const next = e.relatedTarget;
+        if (!next || !trigger.contains(next) && !panel.contains(next)) {
+          if (panel.classList.contains("is-open") && !panel.matches(":hover")) setPanel(trigger, panel, false);
+        }
+      });
+    });
+  }
+  function initDrawer(header) {
+    const toggle = header.querySelector("[data-nav-toggle]");
+    const drawer = header.querySelector("[data-nav-panel]");
+    if (!toggle || !drawer) return;
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", t("nav.open"));
+    drawer.setAttribute("data-lenis-prevent", "");
+    createScrollIndicator(drawer);
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      setDrawer(header, !drawer.classList.contains("is-open"));
+    });
+    toggle.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        setDrawer(header, !drawer.classList.contains("is-open"));
+      }
+    });
+    header.addEventListener("keydown", (e) => {
+      if (e.key !== "Tab" || !drawer.classList.contains("is-open")) return;
+      const focusables = [toggle, ...drawer.querySelectorAll("a[href], [role='button'], button, input")].filter(
+        (el) => el.offsetParent !== null
+      );
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+    drawer.addEventListener("click", (e) => {
+      const link = e.target.closest("a[href]");
+      if (!link || link.matches("[data-mega-trigger]")) return;
+      const href = link.getAttribute("href");
+      if (!href || href === "#") return;
+      setDrawer(header, false);
+    });
+  }
+  function setDrawer(header, open2) {
+    const toggle = header.querySelector("[data-nav-toggle]");
+    const drawer = header.querySelector("[data-nav-panel]");
+    if (!toggle || !drawer) return;
+    drawer.classList.toggle("is-open", open2);
+    toggle.setAttribute("aria-expanded", String(open2));
+    toggle.setAttribute("aria-label", t(open2 ? "nav.close" : "nav.open"));
+    const path = toggle.querySelector("svg path");
+    if (path) path.setAttribute("d", open2 ? ICON_CLOSE : ICON_MENU);
+    document.documentElement.classList.toggle("is-nav-open", open2);
+    const lenis = getLenis();
+    if (lenis) open2 ? lenis.stop() : lenis.start();
+    if (!open2) {
+      drawer.querySelectorAll("[data-mega-trigger]").forEach((trigger) => {
+        const panel = getPanel(header, trigger);
+        if (panel) setPanel(trigger, panel, false);
+      });
+    }
+  }
+  function closeAll(header) {
+    header.querySelectorAll("[data-mega-trigger]").forEach((trigger) => {
+      const panel = getPanel(header, trigger);
+      if (panel) setPanel(trigger, panel, false);
+    });
+    if (header.querySelector("[data-nav-panel].is-open")) setDrawer(header, false);
+  }
+  var SCROLL_THRESHOLD = 8;
+  var DIRECTION_DELTA = 6;
+  function initScrollState(header) {
+    let mode = "flow";
+    let lastY = window.scrollY;
+    let travel = 0;
+    let ticking = false;
+    const hero = document.querySelector("[data-hero-video], [data-hero]") || [...document.querySelectorAll("main section, .page-wrapper section")].find((s) => !header.contains(s));
+    const isHero = () => !!hero && (hero.matches("[data-hero-video], [data-hero]") || hero.offsetHeight <= window.innerHeight * 1.2 && !hero.querySelector("form"));
+    const inHero = (y) => isHero() && y < hero.getBoundingClientRect().bottom + y - header.offsetHeight;
+    const locked = () => header.querySelector("[data-mega-panel].is-open, [data-nav-panel].is-open") || header.contains(document.activeElement) || document.documentElement.classList.contains("is-hero-intro-running");
+    const apply = () => {
+      const y = Math.max(window.scrollY, 0);
+      const height = header.offsetHeight;
+      header.classList.toggle("is-flow", mode === "flow");
+      header.classList.toggle("is-hidden", mode === "hidden");
+      header.classList.toggle("is-scrolled", mode !== "flow" && y > SCROLL_THRESHOLD);
+      header.style.translate = mode === "flow" ? `0 ${-Math.min(y, height)}px` : "";
+    };
+    const update = () => {
+      ticking = false;
+      const y = Math.max(window.scrollY, 0);
+      const dy = y - lastY;
+      lastY = y;
+      if (dy !== 0) travel = Math.sign(dy) === Math.sign(travel) ? travel + dy : dy;
+      if (y <= 0) mode = "flow";
+      else if (inHero(y) && !locked()) {
+        mode = mode === "flow" || y < header.offsetHeight ? "flow" : "hidden";
+      } else if (locked()) mode = mode === "flow" && y < header.offsetHeight ? "flow" : "shown";
+      else if (travel < -DIRECTION_DELTA && mode !== "shown") mode = y > 0 ? "shown" : "flow";
+      else if (travel > DIRECTION_DELTA && mode === "shown") mode = "hidden";
+      apply();
+    };
+    const schedule = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", schedule, { passive: true });
+    header.addEventListener("focusin", schedule);
+    header.addEventListener("click", schedule);
+    if (window.scrollY > header.offsetHeight) mode = "shown";
+    apply();
+  }
+  function initNavPill(header) {
+    const menu = header.querySelector(".navbar_menu");
+    const links = menu ? [...menu.querySelectorAll(".navbar_link")] : [];
+    if (!links.length) return;
+    const pill = document.createElement("span");
+    pill.className = "navbar_pill";
+    pill.setAttribute("aria-hidden", "true");
+    menu.prepend(pill);
+    menu.classList.add("has-pill");
+    let target = null;
+    const place = (link) => {
+      pill.style.width = `${link.offsetWidth}px`;
+      pill.style.height = `${link.offsetHeight}px`;
+      pill.style.transform = `translate(${link.offsetLeft}px, ${link.offsetTop}px)`;
+    };
+    const show = (link) => {
+      if (!link || !link.offsetWidth) return;
+      if (!pill.classList.contains("is-visible")) {
+        pill.classList.add("is-instant");
+        place(link);
+        pill.getBoundingClientRect();
+        pill.classList.remove("is-instant");
+        pill.classList.add("is-visible");
+      } else {
+        place(link);
+      }
+      links.forEach((l) => l.classList.toggle("is-pill", l === link));
+      target = link;
+    };
+    const restingLink = () => links.find((l) => l.getAttribute("aria-expanded") === "true");
+    const rest = () => {
+      const link = restingLink();
+      if (link) return show(link);
+      pill.classList.remove("is-visible");
+      links.forEach((l) => l.classList.remove("is-pill"));
+      target = null;
+    };
+    links.forEach((link) => {
+      link.addEventListener("pointerenter", () => show(link));
+      link.addEventListener("focus", () => show(link));
+    });
+    menu.addEventListener("pointerleave", rest);
+    menu.addEventListener("focusout", (e) => {
+      if (!menu.contains(e.relatedTarget)) rest();
+    });
+    const observer = new MutationObserver(() => {
+      if (!menu.matches(":hover")) rest();
+    });
+    links.forEach((l) => observer.observe(l, { attributes: true, attributeFilter: ["aria-expanded"] }));
+    if (typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(() => target && place(target)).observe(menu);
+    }
+  }
+  function initNavHeight(header) {
+    const update = () => {
+      document.documentElement.style.setProperty("--nav-height", `${header.offsetHeight}px`);
+    };
+    update();
+    if (typeof ResizeObserver !== "undefined") new ResizeObserver(update).observe(header);
+  }
+  function normalizePath(path) {
+    return path.replace(/\/+$/, "") || "/";
+  }
+  function markCurrentLinks(header) {
+    const current = normalizePath(location.pathname);
+    header.querySelectorAll("a[href]").forEach((link) => {
+      const url = new URL(link.href, location.href);
+      if (url.origin !== location.origin || url.hash) return;
+      const path = normalizePath(url.pathname);
+      if (path === "/") return;
+      if (current === path || current.startsWith(`${path}/`)) {
+        link.setAttribute("aria-current", current === path ? "page" : "true");
+      }
+    });
+  }
+
+  // src/components/footer.js
+  function initFooter(root = document) {
+    const year = String((/* @__PURE__ */ new Date()).getFullYear());
+    root.querySelectorAll("[data-footer-year]").forEach((el) => {
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        if (/\b(19|20)\d{2}\b/.test(node.nodeValue)) {
+          node.nodeValue = node.nodeValue.replace(/\b(19|20)\d{2}\b/, year);
+          break;
+        }
+      }
+    });
+  }
+
+  // src/utils/tab-indicator.js
+  function createTabIndicator(tablist, { getActive, themeAttr = null, className = "" } = {}) {
+    const indicator = document.createElement("span");
+    indicator.className = `tab-indicator ${className}`.trim();
+    indicator.setAttribute("aria-hidden", "true");
+    tablist.prepend(indicator);
+    tablist.classList.add("is-sliding");
+    let animatingUntil = 0;
+    function move(animate2 = true) {
+      const tab = getActive();
+      if (animate2) animatingUntil = performance.now() + 450;
+      if (!tab || !tab.offsetWidth) return;
+      if (!animate2) indicator.classList.add("is-instant");
+      indicator.style.width = `${tab.offsetWidth}px`;
+      indicator.style.height = `${tab.offsetHeight}px`;
+      indicator.style.transform = `translate(${tab.offsetLeft}px, ${tab.offsetTop}px)`;
+      if (themeAttr) indicator.setAttribute("data-theme", tab.getAttribute(themeAttr) || "");
+      if (!animate2) {
+        indicator.getBoundingClientRect();
+        indicator.classList.remove("is-instant");
+      }
+    }
+    const recalc = () => move(performance.now() < animatingUntil);
+    if (typeof ResizeObserver !== "undefined") new ResizeObserver(recalc).observe(tablist);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => move(false));
+    move(false);
+    return { move, element: indicator };
+  }
+  function createSegmentedIndicator(group, getActive, { copyColor = true } = {}) {
+    const active = getActive();
+    const color = copyColor && active ? getComputedStyle(active).backgroundColor : "";
+    group.classList.add("is-segmented");
+    const indicator = createTabIndicator(group, { getActive, className: "segmented-indicator" });
+    if (color && color !== "rgba(0, 0, 0, 0)") indicator.element.style.backgroundColor = color;
+    return indicator;
+  }
+
+  // src/components/formula.js
+  function initFormulas(root = document) {
+    root.querySelectorAll("[data-formula]").forEach(initFormula);
+  }
+  function initFormula(formula) {
+    const tabs = [...formula.querySelectorAll("[data-formula-tab]")];
+    if (!tabs.length) return;
+    const tablist = tabs[0].parentElement;
+    const getPanel2 = (tab) => formula.querySelector(`[data-formula-panel="${tab.getAttribute("data-formula-tab")}"]`);
+    let current = tabs.find((tab) => tab.classList.contains("is-active")) || tabs[0];
+    function select(tab, { focus = false } = {}) {
+      if (tab === current) return;
+      current = tab;
+      tabs.forEach((t2) => {
+        const isActive = t2 === tab;
+        t2.classList.toggle("is-active", isActive);
+        t2.setAttribute("aria-selected", String(isActive));
+        t2.setAttribute("tabindex", isActive ? "0" : "-1");
+        const panel = getPanel2(t2);
+        if (!panel) return;
+        if (isActive) {
+          panel.removeAttribute("hidden");
+          panel.classList.add("is-entering");
+          panel.addEventListener("animationend", () => panel.classList.remove("is-entering"), { once: true });
+        } else {
+          panel.setAttribute("hidden", "");
+        }
+      });
+      indicator.move();
+      if (list && list.value !== tab.getAttribute("data-formula-tab")) {
+        list.value = tab.getAttribute("data-formula-tab");
+        list.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+      if (focus) tab.focus();
+      const left = tab.offsetLeft - (tablist.clientWidth - tab.offsetWidth) / 2;
+      tablist.scrollTo({ left, behavior: "smooth" });
+      requestScrollRefresh();
+    }
+    tabs.forEach((tab) => {
+      tab.removeAttribute("href");
+      const isActive = tab === current;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", String(isActive));
+      tab.setAttribute("tabindex", isActive ? "0" : "-1");
+      const panel = getPanel2(tab);
+      if (panel) panel.toggleAttribute("hidden", !isActive);
+    });
+    const list = document.createElement("select");
+    list.className = "form_input";
+    list.setAttribute("data-enhance-select", "");
+    list.setAttribute("aria-label", tablist.getAttribute("aria-label") || t("formula.choose"));
+    tabs.forEach((tab) => list.add(new Option(tab.textContent.trim(), tab.getAttribute("data-formula-tab"))));
+    list.value = current.getAttribute("data-formula-tab");
+    list.addEventListener("change", () => {
+      const tab = tabs.find((t2) => t2.getAttribute("data-formula-tab") === list.value);
+      if (tab) select(tab);
+    });
+    const listWrap = document.createElement("div");
+    listWrap.className = "formula_select";
+    listWrap.appendChild(list);
+    tablist.after(listWrap);
+    const indicator = createTabIndicator(tablist, {
+      getActive: () => current,
+      themeAttr: "data-formula-theme",
+      className: "formula_indicator"
+    });
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        select(tab);
+      });
+      tab.addEventListener("keydown", (e) => {
+        let next = null;
+        if (e.key === "ArrowRight") next = tabs[(index + 1) % tabs.length];
+        else if (e.key === "ArrowLeft") next = tabs[(index - 1 + tabs.length) % tabs.length];
+        else if (e.key === "Home") next = tabs[0];
+        else if (e.key === "End") next = tabs[tabs.length - 1];
+        else if (e.key === " " || e.key === "Enter") next = tab;
+        if (!next) return;
+        e.preventDefault();
+        select(next, { focus: true });
+      });
+    });
+  }
+
+  // src/components/slider.js
+  var EDGE_EXTRA = 24;
+  var MOBILE = "(max-width: 767px)";
+  function initSliders(root = document) {
+    if (typeof window.Swiper === "undefined") return;
+    root.querySelectorAll("[data-slider]").forEach((block) => {
+      if (!readBool(block, "data-slider-mobile-only")) return initSlider(block);
+      const mq = window.matchMedia(MOBILE);
+      let destroy = null;
+      const sync = () => {
+        if (mq.matches && !destroy) destroy = initSlider(block, { mobileOnly: true });
+        else if (!mq.matches && destroy) {
+          destroy();
+          destroy = null;
+        }
+      };
+      sync();
+      mq.addEventListener("change", sync);
+    });
+  }
+  function readBool(el, name) {
+    return el.getAttribute(name) === "true";
+  }
+  function readNumber(el, name, fallback) {
+    const value = parseFloat(el.getAttribute(name));
+    return Number.isFinite(value) ? value : fallback;
+  }
+  function initSlider(block, { mobileOnly = false } = {}) {
+    const track = block.querySelector("[data-slider-track]");
+    if (!track || track.closest("[data-slider]") !== block || track.swiper) return;
+    const slides = [...track.children];
+    if (!slides.length) return;
+    const styles = getComputedStyle(track);
+    const gap = parseFloat(styles.columnGap) || parseFloat(styles.gap) || 0;
+    const edgeGap = block.getAttribute("data-slider-gap") === "edge";
+    const setEdge = () => block.style.setProperty("--slider-edge", `${Math.round(track.getBoundingClientRect().left) + EDGE_EXTRA}px`);
+    if (edgeGap) {
+      block.classList.add("is-slider-edge");
+      setEdge();
+    }
+    const viewport = document.createElement("div");
+    viewport.className = "swiper slider_viewport";
+    track.parentNode.insertBefore(viewport, track);
+    viewport.appendChild(track);
+    track.classList.add("swiper-wrapper");
+    slides.forEach((slide) => slide.classList.add("swiper-slide"));
+    const prev = block.querySelector("[data-slider-prev]");
+    const next = block.querySelector("[data-slider-next]");
+    const dots = block.querySelector("[data-slider-dots]");
+    const reduced = prefersReducedMotion();
+    const autoplayDelay = readNumber(block, "data-slider-autoplay", 0);
+    [prev, next].forEach((arrow) => {
+      if (!arrow) return;
+      arrow.addEventListener("click", (e) => e.preventDefault());
+      if (arrow.tagName !== "A") return;
+      arrow.removeAttribute("href");
+      arrow.setAttribute("role", "button");
+      if (!arrow.hasAttribute("tabindex")) arrow.setAttribute("tabindex", "0");
+      arrow.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        e.preventDefault();
+        arrow.click();
+      });
+    });
+    const perView = readNumber(block, "data-slider-per-view", 0);
+    const perViewTablet = readNumber(block, "data-slider-per-view-tablet", perView);
+    const perViewMobile = readNumber(block, "data-slider-per-view-mobile", perViewTablet);
+    const sizing = mobileOnly ? { slidesPerView: perViewMobile || "auto" } : perView ? {
+      slidesPerView: perViewMobile,
+      breakpoints: { 768: { slidesPerView: perViewTablet }, 992: { slidesPerView: perView } }
+    } : { slidesPerView: "auto" };
+    const swiper = new window.Swiper(viewport, {
+      ...sizing,
+      spaceBetween: gap,
+      speed: reduced ? 0 : readNumber(block, "data-slider-speed", 600),
+      loop: readBool(block, "data-slider-loop"),
+      centeredSlides: readBool(block, "data-slider-center"),
+      grabCursor: true,
+      watchOverflow: true,
+      // flèches désactivées si tout tient à l'écran
+      autoplay: autoplayDelay && !reduced ? { delay: autoplayDelay, pauseOnMouseEnter: true, disableOnInteraction: false } : false,
+      navigation: {
+        prevEl: prev,
+        nextEl: next,
+        disabledClass: "is-disabled",
+        // Tout tient à l'écran : classe à part (une classe commune avec disabledClass
+        // serait retirée par Swiper juste après avoir été posée). Même style en CSS.
+        lockClass: "is-locked"
+      },
+      pagination: dots ? {
+        el: dots,
+        clickable: true,
+        bulletClass: "slider_dot",
+        bulletActiveClass: "is-active"
+      } : false,
+      a11y: {
+        prevSlideMessage: t("slider.prev"),
+        nextSlideMessage: t("slider.next"),
+        paginationBulletMessage: t("slider.goto"),
+        firstSlideMessage: t("slider.first"),
+        lastSlideMessage: t("slider.last")
+      },
+      keyboard: { enabled: true, onlyInViewport: true },
+      on: {
+        // Slider prêt ou redimensionné : la hauteur de page a pu bouger
+        afterInit: () => requestScrollRefresh()
+      }
+    });
+    if (edgeGap) {
+      const updateOffside = () => {
+        const perView2 = typeof swiper.params.slidesPerView === "number" ? swiper.params.slidesPerView : 1;
+        const first = swiper.activeIndex;
+        const last = first + Math.ceil(perView2) - 1;
+        swiper.slides.forEach((slide, i) => {
+          slide.classList.toggle("is-offside-prev", i < first);
+          slide.classList.toggle("is-offside-next", i > last);
+        });
+      };
+      block.style.setProperty("--slider-speed", `${swiper.params.speed}ms`);
+      updateOffside();
+      swiper.on("slideChange", updateOffside);
+      swiper.on("breakpoint", updateOffside);
+      swiper.on("resize", () => {
+        setEdge();
+        updateOffside();
+      });
+    }
+    block.classList.add("is-slider-ready");
+    return () => {
+      swiper.destroy(true, true);
+      viewport.before(track);
+      viewport.remove();
+      track.classList.remove("swiper-wrapper");
+      slides.forEach((slide) => slide.classList.remove("swiper-slide", "is-offside-prev", "is-offside-next"));
+      block.classList.remove("is-slider-ready", "is-slider-edge");
+      block.style.removeProperty("--slider-edge");
+      block.style.removeProperty("--slider-speed");
+      requestScrollRefresh();
+    };
+  }
+
+  // src/components/photo-slider.js
+  var SWIPE = 40;
+  function initPhotoSliders(root = document) {
+    root.querySelectorAll("[data-photo-slider]").forEach(initPhotoSlider);
+  }
+  function initPhotoSlider(block) {
+    const slides = [...block.querySelectorAll("[data-photo-slide]")];
+    if (!slides.length) return;
+    const prev = block.querySelector("[data-slider-prev]");
+    const next = block.querySelector("[data-slider-next]");
+    const dotsWrap = block.querySelector(".slider_dots, [data-slider-dots]");
+    const model = dotsWrap == null ? void 0 : dotsWrap.querySelector("[aria-current='true'], .slider_dot");
+    const activeClass = [...(model == null ? void 0 : model.classList) || []].find((c) => c !== "slider_dot" && /active/.test(c)) || "is-active";
+    let index = 0;
+    let dots = [];
+    function place(slide, x, animate2) {
+      slide.classList.toggle("is-instant", !animate2);
+      slide.style.setProperty("--slide-x", `${x}%`);
+    }
+    function show(i, dir = Math.sign(i - index) || 1, first = false) {
+      const old = index;
+      index = (i + slides.length) % slides.length;
+      slides.forEach((slide, k) => {
+        const on = k === index;
+        slide.classList.toggle("is-active", on);
+        slide.setAttribute("aria-hidden", on ? "false" : "true");
+        const n = slides.length;
+        if (k === (index + 1) % n || k === (index - 1 + n) % n) slide.loading = "eager";
+      });
+      if (first) {
+        slides.forEach((slide, k) => place(slide, k === index ? 0 : 100, false));
+      } else if (old !== index) {
+        const incoming = slides[index];
+        place(incoming, dir * 100, false);
+        void incoming.offsetWidth;
+        place(incoming, 0, true);
+        place(slides[old], -dir * 100, true);
+      }
+      dots.forEach((dot, k) => {
+        dot.classList.toggle(activeClass, k === index);
+        dot.setAttribute("aria-current", k === index ? "true" : "false");
+      });
+    }
+    if (dotsWrap) {
+      dotsWrap.innerHTML = "";
+      dots = slides.map((_, k) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "slider_dot";
+        dot.setAttribute("aria-label", t("map.photoGo", { n: k + 1 }));
+        dot.addEventListener("click", () => {
+          show(k);
+          restart();
+        });
+        dotsWrap.appendChild(dot);
+        return dot;
+      });
+    }
+    [
+      [prev, -1],
+      [next, 1]
+    ].forEach(([arrow, step]) => {
+      if (!arrow) return;
+      if (arrow.tagName === "A") {
+        arrow.removeAttribute("href");
+        arrow.setAttribute("role", "button");
+        if (!arrow.hasAttribute("tabindex")) arrow.setAttribute("tabindex", "0");
+      }
+      arrow.addEventListener("click", (e) => {
+        e.preventDefault();
+        show(index + step, step);
+        restart();
+      });
+      arrow.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        e.preventDefault();
+        arrow.click();
+      });
+    });
+    const single = slides.length < 2;
+    [prev, next, dotsWrap].forEach((el) => el && (el.hidden = single));
+    let startX = null;
+    block.addEventListener("pointerdown", (e) => {
+      if (e.target.closest("a, button")) return;
+      startX = e.clientX;
+    });
+    block.addEventListener("pointerup", (e) => {
+      if (startX == null) return;
+      const dx = e.clientX - startX;
+      startX = null;
+      if (Math.abs(dx) > SWIPE && !single) {
+        show(index + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+        restart();
+      }
+    });
+    block.addEventListener("pointercancel", () => startX = null);
+    slides.forEach((slide) => slide.draggable = false);
+    block.addEventListener("keydown", (e) => {
+      if (single || e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      e.preventDefault();
+      const step = e.key === "ArrowRight" ? 1 : -1;
+      show(index + step, step);
+      restart();
+    });
+    const delay = parseInt(block.getAttribute("data-photo-slider-autoplay"), 10) || 0;
+    let timer2 = null;
+    let paused = false;
+    function restart() {
+      clearInterval(timer2);
+      if (!delay || single || paused || prefersReducedMotion()) return;
+      timer2 = setInterval(() => show(index + 1, 1), delay);
+    }
+    const pause = (on) => () => {
+      paused = on;
+      restart();
+    };
+    block.addEventListener("mouseenter", pause(true));
+    block.addEventListener("mouseleave", pause(false));
+    block.addEventListener("focusin", pause(true));
+    block.addEventListener("focusout", pause(false));
+    block.classList.add("is-photo-ready");
+    show(0, 1, true);
+    restart();
+  }
+
+  // src/components/rooms-filter.js
+  function initRoomsFilters(root = document) {
+    root.querySelectorAll("[data-rooms]").forEach(initRoomsFilter);
+  }
+  function minOf(label) {
+    if (/^moins|^less|^under/i.test(label)) return 0;
+    const n = label.match(/\d+/);
+    return n ? parseInt(n[0], 10) : 0;
+  }
+  var norm = (s) => (s || "").replace(/\s+/g, " ").trim().toLowerCase();
+  function initRoomsFilter(section) {
+    const options = [...section.querySelectorAll("[data-room-filter-option]")];
+    const rooms = [...section.querySelectorAll("[data-room]")];
+    if (!rooms.length) return;
+    const more = section.querySelector("[data-room-more]");
+    const limit = parseInt(more == null ? void 0 : more.getAttribute("data-room-more"), 10) || 4;
+    let expanded = !more;
+    let filter = "toutes";
+    const status = document.createElement("p");
+    status.className = "rooms-filter_status";
+    status.setAttribute("role", "status");
+    (section.querySelector("[data-room-filter]") || section).appendChild(status);
+    const isAll = (value) => !value || norm(value) === "toutes" || norm(value) === "all";
+    function matching(value) {
+      if (isAll(value)) return rooms;
+      const exact = rooms.filter((r) => norm(r.getAttribute("data-room-jauge")) === norm(value));
+      if (exact.length) return exact;
+      const min = minOf(value);
+      return rooms.filter((r) => (parseInt(r.getAttribute("data-room-capacite"), 10) || 0) >= min);
+    }
+    function render(announce = true) {
+      const matched = matching(filter);
+      const visible = expanded ? matched : matched.slice(0, limit);
+      rooms.forEach((room) => {
+        const show = visible.includes(room);
+        const wasHidden = room.hidden;
+        room.hidden = !show;
+        if (show && wasHidden && !prefersReducedMotion()) {
+          room.classList.remove("is-room-in");
+          void room.offsetWidth;
+          room.classList.add("is-room-in");
+        }
+      });
+      if (more) {
+        const hasMore = matched.length > visible.length;
+        more.parentElement.hidden = !hasMore;
+        more.setAttribute("aria-expanded", String(!hasMore));
+      }
+      if (announce) {
+        const n = visible.length;
+        status.textContent = t(n === 1 ? "rooms.countOne" : "rooms.count", { n });
+      }
+      requestScrollRefresh();
+    }
+    let current = options.find((o) => o.getAttribute("aria-checked") === "true") || options[0];
+    const indicator = current ? createSegmentedIndicator(current.parentElement, () => current) : null;
+    const select = (option, focus = false) => {
+      current = option;
+      options.forEach((o) => {
+        const on = o === option;
+        o.classList.toggle("is-active", on);
+        o.setAttribute("aria-checked", String(on));
+        o.tabIndex = on ? 0 : -1;
+      });
+      if (focus) option.focus();
+      indicator == null ? void 0 : indicator.move();
+      filter = option.getAttribute("data-room-filter-option");
+      render();
+    };
+    options.forEach((option, i) => {
+      option.addEventListener("click", (e) => {
+        e.preventDefault();
+        select(option);
+      });
+      option.addEventListener("keydown", (e) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          select(option);
+        } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+          e.preventDefault();
+          select(options[(i + 1) % options.length], true);
+        } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+          e.preventDefault();
+          select(options[(i - 1 + options.length) % options.length], true);
+        }
+      });
+    });
+    options.forEach((o) => o.tabIndex = o === current ? 0 : -1);
+    if (current) filter = current.getAttribute("data-room-filter-option");
+    if (more) {
+      if (more.tagName === "A") more.removeAttribute("href");
+      if (!more.hasAttribute("tabindex")) more.tabIndex = 0;
+      const showAll = () => {
+        var _a;
+        const before = rooms.filter((r) => !r.hidden);
+        expanded = true;
+        render();
+        const first = rooms.find((r) => !r.hidden && !before.includes(r));
+        (_a = first == null ? void 0 : first.querySelector("a, button")) == null ? void 0 : _a.focus({ preventScroll: true });
+      };
+      more.addEventListener("click", (e) => {
+        e.preventDefault();
+        showAll();
+      });
+      more.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        e.preventDefault();
+        showAll();
+      });
+    }
+    render(false);
+  }
+
+  // src/utils/iso.js
+  var NS = "http://www.w3.org/2000/svg";
+  var clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  var rad = (d) => d * Math.PI / 180;
+  var r2 = (n) => Math.round(n * 100) / 100;
+  var poly = (pts) => "M" + pts.map((p) => r2(p[0]) + " " + r2(p[1])).join("L") + "Z";
+  var seg = (a, b) => `M${r2(a[0])} ${r2(a[1])}L${r2(b[0])} ${r2(b[1])}`;
+  var open = (pts) => pts.length < 2 ? "" : "M" + pts.map((p) => r2(p[0]) + " " + r2(p[1])).join("L");
+  var Cam = (azDeg, k, S) => ({ az: rad(azDeg), k, S, ox: 0, oy: 0 });
+  function proj(C) {
+    const c = Math.cos(C.az), s = Math.sin(C.az), zf = Math.sqrt(1 - C.k * C.k);
+    return (x, y, z) => {
+      const X = x * c - y * s, Y = x * s + y * c;
+      return [C.ox + C.S * X, C.oy + C.S * (Y * C.k - z * zf)];
+    };
+  }
+  function bounds(C, pts) {
+    const P = proj({ ...C, ox: 0, oy: 0 });
+    let a = 1e9, b = -1e9, c = 1e9, d = -1e9;
+    for (const p of pts) {
+      const q = P(p[0], p[1], p[2]);
+      a = Math.min(a, q[0]);
+      b = Math.max(b, q[0]);
+      c = Math.min(c, q[1]);
+      d = Math.max(d, q[1]);
+    }
+    return { x0: a, x1: b, y0: c, y1: d };
+  }
+  function fit(C, pts, cx, cy) {
+    const b = bounds(C, pts);
+    C.ox = cx - (b.x0 + b.x1) / 2;
+    C.oy = cy - (b.y0 + b.y1) / 2;
+  }
+  var facing = (C) => {
+    const s = Math.sin(C.az), c = Math.cos(C.az);
+    return (q) => q.nu * s + q.nv * c >= -1e-6;
+  };
+  function rrect(u0, v0, u1, v1, r, n = 4) {
+    r = Math.max(0, Math.min(r, (u1 - u0) / 2, (v1 - v0) / 2));
+    const out = [];
+    for (const [cu, cv, a0] of [
+      [u1 - r, v1 - r, 0],
+      [u0 + r, v1 - r, 90],
+      [u0 + r, v0 + r, 180],
+      [u1 - r, v0 + r, 270]
+    ])
+      for (let k = 0; k <= n; k++) {
+        const a = rad(a0 + 90 * k / n), ca = Math.cos(a), sa = Math.sin(a);
+        out.push({ u: cu + r * ca, v: cv + r * sa, nu: ca, nv: sa });
+      }
+    return out;
+  }
+  function disc(cx, cy, R, n = 20) {
+    const out = [];
+    for (let k = 0; k < n; k++) {
+      const a = k / n * Math.PI * 2, ca = Math.cos(a), sa = Math.sin(a);
+      out.push({ u: cx + R * ca, v: cy + R * sa, nu: ca, nv: sa });
+    }
+    return out;
+  }
+  function hull(input) {
+    const pts = input.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    const x = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+    const lo = [], up = [];
+    for (const p of pts) {
+      while (lo.length > 1 && x(lo[lo.length - 2], lo[lo.length - 1], p) <= 0) lo.pop();
+      lo.push(p);
+    }
+    for (let i = pts.length - 1; i >= 0; i--) {
+      const p = pts[i];
+      while (up.length > 1 && x(up[up.length - 2], up[up.length - 1], p) <= 0) up.pop();
+      up.push(p);
+    }
+    lo.pop();
+    up.pop();
+    return lo.concat(up);
+  }
+  var ringAt = (P, ring, z) => ring.map((q) => P(q.u, q.v, z));
+  function run(ring, keep) {
+    const n = ring.length;
+    let s = -1;
+    for (let i = 0; i < n; i++)
+      if (keep(ring[i]) && !keep(ring[(i + n - 1) % n])) {
+        s = i;
+        break;
+      }
+    if (s < 0) return keep(ring[0]) ? ring.slice() : [];
+    const out = [];
+    for (let k = 0; k < n && keep(ring[(s + k) % n]); k++) out.push(ring[(s + k) % n]);
+    return out;
+  }
+  function prism(P, front, ring, inner, z0, z1) {
+    return {
+      sil: poly(hull(ringAt(P, ring, z1).concat(ringAt(P, ring, z0)))),
+      crease: inner ? open(ringAt(P, run(inner, front), z1)) : ""
+    };
+  }
+  var rings = (x0, y0, x1, y1, r, b) => [rrect(x0, y0, x1, y1, r), rrect(x0 + b, y0 + b, x1 - b, y1 - b, Math.max(0.3, r - b))];
+  function extremes(P, ring) {
+    const pr = ring.map((q) => P(q.u, q.v, 0));
+    let a = 0, b = 0, c = 0;
+    pr.forEach((p, k) => {
+      if (p[0] < pr[a][0]) a = k;
+      if (p[0] > pr[b][0]) b = k;
+      if (p[1] > pr[c][1]) c = k;
+    });
+    return [ring[a], ring[b], ring[c]];
+  }
+  function bezier(x1, y1, x2, y2) {
+    const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+    const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+    const X = (u) => ((ax * u + bx) * u + cx) * u;
+    const Y = (u) => ((ay * u + by) * u + cy) * u;
+    const dX = (u) => (3 * ax * u + 2 * bx) * u + cx;
+    return (t2) => {
+      if (t2 <= 0) return 0;
+      if (t2 >= 1) return 1;
+      let u = t2;
+      for (let i = 0; i < 8; i++) {
+        const e = X(u) - t2;
+        if (Math.abs(e) < 1e-5) break;
+        const d = dX(u);
+        if (Math.abs(d) < 1e-6) break;
+        u -= e / d;
+      }
+      return Y(clamp(u, 0, 1));
+    };
+  }
+  var EASE_LIFT = bezier(0.32, 0.72, 0, 1);
+  var tween = (v, dur = 700) => ({ from: v, to: v, t0: -1e9, dur, instant: false });
+  var tval = (tw, now) => {
+    if (tw.instant) return tw.to;
+    const p = clamp((now - tw.t0) / tw.dur, 0, 1);
+    return tw.from + (tw.to - tw.from) * EASE_LIFT(p);
+  };
+  var tset = (tw, to, now, delay, instant = false) => {
+    if (tw.to === to && !instant) return;
+    tw.from = tval(tw, now);
+    tw.to = to;
+    tw.t0 = now + delay;
+    tw.instant = instant;
+  };
+  var tdone = (tw, now) => tw.instant || now >= tw.t0 + tw.dur;
+  function mk(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    if (attrs) for (const k in attrs) e.setAttribute(k, String(attrs[k]));
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function solid(parent) {
+    const g = mk("g", {}, parent);
+    return { g, sil: mk("path", { class: "sil" }, g), cr: mk("path", { class: "nf lo" }, g) };
+  }
+  var put = (el, s) => {
+    el.sil.setAttribute("d", s.sil);
+    el.cr.setAttribute("d", s.crease);
+  };
+
+  // src/components/room-plan.js
+  var IN = 450;
+  var STAGGER = 40;
+  var WALL = 24;
+  var WT = 1.2;
+  var SEAT = 4.2;
+  var BACKTOP = 9;
+  var TABLE = 7.2;
+  var BAR = 10.5;
+  var HIGH = 10.4;
+  var CH = 4.2;
+  function reunion(n, RW, RD) {
+    const L = [];
+    const pitch = 6.4;
+    const maxSide = Math.max(2, Math.floor((RW - 26) / pitch));
+    const islands = clamp(Math.ceil(n / (2 * maxSide)), 1, Math.max(1, Math.floor(RD / 26)));
+    let left = n;
+    for (let k = 0; k < islands; k++) {
+      const count = Math.ceil(left / (islands - k));
+      left -= count;
+      const side = Math.ceil(count / 2);
+      const len = side * pitch + 3;
+      const x0 = (RW - len) / 2 + 3;
+      const cy = RD / islands * (k + 0.5);
+      L.push(["table", x0, cy - 6, [len, 12]]);
+      for (let i = 0; i < side; i++) {
+        const x = x0 + 1.5 + i * pitch;
+        L.push(["chair", x, cy - 11.5, "-y"]);
+        if (i < count - side) L.push(["chair", x, cy + 7.5, "+y"]);
+      }
+    }
+    return L;
+  }
+  function enU(n, RW, RD) {
+    const L = [];
+    const xa = 14, xb = RW - 18;
+    const yt = 6, yb = RD - 12;
+    L.push(["table", xa, yt, [xb - xa, 6]], ["table", xa, yb, [xb - xa, 6]], ["table", xb, yt, [6, yb + 6 - yt]]);
+    const armLen = xb - xa - 4, endLen = yb - yt - 8;
+    let end = clamp(Math.round(n * endLen / (2 * armLen + endLen)), 1, Math.max(1, Math.floor(endLen / 6)));
+    if (n < 6) end = 0;
+    const top = Math.ceil((n - end) / 2), bottom = n - end - top;
+    const along = (count, from, len) => Array.from({ length: count }, (_, i) => from + (i + 0.5) * len / count - CH / 2);
+    along(top, xa + 2, armLen).forEach((x) => L.push(["chair", x, yt - 4.6, "-y"]));
+    along(bottom, xa + 2, armLen).forEach((x) => L.push(["chair", x, yb + 6.6, "+y"]));
+    along(end, yt + 10, endLen).forEach((y) => L.push(["chair", xb + 7.4, y, "+x"]));
+    return L;
+  }
+  function theatre(n, RW, RD) {
+    const L = [];
+    const cols = Math.max(1, Math.floor((RD - 10) / 6.6));
+    const rows = Math.ceil(n / cols);
+    const pitch = clamp((RW - 22) / Math.max(rows, 1), 6, 11);
+    let left = n;
+    for (let r = 0; r < rows; r++) {
+      const inRow = Math.min(cols, left);
+      left -= inRow;
+      const y0 = (RD - inRow * 6.6) / 2 + 1.2;
+      for (let c = 0; c < inRow; c++) L.push(["chair", 16 + r * pitch, y0 + c * 6.6, "+x"]);
+    }
+    return L;
+  }
+  var seeded = (seed) => () => {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  };
+  function cocktail(n, RW, RD) {
+    const L = [];
+    if (RW > 40) L.push(["bar", RW * 0.42, 3, [Math.min(26, RW * 0.33), 6]]);
+    const count = clamp(Math.round(n / 4.5), 2, 60);
+    const x0 = 14, x1 = RW - 8, y0 = 14, y1 = RD - 6;
+    const W = x1 - x0, H = y1 - y0;
+    const cols = Math.max(1, Math.round(Math.sqrt(count * W / H)));
+    const rows = Math.ceil(count / cols);
+    const rnd = seeded(n * 7 + Math.round(RW));
+    let placed = 0;
+    for (let r = 0; r < rows && placed < count; r++)
+      for (let c = 0; c < cols && placed < count; c++, placed++) {
+        const jx = (rnd() - 0.5) * (W / cols) * 0.4, jy = (rnd() - 0.5) * (H / rows) * 0.4;
+        const x = x0 + (c + 0.5) * W / cols + jx + (r % 2 ? W / cols / 4 : 0);
+        L.push(["high", clamp(x, x0, x1), y0 + (r + 0.5) * H / rows + jy]);
+      }
+    return L;
+  }
+  var BUILDERS = { reunion, "en-u": enU, theatre, cocktail };
+  function depthOrder(items) {
+    const behind = (a, b) => a.b[2] <= b.b[0] || a.b[3] <= b.b[1];
+    const key2 = (it) => (it.b[0] + it.b[2] + it.b[1] + it.b[3]) / 2;
+    const n = items.length, ins = new Array(n).fill(0), out = items.map(() => []);
+    for (let i = 0; i < n; i++)
+      for (let j = 0; j < n; j++)
+        if (i !== j && behind(items[i], items[j]) && !behind(items[j], items[i])) {
+          out[i].push(j);
+          ins[j]++;
+        }
+    const ready = items.map((_, i) => i).filter((i) => ins[i] === 0), res = [];
+    while (ready.length) {
+      ready.sort((a, b) => key2(items[a]) - key2(items[b]));
+      const i = ready.shift();
+      res.push(items[i]);
+      for (const j of out[i]) if (--ins[j] === 0) ready.push(j);
+    }
+    items.splice(0, n, ...res);
+  }
+  function createRoomPlan(stage, { surface = 40, configs = [] } = {}) {
+    const area = clamp(surface || 40, 12, 400) * 100;
+    const RW = Math.sqrt(area * 1.6), RD = area / RW;
+    const svg = mk("svg", { viewBox: "0 0 400 320", "aria-hidden": "true" }, stage);
+    const corners = [[-WT, -WT, WALL], [RW, -WT, WALL], [-WT, RD, WALL], [RW, RD, 0], [-WT, RD, 0], [RW, -WT, 0]];
+    const C = Cam(45, 0.5, 1);
+    const b0 = bounds(C, corners);
+    C.S = Math.min(360 / (b0.x1 - b0.x0), 270 / (b0.y1 - b0.y0));
+    fit(C, corners, 200, 165);
+    const P = proj(C), front = facing(C);
+    const g = mk("g", {}, svg);
+    const box = (x0, y0, x1, y1, z0, z1, r = 0.6, bv = 0.3) => {
+      const s = solid(g);
+      const [ring, inner] = rings(x0, y0, x1, y1, r, bv);
+      put(s, prism(P, front, ring, inner, z0, z1));
+    };
+    box(0, 0, RW, RD, -1.2, 0, 2.5, 1.2);
+    box(-WT, -WT, RW, 0, 0, WALL, 0.4, 0.2);
+    box(-WT, 0, 0, RD, 0, WALL, 0.4, 0.2);
+    const onBack = (pts) => poly(pts.map(([x, z]) => P(x, 0, z)));
+    const onLeft = (pts) => poly(pts.map(([y, z]) => P(0, y, z)));
+    const windows = Math.max(1, Math.floor((RW - 12) / 23));
+    const step = (RW - 12) / windows;
+    for (let i = 0; i < windows; i++) {
+      const x0 = 10 + i * step + (step - 16) / 2;
+      mk("path", { d: onBack([[x0, 9], [x0 + 16, 9], [x0 + 16, 22], [x0, 22]]), class: "nf lo" }, g);
+      mk("path", { d: seg(P(x0 + 8, 0, 9), P(x0 + 8, 0, 22)), class: "nf lo" }, g);
+    }
+    const sw = Math.min(10, RD * 0.2);
+    const screen = mk("path", { d: onLeft([[RD / 2 - sw, 10], [RD / 2 + sw, 10], [RD / 2 + sw, 21], [RD / 2 - sw, 21]]), class: "nf hi" }, g);
+    mk("path", { d: onLeft([[RD - 13, 0], [RD - 4, 0], [RD - 4, 21], [RD - 13, 21]]), class: "nf lo" }, g);
+    const keys = configs.map((c) => c.key);
+    const items = [];
+    configs.forEach(({ key: key2, n }) => {
+      var _a;
+      (((_a = BUILDERS[key2]) == null ? void 0 : _a.call(BUILDERS, n, RW, RD)) || []).forEach(([kind, x, y, d]) => items.push({ key: key2, kind, x, y, d }));
+    });
+    const flat = (it) => it.kind === "table" || it.kind === "bar";
+    const centre = (it) => flat(it) ? [it.x + it.d[0] / 2, it.y + it.d[1] / 2] : it.kind === "high" ? [it.x, it.y] : [it.x + CH / 2, it.y + CH / 2];
+    const foot = (it) => flat(it) ? [it.x, it.y, it.x + it.d[0], it.y + it.d[1]] : it.kind === "high" ? [it.x - 3.5, it.y - 3.5, it.x + 3.5, it.y + 3.5] : [it.x, it.y, it.x + CH, it.y + CH];
+    for (const it of items) it.b = foot(it);
+    depthOrder(items);
+    for (const it of items) {
+      it.g = mk("g", {}, g);
+      it.h = tween(0);
+      it.parts = it.kind === "chair" || it.kind === "high" ? [solid(it.g), solid(it.g)] : [solid(it.g)];
+      if (it.kind === "table" || it.kind === "high") {
+        it.drop = mk("path", { class: "nf dash" }, it.g);
+        it.g.insertBefore(it.drop, it.g.firstChild);
+      }
+    }
+    function draw(it, h) {
+      var _a;
+      if (h < 0.03) {
+        for (const s of it.parts) {
+          s.sil.setAttribute("d", "");
+          s.cr.setAttribute("d", "");
+        }
+        (_a = it.drop) == null ? void 0 : _a.setAttribute("d", "");
+        return;
+      }
+      const { x, y } = it;
+      if (it.kind === "chair") {
+        const [seat, back] = it.parts;
+        let [r, i] = rings(x, y, x + CH, y + CH, 0.8, 0.4);
+        put(seat, prism(P, front, r, i, SEAT * h - 0.4, SEAT * h));
+        const bx = {
+          "+x": [x + CH - 0.5, y, x + CH, y + CH],
+          "-x": [x, y, x + 0.5, y + CH],
+          "+y": [x, y + CH - 0.5, x + CH, y + CH],
+          "-y": [x, y, x + CH, y + 0.5]
+        }[it.d];
+        [r, i] = rings(bx[0], bx[1], bx[2], bx[3], 0.2, 0.1);
+        put(back, prism(P, front, r, i, SEAT * h, BACKTOP * h));
+      } else if (flat(it)) {
+        const top = it.kind === "table" ? TABLE : BAR;
+        const [r, i] = rings(x, y, x + it.d[0], y + it.d[1], 1, it.kind === "table" ? 1.2 : 0.8);
+        put(it.parts[0], prism(P, front, r, i, it.kind === "table" ? (top - 0.5) * h : 0, top * h));
+        if (it.drop) {
+          const e = extremes(P, r).map((q) => [P(q.u, q.v, (top - 0.5) * h), P(q.u, q.v, 0)]);
+          it.drop.setAttribute("d", e.map(([a, c]) => seg(a, c)).join(""));
+        }
+      } else {
+        put(it.parts[0], prism(P, front, disc(x, y, 2.5), disc(x, y, 1.6), 0, 0.3 * h));
+        put(it.parts[1], prism(P, front, disc(x, y, 3.5), disc(x, y, 2.4), (HIGH - 0.4) * h, HIGH * h));
+        it.drop.setAttribute("d", seg(P(x, y, 0.3 * h), P(x, y, (HIGH - 0.4) * h)));
+      }
+    }
+    let raf = 0;
+    function frame() {
+      const now = performance.now();
+      let moving = false;
+      for (const it of items) {
+        draw(it, tval(it.h, now));
+        if (!tdone(it.h, now)) moving = true;
+      }
+      raf = moving ? requestAnimationFrame(frame) : 0;
+    }
+    const wake = () => {
+      if (!raf) raf = requestAnimationFrame(frame);
+    };
+    let current = null;
+    function show(key2) {
+      if (!keys.includes(key2) || key2 === current) return;
+      const first = current === null;
+      current = key2;
+      const now = performance.now();
+      const instant = first || prefersReducedMotion();
+      const [wx, wy] = [RW / 2, RD / 2];
+      for (const it of items) {
+        const [cx, cy] = centre(it);
+        const far = Math.hypot(cx - wx, cy - wy) / 10 * STAGGER;
+        if (it.key === key2) tset(it.h, 1, now, IN + far, instant);
+        else tset(it.h, 0, now, far / 2, instant);
+      }
+      screen.setAttribute("class", key2 === "cocktail" ? "nf lo" : "nf hi");
+      for (const it of items) if (it.kind === "bar") it.parts[0].sil.classList.toggle("hi", key2 === "cocktail");
+      if (instant) frame();
+      else wake();
+    }
+    show(keys[0]);
+    return { show, keys };
+  }
+
+  // src/components/room-details.js
+  var uid = 0;
+  function initRoomDetails(root = document) {
+    root.querySelectorAll("[data-rooms]").forEach((section) => {
+      const rooms = [...section.querySelectorAll("[data-room]")].filter(
+        (room) => room.querySelector("[data-room-toggle]") && room.querySelector("[data-room-panel]")
+      );
+      if (!rooms.length) return;
+      const controls = rooms.map((room) => initRoom(room, () => controls));
+    });
+  }
+  function asButton(el, onPress) {
+    if (el.tagName === "A") el.removeAttribute("href");
+    if (!el.hasAttribute("tabindex")) el.tabIndex = 0;
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      onPress();
+    });
+    el.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault();
+      onPress();
+    });
+  }
+  function initRoom(room, getAll) {
+    const toggle = room.querySelector("[data-room-toggle]");
+    const panel = room.querySelector("[data-room-panel]");
+    const label = toggle.querySelector("span") || toggle;
+    const openLabel = label.textContent.trim();
+    const id = panel.id || `room-detail-${++uid}`;
+    panel.id = id;
+    toggle.setAttribute("aria-controls", id);
+    panel.setAttribute("role", "region");
+    const title = panel.querySelector(".venue-room_detail-title, h3, h4, p");
+    if (title) {
+      title.id = title.id || `${id}-title`;
+      panel.setAttribute("aria-labelledby", title.id);
+    }
+    let isOpen = false;
+    let views = null;
+    function open2() {
+      getAll().forEach((c) => c !== api && c.close(false));
+      isOpen = true;
+      room.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+      label.textContent = t("rooms.closeRoom");
+      if (!views) views = initViews(room);
+      views == null ? void 0 : views.refresh();
+      if (!prefersReducedMotion()) {
+        panel.classList.remove("is-panel-in");
+        void panel.offsetWidth;
+        panel.classList.add("is-panel-in");
+      }
+      requestScrollRefresh();
+      requestAnimationFrame(() => {
+        const top = panel.getBoundingClientRect().top;
+        if (top > window.innerHeight * 0.6 || top < 0) {
+          const target = room.querySelector("[data-room-card]");
+          const lenis = getLenis();
+          if (lenis) lenis.scrollTo(target, { offset: -120 });
+          else target.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "start" });
+        }
+      });
+    }
+    function close(focusToggle = true) {
+      if (!isOpen) return;
+      isOpen = false;
+      room.classList.remove("is-open");
+      panel.classList.remove("is-panel-in");
+      toggle.setAttribute("aria-expanded", "false");
+      label.textContent = openLabel;
+      requestScrollRefresh();
+      if (focusToggle) toggle.focus({ preventScroll: true });
+    }
+    asButton(toggle, () => isOpen ? close(false) : open2());
+    const card = room.querySelector("[data-room-card]");
+    card == null ? void 0 : card.addEventListener("click", (e) => {
+      if (e.target.closest("[data-room-toggle]")) return;
+      isOpen ? close(false) : open2();
+    });
+    room.querySelectorAll("[data-room-close]").forEach((btn) => asButton(btn, () => close()));
+    panel.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+    room.roomConfigs = readConfigs(panel);
+    formatConfigurations(panel);
+    addFeatureIcons(panel);
+    const api = { close };
+    return api;
+  }
+  var FEATURE_ICONS = [
+    [/lumi[eè]re|fen[eê]tre|soleil|jour/i, "sun"],
+    [/paperboard|tableau|whiteboard/i, "board"],
+    [/[ée]cran|visio|t[ée]l[ée]|projecteur/i, "screen"],
+    [/r[ée]gie|vid[ée]o|cam[ée]ra|captation/i, "video"],
+    [/micro|sono|son\b|enceinte|audio/i, "mic"],
+    [/divisible|modulable|cloison/i, "split"],
+    [/bistrot|caf[ée]|restaura|bar\b|cocktail|traiteur/i, "coffee"],
+    [/rooftop|terrasse|jardin/i, "terrace"],
+    [/wi-?fi|internet|fibre/i, "wifi"],
+    [/parking/i, "parking"],
+    [/mobilier|fauteuil|canap|lounge/i, "sofa"],
+    [/acc[eè]s|badge|24/i, "key"]
+  ];
+  function addFeatureIcons(panel) {
+    panel.querySelectorAll("[data-room-equipements] li").forEach((li) => {
+      if (li.querySelector(".room-feature_icon")) return;
+      const text = li.textContent;
+      const name = (FEATURE_ICONS.find(([re]) => re.test(text)) || [, "check"])[1];
+      const puce = document.createElement("span");
+      puce.className = "room-feature_icon";
+      puce.setAttribute("aria-hidden", "true");
+      const icon2 = document.createElement("span");
+      icon2.className = `room-icon is-${name}`;
+      puce.appendChild(icon2);
+      li.prepend(puce);
+    });
+  }
+  function formatConfigurations(panel) {
+    const box = panel.querySelector("[data-room-configurations]");
+    if (!box) return;
+    box.querySelectorAll("li, p").forEach((item) => {
+      if (item.querySelector(".room-config_value")) return;
+      const match = item.textContent.trim().match(/^(\d[\d\s  ]*)\s*[·:–-]\s*(.+)$/);
+      if (!match) return;
+      item.textContent = "";
+      const value = document.createElement("strong");
+      value.className = "room-config_value";
+      value.textContent = match[1].trim();
+      const name = document.createElement("span");
+      name.className = "room-config_label";
+      name.textContent = match[2].trim();
+      item.append(value, name);
+    });
+  }
+  var PLAN_KEYS = ["reunion", "theatre", "en-u", "cocktail"];
+  var isFilled = (img) => img && !img.classList.contains("w-dyn-bind-empty") && img.getAttribute("src");
+  var plain = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+  function configKey(label) {
+    const l = plain(label);
+    if (l.startsWith("reunion") || l.startsWith("meeting")) return "reunion";
+    if (l.startsWith("theatre")) return "theatre";
+    if (l === "u" || l.startsWith("en u") || l.startsWith("u-")) return "en-u";
+    if (l.startsWith("cocktail")) return "cocktail";
+    return null;
+  }
+  function readConfigs(panel) {
+    const box = panel.querySelector("[data-room-configurations]");
+    if (!box) return [];
+    const found = {};
+    box.querySelectorAll("li, p").forEach((item) => {
+      const m = item.textContent.replace(/\s+/g, " ").trim().match(/^(\d+)\s*[·:–-]?\s*(.+)$/);
+      const key2 = m && configKey(m[2]);
+      if (key2 && !found[key2]) found[key2] = parseInt(m[1], 10);
+    });
+    return PLAN_KEYS.filter((k) => found[k]).map((k) => ({ key: k, n: found[k] }));
+  }
+  function readSurface(room) {
+    var _a;
+    const m = (((_a = room.querySelector(".venue-room_meta")) == null ? void 0 : _a.textContent) || "").match(/(\d+[.,]?\d*)\s*m/);
+    return m ? parseFloat(m[1].replace(",", ".")) : 40;
+  }
+  function initViews(room) {
+    const box = room.querySelector("[data-room-views]");
+    if (!box) return null;
+    const tabs = [...box.querySelectorAll("[data-room-view-toggle]")];
+    if (!tabs.length) return null;
+    const photo = box.querySelector(".venue-room_view:not(.is-plan)");
+    const planImgs = [...box.querySelectorAll(".venue-room_view.is-plan")];
+    const mainPlan = planImgs.find((img) => !img.hasAttribute("data-room-plan"));
+    const configs = room.roomConfigs || [];
+    if (!configs.length && !isFilled(mainPlan)) {
+      tabs[0].parentElement.hidden = true;
+      return null;
+    }
+    let drawn = null, stage = null, read = null, picker = null;
+    function ensurePlan() {
+      if (drawn || !configs.length) return;
+      stage = document.createElement("div");
+      stage.className = "room-plan";
+      stage.setAttribute("role", "img");
+      box.appendChild(stage);
+      read = document.createElement("p");
+      read.className = "room-plan_read";
+      box.appendChild(read);
+      drawn = createRoomPlan(stage, { surface: readSurface(room), configs });
+      const label = (c) => t(`rooms.plan.${c.key}`);
+      const select = (c) => {
+        drawn.show(c.key);
+        read.textContent = t("rooms.planSeats", { n: c.n });
+        stage.setAttribute("aria-label", t("rooms.planAlt", { config: label(c), n: c.n }));
+      };
+      if (configs.length > 1) picker = createConfigSwitch(box, configs.map(label), (i) => select(configs[i]));
+      else select(configs[0]);
+    }
+    let current = tabs.find((tb) => tb.getAttribute("aria-selected") === "true") || tabs[0];
+    const indicator = createSegmentedIndicator(tabs[0].parentElement, () => current, { copyColor: false });
+    const show = (tab, focus = false) => {
+      current = tab;
+      const isPlan = tab.getAttribute("data-room-view-toggle") === "plan";
+      tabs.forEach((tb) => {
+        const on = tb === tab;
+        tb.classList.toggle("is-active", on);
+        tb.setAttribute("aria-selected", String(on));
+        tb.tabIndex = on ? 0 : -1;
+      });
+      if (isPlan) ensurePlan();
+      box.classList.toggle("is-plan-view", isPlan);
+      if (photo) photo.hidden = isPlan;
+      planImgs.forEach((img) => img.hidden = !(isPlan && !drawn && img === mainPlan));
+      [stage, read].forEach((el) => el && (el.hidden = !isPlan));
+      if (picker) {
+        picker.element.hidden = !isPlan;
+        if (isPlan) picker.refresh();
+      }
+      indicator.move();
+      if (focus) tab.focus();
+    };
+    tabs.forEach((tab, i) => {
+      asButton(tab, () => show(tab));
+      tab.addEventListener("keydown", (e) => {
+        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+        e.preventDefault();
+        const step = e.key === "ArrowRight" ? 1 : -1;
+        show(tabs[(i + step + tabs.length) % tabs.length], true);
+      });
+    });
+    show(current);
+    return {
+      refresh: () => {
+        indicator.move(false);
+        picker == null ? void 0 : picker.refresh();
+      }
+    };
+  }
+  function createConfigSwitch(box, labels, onChange) {
+    const group = document.createElement("div");
+    group.className = "room-plan-switch";
+    group.setAttribute("role", "radiogroup");
+    group.setAttribute("aria-label", t("rooms.planConfig"));
+    let current = null;
+    const buttons = labels.map((label) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "room-plan-switch_option";
+      btn.setAttribute("role", "radio");
+      btn.textContent = label;
+      group.appendChild(btn);
+      return btn;
+    });
+    const col = document.createElement("div");
+    col.className = "room-media-col";
+    box.before(col);
+    col.append(box, group);
+    const indicator = createSegmentedIndicator(group, () => current, { copyColor: false });
+    const select = (i, focus = false) => {
+      current = buttons[i];
+      buttons.forEach((b, k) => {
+        b.classList.toggle("is-active", k === i);
+        b.setAttribute("aria-checked", String(k === i));
+        b.tabIndex = k === i ? 0 : -1;
+      });
+      indicator.move();
+      if (focus) current.focus();
+      onChange(i);
+    };
+    buttons.forEach((btn, i) => {
+      btn.addEventListener("click", () => select(i));
+      btn.addEventListener("keydown", (e) => {
+        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+        e.preventDefault();
+        const step = e.key === "ArrowRight" ? 1 : -1;
+        select((i + step + buttons.length) % buttons.length, true);
+      });
+    });
+    select(0);
+    return { element: group, refresh: () => indicator.move(false) };
+  }
+
+  // src/animations/counter.js
+  var DEFAULT_DURATION = 1800;
+  var NUMBER_REGEX = /\d[\d\s  .,]*\d|\d/;
+  var GAP2 = 0.35;
+  var WINDOW = 0.06;
+  var easeOutCubic = (t2) => 1 - Math.pow(1 - t2, 3);
+  function parse(text) {
+    const match = text.match(NUMBER_REGEX);
+    if (!match) return null;
+    const raw = match[0];
+    const separator = (raw.match(/[\s  .,]/) || [""])[0];
+    const value = parseInt(raw.replace(/\D/g, ""), 10);
+    if (!Number.isFinite(value)) return null;
+    return {
+      value,
+      separator,
+      before: text.slice(0, match.index),
+      after: text.slice(match.index + raw.length)
+    };
+  }
+  function format(n, separator) {
+    const digits = String(Math.round(n));
+    if (!separator) return digits;
+    return digits.replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+  }
+  var finalText = (data) => data.before + format(data.value, data.separator) + data.after;
+  function buildRoll(el, data) {
+    const text = finalText(data);
+    el.textContent = "";
+    const probe = document.createElement("span");
+    probe.className = "count-roll";
+    [...text].forEach((char) => {
+      const cell = document.createElement("span");
+      cell.textContent = char;
+      probe.appendChild(cell);
+    });
+    el.appendChild(probe);
+    const height = probe.getBoundingClientRect().height;
+    const widths = [...probe.children].map((cell) => cell.getBoundingClientRect().width);
+    probe.remove();
+    const sr = document.createElement("span");
+    sr.className = "count-sr";
+    sr.textContent = text;
+    const roll = document.createElement("span");
+    roll.className = "count-roll";
+    roll.setAttribute("aria-hidden", "true");
+    const gap = Math.round(height * GAP2);
+    const win = Math.round(height * WINDOW);
+    roll.style.setProperty("--count-line", `${height}px`);
+    roll.style.setProperty("--count-gap", `${gap}px`);
+    roll.style.setProperty("--count-win", `${win}px`);
+    const digitsTotal = (text.match(/\d/g) || []).length;
+    let digitIndex = 0;
+    const columns = [];
+    const numberStart = data.before.length;
+    const numberEnd = text.length - data.after.length;
+    [...text].forEach((char, i) => {
+      const isDigit = /\d/.test(char) && i >= numberStart && i < numberEnd;
+      if (!isDigit) {
+        const cell = document.createElement("span");
+        cell.className = "count-char";
+        cell.textContent = char;
+        roll.appendChild(cell);
+        return;
+      }
+      const power = digitsTotal - 1 - digitIndex++;
+      const col = document.createElement("span");
+      col.className = "count-col";
+      col.style.width = `${widths[i]}px`;
+      const strip = document.createElement("span");
+      strip.className = "count-strip";
+      for (let d = 0; d <= 10; d++) {
+        const cell = document.createElement("span");
+        cell.textContent = d % 10;
+        strip.appendChild(cell);
+      }
+      col.appendChild(strip);
+      roll.appendChild(col);
+      columns.push({ col, strip, power });
+    });
+    el.append(sr, roll);
+    return { roll, columns, pitch: height + gap * 2, offset: win - gap };
+  }
+  function positions(columns, value) {
+    const byPower = [...columns].sort((a, b) => a.power - b.power);
+    const pos = /* @__PURE__ */ new Map();
+    let lower = null;
+    byPower.forEach((c) => {
+      const unit = Math.pow(10, c.power);
+      let p;
+      if (c.power === 0) p = value;
+      else {
+        const lowerDigit = lower % 10;
+        p = Math.floor(value / unit) + Math.max(lowerDigit - 9, 0);
+      }
+      pos.set(c, p);
+      lower = p;
+    });
+    return pos;
+  }
+  function paint(state, value) {
+    const { columns, pitch, offset } = state;
+    const pos = positions(columns, value);
+    columns.forEach((c) => {
+      const unit = Math.pow(10, c.power);
+      c.strip.style.transform = `translateY(${offset - pos.get(c) % 10 * pitch}px)`;
+      c.col.style.opacity = c.power === 0 ? 1 : Math.min(Math.max(value / unit - 0.6, 0) * 2.5, 1);
+    });
+  }
+  function reserve(el) {
+    const data = el._count;
+    if (!data || data.done) return;
+    el.style.minWidth = el.style.maxWidth = el.style.minHeight = "";
+    const roll = el.querySelector(".count-roll");
+    const saved = [...el.childNodes];
+    el.textContent = finalText(data);
+    const rect = el.getBoundingClientRect();
+    el.textContent = "";
+    el.append(...saved);
+    el.style.minWidth = el.style.maxWidth = `${rect.width}px`;
+    el.style.minHeight = `${rect.height}px`;
+    return roll;
+  }
+  function finish(el, data) {
+    data.done = true;
+    el.textContent = finalText(data);
+    el.style.minWidth = el.style.maxWidth = el.style.minHeight = "";
+    el.classList.remove("is-counting");
+  }
+  function animate(el, data, duration) {
+    const state = el._roll;
+    const start = performance.now();
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      if (progress >= 1) return finish(el, data);
+      paint(state, data.value * easeOutCubic(progress));
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  function initCounters(root = document) {
+    var _a;
+    const items = [...root.querySelectorAll("[data-count]")];
+    if (!items.length || prefersReducedMotion() || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          observer.unobserve(entry.target);
+          const el = entry.target;
+          el._count.started = true;
+          animate(el, el._count, parseFloat(el.getAttribute("data-count-duration")) || DEFAULT_DURATION);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    const setup = (el) => {
+      el._roll = buildRoll(el, el._count);
+      paint(el._roll, 0);
+      reserve(el);
+    };
+    items.forEach((el) => {
+      const data = parse(el.textContent.trim());
+      if (!data) return;
+      el._count = data;
+      if (getComputedStyle(el).display === "inline") el.style.display = "inline-block";
+      el.classList.add("is-counting");
+      setup(el);
+      observer.observe(el);
+    });
+    const rebuild = () => items.forEach((el) => {
+      if (!el._count || el._count.done || el._count.started) return;
+      setup(el);
+    });
+    (_a = document.fonts) == null ? void 0 : _a.ready.then(rebuild);
+    window.addEventListener("resize", rebuild, { passive: true });
+  }
+
+  // src/animations/reveal.js
+  var DEFAULT_STAGGER = 140;
+  var DEFAULT_DISTANCE = 32;
+  function initReveal(root = document) {
+    const groups = [...root.querySelectorAll("[data-reveal-stagger]")];
+    if (!groups.length || prefersReducedMotion() || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          observer.unobserve(entry.target);
+          reveal(entry.target);
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+    );
+    groups.forEach((group) => {
+      const stagger = parseFloat(group.getAttribute("data-reveal-stagger")) || DEFAULT_STAGGER;
+      const distance = parseFloat(group.getAttribute("data-reveal-distance")) || DEFAULT_DISTANCE;
+      group.style.setProperty("--reveal-distance", `${distance}px`);
+      [...group.children].forEach((item, i) => {
+        item.style.setProperty("--reveal-delay", `${i * stagger}ms`);
+      });
+      group.classList.add("is-reveal-pending");
+      observer.observe(group);
+    });
+  }
+  function reveal(group) {
+    group.classList.add("is-revealed");
+    group.classList.remove("is-reveal-pending");
+    const items = group.children.length;
+    const stagger = parseFloat(group.getAttribute("data-reveal-stagger")) || DEFAULT_STAGGER;
+    setTimeout(() => group.classList.add("is-reveal-done"), items * stagger + 800);
+  }
+
+  // src/animations/cards-stack.js
+  var ROTATIONS = [-7, 5, -3, 6, -5, 3];
+  var OFFSETS = [
+    [-10, 6],
+    [8, -4],
+    [-4, -8],
+    [10, 4],
+    [-8, -2],
+    [4, 8]
+  ];
+  var DEFAULT_DELAY = 90;
+  var DURATION = 900;
+  function initCardsStack(root = document) {
+    if (prefersReducedMotion() || !("IntersectionObserver" in window)) return;
+    root.querySelectorAll("[data-cards-stack]").forEach(initGrid);
+  }
+  function initGrid(grid) {
+    const cards = [...grid.children];
+    if (cards.length < 2) return;
+    if (grid.matches("[data-mobile-slider], [data-slider-track]") && window.matchMedia("(max-width: 767px)").matches) return;
+    const sameRow = () => cards.every((card) => Math.abs(card.offsetTop - cards[0].offsetTop) < 4);
+    const stack = () => {
+      const stacked = grid.classList.contains("is-stacked");
+      grid.classList.remove("is-stacked");
+      const g = grid.getBoundingClientRect();
+      const rects = cards.map((card) => card.getBoundingClientRect());
+      const cx = g.left + g.width / 2;
+      const cy = Math.min(...rects.map((r) => r.top + r.height / 2));
+      cards.forEach((card, i) => {
+        const r = rects[i];
+        const [ox, oy] = OFFSETS[i % OFFSETS.length];
+        card.style.setProperty("--stack-x", `${cx - (r.left + r.width / 2) + ox}px`);
+        card.style.setProperty("--stack-y", `${cy - (r.top + r.height / 2) + oy}px`);
+        card.style.setProperty("--stack-r", `${ROTATIONS[i % ROTATIONS.length]}deg`);
+        card.style.zIndex = String(cards.length - i);
+      });
+      if (stacked) grid.classList.add("is-stacked");
+    };
+    if (!sameRow()) return;
+    stack();
+    grid.classList.add("is-stacked");
+    const delay = parseFloat(grid.getAttribute("data-cards-stack-delay")) || DEFAULT_DELAY;
+    const deal = () => {
+      cards.forEach((card, i) => card.style.setProperty("--stack-delay", `${i * delay}ms`));
+      grid.classList.add("is-dealing");
+      grid.classList.remove("is-stacked");
+      setTimeout(() => {
+        grid.classList.remove("is-dealing");
+        cards.forEach((card) => {
+          ["--stack-x", "--stack-y", "--stack-r", "--stack-delay"].forEach((v) => card.style.removeProperty(v));
+          card.style.zIndex = "";
+        });
+      }, DURATION + delay * cards.length + 50);
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        observer.disconnect();
+        window.removeEventListener("resize", onResize);
+        deal();
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(grid);
+    function onResize() {
+      if (!grid.classList.contains("is-stacked")) return;
+      if (sameRow()) stack();
+      else {
+        grid.classList.remove("is-stacked");
+        observer.disconnect();
+        window.removeEventListener("resize", onResize);
+      }
+    }
+    window.addEventListener("resize", onResize, { passive: true });
+  }
+
+  // src/animations/stack-reveal.js
+  var DESKTOP = "(min-width: 992px)";
+  var PEEK = 16;
+  var SHRINK = 0.08;
+  var TILT = 2;
+  var SHADOW_FROM = "0 32px 64px rgba(18, 20, 4, 0.22)";
+  var SHADOW_TO = "0 0px 0px rgba(18, 20, 4, 0)";
+  function initStackReveal(root = document) {
+    const { gsap, ScrollTrigger } = window;
+    if (!gsap || !ScrollTrigger || prefersReducedMotion()) return;
+    gsap.registerPlugin(ScrollTrigger);
+    root.querySelectorAll("[data-stack-reveal]").forEach((stack) => {
+      const cards = [...stack.querySelectorAll("[data-stack-reveal-item]")];
+      if (cards.length < 2) return;
+      const mm = gsap.matchMedia();
+      mm.add(DESKTOP, () => {
+        cards.forEach((card, i) => {
+          card.style.position = "relative";
+          card.style.zIndex = String(cards.length - i);
+        });
+        const first = cards[0];
+        const firstTop = () => first.getBoundingClientRect().top + window.scrollY;
+        const naturalTop = (card) => firstTop() + card.offsetTop - first.offsetTop;
+        cards.slice(1).forEach((card, k) => {
+          const rank = k + 1;
+          const front = cards[k];
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: first,
+              // Démarre quand la première carte arrive au tiers haut de
+              // l'écran ; la carte atteint sa place quand le bas de sa
+              // position prévue arrive en bas de l'écran
+              start: () => firstTop() - window.innerHeight * 0.3,
+              end: () => naturalTop(card) + card.offsetHeight - window.innerHeight,
+              scrub: true,
+              invalidateOnRefresh: true
+            }
+          });
+          tl.fromTo(
+            card,
+            {
+              // Rangée sous la première carte, bord qui dépasse en bas
+              y: () => first.offsetTop + first.offsetHeight - card.offsetTop - card.offsetHeight + rank * PEEK,
+              scale: 1 - rank * SHRINK,
+              rotation: rank % 2 ? -TILT : TILT,
+              transformOrigin: "50% 100%"
+            },
+            { y: 0, scale: 1, rotation: 0, ease: "none" },
+            0
+          );
+          tl.fromTo(front, { boxShadow: SHADOW_FROM }, { boxShadow: SHADOW_TO, ease: "none" }, 0);
+        });
+        requestScrollRefresh();
+        return () => cards.forEach((card) => {
+          card.style.position = "";
+          card.style.zIndex = "";
+          card.style.boxShadow = "";
+        });
+      });
+    });
+  }
+
+  // src/animations/bento-reveal.js
+  var DEFAULT_SELECTOR = ".event-card";
+  var DEFAULT_SPREAD = 450;
+  var DURATION2 = 800;
+  function initBentoReveal(root = document) {
+    if (prefersReducedMotion() || !("IntersectionObserver" in window)) return;
+    root.querySelectorAll("[data-bento-reveal]").forEach(initBento);
+  }
+  function initBento(bento) {
+    if (bento.matches("[data-slider-track]") && window.matchMedia("(max-width: 767px)").matches) return;
+    const selector = bento.getAttribute("data-bento-reveal") || DEFAULT_SELECTOR;
+    const tiles = selector === "self" ? [bento] : [...bento.querySelectorAll(selector)];
+    if (!tiles.length) return;
+    const spread = parseFloat(bento.getAttribute("data-bento-reveal-spread")) || DEFAULT_SPREAD;
+    const box = bento.getBoundingClientRect();
+    const lefts = tiles.map((tile) => tile.getBoundingClientRect().left - box.left);
+    const far = Math.max(...lefts, 1);
+    tiles.forEach((tile, i) => {
+      tile.classList.add("bento-tile");
+      tile.style.setProperty("--bento-delay", `${Math.round(lefts[i] / far * spread)}ms`);
+    });
+    bento.classList.add("is-bento-pending");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        observer.disconnect();
+        bento.classList.add("is-bento-revealing");
+        bento.classList.remove("is-bento-pending");
+        setTimeout(() => {
+          bento.classList.remove("is-bento-revealing");
+          tiles.forEach((tile) => {
+            tile.classList.remove("bento-tile");
+            tile.style.removeProperty("--bento-delay");
+          });
+        }, DURATION2 + spread + 50);
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(bento);
+  }
+
+  // src/animations/stars.js
+  var STEP = 90;
+  var AFTER_CARD = 350;
+  function initStars(root = document) {
+    if (prefersReducedMotion() || !("IntersectionObserver" in window)) return;
+    const rows = [...root.querySelectorAll("[data-stars], .review-card_stars")];
+    if (!rows.length) return;
+    rows.forEach((row) => {
+      const tile = row.closest(".bento-tile");
+      const cardDelay = tile ? parseFloat(getComputedStyle(tile).getPropertyValue("--bento-delay")) || 0 : 0;
+      const base = (tile ? AFTER_CARD : 0) + cardDelay;
+      [...row.children].forEach((star, i) => star.style.setProperty("--star-delay", `${base + i * STEP}ms`));
+      row.classList.add("is-stars-pending");
+    });
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        const row = entry.target;
+        row.classList.add("is-stars-in");
+        row.classList.remove("is-stars-pending");
+      }),
+      { threshold: 0.6 }
+    );
+    rows.forEach((row) => observer.observe(row));
+  }
+
+  // src/animations/widen.js
+  var TARGET = 24;
+  var DESKTOP2 = "(min-width: 992px)";
+  function initWiden(root = document) {
+    const blocks = [...root.querySelectorAll("[data-widen]")];
+    if (!blocks.length || prefersReducedMotion()) return;
+    const groups = /* @__PURE__ */ new Map();
+    blocks.forEach((block) => {
+      const name = block.getAttribute("data-widen") || "";
+      if (!groups.has(name)) groups.set(name, []);
+      groups.get(name).push(block);
+    });
+    const desktop = window.matchMedia(DESKTOP2);
+    const items = blocks.map((block) => {
+      const pad = block.querySelector(".padding-global");
+      const box = pad && pad.querySelector(".container-large");
+      const card = box && box.firstElementChild;
+      return pad ? { block, pad, box, card, pad0: 0, max0: 0, card0: 0, edge0: 0 } : null;
+    }).filter(Boolean);
+    const byBlock = new Map(items.map((item) => [item.block, item]));
+    const clear = () => items.forEach(({ pad, box, card }) => {
+      pad.style.paddingLeft = pad.style.paddingRight = "";
+      if (box) box.style.maxWidth = "";
+      if (card) card.style.paddingLeft = card.style.paddingRight = "";
+    });
+    const measure = () => {
+      clear();
+      items.forEach((item) => {
+        item.pad0 = parseFloat(getComputedStyle(item.pad).paddingLeft) || 0;
+        const max = item.box && parseFloat(getComputedStyle(item.box).maxWidth);
+        item.max0 = Number.isFinite(max) ? max : 0;
+        item.card0 = item.card ? parseFloat(getComputedStyle(item.card).paddingLeft) || 0 : 0;
+        const width = item.pad.clientWidth;
+        const inner = item.max0 ? Math.min(item.max0, width - item.pad0 * 2) : width - item.pad0 * 2;
+        item.edge0 = (width - inner) / 2;
+      });
+    };
+    const apply = (item, p) => {
+      const edge = item.edge0 + (TARGET - item.edge0) * p;
+      item.pad.style.paddingLeft = item.pad.style.paddingRight = `${edge}px`;
+      if (item.box) item.box.style.maxWidth = "none";
+      if (item.card) item.card.style.paddingLeft = item.card.style.paddingRight = `${item.card0 + item.edge0 - edge}px`;
+    };
+    const update = () => {
+      if (!desktop.matches) return;
+      const vh = window.innerHeight;
+      const y = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - vh;
+      const progress = [...groups.values()].map((members) => {
+        const top = members[0].getBoundingClientRect().top + y;
+        const start = top - vh / 2;
+        const end = Math.max(Math.min(top, maxScroll), start + 1);
+        return [members, Math.min(Math.max((y - start) / (end - start), 0), 1)];
+      });
+      progress.forEach(([members, p]) => members.forEach((block) => byBlock.has(block) && apply(byBlock.get(block), p)));
+    };
+    let frame = 0;
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(() => (frame = 0, update()));
+    };
+    const reset = () => {
+      measure();
+      if (desktop.matches) update();
+    };
+    reset();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", reset, { passive: true });
+    desktop.addEventListener("change", reset);
+    window.addEventListener("load", reset);
+  }
+
+  // src/animations/expand.js
+  var START = 1;
+  var END = 0.15;
+  var DEFAULT_RADIUS = 24;
+  var MAX_WIDTH = 1280;
+  var easeInOut = (t2) => t2 < 0.5 ? 2 * t2 * t2 : 1 - Math.pow(-2 * t2 + 2, 2) / 2;
+  function initExpand(root = document) {
+    const blocks = [...root.querySelectorAll("[data-expand]")];
+    if (!blocks.length || prefersReducedMotion()) return;
+    const sitePadding = () => {
+      const ref = document.querySelector(".padding-global");
+      return ref ? parseFloat(getComputedStyle(ref).paddingLeft) || 0 : 0;
+    };
+    let padding = sitePadding();
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const vw = document.documentElement.clientWidth;
+      const vh = window.innerHeight;
+      const edge0 = Math.max(padding, (vw - MAX_WIDTH) / 2);
+      const mobile = window.matchMedia("(max-width: 767px)").matches;
+      const states = blocks.map((el) => {
+        const top = el.getBoundingClientRect().top;
+        const raw = mobile ? 1 : (vh * START - top) / (vh * (START - END));
+        return [el, easeInOut(Math.min(Math.max(raw, 0), 1))];
+      });
+      states.forEach(([el, p]) => {
+        const radius = parseFloat(el.getAttribute("data-expand-radius")) || DEFAULT_RADIUS;
+        const width = el.offsetWidth || vw;
+        const start = Math.min((width - edge0 * 2) / width, 1);
+        const scale = start + (1 - start) * p;
+        if (p >= 1) {
+          el.style.transform = "";
+          el.style.borderRadius = "";
+        } else {
+          el.style.transform = `scale(${scale})`;
+          el.style.borderRadius = `${radius * (1 - p) / scale}px`;
+        }
+        el.classList.toggle("is-expanded", p >= 1);
+      });
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener(
+      "resize",
+      () => {
+        padding = sitePadding();
+        schedule();
+      },
+      { passive: true }
+    );
+    blocks.forEach((el) => {
+      var _a;
+      el.classList.add("has-expand");
+      if ((_a = el.parentElement) == null ? void 0 : _a.classList.contains("expand-wrap")) return;
+      const wrap = document.createElement("div");
+      wrap.className = "expand-wrap";
+      const bg = el.getAttribute("data-expand-bg");
+      if (bg) wrap.style.backgroundColor = bg;
+      el.before(wrap);
+      wrap.appendChild(el);
+    });
+    update();
+  }
+
+  // src/components/hero-video.js
+  var ICON_PLAY = '<svg viewBox="0 0 16 16" width="100%" height="100%" fill="none" aria-hidden="true"><path d="M5 3.5v9l7-4.5-7-4.5Z" fill="currentColor"/></svg>';
+  function initHeroVideo(root = document) {
+    const hero = root.querySelector("[data-hero-video]");
+    const video = hero == null ? void 0 : hero.querySelector("video");
+    if (!video) return;
+    hero.classList.add("has-video");
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.setAttribute("playsinline", "");
+    const toggle = hero.querySelector("[data-hero-video-toggle]");
+    const icon2 = toggle == null ? void 0 : toggle.querySelector("span");
+    const pauseIcon = (icon2 == null ? void 0 : icon2.innerHTML) || "";
+    const render = () => {
+      if (!toggle) return;
+      const paused = video.paused;
+      toggle.setAttribute("aria-label", paused ? t("hero.play") : t("hero.pause"));
+      toggle.setAttribute("aria-pressed", paused ? "true" : "false");
+      if (icon2) icon2.innerHTML = paused ? ICON_PLAY : pauseIcon;
+      hero.classList.toggle("is-video-paused", paused);
+    };
+    const play = () => {
+      const p = video.play();
+      if (p && p.catch) p.catch(() => render());
+    };
+    if (prefersReducedMotion()) video.pause();
+    else if (video.paused) play();
+    video.addEventListener("play", render);
+    video.addEventListener("pause", render);
+    if (toggle) {
+      if (toggle.tagName === "A") {
+        toggle.removeAttribute("href");
+        toggle.setAttribute("role", "button");
+        toggle.setAttribute("tabindex", "0");
+      }
+      toggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (video.paused) play();
+        else video.pause();
+      });
+      toggle.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        e.preventDefault();
+        toggle.click();
+      });
+    }
+    render();
+  }
+
+  // src/animations/hero-intro.js
+  var DURATION3 = 1400;
+  var DELAY = 150;
+  var RADIUS = 32;
+  var easeOutCubic2 = (t2) => 1 - (1 - t2) ** 3;
+  var easeInOutQuart = (t2) => t2 < 0.5 ? 8 * t2 ** 4 : 1 - (-2 * t2 + 2) ** 4 / 2;
+  function initHeroIntro(root = document) {
+    const hero = root.querySelector("[data-hero-video]");
+    const img = hero && (hero.querySelector(".hero-video_media > .w-background-video, .hero-video_media > video") || hero.querySelector("img"));
+    const media = img && img.parentElement;
+    img == null ? void 0 : img.setAttribute("data-hero-bg", "");
+    if (!media) return;
+    const frame = () => {
+      const rect = media.getBoundingClientRect();
+      hero.style.setProperty("--hero-vw", `${document.documentElement.clientWidth}px`);
+      hero.style.setProperty("--hero-vh", `${window.innerHeight}px`);
+      hero.style.setProperty("--hero-x", `${rect.left + window.scrollX}px`);
+      hero.style.setProperty("--hero-y", `${rect.top + window.scrollY}px`);
+    };
+    frame();
+    hero.classList.add("is-framed");
+    window.addEventListener("resize", frame, { passive: true });
+    const done = () => {
+      hero.classList.remove("is-intro-pending", "is-intro-running");
+      hero.classList.add("is-intro-done");
+    };
+    if (prefersReducedMotion() || window.scrollY > 40) {
+      document.documentElement.classList.add("is-hero-intro-skipped");
+      return done();
+    }
+    hero.classList.add("is-intro-running");
+    hero.classList.remove("is-intro-pending");
+    const nav = document.querySelector("[data-nav]");
+    document.documentElement.classList.add("is-hero-intro-running");
+    media.style.transformOrigin = "50% 50%";
+    const contents = [...media.children].filter(
+      (el) => el !== img && el.tagName !== "IMG" && (el.children.length || el.textContent.trim())
+    );
+    const CONTENT_START = 0.5;
+    const CONTENT_RISE = 16;
+    const measure = () => {
+      media.style.transform = "none";
+      img.style.transform = "none";
+      contents.forEach((el) => el.style.transform = "none");
+      const vw = document.documentElement.clientWidth;
+      const vh = window.innerHeight;
+      const r = media.getBoundingClientRect();
+      const ir = img.getBoundingClientRect();
+      img.style.transformOrigin = `${r.left + r.width / 2 - ir.left}px ${r.top + r.height / 2 - ir.top}px`;
+      contents.forEach((el) => {
+        const er = el.getBoundingClientRect();
+        el.style.transformOrigin = `${r.left + r.width / 2 - er.left}px ${r.top + r.height / 2 - er.top}px`;
+      });
+      return {
+        sx0: vw / r.width,
+        sy0: vh / r.height,
+        tx0: vw / 2 - (r.left + r.width / 2),
+        ty0: vh / 2 - (r.top + r.height / 2)
+      };
+    };
+    const apply = (p) => {
+      const { sx0, sy0, tx0, ty0 } = measure();
+      const k = 1 - easeInOutQuart(p);
+      const sx = 1 + (sx0 - 1) * k;
+      const sy = 1 + (sy0 - 1) * k;
+      const tx = tx0 * k;
+      const ty = ty0 * k;
+      media.style.transform = `translate(${tx}px, ${ty}px) scale(${sx}, ${sy})`;
+      img.style.transform = `translate(${-tx / sx}px, ${-ty / sy}px) scale(${1 / sx}, ${1 / sy})`;
+      const radius = RADIUS * (1 - k);
+      media.style.borderRadius = `${radius / sx}px / ${radius / sy}px`;
+      if (nav) nav.style.transform = `translateY(${-100 * k}%)`;
+      const c = easeOutCubic2(Math.min(Math.max((p - CONTENT_START) / (1 - CONTENT_START), 0), 1));
+      contents.forEach((el) => {
+        el.style.opacity = String(c);
+        el.style.transform = `translate(${-tx / sx}px, ${-ty / sy}px) scale(${1 / sx}, ${1 / sy}) translateY(${CONTENT_RISE * (1 - c)}px)`;
+      });
+    };
+    apply(0);
+    const start = performance.now() + DELAY;
+    const tick = (now) => {
+      const p = Math.min(Math.max((now - start) / DURATION3, 0), 1);
+      apply(p);
+      if (p < 1) {
+        requestAnimationFrame(tick);
+        return;
+      }
+      media.style.transform = "";
+      media.style.borderRadius = "";
+      img.style.transform = "";
+      if (nav) nav.style.transform = "";
+      contents.forEach((el) => {
+        el.style.opacity = "";
+        el.style.transform = "";
+        el.style.transformOrigin = "";
+      });
+      document.documentElement.classList.remove("is-hero-intro-running");
+      document.documentElement.classList.add("is-hero-intro-done");
+      done();
+    };
+    requestAnimationFrame(tick);
+  }
+
+  // src/utils/load-asset.js
+  var cache = /* @__PURE__ */ new Map();
+  function loadScript(src) {
+    if (!cache.has(src)) {
+      cache.set(
+        src,
+        new Promise((resolve, reject) => {
+          const el = document.createElement("script");
+          el.src = src;
+          el.async = true;
+          el.onload = resolve;
+          el.onerror = () => reject(new Error(`\xC9chec du chargement : ${src}`));
+          document.head.appendChild(el);
+        })
+      );
+    }
+    return cache.get(src);
+  }
+  function loadStyle(href) {
+    if (!cache.has(href)) {
+      cache.set(
+        href,
+        new Promise((resolve, reject) => {
+          const el = document.createElement("link");
+          el.rel = "stylesheet";
+          el.href = href;
+          el.onload = resolve;
+          el.onerror = () => reject(new Error(`\xC9chec du chargement : ${href}`));
+          document.head.appendChild(el);
+        })
+      );
+    }
+    return cache.get(href);
+  }
+  var currentSrc = document.currentScript && document.currentScript.src;
+  var ASSET_BASE = currentSrc ? currentSrc.replace(/[^/]*$/, "") : "";
+
+  // src/utils/map-base.js
+  var MAPLIBRE_VERSION = "4.7.1";
+  var MAPLIBRE_JS = `https://unpkg.com/maplibre-gl@${MAPLIBRE_VERSION}/dist/maplibre-gl.js`;
+  var MAPLIBRE_CSS = `https://unpkg.com/maplibre-gl@${MAPLIBRE_VERSION}/dist/maplibre-gl.css`;
+  var STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
+  async function loadMapLibre() {
+    await Promise.all([loadStyle(MAPLIBRE_CSS), loadScript(MAPLIBRE_JS)]);
+    return window.maplibregl || null;
+  }
+  var THEME = {
+    background: "#fbf3d5",
+    // terre (beige)
+    water: "#d6e2d3",
+    park: "#ecebc4",
+    building: "#f3e8c2",
+    roadMajor: "#ffffff",
+    roadMinor: "#fdf9ea",
+    label: "#4a4d2c",
+    labelHalo: "#fbf3d5"
+  };
+  var PIN_LOGO = "M57.124 0C57.5655 0 57.9237 0.355883 57.9238 0.794922C57.9238 1.20466 57.6074 1.54533 57.2002 1.60742C48.2446 2.97316 45.6529 13.2223 45.6221 17.6855C45.5878 22.2667 48.1198 25.5007 52.7588 25.7705C57.3967 26.0403 59.0722 22.2331 62.4941 13.1719C65.9135 4.10938 68.5442 1.8861 74.0381 1.21289C76.0902 0.961397 77.6286 1.12776 78.75 1.43555C79.6133 1.6725 79.2753 2.34755 78.3877 2.46582C73.4269 3.1268 73.3957 12.0463 70.1562 22.1992C66.3759 34.0557 53.7789 32.9104 49.1396 29.542C46.0903 27.3268 44.6476 23.7929 43.9648 20.9189C43.7348 19.9521 41.9479 19.7078 41.5781 20.6309L37.3301 31.2324C37.1931 31.5742 36.8602 31.7987 36.4902 31.7988H35.7139C35.3404 31.7988 35.0057 31.5702 34.8711 31.2236L26.4492 9.54102C26.1534 8.77981 25.0733 8.77294 24.7676 9.53027L16.0498 31.1348C15.9123 31.4756 15.5802 31.6992 15.2109 31.6992H14.707C14.329 31.699 13.9944 31.4728 13.8633 31.1201C12.7929 28.243 7.99807 15.3504 5.49316 8.52441C3.50982 3.11277 1.60634 1.7294 0.646484 1.38574C0.321876 1.26956 0 0.966166 0 0.623047C0.000155884 0.317057 0.250951 0.0697539 0.558594 0.0722656L15.0215 0.197266C15.319 0.200032 15.5586 0.441345 15.5586 0.737305C15.5585 1.02305 15.3308 1.25572 15.0469 1.2998C10.9822 1.92953 12.96 7.04102 12.96 7.04102L17.5625 19.6387C17.8478 20.4197 18.9578 20.4343 19.2637 19.6611C20.3338 16.9544 22.2407 12.1901 24.1768 7.64648C26.5679 2.02988 23.1607 1.25118 21.8359 1.1543C21.5717 1.13499 21.3477 0.921777 21.3477 0.658203C21.3479 0.40641 21.5535 0.202148 21.8066 0.202148H36.1865C36.5105 0.202148 36.7734 0.463893 36.7734 0.786133C36.7733 1.09905 36.5204 1.35204 36.209 1.39648C31.9025 2.00992 34.209 7.51172 34.209 7.51172L38.7607 19.583C39.0493 20.3481 40.1304 20.3677 40.4414 19.6113C41.7087 16.5302 44.0804 10.7502 45.6543 6.83789C47.3761 2.55973 45.1008 1.51508 43.9629 1.26074C43.6452 1.18976 43.385 0.92049 43.3848 0.59668C43.3848 0.267373 43.6532 0 43.9844 0H57.124Z";
+  var PIN_SVG = `<svg viewBox="0 0 48 32" aria-hidden="true" class="map-pin_shape"><path class="map-pin_house" d="M22.6 1.5a3 3 0 0 1 2.8 0l18.9 9.2a3.5 3.5 0 0 1 2 3.1V27.5a3 3 0 0 1-3 3H4.7a3 3 0 0 1-3-3V13.8a3.5 3.5 0 0 1 2-3.1Z"/><path class="map-pin_logo" transform="translate(11 13.4) scale(0.328)" d="${PIN_LOGO}"/></svg>`;
+  function applyTheme(map) {
+    const style = map.getStyle();
+    if (!style || !style.layers) return;
+    style.layers.forEach((layer) => {
+      const id = layer.id;
+      const paint2 = (prop, value) => {
+        try {
+          map.setPaintProperty(id, prop, value);
+        } catch (e) {
+        }
+      };
+      if (layer.type === "background") paint2("background-color", THEME.background);
+      else if (layer.type === "fill" && /water/.test(id)) paint2("fill-color", THEME.water);
+      else if (layer.type === "fill" && /park|landcover|landuse|wood|grass/.test(id)) paint2("fill-color", THEME.park);
+      else if (layer.type === "fill" && /building/.test(id)) paint2("fill-color", THEME.building);
+      else if (layer.type === "line" && /water|river/.test(id)) paint2("line-color", THEME.water);
+      else if (layer.type === "line" && /motorway|trunk|primary|major/.test(id)) paint2("line-color", THEME.roadMajor);
+      else if (layer.type === "line" && /road|street|minor|secondary|tertiary|path/.test(id)) paint2("line-color", THEME.roadMinor);
+      else if (layer.type === "symbol") {
+        paint2("text-color", THEME.label);
+        paint2("text-halo-color", THEME.labelHalo);
+      }
+    });
+  }
+  function escapeHtml(text) {
+    return String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  }
+
+  // src/utils/geo.js
+  function distanceKm(a, b) {
+    const R = 6371;
+    const toRad = (d) => d * Math.PI / 180;
+    const dLat = toRad(b.lat - a.lat);
+    const dLng = toRad(b.lng - a.lng);
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(h));
+  }
+  function formatDistance(km) {
+    const tag = getLocale().tag;
+    if (km < 1) return `${Math.round(km * 1e3 / 10) * 10} m`;
+    return `${new Intl.NumberFormat(tag, { maximumFractionDigits: km < 10 ? 1 : 0 }).format(km)} km`;
+  }
+  function normalize(text = "") {
+    return text.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[-'’]/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function isInIdf(postcode = "") {
+    return /^(75|77|78|91|92|93|94|95)/.test(postcode);
+  }
+
+  // src/utils/spaces-data.js
+  var isTrue = (v) => v === "true" || v === "1";
+  function spaceUrl(el, slug) {
+    const href = el.getAttribute("href") || "";
+    if (href.split(/[?#]/)[0].replace(/\/$/, "").endsWith(`/${slug}`)) return href;
+    const prefix = (LOCALES[getLang()] || {}).prefix || "";
+    const url = `${prefix}/espaces/${slug}`;
+    if (el.tagName === "A") el.setAttribute("href", url);
+    return url;
+  }
+  function hasOffer(el, name) {
+    const attr = el.getAttribute(`data-${name}`);
+    if (attr != null) return isTrue(attr);
+    const flag = el.querySelector(`[data-offer="${name}"]`);
+    return !!flag && !flag.classList.contains("w-condition-invisible");
+  }
+  function bestSrc(img) {
+    const set = img.getAttribute("srcset");
+    if (set) {
+      const best = set.split(",").map((part) => part.trim().split(/\s+/)).map(([url, w]) => ({ url, w: parseFloat(w) || 0 })).sort((a, b) => b.w - a.w)[0];
+      if (best && best.url) return best.url;
+    }
+    return img.getAttribute("src") || "";
+  }
+  function readPhotos(el, mainImg) {
+    const item = el.closest(".w-dyn-item") || el.parentElement;
+    const gallery = [...(item == null ? void 0 : item.querySelectorAll("[data-space-gallery] img")) || []].filter((img) => !img.closest(".w-condition-invisible, .w-dyn-empty")).map(bestSrc).filter((src) => src && !/placeholder/i.test(src));
+    const main = mainImg ? bestSrc(mainImg) : "";
+    return [...new Set([main, ...gallery].filter(Boolean))];
+  }
+  function readSpaces(root = document) {
+    const bySlug = /* @__PURE__ */ new Map();
+    root.querySelectorAll("[data-space][data-lat][data-lng]").forEach((el) => {
+      const slug = el.getAttribute("data-space");
+      const lat = parseFloat(el.getAttribute("data-lat"));
+      const lng = parseFloat(el.getAttribute("data-lng"));
+      if (!slug || !Number.isFinite(lat) || !Number.isFinite(lng) || bySlug.has(slug)) return;
+      const img = el.querySelector("img:not([data-space-gallery] img)");
+      bySlug.set(slug, {
+        slug,
+        lat,
+        lng,
+        el,
+        name: el.getAttribute("data-name") || slug,
+        city: el.getAttribute("data-city") || "",
+        dept: el.getAttribute("data-dept") || "",
+        building: el.getAttribute("data-building") || "",
+        address: el.getAttribute("data-address") || "",
+        postcode: el.getAttribute("data-postcode") || "",
+        station: el.getAttribute("data-station") || "",
+        coworking: hasOffer(el, "coworking"),
+        offices: hasOffer(el, "offices"),
+        rooms: hasOffer(el, "rooms"),
+        url: spaceUrl(el, slug),
+        photo: img ? bestSrc(img) : "",
+        photos: readPhotos(el, img),
+        photoAlt: img ? img.alt : ""
+      });
+    });
+    return [...bySlug.values()];
+  }
+
+  // src/utils/stations.js
+  var WALK_SPEED = 80;
+  var DETOUR = 1.3;
+  var MODE_ORDER = { M: 0, RER: 1, T: 2, TRAM: 3, BUS: 4, VAL: 5, CABLE: 6 };
+  var promise = null;
+  function loadStations() {
+    if (!promise) {
+      promise = fetch(`${ASSET_BASE}stations.json`).then((r) => r.ok ? r.json() : []).then(
+        (rows) => rows.map(([name, lat, lng, lines]) => ({
+          name,
+          lat,
+          lng,
+          key: normalize(name),
+          lines: lines ? lines.split("|").map((l) => l.split(":")).sort((a, b) => {
+            var _a, _b;
+            return ((_a = MODE_ORDER[a[0]]) != null ? _a : 9) - ((_b = MODE_ORDER[b[0]]) != null ? _b : 9) || a[1].localeCompare(b[1], "fr", { numeric: true });
+          }) : []
+        }))
+      ).catch(() => []);
+    }
+    return promise;
+  }
+  function walkMinutes(km) {
+    return Math.max(1, Math.ceil(km * 1e3 * DETOUR / WALK_SPEED));
+  }
+  function nearestStations(stations, point, { radiusKm = 1.2, max = 2, prefer = "" } = {}) {
+    const withDist = stations.map((s) => ({ ...s, km: distanceKm(point, s) })).filter((s) => s.km <= radiusKm).sort((a, b) => a.km - b.km);
+    const wanted = normalize(prefer);
+    if (wanted) {
+      const i = withDist.findIndex((s) => s.key === wanted || s.key.includes(wanted) || wanted.includes(s.key));
+      if (i > 0) withDist.unshift(withDist.splice(i, 1)[0]);
+    }
+    return withDist.slice(0, max).map((s) => ({ ...s, walk: walkMinutes(s.km) }));
+  }
+  function renderLines(stations, { maxLines = 4 } = {}) {
+    const lines = [];
+    stations.forEach((s) => lines.push(...s.lines));
+    return renderLineList(lines, { maxLines });
+  }
+  function sortLines(lines) {
+    return [...lines].sort(
+      (a, b) => {
+        var _a, _b;
+        return ((_a = MODE_ORDER[a[0]]) != null ? _a : 9) - ((_b = MODE_ORDER[b[0]]) != null ? _b : 9) || a[1].localeCompare(b[1], "fr", { numeric: true });
+      }
+    );
+  }
+  var MODE_LABEL = { M: "M\xE9tro", RER: "RER", T: "Train", TRAM: "Tramway", BUS: "Bus", VAL: "Navette", CABLE: "C\xE2ble" };
+  function lineLabel([mode, line]) {
+    return mode === "TRAM" ? `Tram T${line}` : `${MODE_LABEL[mode] || mode} ${line}`;
+  }
+  var MODE_CMS = { M: "M\xE9tro", RER: "RER", T: "Train", TRAM: "Tram", BUS: "Bus", VAL: "Navette", CABLE: "C\xE2ble" };
+  function lineSlug([mode, line]) {
+    const id = String(line).toLowerCase();
+    return { M: `metro-${id}`, RER: `rer-${id}`, T: `train-${id}`, TRAM: `tram-t${id}`, BUS: `bus-${id}` }[mode] || `${mode.toLowerCase()}-${id}`;
+  }
+  function renderLineList(list, { maxLines = 4, sort = false } = {}) {
+    const box = document.createElement("span");
+    box.className = "transport-lines";
+    box.setAttribute("data-space-lines", "");
+    const seen = /* @__PURE__ */ new Set();
+    const lines = [];
+    (sort ? sortLines(list) : list).forEach(([mode, line]) => {
+      const key2 = `${mode}-${line}`;
+      if (!seen.has(key2)) {
+        seen.add(key2);
+        lines.push([mode, line]);
+      }
+    });
+    lines.slice(0, maxLines).forEach(([mode, line]) => {
+      const badge = document.createElement("span");
+      badge.className = mode === "T" || mode === "RER" ? "transport-line is-square" : "transport-line";
+      badge.setAttribute("data-line", lineSlug([mode, line]));
+      badge.setAttribute("data-line-mode", MODE_CMS[mode] || mode);
+      badge.title = lineLabel([mode, line]);
+      badge.textContent = mode === "TRAM" ? `T${line}` : line;
+      box.appendChild(badge);
+    });
+    box.setAttribute("aria-hidden", "true");
+    return lines.length ? box : null;
+  }
+
+  // src/utils/scroll-zone.js
+  var ATTR = "data-lenis-prevent";
+  var GESTURE_GAP = 200;
+  var STOPPED_VELOCITY = 1.5;
+  var zones = [];
+  var lastWheel = 0;
+  var started = false;
+  function initScrollZone(zone) {
+    if (!zone) return;
+    zone.setAttribute(ATTR, "");
+    const lenis = getLenis();
+    if (!lenis) return;
+    const state = { zone, pointerMoved: true };
+    zones.push(state);
+    zone.addEventListener(
+      "pointermove",
+      (e) => {
+        if (e.movementX || e.movementY) state.pointerMoved = true;
+      },
+      { passive: true }
+    );
+    if (started) return;
+    started = true;
+    window.addEventListener(
+      "wheel",
+      (e) => {
+        const now = performance.now();
+        const newGesture = now - lastWheel > GESTURE_GAP;
+        lastWheel = now;
+        if (!newGesture) return;
+        const pageStopped = Math.abs(lenis.velocity || 0) < STOPPED_VELOCITY;
+        zones.forEach((s) => {
+          const owns = s.zone.contains(e.target) && (pageStopped || s.pointerMoved);
+          if (owns) s.zone.setAttribute(ATTR, "");
+          else s.zone.removeAttribute(ATTR);
+        });
+      },
+      { passive: true, capture: true }
+    );
+    lenis.on("scroll", () => zones.forEach((s) => s.pointerMoved = false));
+  }
+
+  // src/components/place-carousel.js
+  var SWIPE2 = 40;
+  function createPlaceCarousel(card) {
+    const img = card == null ? void 0 : card.querySelector("[data-place-photo]");
+    if (!img) return { set() {
+    } };
+    const prev = card.querySelector("[data-place-prev]");
+    const next = card.querySelector("[data-place-next]");
+    const dots = card.querySelector("[data-place-dots]");
+    const media = img.parentElement;
+    let photos = [];
+    let index = 0;
+    let name = "";
+    let token = 0;
+    const label = () => t("map.photo", { name, n: index + 1, total: photos.length });
+    function show(i, { instant = false } = {}) {
+      if (!photos.length) return;
+      index = (i + photos.length) % photos.length;
+      const src = photos[index];
+      const current = ++token;
+      const apply = () => {
+        if (current !== token) return;
+        img.src = src;
+        img.removeAttribute("srcset");
+        img.alt = label();
+        img.classList.remove("is-changing");
+      };
+      if (instant || prefersReducedMotion()) apply();
+      else {
+        img.classList.add("is-changing");
+        const loader = new Image();
+        loader.onload = loader.onerror = apply;
+        loader.src = src;
+      }
+      dots == null ? void 0 : dots.querySelectorAll(".slider_dot").forEach((dot, k) => {
+        dot.classList.toggle("is-active", k === index);
+        dot.setAttribute("aria-current", k === index ? "true" : "false");
+      });
+      if (photos.length > 1) new Image().src = photos[(index + 1) % photos.length];
+    }
+    function renderDots() {
+      if (!dots) return;
+      dots.innerHTML = "";
+      photos.forEach((_, k) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "slider_dot";
+        dot.setAttribute("aria-label", t("map.photoGo", { n: k + 1 }));
+        dot.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          show(k);
+        });
+        dots.appendChild(dot);
+      });
+    }
+    const go = (step) => (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      show(index + step);
+    };
+    prev == null ? void 0 : prev.addEventListener("click", go(-1));
+    next == null ? void 0 : next.addEventListener("click", go(1));
+    let startX = null;
+    media.addEventListener("pointerdown", (e) => {
+      if (e.target.closest("a, button")) return;
+      startX = e.clientX;
+    });
+    media.addEventListener("pointerup", (e) => {
+      if (startX == null) return;
+      const dx = e.clientX - startX;
+      startX = null;
+      if (Math.abs(dx) > SWIPE2 && photos.length > 1) show(index + (dx < 0 ? 1 : -1));
+    });
+    media.addEventListener("pointercancel", () => startX = null);
+    img.draggable = false;
+    card.addEventListener("keydown", (e) => {
+      if (photos.length < 2 || e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      if (e.target.closest("input, textarea")) return;
+      e.preventDefault();
+      show(index + (e.key === "ArrowRight" ? 1 : -1));
+    });
+    return {
+      // Nouvel espace : ses photos, en commençant par la première
+      set(list, spaceName) {
+        photos = list.filter(Boolean);
+        name = spaceName || "";
+        const several = photos.length > 1;
+        [prev, next, dots].forEach((el) => el && (el.hidden = !several));
+        renderDots();
+        show(0, { instant: true });
+      }
+    };
+  }
+
+  // src/components/map-sheet.js
+  var MOBILE2 = window.matchMedia("(max-width: 767px)");
+  var EDGE = 24;
+  var MAX_DOTS = 6;
+  function createMapSheet(module, { select, isActive, resizeMap }) {
+    const column = module.querySelector("[data-map-list]");
+    const list = module.querySelector("[data-space-list]");
+    const search2 = module.querySelector("[data-search]");
+    const toggle = module.querySelector("[data-map-list-toggle]");
+    if (!column || !list) return null;
+    const head = column.querySelector(".map-module_head");
+    const listWrap = list.closest(".w-dyn-list") || list;
+    const searchHome = search2 ? { parent: search2.parentElement, next: search2.nextSibling } : null;
+    const handle = document.createElement("button");
+    handle.type = "button";
+    handle.className = "map-sheet_handle";
+    handle.setAttribute("aria-label", t("map.showList"));
+    handle.setAttribute("aria-expanded", "false");
+    handle.innerHTML = '<span class="map-sheet_grip" aria-hidden="true"></span>';
+    const top = document.createElement("div");
+    top.className = "map-sheet_top";
+    const title = document.createElement("p");
+    title.className = "map-module_group map-sheet_title";
+    const dots = document.createElement("div");
+    dots.className = "map-sheet_dots";
+    dots.setAttribute("aria-hidden", "true");
+    const back = document.createElement("button");
+    back.type = "button";
+    back.className = "button map-sheet_back";
+    back.innerHTML = '<span class="button_label"></span>';
+    back.firstChild.textContent = t("map.showMap");
+    let enabled = false;
+    let open2 = false;
+    const items = () => [...list.querySelectorAll("[data-space]")].filter((a) => !a.closest("[hidden]"));
+    function enable() {
+      if (enabled) return;
+      enabled = true;
+      module.classList.add("is-sheet");
+      column.prepend(handle);
+      module.appendChild(top);
+      module.appendChild(back);
+      listWrap.before(title);
+      listWrap.after(dots);
+      placeSearch();
+      setToggleLabel();
+      refresh();
+      resizeMap();
+    }
+    function disable() {
+      if (!enabled) return;
+      enabled = false;
+      setOpen(false, { instant: true });
+      module.classList.remove("is-sheet", "is-sheet-open");
+      [handle, top, back, title, dots].forEach((el) => el.remove());
+      if (search2 && searchHome) searchHome.parent.insertBefore(search2, searchHome.next);
+      column.style.removeProperty("--sheet-peek");
+      if (toggle) {
+        const label = toggle.querySelectorAll("span");
+        if (label.length) label[label.length - 1].textContent = t("map.hideList");
+      }
+      resizeMap();
+    }
+    function placeSearch() {
+      if (!search2 || !searchHome) return;
+      if (open2) searchHome.parent.insertBefore(search2, searchHome.next);
+      else top.appendChild(search2);
+    }
+    function setToggleLabel() {
+      if (!toggle) return;
+      const label = toggle.querySelectorAll("span");
+      if (label.length) label[label.length - 1].textContent = t("map.seeList");
+    }
+    function measure() {
+      if (!enabled || open2) return;
+      const peek = Math.ceil(dots.offsetTop + dots.offsetHeight + 16);
+      column.style.setProperty("--sheet-peek", `${peek}px`);
+    }
+    function setOpen(value, { instant = false } = {}) {
+      if (value === open2) return;
+      open2 = value;
+      module.classList.toggle("is-sheet-open", open2);
+      handle.setAttribute("aria-expanded", String(open2));
+      handle.setAttribute("aria-label", open2 ? t("map.showMap") : t("map.showList"));
+      placeSearch();
+      if (open2) {
+        column.scrollTop = 0;
+        const lenis = getLenis();
+        const y = module.getBoundingClientRect().top + window.scrollY;
+        if (lenis) lenis.scrollTo(y, { duration: instant || prefersReducedMotion() ? 0 : 0.6, force: true });
+        else window.scrollTo({ top: y, behavior: instant || prefersReducedMotion() ? "auto" : "smooth" });
+      } else {
+        requestAnimationFrame(() => {
+          measure();
+          reveal2();
+        });
+      }
+    }
+    function renderDots() {
+      const n = Math.min(items().length, MAX_DOTS);
+      dots.innerHTML = "";
+      for (let i = 0; i < n; i++) dots.appendChild(document.createElement("span"));
+      updateDots();
+    }
+    function updateDots() {
+      const spans = [...dots.children];
+      if (!spans.length) return;
+      const max = list.scrollWidth - list.clientWidth;
+      const progress = max > 0 ? list.scrollLeft / max : 0;
+      const active = Math.round(progress * (spans.length - 1));
+      spans.forEach((s, i) => s.classList.toggle("is-active", i === active));
+    }
+    function snapped() {
+      const left = list.getBoundingClientRect().left + EDGE;
+      let best = null;
+      let dist = Infinity;
+      items().forEach((a) => {
+        const d = Math.abs(a.getBoundingClientRect().left - left);
+        if (d < dist) {
+          dist = d;
+          best = a;
+        }
+      });
+      return best;
+    }
+    let scrollTimer = 0;
+    let programmatic = false;
+    list.addEventListener(
+      "scroll",
+      () => {
+        if (!enabled || open2) return;
+        updateDots();
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          if (programmatic) {
+            programmatic = false;
+            return;
+          }
+          const a = snapped();
+          const slug = a == null ? void 0 : a.getAttribute("data-space");
+          if (slug && !isActive(slug)) select(slug, { fromSheet: true });
+        }, 140);
+      },
+      { passive: true }
+    );
+    function reveal2(el = list.querySelector("[data-space].is-active")) {
+      if (!enabled || open2 || !el) return;
+      const delta = el.getBoundingClientRect().left - list.getBoundingClientRect().left - EDGE;
+      if (Math.abs(delta) < 2) return;
+      programmatic = true;
+      list.scrollBy({ left: delta, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    }
+    function refresh(firstGroupTitle = ((_a) => (_a = list.querySelector("[data-map-group]")) == null ? void 0 : _a.textContent)() || "", hasOrigin = false) {
+      if (!enabled) return;
+      title.textContent = hasOrigin ? firstGroupTitle : "";
+      title.hidden = !hasOrigin;
+      list.scrollLeft = 0;
+      renderDots();
+      requestAnimationFrame(measure);
+    }
+    function onItemClick(slug) {
+      if (!enabled) return false;
+      if (isActive(slug) && !open2) return false;
+      if (open2) setOpen(false);
+      select(slug, { fromSheet: true });
+      return true;
+    }
+    let drag = null;
+    handle.addEventListener("pointerdown", (e) => {
+      if (!enabled) return;
+      const range = column.offsetHeight - (parseFloat(getComputedStyle(column).getPropertyValue("--sheet-peek")) || 280);
+      drag = { y: e.clientY, t: performance.now(), start: open2 ? 0 : range, range, moved: false, last: open2 ? 0 : range };
+      handle.setPointerCapture(e.pointerId);
+    });
+    handle.addEventListener("pointermove", (e) => {
+      if (!drag) return;
+      const dy = e.clientY - drag.y;
+      if (!drag.moved && Math.abs(dy) < 6) return;
+      drag.moved = true;
+      module.classList.add("is-sheet-dragging");
+      drag.last = Math.min(Math.max(drag.start + dy, 0), drag.range);
+      column.style.transform = `translateY(${drag.last}px)`;
+    });
+    const endDrag = (e) => {
+      if (!drag) return;
+      const d = drag;
+      drag = null;
+      module.classList.remove("is-sheet-dragging");
+      column.style.transform = "";
+      if (!d.moved) return setOpen(!open2);
+      const speed = (e.clientY - d.y) / Math.max(performance.now() - d.t, 1);
+      if (speed < -0.4) setOpen(true);
+      else if (speed > 0.4) setOpen(false);
+      else setOpen(d.last < d.range / 2);
+    };
+    handle.addEventListener("pointerup", endDrag);
+    handle.addEventListener("pointercancel", endDrag);
+    back.addEventListener("click", () => setOpen(false));
+    module.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && open2) setOpen(false);
+    });
+    function onToggle() {
+      if (!enabled) return false;
+      setOpen(!open2);
+      return true;
+    }
+    window.addEventListener("resize", () => enabled && measure(), { passive: true });
+    const sync = () => MOBILE2.matches ? enable() : disable();
+    MOBILE2.addEventListener("change", sync);
+    sync();
+    return {
+      get active() {
+        return enabled;
+      },
+      get open() {
+        return open2;
+      },
+      refresh,
+      reveal: reveal2,
+      onItemClick,
+      onToggle
+    };
+  }
+
+  // src/components/spaces-map.js
+  var PIN_STAGGER = 70;
+  var DESKTOP3 = window.matchMedia("(min-width: 992px)");
+  var NEAREST_COUNT = 3;
+  var LIST_MARGIN = 16;
+  function initSpacesMap(root = document) {
+    root.querySelectorAll("[data-map-module]").forEach(initModule);
+  }
+  var CONTROLS = "[data-map-list-toggle], [data-place-close], [data-place-prev], [data-place-next], [data-map-zoom-in], [data-map-zoom-out], [data-map-reset]";
+  function asButton2(el) {
+    if (el.tagName !== "A") return;
+    el.setAttribute("role", "button");
+    el.addEventListener("keydown", (e) => {
+      if (e.key !== " ") return;
+      e.preventDefault();
+      el.click();
+    });
+  }
+  function initModule(module) {
+    var _a;
+    module.querySelectorAll(CONTROLS).forEach(asButton2);
+    const column = module.querySelector("[data-map-list]");
+    initScrollZone(column);
+    if (column) initStickyHead(column);
+    const list = module.querySelector("[data-space-list]");
+    const mapEl = module.querySelector("[data-map]");
+    const spaces = readSpaces(module);
+    if (!spaces.length) return;
+    const startType = module.getAttribute("data-map-tab") === "salles" ? "salles" : "bureaux";
+    const state = { origin: null, active: null, type: startType, map: null, markers: /* @__PURE__ */ new Map(), originMarker: null };
+    const card = module.querySelector("[data-place-card]");
+    let sheet = null;
+    const carousel = createPlaceCarousel(card);
+    function visibleSpaces() {
+      return state.type === "salles" ? spaces.filter((s) => s.rooms) : spaces;
+    }
+    function renderList() {
+      var _a2;
+      if (!list) return;
+      const shown = visibleSpaces();
+      spaces.forEach((s) => {
+        var _a3;
+        s.distance = state.origin ? distanceKm(state.origin, s) : null;
+        const time = s.el.querySelector("[data-space-time]");
+        const label = s.el.querySelector("[data-space-time-label]");
+        if (time) time.textContent = s.distance != null ? formatDistance(s.distance) : "";
+        if (label) label.textContent = s.distance != null ? t("map.distance") : "";
+        (_a3 = s.el.closest("[role='listitem'], .w-dyn-item")) == null ? void 0 : _a3.toggleAttribute("hidden", !shown.includes(s));
+      });
+      const ordered = state.origin ? [...shown].sort((a, b) => a.distance - b.distance) : shown;
+      list.querySelectorAll("[data-map-group]").forEach((g) => g.remove());
+      const groups = [];
+      let rest = ordered;
+      if (state.origin) {
+        const place = state.origin.label;
+        const of = /^[aeiouyhàâäéèêëîïôöûü]/i.test(place) ? `d\u2019${place}` : `de ${place}`;
+        const title = state.origin.isUser ? t("map.nearestMe") : t("map.nearest", { place, of });
+        groups.push({ title, items: ordered.slice(0, NEAREST_COUNT) });
+        rest = ordered.slice(NEAREST_COUNT);
+      }
+      const byDept = /* @__PURE__ */ new Map();
+      rest.forEach((s) => {
+        const key2 = s.dept || "";
+        if (!byDept.has(key2)) byDept.set(key2, []);
+        byDept.get(key2).push(s);
+      });
+      byDept.forEach((items, dept) => {
+        groups.push({ title: state.origin && dept ? t("map.others", { dept }) : dept, items });
+      });
+      groups.forEach(({ title, items }) => {
+        if (title) {
+          const h = document.createElement("p");
+          h.className = "map-module_group";
+          h.setAttribute("data-map-group", "");
+          h.textContent = title;
+          list.appendChild(h);
+        }
+        items.forEach((s) => list.appendChild(s.el.closest(".w-dyn-item") || s.el));
+      });
+      sheet == null ? void 0 : sheet.refresh(((_a2 = groups[0]) == null ? void 0 : _a2.title) || "", Boolean(state.origin));
+      const count = module.querySelector("[data-map-count]");
+      if (count) count.textContent = shown.length === 1 ? t("map.countOne") : t("map.count", { n: shown.length });
+      state.markers.forEach((marker, slug) => {
+        marker.getElement().hidden = !shown.some((s) => s.slug === slug);
+      });
+    }
+    function accessText(space) {
+      const first = space.access && space.access[0];
+      return first ? t("map.walk", { station: first.name, min: first.walk }) : space.station;
+    }
+    function paintAccess(container, textEl, space) {
+      if (!container) return;
+      container.querySelectorAll("[data-space-lines]").forEach((el) => el.remove());
+      const lines = space.access ? renderLines(space.access) : null;
+      if (lines) container.insertBefore(lines, textEl || container.firstChild);
+      if (textEl) textEl.textContent = accessText(space);
+    }
+    function accessParts(root) {
+      const box = root.querySelector("[data-space-access]") || root.querySelector(".space-item_access");
+      const text = box && (box.querySelector("[data-space-station]") || box.lastElementChild);
+      return { box, text };
+    }
+    loadStations().then((stations) => {
+      if (!stations.length) return;
+      spaces.forEach((s) => {
+        s.access = nearestStations(stations, s, { prefer: s.station });
+        const { box, text } = accessParts(s.el);
+        paintAccess(box, text, s);
+      });
+      if (state.active) fillCard(state.active);
+    });
+    function select(slug, { fly = true } = {}) {
+      const space = spaces.find((s) => s.slug === slug);
+      state.active = space || null;
+      spaces.forEach((s) => s.el.classList.toggle("is-active", s === space));
+      state.markers.forEach((m, key2) => m.getElement().classList.toggle("is-active", key2 === slug));
+      if (!space) return closeCard();
+      fillCard(space);
+      if (fly && state.map) {
+        const opts = { center: [space.lng, space.lat], zoom: Math.max(state.map.getZoom(), 12.5) };
+        prefersReducedMotion() ? state.map.jumpTo(opts) : state.map.easeTo({ ...opts, duration: 700 });
+      }
+      if ((sheet == null ? void 0 : sheet.active) && !sheet.open) return sheet.reveal(space.el);
+      const scroller = module.querySelector("[data-map-list]");
+      if (scroller && scroller.scrollHeight > scroller.clientHeight) {
+        const head = scroller.querySelector(".map-module_head");
+        const box = scroller.getBoundingClientRect();
+        const item = space.el.getBoundingClientRect();
+        const visibleTop = box.top + (head ? head.offsetHeight : 0) + LIST_MARGIN;
+        const visibleBottom = box.bottom - LIST_MARGIN;
+        let delta = 0;
+        if (item.top < visibleTop) delta = item.top - visibleTop;
+        else if (item.bottom > visibleBottom) delta = Math.min(item.top - visibleTop, item.bottom - visibleBottom);
+        if (delta) scroller.scrollBy({ top: delta, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+      }
+    }
+    function fillCard(space) {
+      if (!card) return;
+      const set = (sel, fn) => card.querySelectorAll(sel).forEach(fn);
+      carousel.set(space.photos.length ? space.photos : [space.photo], space.name);
+      set("[data-place-name]", (el) => el.textContent = space.name);
+      set("[data-place-building]", (el) => {
+        el.textContent = space.building ? t("map.building", { name: space.building }) : "";
+        el.hidden = !space.building;
+      });
+      set("[data-place-address]", (el) => {
+        el.textContent = [space.address, [space.postcode, space.city].filter(Boolean).join(" ")].filter(Boolean).join(", ");
+      });
+      set("[data-place-station]", (el) => {
+        paintAccess(el.parentElement, el, space);
+        el.hidden = !el.textContent;
+      });
+      set("[data-place-link]", (a) => a.setAttribute("href", space.url));
+      set("[data-place-visit]", (a) => a.setAttribute("href", `/nous-contacter/?motif=visite&espace=${space.slug}`));
+      card.setAttribute("aria-label", space.name);
+      card.classList.add("is-open");
+    }
+    function closeCard() {
+      card == null ? void 0 : card.classList.remove("is-open");
+    }
+    (_a = card == null ? void 0 : card.querySelector("[data-place-close]")) == null ? void 0 : _a.addEventListener("click", (e) => {
+      e.preventDefault();
+      select(null);
+    });
+    spaces.forEach((s) => {
+      s.el.addEventListener("click", (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+        if (sheet == null ? void 0 : sheet.active) {
+          if (sheet.onItemClick(s.slug)) e.preventDefault();
+          return;
+        }
+        if (!DESKTOP3.matches) return;
+        e.preventDefault();
+        if (state.active === s) {
+          select(null);
+          resetView();
+        } else {
+          select(s.slug);
+        }
+      });
+      s.el.addEventListener("mouseenter", () => {
+        var _a2;
+        return (_a2 = state.markers.get(s.slug)) == null ? void 0 : _a2.getElement().classList.add("is-hover");
+      });
+      s.el.addEventListener("mouseleave", () => {
+        var _a2;
+        return (_a2 = state.markers.get(s.slug)) == null ? void 0 : _a2.getElement().classList.remove("is-hover");
+      });
+    });
+    const toggle = module.querySelector("[data-map-list-toggle]");
+    const listEl = module.querySelector("[data-map-list]");
+    let reopen = null;
+    if (toggle && mapEl) {
+      reopen = document.createElement("button");
+      reopen.type = "button";
+      reopen.className = "map-list-open";
+      reopen.innerHTML = '<span class="map-list-open_icon" aria-hidden="true"></span><span></span>';
+      reopen.lastChild.textContent = t("map.showList");
+      if (listEl) {
+        listEl.id = listEl.id || `map-list-${Math.random().toString(36).slice(2, 8)}`;
+        reopen.setAttribute("aria-controls", listEl.id);
+        toggle.setAttribute("aria-controls", listEl.id);
+      }
+      reopen.setAttribute("aria-expanded", "false");
+      mapEl.appendChild(reopen);
+    }
+    function setListHidden(hidden) {
+      if (listEl) module.style.setProperty("--list-width", `${listEl.offsetWidth}px`);
+      module.classList.toggle("is-list-hidden", hidden);
+      toggle == null ? void 0 : toggle.setAttribute("aria-expanded", String(!hidden));
+      const label = toggle ? toggle.querySelectorAll("span") : [];
+      if (label.length) label[label.length - 1].textContent = hidden ? t("map.showList") : t("map.hideList");
+      resizeDuring(550);
+      if (hidden) reopen == null ? void 0 : reopen.focus();
+      else toggle == null ? void 0 : toggle.focus();
+    }
+    function resizeDuring(ms) {
+      if (!state.map) return;
+      const end = performance.now() + ms;
+      const step = () => {
+        state.map.resize();
+        if (performance.now() < end) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    toggle == null ? void 0 : toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (sheet == null ? void 0 : sheet.onToggle()) return;
+      setListHidden(!module.classList.contains("is-list-hidden"));
+    });
+    reopen == null ? void 0 : reopen.addEventListener("click", () => setListHidden(false));
+    sheet = createMapSheet(module, {
+      select: (slug) => select(slug),
+      isActive: (slug) => {
+        var _a2;
+        return ((_a2 = state.active) == null ? void 0 : _a2.slug) === slug;
+      },
+      resizeMap: () => {
+        var _a2;
+        return (_a2 = state.map) == null ? void 0 : _a2.resize();
+      }
+    });
+    module.addEventListener("spaces:origin", (e) => setOrigin(e.detail));
+    module.addEventListener("spaces:select", (e) => select(e.detail.slug));
+    module.addEventListener("spaces:type", (e) => {
+      state.type = e.detail.type === "salles" ? "salles" : "bureaux";
+      renderList();
+      if (state.active && !visibleSpaces().includes(state.active)) select(null);
+      fitToSpaces();
+    });
+    function setOrigin(origin) {
+      state.origin = origin && Number.isFinite(origin.lat) ? origin : null;
+      renderList();
+      updateOriginMarker();
+      if (state.origin) {
+        const nearest = [...visibleSpaces()].sort((a, b) => a.distance - b.distance)[0];
+        if (nearest) select(nearest.slug, { fly: false });
+        fitToOrigin();
+      } else {
+        fitToSpaces();
+      }
+    }
+    function fitToSpaces() {
+      if (!state.map) return;
+      const pts = visibleSpaces();
+      if (!pts.length) return;
+      const bounds2 = new window.maplibregl.LngLatBounds();
+      pts.forEach((s) => bounds2.extend([s.lng, s.lat]));
+      state.map.fitBounds(bounds2, { padding: 60, maxZoom: 13, duration: prefersReducedMotion() ? 0 : 600 });
+    }
+    function fitToOrigin() {
+      if (!state.map || !state.origin) return;
+      const bounds2 = new window.maplibregl.LngLatBounds();
+      bounds2.extend([state.origin.lng, state.origin.lat]);
+      [...visibleSpaces()].sort((a, b) => a.distance - b.distance).slice(0, NEAREST_COUNT).forEach((s) => bounds2.extend([s.lng, s.lat]));
+      state.map.fitBounds(bounds2, { padding: 80, maxZoom: 13.5, duration: prefersReducedMotion() ? 0 : 700 });
+    }
+    function centerModule() {
+      const nav = document.querySelector("[data-nav]");
+      const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+      const rect = module.getBoundingClientRect();
+      const space = window.innerHeight - navHeight;
+      const offset = navHeight + Math.max((space - rect.height) / 2, 0);
+      const target = Math.max(rect.top + window.scrollY - offset, 0);
+      if (Math.abs(target - window.scrollY) < 4) return;
+      const instant = prefersReducedMotion();
+      const lenis = getLenis();
+      if (lenis) lenis.scrollTo(target, { duration: instant ? 0 : 0.8, immediate: instant, force: true });
+      else window.scrollTo({ top: target, behavior: instant ? "auto" : "smooth" });
+    }
+    function resetView() {
+      if (state.origin) fitToOrigin();
+      else fitToSpaces();
+    }
+    function updateOriginMarker() {
+      var _a2;
+      if (!state.map) return;
+      (_a2 = state.originMarker) == null ? void 0 : _a2.remove();
+      state.originMarker = null;
+      if (!state.origin) return;
+      const el = document.createElement("div");
+      el.className = "map-origin";
+      el.setAttribute("role", "img");
+      el.setAttribute("aria-label", t("map.origin", { place: state.origin.label || t("search.nearMe") }));
+      state.originMarker = new window.maplibregl.Marker({ element: el }).setLngLat([state.origin.lng, state.origin.lat]).addTo(state.map);
+    }
+    async function createMap3() {
+      const maplibregl = await loadMapLibre();
+      if (!maplibregl) return;
+      const canvas = document.createElement("div");
+      canvas.className = "map-module_canvas";
+      mapEl.prepend(canvas);
+      const map = new maplibregl.Map({
+        container: canvas,
+        style: STYLE_URL,
+        center: [2.3, 48.88],
+        zoom: 10.5,
+        attributionControl: false,
+        // crédits affichés dans [data-map-attribution]
+        scrollZoom: false,
+        // la molette fait défiler la page, pas zoomer la carte (boutons + / − pour zoomer)
+        cooperativeGestures: !DESKTOP3.matches,
+        // mobile : deux doigts pour bouger la carte
+        dragRotate: false,
+        pitchWithRotate: false
+      });
+      map.touchZoomRotate.disableRotation();
+      state.map = map;
+      map.on("style.load", () => applyTheme(map));
+      map.once("load", () => {
+        module.classList.add("is-map-ready");
+        fitToSpaces();
+        updateOriginMarker();
+        if (state.origin) fitToOrigin();
+        if (state.active) select(state.active.slug);
+        revealPinsWhenVisible();
+      });
+      spaces.forEach((s) => {
+        const el = document.createElement("button");
+        el.type = "button";
+        el.className = "map-pin";
+        if (!prefersReducedMotion()) el.classList.add("is-pending");
+        el.setAttribute("aria-label", t("map.pin", { name: s.name }));
+        el.innerHTML = `${PIN_SVG}<span class="map-pin_label">${escapeHtml(s.name)}</span>`;
+        el.addEventListener("click", (e) => {
+          e.stopPropagation();
+          centerModule();
+          if (state.active && state.active.slug === s.slug) {
+            select(null);
+            resetView();
+          } else {
+            select(s.slug);
+          }
+        });
+        const marker = new maplibregl.Marker({ element: el, anchor: "bottom" }).setLngLat([s.lng, s.lat]).addTo(map);
+        state.markers.set(s.slug, marker);
+      });
+      renderList();
+      if (state.active) select(state.active.slug, { fly: false });
+      function revealPinsWhenVisible() {
+        const pending = [...state.markers.values()].map((m) => m.getElement()).filter((el) => el.classList.contains("is-pending"));
+        if (!pending.length) return;
+        for (let i = pending.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [pending[i], pending[j]] = [pending[j], pending[i]];
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            if (!entries.some((e) => e.isIntersecting)) return;
+            io.disconnect();
+            pending.forEach((el, i) => {
+              var _a2;
+              el.style.setProperty("--pin-delay", `${i * PIN_STAGGER}ms`);
+              el.classList.replace("is-pending", "is-popping");
+              (_a2 = el.querySelector(".map-pin_shape")) == null ? void 0 : _a2.addEventListener(
+                "animationend",
+                () => el.classList.remove("is-popping"),
+                { once: true }
+              );
+            });
+          },
+          { threshold: 0.3 }
+        );
+        io.observe(mapEl);
+      }
+      const on = (sel, fn) => {
+        var _a2;
+        return (_a2 = module.querySelector(sel)) == null ? void 0 : _a2.addEventListener("click", (e) => {
+          e.preventDefault();
+          fn();
+        });
+      };
+      on("[data-map-zoom-in]", () => map.zoomIn());
+      on("[data-map-zoom-out]", () => map.zoomOut());
+      on("[data-map-reset]", () => {
+        select(null);
+        fitToSpaces();
+      });
+      const attribution = module.querySelector("[data-map-attribution]");
+      if (attribution) attribution.textContent = t("map.attribution");
+    }
+    if (mapEl) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some((e) => e.isIntersecting)) return;
+          io.disconnect();
+          createMap3().catch((err) => console.warn("[Work'n'Share] carte indisponible :", err));
+        },
+        { rootMargin: "400px" }
+      );
+      io.observe(mapEl);
+    }
+    closeCard();
+    const params = new URLSearchParams(location.search);
+    if (params.get("type") === "salles") state.type = "salles";
+    const lat = parseFloat(params.get("lat"));
+    const lng = parseFloat(params.get("lng"));
+    if (Number.isFinite(lat) && Number.isFinite(lng)) {
+      setOrigin({ lat, lng, label: params.get("q") || "", isUser: params.get("me") === "1" });
+    } else {
+      renderList();
+    }
+    if (params.get("espace")) select(params.get("espace"), { fly: false });
+    module._spacesMap = { spaces, state };
+  }
+  function initStickyHead(column) {
+    var _a, _b;
+    const listWrap = ((_a = column.querySelector("[data-space-list]")) == null ? void 0 : _a.closest(".w-dyn-list")) || ((_b = column.querySelector(".space-item")) == null ? void 0 : _b.parentElement);
+    const children = [...column.children];
+    const stop = listWrap ? children.indexOf(listWrap.closest(`[data-map-list] > *`) || listWrap) : -1;
+    const headItems = children.slice(0, stop > 0 ? stop : 0).filter((el) => !el.matches(".map-module_group, [data-map-group]"));
+    if (!headItems.length) return;
+    const head = document.createElement("div");
+    head.className = "map-module_head";
+    column.insertBefore(head, headItems[0]);
+    headItems.forEach((el) => head.appendChild(el));
+    const apply = () => {
+      const cs = getComputedStyle(column);
+      const gap = parseFloat(cs.rowGap) || 0;
+      head.style.margin = `-${cs.paddingTop} -${cs.paddingRight} 0 -${cs.paddingLeft}`;
+      head.style.top = `-${cs.paddingTop}`;
+      head.style.padding = `${cs.paddingTop} ${cs.paddingRight} ${gap}px ${cs.paddingLeft}`;
+      head.style.rowGap = `${gap}px`;
+      head.style.backgroundColor = cs.backgroundColor;
+    };
+    apply();
+    window.addEventListener("resize", apply, { passive: true });
+    createScrollIndicator(column, head);
+    column.addEventListener(
+      "scroll",
+      () => head.classList.toggle("is-stuck", column.scrollTop > 4),
+      { passive: true }
+    );
+  }
+
+  // src/components/space-map.js
+  var DESKTOP4 = window.matchMedia("(min-width: 992px)");
+  var DEFAULT_ZOOM = 14.5;
+  var ICON_PLUS = "M10 4v12M4 10h12";
+  var ICON_MINUS = "M4 10h12";
+  var ICON_RECENTER = "M7 3H5a2 2 0 0 0-2 2v2M13 3h2a2 2 0 0 1 2 2v2M13 17h2a2 2 0 0 0 2-2v-2M7 17H5a2 2 0 0 1-2-2v-2M12.5 10a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z";
+  function initSpaceMaps(root = document) {
+    const maps = [...root.querySelectorAll("[data-map][data-lat][data-lng]")].filter(
+      (el) => !el.closest("[data-map-module]")
+    );
+    if (!maps.length) return;
+    if (!("IntersectionObserver" in window)) return maps.forEach(createMap);
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        createMap(entry.target);
+      }),
+      { rootMargin: "600px 0px" }
+    );
+    maps.forEach((el) => observer.observe(el));
+  }
+  function iconButton(path, label, onClick) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "map-control";
+    button.setAttribute("aria-label", label);
+    button.innerHTML = `<span class="icon-20"><svg viewBox="0 0 20 20" width="100%" height="100%" fill="none" aria-hidden="true"><path d="${path}" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      onClick();
+    });
+    return button;
+  }
+  async function createMap(el) {
+    const lat = parseFloat(el.getAttribute("data-lat"));
+    const lng = parseFloat(el.getAttribute("data-lng"));
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+    const name = el.getAttribute("data-map-label") || "";
+    const zoom = parseFloat(el.getAttribute("data-map-zoom")) || DEFAULT_ZOOM;
+    const maplibregl = await loadMapLibre();
+    if (!maplibregl) return;
+    const canvas = document.createElement("div");
+    canvas.className = "map-module_canvas";
+    el.prepend(canvas);
+    const center = [lng, lat];
+    const map = new maplibregl.Map({
+      container: canvas,
+      style: STYLE_URL,
+      center,
+      zoom,
+      attributionControl: false,
+      // crédits affichés dans le coin (texte du site)
+      scrollZoom: false,
+      // la molette fait défiler la page
+      cooperativeGestures: !DESKTOP4.matches,
+      // mobile : deux doigts pour bouger la carte
+      dragRotate: false,
+      pitchWithRotate: false
+    });
+    map.touchZoomRotate.disableRotation();
+    map.on("style.load", () => applyTheme(map));
+    map.once("load", () => el.classList.add("is-map-ready"));
+    const pin = document.createElement("div");
+    pin.className = "map-pin is-active";
+    pin.setAttribute("role", "img");
+    pin.setAttribute("aria-label", t("map.pin", { name }));
+    pin.innerHTML = `${PIN_SVG}${name ? `<span class="map-pin_label">${escapeHtml(name)}</span>` : ""}`;
+    new maplibregl.Marker({ element: pin, anchor: "bottom" }).setLngLat(center).addTo(map);
+    const animate2 = !prefersReducedMotion();
+    const controls = document.createElement("div");
+    controls.className = "map-controls";
+    controls.append(
+      iconButton(ICON_PLUS, t("map.zoomIn"), () => map.zoomIn({ animate: animate2 })),
+      iconButton(ICON_MINUS, t("map.zoomOut"), () => map.zoomOut({ animate: animate2 })),
+      iconButton(ICON_RECENTER, t("map.recenter"), () => map.easeTo({ center, zoom, duration: animate2 ? 600 : 0 }))
+    );
+    el.appendChild(controls);
+    const credit = el.querySelector(".space-map_credit, [data-map-attribution]");
+    if (credit) credit.textContent = t("map.attribution");
+  }
+
+  // src/components/lightbox.js
+  var SWIPE3 = 40;
+  var icon = (d) => `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><path d="${d}" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  var ICON_CLOSE2 = "M18 6 6 18M6 6l12 12";
+  var ICON_PREV = "M14.5 7.5S10 10.8 10 12c0 1.2 4.5 4.5 4.5 4.5";
+  var ICON_NEXT = "M9.5 7.5S14 10.8 14 12c0 1.2-4.5 4.5-4.5 4.5";
+  var instance = null;
+  function createLightbox() {
+    if (instance) return instance;
+    const root = document.createElement("div");
+    root.className = "lightbox";
+    root.hidden = true;
+    root.setAttribute("role", "dialog");
+    root.setAttribute("aria-modal", "true");
+    root.setAttribute("aria-label", t("lightbox.label"));
+    root.setAttribute("data-lenis-prevent", "");
+    root.innerHTML = `
     <div class="lightbox_bar">
       <p class="lightbox_count" aria-live="polite"></p>
       <p class="lightbox_caption"></p>
-      <button type="button" class="lightbox_button lightbox_close" aria-label="${S("lightbox.close")}">${mt(Lr)}</button>
+      <button type="button" class="lightbox_button lightbox_close" aria-label="${t("lightbox.close")}">${icon(ICON_CLOSE2)}</button>
     </div>
     <div class="lightbox_stage">
-      <button type="button" class="lightbox_button lightbox_prev" aria-label="${S("lightbox.prev")}">${mt(xr)}</button>
+      <button type="button" class="lightbox_button lightbox_prev" aria-label="${t("lightbox.prev")}">${icon(ICON_PREV)}</button>
       <figure class="lightbox_figure"><img class="lightbox_image" alt="" draggable="false"></figure>
-      <button type="button" class="lightbox_button lightbox_next" aria-label="${S("lightbox.next")}">${mt(Ar)}</button>
+      <button type="button" class="lightbox_button lightbox_next" aria-label="${t("lightbox.next")}">${icon(ICON_NEXT)}</button>
     </div>
-    <div class="lightbox_thumbs" role="group" aria-label="${S("lightbox.thumbs")}"></div>`,document.body.appendChild(e);let t=h=>e.querySelector(h),o=t(".lightbox_count"),n=t(".lightbox_caption"),s=t(".lightbox_image"),a=t(".lightbox_figure"),r=t(".lightbox_thumbs"),i=t(".lightbox_prev"),c=t(".lightbox_next"),l=[],u=0,p=null,y=0;function d(h){u=(h+l.length)%l.length;let w=l[u];o.textContent=`${u+1} / ${l.length}`,n.textContent=w.alt||"";let A=++y;a.classList.add("is-loading");let $=new Image;$.onload=$.onerror=()=>{A===y&&(s.src=w.src,s.alt=w.alt||"",a.classList.remove("is-loading"))},$.src=w.src,[...r.children].forEach((_,H)=>{let E=H===u;_.classList.toggle("is-active",E),_.setAttribute("aria-current",E?"true":"false"),E&&_.scrollIntoView({block:"nearest",inline:"center",behavior:I()?"auto":"smooth"})}),[u-1,u+1].forEach(_=>new Image().src=l[(_+l.length)%l.length].src)}function m(){r.innerHTML="",l.forEach((h,w)=>{let A=document.createElement("button");A.type="button",A.className="lightbox_thumb",A.setAttribute("aria-label",S("lightbox.goto",{n:w+1})),A.innerHTML=`<img src="${h.thumb||h.src}" alt="" loading="lazy" draggable="false">`,A.addEventListener("click",()=>d(w)),r.appendChild(A)})}function g(h,w=0,A=null){var _;if(l=h.filter(H=>H&&H.src),!l.length)return;p=A||document.activeElement;let $=l.length>1;i.hidden=c.hidden=r.hidden=!$,m(),e.hidden=!1,document.documentElement.classList.add("is-lightbox-open"),(_=z())==null||_.stop(),requestAnimationFrame(()=>e.classList.add("is-open")),d(w),t(".lightbox_close").focus()}function f(){var w,A;if(e.hidden)return;e.classList.remove("is-open"),document.documentElement.classList.remove("is-lightbox-open"),(w=z())==null||w.start();let h=()=>e.hidden=!0;I()?h():setTimeout(h,250),(A=p==null?void 0:p.focus)==null||A.call(p)}t(".lightbox_close").addEventListener("click",f),i.addEventListener("click",()=>d(u-1)),c.addEventListener("click",()=>d(u+1)),e.addEventListener("click",h=>{(h.target===e||h.target.classList.contains("lightbox_stage"))&&f()}),e.addEventListener("keydown",h=>{if(h.key==="Escape")return f();if(h.key==="ArrowLeft"&&l.length>1)return d(u-1);if(h.key==="ArrowRight"&&l.length>1)return d(u+1);if(h.key==="Tab"){let w=[...e.querySelectorAll("button:not([hidden])")].filter(_=>_.offsetParent),A=w[0],$=w[w.length-1];h.shiftKey&&document.activeElement===A?(h.preventDefault(),$.focus()):!h.shiftKey&&document.activeElement===$&&(h.preventDefault(),A.focus())}});let v=null;return a.addEventListener("pointerdown",h=>v=h.clientX),a.addEventListener("pointerup",h=>{if(v==null)return;let w=h.clientX-v;v=null,Math.abs(w)>wr&&l.length>1&&d(u+(w<0?1:-1))}),a.addEventListener("pointercancel",()=>v=null),Ge={open:g,close:f},Ge}function Sr(e){let t=e.getAttribute("srcset");if(t){let o=t.split(",").map(n=>n.trim().split(/\s+/)).map(([n,s])=>({url:n,w:parseFloat(s)||0})).sort((n,s)=>s.w-n.w)[0];if(o!=null&&o.url)return o.url}return e.currentSrc||e.getAttribute("src")||""}var Tn=e=>e.replace(/-p-\d+(\.\w+)$/,"$1").split("?")[0];function Rn(e=document){e.querySelectorAll("[data-gallery]").forEach(Cr)}function Cr(e){let t=[...e.querySelectorAll("img"),...document.querySelectorAll("[data-gallery-photo] img, img[data-gallery-photo]")].filter(u=>!u.closest(".w-condition-invisible, .w-dyn-empty")),o=new Set,n=[];if(t.forEach(u=>{let p=Sr(u);!p||/placeholder/i.test(p)||o.has(Tn(p))||(o.add(Tn(p)),n.push({src:p,thumb:u.currentSrc||u.getAttribute("src"),alt:u.getAttribute("alt")||""}))}),!n.length)return;let s=e.querySelectorAll("img").length,a=e.querySelector("[data-gallery-count]");if(a){let u=n.length-s;a.textContent=u>0?`+${u}`:"",a.hidden=u<=0}let r=qn(),i=e.querySelector("[data-tour-360]"),c=(i==null?void 0:i.parentElement)||null;[...e.querySelectorAll("[data-gallery-open]")].filter(u=>!(c!=null&&c.contains(u))).forEach(u=>{u.tagName==="A"&&(u.removeAttribute("href"),u.setAttribute("role","button"),u.setAttribute("tabindex","0"));let p=Math.min(parseInt(u.getAttribute("data-gallery-open"),10)||0,n.length-1),y=d=>{d.preventDefault(),d.stopPropagation(),r.open(n,p,u)};u.addEventListener("click",y),u.addEventListener("keydown",d=>{(d.key==="Enter"||d.key===" ")&&y(d)})}),c&&qr(e,c,i);let l=e.querySelector(".space-gallery_main img, [data-gallery-main]");l&&!l.closest("[data-gallery-open]")&&(l.style.cursor="zoom-in",l.addEventListener("click",()=>r.open(n,0,l)))}var Mr={brand:"0",help:"0"};function kr(e){let t=(e||"").trim(),n=(/<iframe/i.test(t)?(t.match(/src=["']([^"']+)["']/i)||[])[1]||"":t).replace(/&amp;/g,"&");if(!/^https?:\/\//i.test(n))return"";try{let s=new URL(n);if(/matterport\.com$/i.test(s.hostname)){let a={...Mr,lang:ce()};Object.entries(a).forEach(([r,i])=>{s.searchParams.has(r)||s.searchParams.set(r,i)})}return s.toString()}catch(s){return n}}function qr(e,t,o){let n=[...t.children].filter(d=>d.matches("a, button")),s=n.find(d=>d!==o),a=e.querySelector(".space-gallery_main, [data-gallery-main]")||t.parentElement,r=kr(o.getAttribute("data-tour-url")),i=null,c=s,l=fe(t,{getActive:()=>c,className:"space-gallery_indicator"}),u=()=>{if(i)return i;if(i=document.createElement("div"),i.className="space-gallery_tour",r){let d=document.createElement("iframe");d.src=r,d.title=S("gallery.tour"),d.loading="lazy",d.allow="fullscreen; xr-spatial-tracking; gyroscope; accelerometer",d.allowFullscreen=!0,i.appendChild(d)}else i.classList.add("is-empty"),i.innerHTML=`<p>${S("gallery.tourSoon")}</p>`;return a.appendChild(i),i},p=d=>{c=d,n.forEach(g=>{g.classList.toggle("is-active",g===d),g.setAttribute("aria-pressed",g===d?"true":"false")});let m=d===o;if(m&&u(),m){let g=e.offsetHeight;a.style.height=`${a.offsetHeight}px`,e.style.height=`${g}px`,a.getBoundingClientRect(),a.style.height=`${g}px`}else{a.style.height=`${y()}px`;let g=()=>{a.style.height="",e.style.height=""};a.addEventListener("transitionend",g,{once:!0}),setTimeout(g,600)}e.classList.toggle("is-tour",m),l.move()},y=()=>{let d=a.style.height;a.style.height="",e.classList.remove("is-tour");let m=a.offsetHeight;return e.classList.add("is-tour"),a.style.height=d,a.getBoundingClientRect(),m};n.forEach(d=>{d.tagName==="A"&&(d.removeAttribute("href"),d.setAttribute("tabindex","0")),d.addEventListener("click",m=>{m.preventDefault(),m.stopPropagation(),d!==c&&p(d)}),d.addEventListener("keydown",m=>{(m.key==="Enter"||m.key===" ")&&(m.preventDefault(),d.click())})})}function _n(e=document){e.querySelectorAll("[data-visit-form]").forEach(Tr)}function Tr(e){let t=c=>(e.getAttribute(`data-visit-${c}`)||"").trim(),o=t("name"),n=t("building"),s=t("host"),a=t("phone"),r=(c,l)=>e.querySelectorAll(c).forEach(u=>u.textContent=l);o&&r("[data-visit-title]",S("visit.title",{name:o})),r("[data-visit-lead]",s&&n?S("visit.leadHostBuilding",{host:s,building:n}):s?S("visit.leadHost",{host:s}):S("visit.lead")),r("[data-visit-note]",s&&o?S("visit.noteHost",{host:s,name:o}):S("visit.note")),a&&e.querySelectorAll("[data-visit-call]").forEach(c=>{c.setAttribute("href",`tel:${a.replace(/[^\d+]/g,"")}`),c.setAttribute("aria-label",S("visit.call",{phone:a}))});let i=e.querySelector("[data-visit-space]");if(i&&o){let c=[...i.options].find(l=>l.value===o||l.text===o);c&&(i.value=c.value)}}var We="/espaces",Rr="https://data.geopf.fr/geocodage/completion/",_r=220,ht={spaces:4,stations:4,addresses:4},$r=0,Pr=160,Nr=420,Ir={paris:"75","seine et marne":"77",yvelines:"78",essonne:"91","hauts de seine":"92","seine saint denis":"93","val de marne":"94","val d oise":"95"};function Or(e){if(!e)return"";let t=Ir[ye(e)];return t?`${e} \xB7 ${t}`:e}function $n(e=document){e.querySelectorAll("[data-search]").forEach(Br)}function Br(e){var P;let t=e.querySelector("[data-search-input]"),o=e.querySelector("[data-search-form]");if(!t)return;let n=e.closest("[data-map-module]"),s=He(document),a=`search-suggest-${++$r}`,r=((P=e.querySelector("[data-search-tab].is-active"))==null?void 0:P.getAttribute("data-search-tab"))||"bureaux",i=[],c=-1,l=null,u=0,p=document.createElement("div");p.className="search_suggest",p.id=a,p.setAttribute("role","listbox"),p.hidden=!0,p.setAttribute("data-lenis-prevent",""),document.body.appendChild(p);let y=le(p),d=o||t;function m(){if(p.hidden)return;let L=d.getBoundingClientRect();p.style.top=`${L.bottom+window.scrollY+12}px`,p.style.left=`${L.left+window.scrollX}px`,p.style.width=`${L.width}px`;let q=window.innerHeight-(L.bottom+12)-16;p.style.maxHeight=`${Math.min(Nr,Math.max(Pr,q))}px`,y==null||y.update()}let g=!1,f=()=>{g||p.hidden||(g=!0,requestAnimationFrame(()=>{g=!1,m()}))};window.addEventListener("resize",f,{passive:!0}),document.addEventListener("scroll",f,{passive:!0,capture:!0});let v=document.createElement("div");v.className="search_status",v.setAttribute("role","status"),v.setAttribute("aria-live","polite"),e.appendChild(v),t.setAttribute("role","combobox"),t.setAttribute("aria-autocomplete","list"),t.setAttribute("aria-expanded","false"),t.setAttribute("aria-controls",a),t.setAttribute("autocomplete","off");let h=[...e.querySelectorAll("[data-search-tab]")];h.forEach(L=>{let q=[...L.querySelectorAll("span")].find(F=>!F.children.length&&F.textContent.trim());if(!q||q.classList.contains("search_tab-full"))return;q.classList.add("search_tab-full");let D=document.createElement("span");D.className="search_tab-short",D.textContent=S(`search.tabShort.${L.getAttribute("data-search-tab")}`),q.after(D)});let w=h.find(L=>L.classList.contains("is-active"))||h[0],A=h.length?fe(h[0].parentElement,{getActive:()=>w,className:"search_indicator"}):null;function $(L,{focus:q=!1}={}){w=L,r=L.getAttribute("data-search-tab"),h.forEach(D=>{let F=D===L;D.classList.toggle("is-active",F),D.setAttribute("aria-selected",String(F)),D.setAttribute("tabindex",F?"0":"-1")}),A==null||A.move(),q&&L.focus(),n==null||n.dispatchEvent(new CustomEvent("spaces:type",{detail:{type:r}}))}h.forEach((L,q)=>{L.setAttribute("tabindex",L===w?"0":"-1"),L.addEventListener("click",D=>{D.preventDefault(),D.stopPropagation(),L!==w&&$(L)}),L.addEventListener("keydown",D=>{if(D.key!=="ArrowRight"&&D.key!=="ArrowLeft")return;D.preventDefault();let F=h[(q+(D.key==="ArrowRight"?1:-1)+h.length)%h.length];$(F,{focus:!0})})}),t.addEventListener("focus",()=>{qe(),W(),V()});let _=n?null:e.closest("[data-hero-video]"),H=_?e.previousElementSibling:null,E=H?H.parentElement:null;H==null||H.setAttribute("data-hero-heading",""),E==null||E.setAttribute("data-hero-content","");let R=56,B=.5;function W(){if(!_||_.classList.contains("is-searching"))return;let L=_.getBoundingClientRect().top,q=H.getBoundingClientRect(),D=q.top+q.height*(1-B),F=Math.max(0,D-L-R);_.style.setProperty("--search-shift",`${-F}px`),_.style.setProperty("--heading-scale",B),_.classList.add("is-searching"),K(),X()}function X(){let L=document.querySelector("[data-nav]"),q=L?L.getBoundingClientRect().height:0,D=Math.max(0,_.getBoundingClientRect().top+window.scrollY-q);if(Math.abs(window.scrollY-D)<2)return;let F=I(),oe=z();oe?oe.scrollTo(D,{duration:F?0:.8,immediate:F,force:!0}):window.scrollTo({top:D,behavior:F?"auto":"smooth"})}function J(){!_||!_.classList.contains("is-searching")||_.classList.remove("is-searching")}function K(){let L=performance.now()+700,q=()=>{m(),performance.now()<L&&requestAnimationFrame(q)};requestAnimationFrame(q)}t.addEventListener("input",()=>{clearTimeout(l),l=setTimeout(V,_r)}),t.addEventListener("keydown",L=>{if(L.key==="ArrowDown"||L.key==="ArrowUp")p.hidden&&V(),L.preventDefault(),k(L.key==="ArrowDown"?1:-1);else if(L.key==="Enter"){L.preventDefault();let q=i[c]||i.find(D=>D.kind!=="nearme");q&&T(q)}else L.key==="Escape"&&M()});let x=o==null?void 0:o.querySelector('input[type="submit"]');if(x){let L=document.createElement("button");L.type="submit",L.className=`${x.className} search_submit`,L.innerHTML='<span class="button_label"></span><span class="button_icon" aria-hidden="true"><span class="ico-arrow-right"></span></span>',L.querySelector(".button_label").textContent=x.value,x.replaceWith(L)}o==null||o.addEventListener("submit",L=>{if(L.preventDefault(),L.stopPropagation(),!t.value.trim()){n||(location.href=r==="salles"?`${We}?type=salles`:We);return}let q=i.find(D=>D.kind!=="nearme");q?T(q):n||(location.href=`${We}?${new URLSearchParams({q:t.value.trim()})}`)}),document.addEventListener("pointerdown",L=>{p.hidden&&!(_!=null&&_.classList.contains("is-searching"))||!e.contains(L.target)&&!p.contains(L.target)&&M()},!0);async function V(){let L=t.value.trim(),q=ye(L),D=++u,F=[];F.push({items:[{kind:"nearme",label:S("search.nearMe"),hint:S("search.nearMeHint")}]});let oe=U=>({kind:"space",label:U.name,hint:U.building,space:U}),Y=s.filter(U=>r==="salles"?U.rooms:!0);if(q){let U=Y.filter(ee=>ye(`${ee.name} ${ee.city} ${ee.building}`).includes(q)).slice(0,ht.spaces).map(oe);U.length&&F.push({title:S("search.spaces"),items:U})}else{let U=new Map;Y.forEach(ee=>{let se=ee.dept||"";U.has(se)||U.set(se,[]),U.get(se).push(oe(ee))}),U.forEach((ee,se)=>F.push({title:Or(se)||S("search.spaces"),items:ee}))}if(q.length>=2){let U=await qe();if(D!==u)return;let ee=U.filter(te=>te.key.startsWith(q)),se=U.filter(te=>!te.key.startsWith(q)&&te.key.includes(q)),Lt=[...ee,...se].slice(0,ht.stations).map(te=>({kind:"station",label:te.name,lines:te.lines,lat:te.lat,lng:te.lng}));if(Lt.length&&F.push({title:S("search.stations"),items:Lt}),q.length>=3){let te=await O(L);if(D!==u)return;te.length&&F.push({title:S("search.addresses"),items:te})}}b(F,L)}async function O(L){let q=`${Rr}?text=${encodeURIComponent(L)}&type=StreetAddress&maximumResponses=10&lonlat=2.35,48.86`;try{let D=await fetch(q);if(!D.ok)return[];let oe=((await D.json()).results||[]).filter(U=>Number.isFinite(U.y)&&Number.isFinite(U.x)&&U.metropole!==!1);return[...oe.filter(U=>Fe(U.zipcode)),...oe.filter(U=>!Fe(U.zipcode))].slice(0,ht.addresses).map(U=>{let ee=U.city||"",se=U.fulltext||[U.street,U.zipcode,ee].filter(Boolean).join(" ");return{kind:"address",label:se,short:(U.kind==="municipality"||!U.street)&&ee||se,hint:Fe(U.zipcode)?"":S("search.outsideIdf"),lat:U.y,lng:U.x}})}catch(D){return[]}}function b(L,q){if(p.innerHTML="",i=[],c=-1,L.forEach(D=>{if(D.title){let F=document.createElement("p");F.className="search_suggest-title",F.setAttribute("role","presentation"),F.textContent=D.title,p.appendChild(F)}D.items.forEach(F=>{let oe=i.length,Y=document.createElement("div");if(Y.className=`search_suggest-item is-${F.kind}${F.kind==="nearme"||F.kind==="space"?" is-inline":""}`,Y.id=`${a}-${oe}`,Y.setAttribute("role","option"),Y.setAttribute("aria-selected","false"),Y.innerHTML=`<span class="search_suggest-icon" aria-hidden="true"></span><span class="search_suggest-text"><span class="search_suggest-label"></span>${F.hint?'<span class="search_suggest-hint"></span>':""}</span>`,Y.querySelector(".search_suggest-label").textContent=F.label,F.hint&&(Y.querySelector(".search_suggest-hint").textContent=F.hint),F.lines){let U=Ue([{lines:F.lines}],{maxLines:5});U&&(U.classList.add("search_suggest-lines"),Y.appendChild(U))}Y.addEventListener("mousedown",U=>U.preventDefault()),Y.addEventListener("click",()=>T(F)),Y.addEventListener("mousemove",()=>C(oe)),p.appendChild(Y),i.push(F)})}),q&&i.length<=1){let D=document.createElement("p");D.className="search_suggest-empty",D.textContent=S("search.noResult"),p.appendChild(D)}p.hidden=!1,p.scrollTop=0,y==null||y.attach(),m(),t.setAttribute("aria-expanded","true"),v.textContent=S("search.results",{n:i.length})}function C(L){c=L,p.querySelectorAll("[role='option']").forEach((q,D)=>{let F=D===L;q.classList.toggle("is-focused",F),q.setAttribute("aria-selected",String(F)),F&&(t.setAttribute("aria-activedescendant",q.id),q.scrollIntoView({block:"nearest"}))})}function k(L){i.length&&C((c+L+i.length)%i.length)}function M(){p.hidden=!0,t.setAttribute("aria-expanded","false"),t.removeAttribute("aria-activedescendant"),J()}function T(L){if(M(),L.kind==="nearme")return G();if(L.kind==="space"){t.value=L.label,n?n.dispatchEvent(new CustomEvent("spaces:select",{detail:{slug:L.space.slug}})):location.href=L.space.url;return}let q=L.short||L.label;t.value=q,N({lat:L.lat,lng:L.lng,label:q,isUser:!1})}function G(){if(!navigator.geolocation){v.textContent=S("search.geoError");return}t.value=S("search.locating"),navigator.geolocation.getCurrentPosition(L=>{t.value=S("search.nearMe"),N({lat:L.coords.latitude,lng:L.coords.longitude,label:S("search.nearMe"),isUser:!0})},()=>{t.value="",v.textContent=S("search.geoError")},{enableHighAccuracy:!1,timeout:1e4,maximumAge:3e5})}function N(L){if(n){n.dispatchEvent(new CustomEvent("spaces:origin",{detail:L}));return}let q=new URLSearchParams({lat:L.lat.toFixed(5),lng:L.lng.toFixed(5),q:L.label});L.isUser&&q.set("me","1"),r==="salles"&&q.set("type","salles"),location.href=`${We}?${q}`}}function Nn(e=document){e.querySelectorAll("[data-toc]").forEach(Dr)}function Pn(e){return e.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/^\s*\d+\s*[.)-]?\s*/,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,60)}function Dr(e){let t=document.querySelector("[data-toc-source]");if(!t)return;let o=e.getAttribute("data-toc-levels")||"h2",n=[...t.querySelectorAll(o)].filter(f=>f.textContent.trim());if(document.querySelectorAll("[data-toc-include]").forEach(f=>{let v=f.querySelector(".w-dyn-empty")||f.closest(".w-condition-invisible, [hidden]"),h=f.querySelector("h2");v||!(h!=null&&h.textContent.trim())||(!h.id&&f.id&&!f.querySelector(`#${CSS.escape(f.id)}`)&&(h.dataset.tocTarget=f.id),n.push(h))}),!n.length){e.hidden=!0;return}let s=new Set;n.forEach(f=>{if(!f.id){let v=Pn(f.textContent)||"partie",h=2;for(;s.has(v)||document.getElementById(v);)v=`${Pn(f.textContent)}-${h++}`;f.id=v}s.add(f.id)});let a=f=>f.dataset.tocTarget||f.id,r=e.querySelector("[data-toc-list]"),i=[...e.querySelectorAll('a[href^="#"]')];i.length&&i.every(f=>document.getElementById(decodeURIComponent(f.hash.slice(1))))||(i.forEach(f=>f.remove()),r||(r=document.createElement("div"),r.className="post-toc_list",e.appendChild(r)),i=n.map(f=>{let v=document.createElement("a");return v.className="post-toc_link",v.href=`#${a(f)}`,v.textContent=f.textContent.trim(),r.appendChild(v),v}));let l=e.closest("[data-collapse]");l&&window.addEventListener("click",f=>{var w,A,$;let v=(A=(w=f.target).closest)==null?void 0:A.call(w,'a[href^="#"]');if(!v||!e.contains(v)||!l.classList.contains("is-open"))return;let h=l.querySelector("[data-collapse-content]");h&&(h.style.transition="none"),($=l.querySelector("[data-collapse-trigger]"))==null||$.click(),h&&(h.offsetHeight,requestAnimationFrame(()=>h.style.transition=""))},!0);let u=i.map(f=>({link:f,heading:document.getElementById(decodeURIComponent(f.hash.slice(1)))})).filter(f=>f.heading);if(!u.length)return;let p=null,y=f=>{f!==p&&(p=f,u.forEach(({link:v})=>{let h=f&&v===f.link;v.classList.toggle("is-active",h),h?v.setAttribute("aria-current","true"):v.removeAttribute("aria-current")}))},d=!1,m=()=>{d=!1;let f=window.innerHeight*.3,v=null;u.forEach(h=>{h.heading.getBoundingClientRect().top<=f&&(v=h)}),y(v||u[0])},g=()=>{d||(d=!0,requestAnimationFrame(m))};window.addEventListener("scroll",g,{passive:!0}),window.addEventListener("resize",g),m()}function In(e=document){e.querySelectorAll("[data-card-link]").forEach(Hr)}function Fr(e){let t=e.getAttribute("data-card-link");if(t)return t;let n=(e.closest("section")||document).querySelector("[data-card-link-source][href]"),s=n==null?void 0:n.getAttribute("href");return s&&s!=="#"?s:""}function Hr(e){let t=Fr(e);if(!t)return;if(e.classList.add("is-card-link"),e.setAttribute("role","link"),e.setAttribute("tabindex","0"),!e.hasAttribute("aria-label")){let n=document.createTreeWalker(e,NodeFilter.SHOW_TEXT),s=[];for(;n.nextNode();)s.push(n.currentNode.nodeValue);let a=s.join(" ").replace(/\s+/g," ").trim();a&&e.setAttribute("aria-label",a)}let o=n=>{n?window.open(t,"_blank","noopener"):window.location.href=t};e.addEventListener("click",n=>{n.target.closest("a, button")&&n.target.closest("a, button")!==e||o(n.metaKey||n.ctrlKey)}),e.addEventListener("auxclick",n=>{n.button===1&&o(!0)}),e.addEventListener("keydown",n=>{n.key==="Enter"&&o(!1)})}function On(e=document){let t=e.querySelector("[data-comparateur]");if(!t||t.dataset.comparateurInit)return;t.dataset.comparateurInit="1";let o=()=>t.classList.add("is-ready");Oe(`${ke}comparateur.css`).then(o,o).then(()=>Ie(`${ke}comparateur.js`)).catch(n=>console.warn("[Work'n'Share] comparateur :",n.message))}var Bn=[["Paris 1er","75001"],["Paris 2e","75002"],["Paris 3e","75003"],["Paris 4e","75004"],["Paris 5e","75005"],["Paris 6e","75006"],["Paris 7e","75007"],["Paris 8e","75008"],["Paris 9e","75009"],["Paris 10e","75010"],["Paris 11e","75011"],["Paris 12e","75012"],["Paris 13e","75013"],["Paris 14e","75014"],["Paris 15e","75015"],["Paris 16e","75016"],["Paris 17e","75017"],["Paris 18e","75018"],["Paris 19e","75019"],["Paris 20e","75020"],["La D\xE9fense","92400"],["Neuilly-sur-Seine","92200"],["Levallois-Perret","92300"],["Boulogne-Billancourt","92100"],["Issy-les-Moulineaux","92130"],["Saint-Cloud","92210"],["Puteaux","92800"],["Courbevoie","92400"],["Suresnes","92150"],["Meudon","92190"],["Nanterre","92000"],["Rueil-Malmaison","92500"],["Bois-Colombes","92270"],["La Garenne-Colombes","92250"],["S\xE8vres","92310"],["Asni\xE8res-sur-Seine","92600"],["Colombes","92700"],["Gennevilliers","92230"],["Villeneuve-la-Garenne","92390"],["Montrouge","92120"],["Clichy","92110"],["Malakoff","92240"],["Vanves","92170"],["Ch\xE2tillon","92320"],["Bagneux","92220"],["Clamart","92140"],["Le Plessis-Robinson","92350"],["Antony","92160"],["Bourg-la-Reine","92340"],["Sceaux","92330"],["Fontenay-aux-Roses","92260"],["Ch\xE2tenay-Malabry","92290"],["Saint-Ouen-sur-Seine","93400"],["Pantin","93500"],["Saint-Denis","93200"],["Montreuil","93100"],["Bagnolet","93170"],["Aubervilliers","93300"],["Le Pr\xE9-Saint-Gervais","93310"],["Les Lilas","93260"],["Romainville","93230"],["Bobigny","93000"],["Noisy-le-Sec","93130"],["Rosny-sous-Bois","93110"],["Noisy-le-Grand","93160"],["La Courneuve","93120"],["\xC9pinay-sur-Seine","93800"],["Le Bourget","93350"],["Bondy","93140"],["Drancy","93700"],["Stains","93240"],["Le Blanc-Mesnil","93150"],["Livry-Gargan","93190"],["Aulnay-sous-Bois","93600"],["Tremblay-en-France","93290"],["Villepinte","93420"],["Vincennes","94300"],["Saint-Mand\xE9","94160"],["Charenton-le-Pont","94220"],["Nogent-sur-Marne","94130"],["Le Kremlin-Bic\xEAtre","94270"],["Arcueil","94110"],["Gentilly","94250"],["Fontenay-sous-Bois","94120"],["Saint-Maurice","94410"],["Ivry-sur-Seine","94200"],["Joinville-le-Pont","94340"],["Maisons-Alfort","94700"],["Cachan","94230"],["Villejuif","94800"],["Alfortville","94140"],["Cr\xE9teil","94000"],["Vitry-sur-Seine","94400"],["L\u2019Ha\xFF-les-Roses","94240"],["Rungis","94150"],["Thiais","94320"],["Choisy-le-Roi","94600"],["Orly","94310"],["Fresnes","94260"],["Massy","91300"],["Palaiseau","91120"],["Orsay","91400"],["Les Ulis","91940"],["\xC9vry-Courcouronnes","91000"],["Corbeil-Essonnes","91100"],["V\xE9lizy-Villacoublay","78140"],["Versailles","78000"],["Saint-Germain-en-Laye","78100"],["Poissy","78300"],["Montigny-le-Bretonneux","78180"],["Guyancourt","78280"],["\xC9lancourt","78990"],["Trappes","78190"],["Argenteuil","95100"],["Franconville","95130"],["Cergy","95000"],["Pontoise","95300"],["Gonesse","95500"],["Sarcelles","95200"],["Roissy-en-France","95700"],["Chelles","77500"],["Champs-sur-Marne","77420"],["Bussy-Saint-Georges","77600"],["Serris","77700"],["Chaville","92370"],["Garches","92380"],["Marnes-la-Coquette","92430"],["Vaucresson","92420"],["Ville-d'Avray","92410"],["Clichy-sous-Bois","93390"],["Coubron","93470"],["Dugny","93440"],["Gagny","93220"],["Gournay-sur-Marne","93460"],["L'\xCEle-Saint-Denis","93450"],["Montfermeil","93370"],["Neuilly-Plaisance","93360"],["Neuilly-sur-Marne","93330"],["Les Pavillons-sous-Bois","93320"],["Le Raincy","93340"],["Sevran","93270"],["Vaujours","93410"],["Villemomble","93250"],["Villetaneuse","93430"],["Ablon-sur-Seine","94480"],["Boissy-Saint-L\xE9ger","94470"],["Bonneuil-sur-Marne","94380"],["Bry-sur-Marne","94360"],["Champigny-sur-Marne","94500"],["Chennevi\xE8res-sur-Marne","94430"],["Chevilly-Larue","94550"],["Limeil-Br\xE9vannes","94450"],["Mandres-les-Roses","94520"],["Marolles-en-Brie","94440"],["Noiseau","94880"],["Ormesson-sur-Marne","94490"],["P\xE9rigny","94520"],["Le Perreux-sur-Marne","94170"],["Le Plessis-Tr\xE9vise","94420"],["La Queue-en-Brie","94510"],["Saint-Maur-des-Foss\xE9s","94100"],["Santeny","94440"],["Sucy-en-Brie","94370"],["Valenton","94460"],["Villecresnes","94440"],["Villeneuve-le-Roi","94290"],["Villeneuve-Saint-Georges","94190"],["Villiers-sur-Marne","94350"],["Arnouville","95400"],["Beauchamp","95250"],["Beaumont-sur-Oise","95260"],["Bessancourt","95550"],["Bezons","95870"],["Cormeilles-en-Parisis","95240"],["Courdimanche","95800"],["Deuil-la-Barre","95170"],["Domont","95330"],["Eaubonne","95600"],["Enghien-les-Bains","95880"],["\xC9ragny-sur-Oise","95610"],["Ermont","95120"],["\xC9zanville","95460"],["Fosses","95470"],["Garges-l\xE8s-Gonesse","95140"],["Goussainville","95190"],["Groslay","95410"],["Herblay-sur-Seine","95220"],["L'Isle-Adam","95290"],["Jouy-le-Moutier","95280"],["Louvres","95380"],["M\xE9ry-sur-Oise","95540"],["Montigny-l\xE8s-Cormeilles","95370"],["Montmagny","95360"],["Montmorency","95160"],["Osny","95520"],["Pierrelaye","95220"],["Le Plessis-Bouchard","95130"],["Saint-Brice-sous-For\xEAt","95350"],["Saint-Gratien","95210"],["Saint-Leu-la-For\xEAt","95320"],["Saint-Ouen-l'Aum\xF4ne","95310"],["Saint-Prix","95390"],["Sannois","95110"],["Soisy-sous-Montmorency","95230"],["Taverny","95150"],["Vaur\xE9al","95490"],["Villiers-le-Bel","95400"],["Ach\xE8res","78260"],["Andr\xE9sy","78570"],["Bois-d'Arcy","78390"],["Bougival","78380"],["Buc","78530"],["Carri\xE8res-sous-Poissy","78955"],["Carri\xE8res-sur-Seine","78420"],["La Celle-Saint-Cloud","78170"],["Chanteloup-les-Vignes","78570"],["Chatou","78400"],["Le Chesnay-Rocquencourt","78150"],["Les Clayes-sous-Bois","78340"],["Coigni\xE8res","78310"],["Conflans-Sainte-Honorine","78700"],["Croissy-sur-Seine","78290"],["Fontenay-le-Fleury","78330"],["Houilles","78800"],["Jouy-en-Josas","78350"],["Louveciennes","78430"],["Magny-les-Hameaux","78114"],["Maisons-Laffitte","78600"],["Marly-le-Roi","78160"],["Maurepas","78310"],["Le Mesnil-le-Roi","78600"],["Les Mureaux","78130"],["Noisy-le-Roi","78590"],["Le Pecq","78230"],["Plaisir","78370"],["Le Port-Marly","78560"],["Saint-Cyr-l'\xC9cole","78210"],["Sartrouville","78500"],["Triel-sur-Seine","78510"],["Verneuil-sur-Seine","78480"],["La Verri\xE8re","78320"],["Le V\xE9sinet","78110"],["Villepreux","78450"],["Viroflay","78220"],["Voisins-le-Bretonneux","78960"],["Arpajon","91290"],["Athis-Mons","91200"],["Ballainvilliers","91160"],["Bi\xE8vres","91570"],["Bondoufle","91070"],["Boussy-Saint-Antoine","91800"],["Br\xE9tigny-sur-Orge","91220"],["Brunoy","91800"],["Bures-sur-Yvette","91440"],["Chilly-Mazarin","91380"],["Crosne","91560"],["Draveil","91210"],["\xC9pinay-sous-S\xE9nart","91860"],["\xC9pinay-sur-Orge","91360"],["Fleury-M\xE9rogis","91700"],["Gif-sur-Yvette","91190"],["Grigny","91350"],["Igny","91430"],["Juvisy-sur-Orge","91260"],["Lisses","91090"],["Longjumeau","91160"],["Marcoussis","91460"],["Montgeron","91230"],["Montlh\xE9ry","91310"],["Morangis","91420"],["Morsang-sur-Orge","91390"],["Quincy-sous-S\xE9nart","91480"],["Ris-Orangis","91130"],["Saclay","91400"],["Sainte-Genevi\xE8ve-des-Bois","91700"],["Saint-Germain-l\xE8s-Arpajon","91180"],["Saint-Michel-sur-Orge","91240"],["Savigny-sur-Orge","91600"],["Verri\xE8res-le-Buisson","91370"],["Vigneux-sur-Seine","91270"],["Villebon-sur-Yvette","91140"],["Viry-Ch\xE2tillon","91170"],["Wissous","91320"],["Yerres","91330"],["Bailly-Romainvilliers","77700"],["Chessy","77700"],["Claye-Souilly","77410"],["Coll\xE9gien","77090"],["Combs-la-Ville","77380"],["Croissy-Beaubourg","77183"],["\xC9merainville","77184"],["Lagny-sur-Marne","77400"],["Lieusaint","77127"],["Lognes","77185"],["Magny-le-Hongre","77700"],["Mitry-Mory","77290"],["Mont\xE9vrain","77144"],["Noisiel","77186"],["Ozoir-la-Ferri\xE8re","77330"],["Pontault-Combault","77340"],["Roissy-en-Brie","77680"],["Saint-Thibault-des-Vignes","77400"],["Thorigny-sur-Marne","77400"],["Torcy","77200"],["Vaires-sur-Marne","77360"],["Villeparisis","77270"]];var gt=1,Fn=900,Ur=8,yt=e=>String(e).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g," ").trim(),Hn=Bn.map(([e,t])=>({name:e,cp:t,key:yt(e)}));function Gr(e){let t=yt(e);if(!t)return[];let o=[],n=[];return Hn.forEach(s=>{s.key.startsWith(t)||s.cp.startsWith(t)?o.push(s):s.key.includes(` ${t}`)&&n.push(s)}),o.concat(n).slice(0,Ur)}function Vn(e=document){e.querySelectorAll("[data-comparator]").forEach(zr)}var Wr=0;function zr(e){if(e.dataset.comparatorInit)return;e.dataset.comparatorInit="1";let t=e.querySelector("[data-comparator-city]"),o=e.querySelector("[data-comparator-value]"),n=e.querySelector("[data-comparator-minus]"),s=e.querySelector("[data-comparator-plus]"),a=e.querySelector("[data-comparator-submit]");if(!a)return;let r=e.getAttribute("data-comparator-url")||"/comparateur",i=null,c=Dn(parseInt(o==null?void 0:o.textContent,10)||10),l=()=>{let d=new URLSearchParams;i&&d.set("ville",i.name),d.set("postes",String(c)),a.setAttribute("href",`${r}?${d}`)},u=d=>{c=Dn(d),o&&(o.textContent=String(c)),n==null||n.setAttribute("aria-disabled",String(c<=gt)),s==null||s.setAttribute("aria-disabled",String(c>=Fn)),l()};o==null||o.setAttribute("aria-live","polite");let p=d=>m=>{m.preventDefault(),u(c+d)};n==null||n.addEventListener("click",p(-1)),s==null||s.addEventListener("click",p(1)),[n,s].forEach(d=>d==null?void 0:d.addEventListener("keydown",m=>{m.key===" "&&(m.preventDefault(),d.click())})),t&&y();function y(){let d=[...t.children].find(E=>!E.querySelector("[class^='ico-']")&&E.textContent.trim()),m=(d==null?void 0:d.textContent.trim())||S("comparator.city"),g=`comparator-${++Wr}`,f=document.createElement("input");f.type="text",f.className="offices-calc_field-input",f.placeholder=m,f.autocomplete="off",f.spellcheck=!1,f.setAttribute("role","combobox"),f.setAttribute("aria-label",S("comparator.city")),f.setAttribute("aria-autocomplete","list"),f.setAttribute("aria-expanded","false"),f.setAttribute("aria-controls",`${g}-list`);let v=document.createElement("div");v.className="offices-calc_list",v.id=`${g}-list`,v.setAttribute("role","listbox"),v.setAttribute("aria-label",S("comparator.cities")),v.setAttribute("data-lenis-prevent",""),v.hidden=!0,d?d.replaceWith(f):t.append(f),t.append(v),t.classList.add("has-input"),t.addEventListener("click",E=>{v.contains(E.target)||f.focus()});let h=[],w=-1,A=()=>{v.hidden=!0,f.setAttribute("aria-expanded","false"),f.removeAttribute("aria-activedescendant"),w=-1},$=E=>{w=E,v.querySelectorAll("[role='option']").forEach((R,B)=>{let W=B===E;R.classList.toggle("is-active",W),R.setAttribute("aria-selected",String(W)),W&&(f.setAttribute("aria-activedescendant",R.id),R.scrollIntoView({block:"nearest"}))})},_=E=>{i=E,f.value=E.name,f.removeAttribute("aria-invalid"),A(),l()},H=()=>{if(h=Gr(f.value),v.textContent="",!f.value.trim())return A();if(!h.length){let E=document.createElement("div");E.className="offices-calc_empty",E.textContent=S("comparator.noCity"),v.append(E)}h.forEach((E,R)=>{let B=document.createElement("div");B.id=`${g}-opt-${R}`,B.className="offices-calc_option",B.setAttribute("role","option"),B.setAttribute("aria-selected","false");let W=document.createElement("span");W.textContent=E.name;let X=document.createElement("span");X.className="offices-calc_cp",X.textContent=E.cp,B.append(W,X),B.addEventListener("mousedown",J=>{J.preventDefault(),_(E)}),v.append(B)}),v.hidden=!1,f.setAttribute("aria-expanded","true"),$(h.length?0:-1)};f.addEventListener("input",()=>{i=null,l(),H()}),f.addEventListener("focus",()=>{f.value&&!i&&H()}),f.addEventListener("keydown",E=>{let R=!v.hidden&&h.length;E.key==="ArrowDown"&&R?(E.preventDefault(),$((w+1)%h.length)):E.key==="ArrowUp"&&R?(E.preventDefault(),$((w-1+h.length)%h.length)):E.key==="Enter"?(E.preventDefault(),R&&w>-1?_(h[w]):i&&a.click()):E.key==="Escape"&&!v.hidden&&(E.preventDefault(),A())}),f.addEventListener("blur",()=>{if(!i&&f.value.trim()){let E=Hn.find(R=>R.key===yt(f.value));E?_(E):f.setAttribute("aria-invalid","true")}A()})}u(c)}function Dn(e){return Math.min(Fn,Math.max(gt,Math.round(e)||gt))}var vt="rubrique";function Un(e=document){let t=e.querySelector("[data-blog-filters]"),o=e.querySelector("[data-blog-list]");if(!t||!o||t.dataset.blogFilterInit)return;t.dataset.blogFilterInit="1";let n=[...t.querySelectorAll("[data-filter]")],s=[...o.querySelectorAll("[data-category]")].map(l=>({el:l.closest(".w-dyn-item")||l,category:l.getAttribute("data-category")}));if(!n.length||!s.length)return;let a=document.createElement("p");a.className="blog-filters_status",a.setAttribute("role","status"),t.after(a);let r=new Set(n.map(l=>l.getAttribute("data-filter"))),i=(l,{announce:u=!0,updateUrl:p=!0}={})=>{r.has(l)||(l="all"),n.forEach(d=>{let m=d.getAttribute("data-filter")===l;d.classList.toggle("is-active",m),d.setAttribute("aria-pressed",String(m))});let y=0;if(s.forEach(({el:d,category:m})=>{let g=l==="all"||m===l;d.hidden=!g,g&&y++}),u&&(a.textContent=y===1?S("blog.countOne"):S("blog.count",{n:y})),p){let d=new URL(window.location.href);l==="all"?d.searchParams.delete(vt):d.searchParams.set(vt,l),history.replaceState(history.state,"",d)}j()};n.forEach(l=>{l.addEventListener("click",u=>{u.preventDefault(),i(l.getAttribute("data-filter"))}),l.addEventListener("keydown",u=>{u.key===" "&&(u.preventDefault(),l.click())})});let c=new URLSearchParams(window.location.search).get(vt);c&&r.has(c)&&i(c,{announce:!1,updateUrl:!1})}function Gn(e=document){e.querySelectorAll("form[data-contact-form]").forEach(Yr)}function Yr(e){if(e.dataset.contactInit)return;e.dataset.contactInit="1";let t=[...e.querySelectorAll('input[type="radio"][name="motif"]')],o=[...e.querySelectorAll("[data-contact-motif]")],n=()=>{var l;let c=((l=t.find(u=>u.checked))==null?void 0:l.value)||"";t.forEach(u=>{var p;return(p=u.closest(".contact-motif_option"))==null?void 0:p.classList.toggle("is-active",u.checked)}),o.forEach(u=>{let y=u.getAttribute("data-contact-motif").split(",").map(d=>d.trim()).includes(c);u.hidden=!y,u.querySelectorAll("input, select, textarea").forEach(d=>d.disabled=!y)})};t.forEach(c=>c.addEventListener("change",n));let s=new URLSearchParams(window.location.search),a=s.get("motif");if(a){let c=t.find(l=>l.value===a);c&&(c.checked=!0)}let r=s.get("espace"),i=e.querySelector('[data-contact-field="espace"]');r&&i&&[...i.options].some(c=>c.value===r)&&(i.value=r),n(),e.addEventListener("submit",()=>jr(e)),Xr(e)}function bt(e,t){var s;let o=[...e.querySelectorAll(`[name="${t}"]`)].filter(a=>!a.disabled),n=o.find(a=>a.type!=="radio")||o.find(a=>a.checked);return n?n.type==="radio"?((s=n.closest("label"))==null?void 0:s.textContent.trim())||n.value:n.tagName==="SELECT"?n.value?n.options[n.selectedIndex].text.trim():"":n.value.trim():""}function jr(e){var n;let t=(n=e.parentElement)==null?void 0:n.querySelector("[data-contact-success]");if(!t)return;let o={"nom-complet":[bt(e,"prenom"),bt(e,"nom")].filter(Boolean).join(" ")};t.querySelectorAll("[data-contact-recap-value]").forEach(s=>{let a=s.getAttribute("data-contact-recap-value");if(s.querySelector("[data-contact-recap-value]"))return;let r=a in o?o[a]:bt(e,a);s.textContent=r,s.hidden=!r}),t.querySelectorAll("[data-contact-recap-row]").forEach(s=>{s.hidden=![...s.querySelectorAll("[data-contact-recap-value]")].some(a=>!a.hidden&&a.textContent.trim())})}function Xr(e){var s;let t=(s=e.parentElement)==null?void 0:s.querySelector(".w-form-done"),o=e.closest("[data-contact]");if(!t||!o)return;let n=new MutationObserver(()=>{if(getComputedStyle(t).display==="none")return;n.disconnect(),o.classList.add("is-sent");let a=o.getBoundingClientRect().top+window.scrollY,r=z();window.scrollY>a&&(r?r.scrollTo(a,{immediate:I(),force:!0}):window.scrollTo({top:a,behavior:I()?"auto":"smooth"}))});n.observe(t,{attributes:!0,attributeFilter:["style","class"]})}function zn(e=document){e.querySelectorAll('form[data-form="devis"]').forEach(Kr)}function Kr(e){var l;if(e.dataset.devisInit)return;e.dataset.devisInit="1";let t=Wn(e,"data-devis-format-option","data-devis-format-input",u=>u.textContent.trim());Wn(e,"data-devis-restauration-option","data-devis-restauration-input",u=>u.getAttribute("data-devis-restauration-option"));let o=e.querySelector("[data-devis-format-select]"),n=u=>{u&&(t==null||t.selectValue(u),o&&[...o.options].some(p=>p.value===u)&&(o.value=u,o.dispatchEvent(new Event("change",{bubbles:!0}))))};document.addEventListener("click",u=>{var y,d;let p=(d=(y=u.target).closest)==null?void 0:d.call(y,"a[data-devis-format]");p&&n(p.getAttribute("data-devis-format"))},!0);let s=e.querySelector("[data-venue-espace-input]"),a=(l=s==null?void 0:s.getAttribute("data-espace-name"))==null?void 0:l.trim();s&&a&&!s.value&&(s.value=a);let r=new URLSearchParams(window.location.search);n(r.get("format"));let i=r.get("lieu"),c=e.querySelector("[data-devis-lieu]");i&&c&&[...c.options].some(u=>u.value===i)&&(c.value=i,c.dispatchEvent(new Event("change",{bubbles:!0})))}function Wn(e,t,o,n){let s=[...e.querySelectorAll(`[${t}]`)];if(!s.length)return null;let a=e.querySelector(`[${o}]`),r=s.find(l=>l.getAttribute("aria-checked")==="true")||null,i=r?me(s[0].parentElement,()=>r):null,c=(l,u=!1)=>{r=l,i==null||i.move(),s.forEach(p=>{let y=p===l;p.classList.toggle("is-active",y),p.setAttribute("aria-checked",String(y)),p.tabIndex=y?0:-1}),a&&(a.value=l?n(l):""),u&&l&&l.focus()};return s.forEach((l,u)=>{l.addEventListener("click",p=>{p.preventDefault(),c(l)}),l.addEventListener("keydown",p=>{p.key===" "||p.key==="Enter"?(p.preventDefault(),c(l)):p.key==="ArrowRight"||p.key==="ArrowDown"?(p.preventDefault(),c(s[(u+1)%s.length],!0)):(p.key==="ArrowLeft"||p.key==="ArrowUp")&&(p.preventDefault(),c(s[(u-1+s.length)%s.length],!0))})}),r?c(r):s.forEach((l,u)=>l.tabIndex=u===0?0:-1),{selectValue(l){let u=s.find(p=>p.getAttribute(t)===l);u&&c(u)}}}function Zr(e){e.querySelectorAll("label").forEach(t=>{var s;if(t.querySelector("input, select, textarea")){t.getAttribute("for")===""&&t.removeAttribute("for");return}if(t.getAttribute("for"))return;let n=(s=t.parentElement)==null?void 0:s.querySelector("input, select, textarea");n!=null&&n.id?t.htmlFor=n.id:t.removeAttribute("for")})}function Yn(e=document){e.querySelectorAll("form").forEach(Zr)}function jn(e=document){let t=[];if(e.querySelectorAll("body *").forEach(n=>{let s=getComputedStyle(n).clipPath;s&&s.startsWith("polygon(")&&s.split(",").length===5&&t.push(n)}),!t.length)return;let o=n=>{n.classList.remove("is-house");let s=getComputedStyle(n).clipPath,a=n.offsetWidth,r=n.offsetHeight,i=Qr(s,a,r);if(!i||!a||!r)return;let c=getComputedStyle(n),l=parseFloat(c.getPropertyValue("--house-radius"))||parseFloat(c.borderBottomLeftRadius)||16;n.style.setProperty("--house-path",`path("${Et(i,l)}")`);let u=a/2,p=r/2,y=i.map(([m,g])=>[u+(m-u)/1.05,p+(g-p)/1.05]);n.style.setProperty("--house-path-zoom",`path("${Et(y,l/1.05)}")`);let d=i.map(([m,g])=>[u+(m-u)*.6,p+(g-p)*.6]);n.style.setProperty("--house-path-reveal",`path("${Et(d,l*.6)}")`),n.classList.add("is-house")};if(t.forEach(o),typeof ResizeObserver!="undefined"){let n=new Set,s=0,a=new ResizeObserver(r=>{r.forEach(i=>n.add(i.target)),cancelAnimationFrame(s),s=requestAnimationFrame(()=>{n.forEach(o),n.clear()})});t.forEach(r=>a.observe(r,{box:"border-box"}))}}function Qr(e,t,o){let n=e.slice(e.indexOf("(")+1,e.lastIndexOf(")")),s=(r,i)=>(r=r.trim(),r.endsWith("%")?parseFloat(r)/100*i:parseFloat(r)||0),a=n.split(",").map(r=>{let[i,c]=r.trim().split(/\s+/);return[s(i,t),s(c,o)]});return a.length===5&&a.every(r=>r.every(Number.isFinite))?a:null}function Et(e,t){let o=e.length,n=a=>Math.round(a*100)/100,s="";return e.forEach((a,r)=>{let i=e[(r-1+o)%o],c=e[(r+1)%o],l=Math.hypot(i[0]-a[0],i[1]-a[1]),u=Math.hypot(c[0]-a[0],c[1]-a[1]),p=Math.min(t,l/2,u/2),y=[a[0]+(i[0]-a[0])*p/l,a[1]+(i[1]-a[1])*p/l],d=[a[0]+(c[0]-a[0])*p/u,a[1]+(c[1]-a[1])*p/u];s+=`${r===0?"M":"L"}${n(y[0])} ${n(y[1])}Q${n(a[0])} ${n(a[1])} ${n(d[0])} ${n(d[1])}`}),`${s}Z`}var Xn=8,Jr=320,ea=0;function Kn(e=document){e.querySelectorAll("form select:not([multiple]):not([data-native-select]), select[data-enhance-select]").forEach(ta)}function ta(e){var H;if(e.dataset.customSelect)return;e.dataset.customSelect="1";let t=`custom-select-${++ea}`,o=document.createElement("div");o.className="custom-select",e.before(o),o.appendChild(e);let n=document.createElement("button");n.type="button",n.className=`${e.className} custom-select_button`,n.id=`${t}-button`,n.setAttribute("role","combobox"),n.setAttribute("aria-haspopup","listbox"),n.setAttribute("aria-expanded","false"),n.setAttribute("aria-controls",`${t}-list`);let s=document.createElement("span");s.className="custom-select_value",n.appendChild(s),o.insertBefore(n,e),e.classList.add("custom-select_native"),e.tabIndex=-1,e.setAttribute("aria-hidden","true");let a=e.id?[...document.querySelectorAll(`label[for="${CSS.escape(e.id)}"]`)]:[];a.length?(a.forEach((E,R)=>{E.id||(E.id=`${t}-label-${R}`),E.addEventListener("click",B=>{B.preventDefault(),n.focus()})}),n.setAttribute("aria-labelledby",`${a.map(E=>E.id).join(" ")} ${n.id}`)):e.getAttribute("aria-label")&&n.setAttribute("aria-label",e.getAttribute("aria-label"));let r=document.createElement("div");r.className="search_suggest custom-select_panel",r.id=`${t}-list`,r.setAttribute("role","listbox"),r.setAttribute("data-lenis-prevent",""),r.hidden=!0,a[0]&&r.setAttribute("aria-labelledby",a[0].id),document.body.appendChild(r);let i=le(r),c=[],l=-1;function u(){r.innerHTML="",c=[],[...e.children].forEach(E=>{if(E.tagName==="OPTGROUP"){let R=document.createElement("p");R.className="search_suggest-title",R.setAttribute("role","presentation"),R.textContent=E.label,r.appendChild(R),[...E.children].forEach(p)}else p(E)}),i==null||i.attach()}function p(E){if(!E.value)return;let R=c.length,B=document.createElement("div");B.className="search_suggest-item custom-select_option",B.id=`${t}-opt-${R}`,B.setAttribute("role","option"),B.innerHTML='<span class="search_suggest-text"><span class="search_suggest-label"></span></span>',B.querySelector(".search_suggest-label").textContent=E.text,E.disabled&&B.setAttribute("aria-disabled","true"),B.addEventListener("mousedown",W=>W.preventDefault()),B.addEventListener("click",()=>v(R)),B.addEventListener("mousemove",()=>m(R,!1)),r.appendChild(B),c.push({el:B,option:E})}function y(){let E=e.options[e.selectedIndex];s.textContent=E?E.text:"",n.classList.toggle("is-placeholder",!E||!E.value),n.disabled=e.disabled,c.forEach(({el:R,option:B})=>{let W=B.selected&&!!B.value;R.classList.toggle("is-selected",W),R.setAttribute("aria-selected",String(W))})}function d(){if(r.hidden)return;let E=n.getBoundingClientRect();r.style.top=`${E.bottom+window.scrollY+Xn}px`,r.style.left=`${E.left+window.scrollX}px`,r.style.width=`${E.width}px`;let R=window.innerHeight-E.bottom-Xn-16;r.style.maxHeight=`${Math.min(Jr,Math.max(160,R))}px`,i==null||i.update()}function m(E,R=!0){l=E,c.forEach(({el:W},X)=>W.classList.toggle("is-focused",X===E));let B=c[E];B?(n.setAttribute("aria-activedescendant",B.el.id),R&&B.el.scrollIntoView({block:"nearest"})):n.removeAttribute("aria-activedescendant")}function g(){if(!r.hidden||e.disabled)return;u(),y(),r.hidden=!1,n.setAttribute("aria-expanded","true"),o.classList.add("is-open"),d();let E=c.findIndex(({option:R})=>R.selected);m(E>=0?E:0)}function f(){r.hidden||(r.hidden=!0,n.setAttribute("aria-expanded","false"),n.removeAttribute("aria-activedescendant"),o.classList.remove("is-open"))}function v(E){let R=c[E];!R||R.option.disabled||(e.value=R.option.value,e.dispatchEvent(new Event("input",{bubbles:!0})),e.dispatchEvent(new Event("change",{bubbles:!0})),f(),n.focus())}function h(E){if(!c.length)return;let R=l;for(let B=0;B<c.length;B++)if(R=(R+E+c.length)%c.length,!c[R].option.disabled)return m(R)}n.addEventListener("click",()=>r.hidden?g():f());let w="",A=0;n.addEventListener("keydown",E=>{let R=!r.hidden;if(E.key==="ArrowDown"||E.key==="ArrowUp")E.preventDefault(),R?h(E.key==="ArrowDown"?1:-1):g();else if(E.key==="Home"||E.key==="End"){if(!R)return;E.preventDefault(),m(E.key==="Home"?0:c.length-1)}else if(E.key==="Enter"||E.key===" ")E.preventDefault(),R&&l>=0?v(l):g();else if(E.key==="Escape")R&&(E.preventDefault(),f());else if(E.key==="Tab")f();else if(E.key.length===1&&/\S/.test(E.key)){w+=E.key.toLowerCase(),clearTimeout(A),A=setTimeout(()=>w="",600),R||g();let B=c.findIndex(({option:W})=>W.text.trim().toLowerCase().startsWith(w));B>=0&&m(B)}}),document.addEventListener("pointerdown",E=>{!r.hidden&&!o.contains(E.target)&&!r.contains(E.target)&&f()},!0);let $=!1,_=()=>{$||r.hidden||($=!0,requestAnimationFrame(()=>{$=!1,d()}))};window.addEventListener("resize",_,{passive:!0}),document.addEventListener("scroll",_,{passive:!0,capture:!0}),e.addEventListener("change",y),new MutationObserver(y).observe(e,{attributes:!0,attributeFilter:["disabled"]}),e.addEventListener("invalid",()=>n.focus()),(H=e.form)==null||H.addEventListener("reset",()=>setTimeout(y)),u(),y()}var Zn={top:40,bottom:16,left:24,right:24};function Qn(e=document){let t=[...e.querySelectorAll("img[data-mini-map]")];if(!t.length||!("IntersectionObserver"in window))return;let o=new Set,n=[];if(e.querySelectorAll("[data-pin-lat][data-pin-lng]").forEach(a=>{let r=parseFloat(a.getAttribute("data-pin-lat")),i=parseFloat(a.getAttribute("data-pin-lng")),c=`${r},${i}`;!Number.isFinite(r)||!Number.isFinite(i)||o.has(c)||(o.add(c),n.push([i,r]))}),!n.length)return;let s=new IntersectionObserver(a=>a.forEach(r=>{r.isIntersecting&&(s.unobserve(r.target),na(r.target,n))}));t.forEach(a=>s.observe(a))}async function na(e,t){let o=await Ee();if(!o)return;let n=document.createElement("div");n.className=`${e.className} mini-map`,e.alt?(n.setAttribute("role","img"),n.setAttribute("aria-label",e.alt)):n.setAttribute("aria-hidden","true"),e.after(n),e.style.display="none";let s=document.createElement("div");s.className="mini-map_canvas",n.appendChild(s);let a=new o.LngLatBounds;t.forEach(i=>a.extend(i));let r=new o.Map({container:s,style:be,bounds:a,fitBoundsOptions:{padding:Zn},interactive:!1,attributionControl:!1});r.on("style.load",()=>Le(r)),t.forEach(i=>{let c=document.createElement("div");c.className="map-pin mini-map_pin",c.setAttribute("aria-hidden","true"),c.innerHTML=we,new o.Marker({element:c,anchor:"bottom"}).setLngLat(i).addTo(r)}),r.once("load",()=>{r.resize(),r.fitBounds(a,{padding:Zn,duration:0}),n.classList.add("is-ready")})}var oa={M\u00E9tro:"metro-",RER:"rer-",Train:"train-",Tram:"tram-",Bus:"bus-"};function Jn(e=document){e.querySelectorAll(".ligne[data-line-mode]").forEach(t=>{var s;let o=oa[t.getAttribute("data-line-mode")],n=(s=t.querySelector(".ligne_indice"))==null?void 0:s.textContent.trim().toLowerCase();!o||!n||t.setAttribute("data-line",`${o}${n}`)})}var wt=e=>(e||"").replace(/\s+/g," ").trim();function eo(e=document){let t=sa(),o=[];if(!t.has("BreadcrumbList")){let n=ra(e.querySelector("nav.breadcrumb"));n&&o.push(n)}if(!t.has("FAQPage")){let n=aa(e);n&&o.push(n)}o.forEach(n=>{let s=document.createElement("script");s.type="application/ld+json",s.textContent=JSON.stringify({"@context":"https://schema.org",...n}),document.head.appendChild(s)})}function sa(){let e=new Set;return document.querySelectorAll('script[type="application/ld+json"]').forEach(t=>{try{let o=JSON.parse(t.textContent);[o,...o["@graph"]||[]].forEach(n=>n&&n["@type"]&&e.add(n["@type"]))}catch(o){}}),e}function ra(e){if(!e)return null;let t=[];return e.querySelectorAll("a.breadcrumb_link, .breadcrumb_current").forEach(o=>{let n=wt(o.textContent);if(!n)return;let s=o.matches("a")?o.getAttribute("href"):location.pathname,a=new URL(s,location.origin);a.pathname=a.pathname.replace(/(.)\/$/,"$1"),t.push({name:n,url:a.href})}),t.length<2?null:{"@type":"BreadcrumbList",itemListElement:t.map((o,n)=>({"@type":"ListItem",position:n+1,name:o.name,item:o.url}))}}function aa(e){let t=[];return e.querySelectorAll(".faq_item").forEach(o=>{var a,r;if(o.closest(".w-condition-invisible, .w-dyn-empty, [hidden]"))return;let n=wt((a=o.querySelector(".faq_question"))==null?void 0:a.textContent),s=wt((r=o.querySelector(".faq_answer"))==null?void 0:r.textContent);!n||!s||t.push({"@type":"Question",name:n,acceptedAnswer:{"@type":"Answer",text:s}})}),t.length?{"@type":"FAQPage",mainEntity:t}:null}function to(e=document){let t=(de[ce()]||{}).prefix||"";e.querySelectorAll("a[data-cms-link][data-cms-slug]").forEach(o=>{let n=o.getAttribute("data-cms-slug").trim();if(!n)return;let s=o.getAttribute("data-cms-link").replace(/\/$/,"");o.setAttribute("href",`${t}${s}/${n}`)})}xt(()=>{Mt(),$t(),pn(),dn(),Pt(),kt(),Nn(),to(),In(),Jn(),eo(),On(),Vn(),Un(),Yn(),Gn(),zn(),jn(),Nt(),Ot(),Bt(),Dt(),Xt(),Zt(),Jt(),nn(),sn(),rn(),an(),cn(),un(),Cn(),kn(),Rn(),_n(),$n(),Qn(),Kn()});console.log("%c[Work'n'Share] main.js \u2014 build 2026-11-05 13:36","color:#7dd3fc");})();
+    <div class="lightbox_thumbs" role="group" aria-label="${t("lightbox.thumbs")}"></div>`;
+    document.body.appendChild(root);
+    const $ = (sel) => root.querySelector(sel);
+    const count = $(".lightbox_count");
+    const caption = $(".lightbox_caption");
+    const image = $(".lightbox_image");
+    const figure = $(".lightbox_figure");
+    const thumbs = $(".lightbox_thumbs");
+    const prev = $(".lightbox_prev");
+    const next = $(".lightbox_next");
+    let photos = [];
+    let index = 0;
+    let opener = null;
+    let token = 0;
+    function show(i) {
+      index = (i + photos.length) % photos.length;
+      const photo = photos[index];
+      count.textContent = `${index + 1} / ${photos.length}`;
+      caption.textContent = photo.alt || "";
+      const current = ++token;
+      figure.classList.add("is-loading");
+      const loader = new Image();
+      loader.onload = loader.onerror = () => {
+        if (current !== token) return;
+        image.src = photo.src;
+        image.alt = photo.alt || "";
+        figure.classList.remove("is-loading");
+      };
+      loader.src = photo.src;
+      [...thumbs.children].forEach((thumb, k) => {
+        const on = k === index;
+        thumb.classList.toggle("is-active", on);
+        thumb.setAttribute("aria-current", on ? "true" : "false");
+        if (on) thumb.scrollIntoView({ block: "nearest", inline: "center", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+      });
+      [index - 1, index + 1].forEach((k) => new Image().src = photos[(k + photos.length) % photos.length].src);
+    }
+    function renderThumbs() {
+      thumbs.innerHTML = "";
+      photos.forEach((photo, k) => {
+        const thumb = document.createElement("button");
+        thumb.type = "button";
+        thumb.className = "lightbox_thumb";
+        thumb.setAttribute("aria-label", t("lightbox.goto", { n: k + 1 }));
+        thumb.innerHTML = `<img src="${photo.thumb || photo.src}" alt="" loading="lazy" draggable="false">`;
+        thumb.addEventListener("click", () => show(k));
+        thumbs.appendChild(thumb);
+      });
+    }
+    function open2(list, start = 0, trigger = null) {
+      var _a;
+      photos = list.filter((p) => p && p.src);
+      if (!photos.length) return;
+      opener = trigger || document.activeElement;
+      const several = photos.length > 1;
+      prev.hidden = next.hidden = thumbs.hidden = !several;
+      renderThumbs();
+      root.hidden = false;
+      document.documentElement.classList.add("is-lightbox-open");
+      (_a = getLenis()) == null ? void 0 : _a.stop();
+      requestAnimationFrame(() => root.classList.add("is-open"));
+      show(start);
+      $(".lightbox_close").focus();
+    }
+    function close() {
+      var _a, _b;
+      if (root.hidden) return;
+      root.classList.remove("is-open");
+      document.documentElement.classList.remove("is-lightbox-open");
+      (_a = getLenis()) == null ? void 0 : _a.start();
+      const hide = () => root.hidden = true;
+      if (prefersReducedMotion()) hide();
+      else setTimeout(hide, 250);
+      (_b = opener == null ? void 0 : opener.focus) == null ? void 0 : _b.call(opener);
+    }
+    $(".lightbox_close").addEventListener("click", close);
+    prev.addEventListener("click", () => show(index - 1));
+    next.addEventListener("click", () => show(index + 1));
+    root.addEventListener("click", (e) => {
+      if (e.target === root || e.target.classList.contains("lightbox_stage")) close();
+    });
+    root.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") return close();
+      if (e.key === "ArrowLeft" && photos.length > 1) return show(index - 1);
+      if (e.key === "ArrowRight" && photos.length > 1) return show(index + 1);
+      if (e.key === "Tab") {
+        const items = [...root.querySelectorAll("button:not([hidden])")].filter((b) => b.offsetParent);
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+    let startX = null;
+    figure.addEventListener("pointerdown", (e) => startX = e.clientX);
+    figure.addEventListener("pointerup", (e) => {
+      if (startX == null) return;
+      const dx = e.clientX - startX;
+      startX = null;
+      if (Math.abs(dx) > SWIPE3 && photos.length > 1) show(index + (dx < 0 ? 1 : -1));
+    });
+    figure.addEventListener("pointercancel", () => startX = null);
+    instance = { open: open2, close };
+    return instance;
+  }
+
+  // src/components/space-gallery.js
+  function bestSrc2(img) {
+    const set = img.getAttribute("srcset");
+    if (set) {
+      const best = set.split(",").map((part) => part.trim().split(/\s+/)).map(([url, w]) => ({ url, w: parseFloat(w) || 0 })).sort((a, b) => b.w - a.w)[0];
+      if (best == null ? void 0 : best.url) return best.url;
+    }
+    return img.currentSrc || img.getAttribute("src") || "";
+  }
+  var key = (src) => src.replace(/-p-\d+(\.\w+)$/, "$1").split("?")[0];
+  function initSpaceGalleries(root = document) {
+    root.querySelectorAll("[data-gallery]").forEach(initGallery);
+  }
+  function initGallery(gallery) {
+    const imgs = [
+      ...gallery.querySelectorAll("img"),
+      ...document.querySelectorAll("[data-gallery-photo] img, img[data-gallery-photo]")
+    ].filter((img) => !img.closest(".w-condition-invisible, .w-dyn-empty"));
+    const seen = /* @__PURE__ */ new Set();
+    const photos = [];
+    imgs.forEach((img) => {
+      const src = bestSrc2(img);
+      if (!src || /placeholder/i.test(src) || seen.has(key(src))) return;
+      seen.add(key(src));
+      photos.push({ src, thumb: img.currentSrc || img.getAttribute("src"), alt: img.getAttribute("alt") || "" });
+    });
+    if (!photos.length) return;
+    const shown = gallery.querySelectorAll("img").length;
+    const counter = gallery.querySelector("[data-gallery-count]");
+    if (counter) {
+      const rest = photos.length - shown;
+      counter.textContent = rest > 0 ? `+${rest}` : "";
+      counter.hidden = rest <= 0;
+    }
+    const lightbox = createLightbox();
+    const tourTab = gallery.querySelector("[data-tour-360]");
+    const switcher = (tourTab == null ? void 0 : tourTab.parentElement) || null;
+    [...gallery.querySelectorAll("[data-gallery-open]")].filter((el) => !(switcher == null ? void 0 : switcher.contains(el))).forEach((trigger) => {
+      if (trigger.tagName === "A") {
+        trigger.removeAttribute("href");
+        trigger.setAttribute("role", "button");
+        trigger.setAttribute("tabindex", "0");
+      }
+      const at = Math.min(parseInt(trigger.getAttribute("data-gallery-open"), 10) || 0, photos.length - 1);
+      const open2 = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        lightbox.open(photos, at, trigger);
+      };
+      trigger.addEventListener("click", open2);
+      trigger.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") open2(e);
+      });
+    });
+    if (switcher) initSwitch(gallery, switcher, tourTab);
+    const main = gallery.querySelector(".space-gallery_main img, [data-gallery-main]");
+    if (main && !main.closest("[data-gallery-open]")) {
+      main.style.cursor = "zoom-in";
+      main.addEventListener("click", () => lightbox.open(photos, 0, main));
+    }
+  }
+  var TOUR_OPTIONS = { brand: "0", help: "0" };
+  function tourUrl(value) {
+    const raw = (value || "").trim();
+    const src = /<iframe/i.test(raw) ? (raw.match(/src=["']([^"']+)["']/i) || [])[1] || "" : raw;
+    const clean2 = src.replace(/&amp;/g, "&");
+    if (!/^https?:\/\//i.test(clean2)) return "";
+    try {
+      const url = new URL(clean2);
+      if (/matterport\.com$/i.test(url.hostname)) {
+        const options = { ...TOUR_OPTIONS, lang: getLang() };
+        Object.entries(options).forEach(([key2, val]) => {
+          if (!url.searchParams.has(key2)) url.searchParams.set(key2, val);
+        });
+      }
+      return url.toString();
+    } catch (e) {
+      return clean2;
+    }
+  }
+  function initSwitch(gallery, switcher, tourTab) {
+    const tabs = [...switcher.children].filter((el) => el.matches("a, button"));
+    const photosTab = tabs.find((tab) => tab !== tourTab);
+    const main = gallery.querySelector(".space-gallery_main, [data-gallery-main]") || switcher.parentElement;
+    const url = tourUrl(tourTab.getAttribute("data-tour-url"));
+    let panel = null;
+    let active = photosTab;
+    const indicator = createTabIndicator(switcher, { getActive: () => active, className: "space-gallery_indicator" });
+    const tourPanel = () => {
+      if (panel) return panel;
+      panel = document.createElement("div");
+      panel.className = "space-gallery_tour";
+      if (url) {
+        const frame = document.createElement("iframe");
+        frame.src = url;
+        frame.title = t("gallery.tour");
+        frame.loading = "lazy";
+        frame.allow = "fullscreen; xr-spatial-tracking; gyroscope; accelerometer";
+        frame.allowFullscreen = true;
+        panel.appendChild(frame);
+      } else {
+        panel.classList.add("is-empty");
+        panel.innerHTML = `<p>${t("gallery.tourSoon")}</p>`;
+      }
+      main.appendChild(panel);
+      return panel;
+    };
+    const select = (tab) => {
+      active = tab;
+      tabs.forEach((el) => {
+        el.classList.toggle("is-active", el === tab);
+        el.setAttribute("aria-pressed", el === tab ? "true" : "false");
+      });
+      const tour = tab === tourTab;
+      if (tour) tourPanel();
+      if (tour) {
+        const total = gallery.offsetHeight;
+        main.style.height = `${main.offsetHeight}px`;
+        gallery.style.height = `${total}px`;
+        main.getBoundingClientRect();
+        main.style.height = `${total}px`;
+      } else {
+        main.style.height = `${baseHeight()}px`;
+        const done = () => {
+          main.style.height = "";
+          gallery.style.height = "";
+        };
+        main.addEventListener("transitionend", done, { once: true });
+        setTimeout(done, 600);
+      }
+      gallery.classList.toggle("is-tour", tour);
+      indicator.move();
+    };
+    const baseHeight = () => {
+      const saved = main.style.height;
+      main.style.height = "";
+      gallery.classList.remove("is-tour");
+      const h = main.offsetHeight;
+      gallery.classList.add("is-tour");
+      main.style.height = saved;
+      main.getBoundingClientRect();
+      return h;
+    };
+    tabs.forEach((tab) => {
+      if (tab.tagName === "A") {
+        tab.removeAttribute("href");
+        tab.setAttribute("tabindex", "0");
+      }
+      tab.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (tab !== active) select(tab);
+      });
+      tab.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          tab.click();
+        }
+      });
+    });
+  }
+
+  // src/components/visit-form.js
+  function initVisitForms(root = document) {
+    root.querySelectorAll("[data-visit-form]").forEach(initVisitForm);
+  }
+  function initVisitForm(block) {
+    const get = (name2) => (block.getAttribute(`data-visit-${name2}`) || "").trim();
+    const name = get("name");
+    const building = get("building");
+    const host = get("host");
+    const phone = get("phone");
+    const set = (sel, text) => block.querySelectorAll(sel).forEach((el) => el.textContent = text);
+    if (name) set("[data-visit-title]", t("visit.title", { name }));
+    set(
+      "[data-visit-lead]",
+      host && building ? t("visit.leadHostBuilding", { host, building }) : host ? t("visit.leadHost", { host }) : t("visit.lead")
+    );
+    set("[data-visit-note]", host && name ? t("visit.noteHost", { host, name }) : t("visit.note"));
+    if (phone) {
+      block.querySelectorAll("[data-visit-call]").forEach((link) => {
+        link.setAttribute("href", `tel:${phone.replace(/[^\d+]/g, "")}`);
+        link.setAttribute("aria-label", t("visit.call", { phone }));
+      });
+    }
+    const select = block.querySelector("[data-visit-space]");
+    if (select && name) {
+      const option = [...select.options].find((o) => o.value === name || o.text === name);
+      if (option) select.value = option.value;
+    }
+  }
+
+  // src/components/space-search.js
+  var MAP_PAGE = "/espaces";
+  var GEOCODER = "https://data.geopf.fr/geocodage/completion/";
+  var DEBOUNCE = 220;
+  var MAX = { spaces: 4, stations: 4, addresses: 4 };
+  var uid2 = 0;
+  var MIN_PANEL_HEIGHT = 160;
+  var MAX_PANEL_HEIGHT = 420;
+  var DEPT_CODES = {
+    paris: "75",
+    "seine et marne": "77",
+    yvelines: "78",
+    essonne: "91",
+    "hauts de seine": "92",
+    "seine saint denis": "93",
+    "val de marne": "94",
+    "val d oise": "95"
+  };
+  function deptTitle(dept) {
+    if (!dept) return "";
+    const code = DEPT_CODES[normalize(dept)];
+    return code ? `${dept} \xB7 ${code}` : dept;
+  }
+  function initSpaceSearch(root = document) {
+    root.querySelectorAll("[data-search]").forEach(initSearch);
+  }
+  function initSearch(block) {
+    var _a;
+    const input = block.querySelector("[data-search-input]");
+    const form = block.querySelector("[data-search-form]");
+    if (!input) return;
+    const module = block.closest("[data-map-module]");
+    const spaces = readSpaces(document);
+    const id = `search-suggest-${++uid2}`;
+    let type = ((_a = block.querySelector("[data-search-tab].is-active")) == null ? void 0 : _a.getAttribute("data-search-tab")) || "bureaux";
+    let options = [];
+    let activeIndex = -1;
+    let timer2 = null;
+    let requestId = 0;
+    const panel = document.createElement("div");
+    panel.className = "search_suggest";
+    panel.id = id;
+    panel.setAttribute("role", "listbox");
+    panel.hidden = true;
+    panel.setAttribute("data-lenis-prevent", "");
+    document.body.appendChild(panel);
+    const scrollbar = createScrollIndicator(panel);
+    const anchor = form || input;
+    function place() {
+      if (panel.hidden) return;
+      const rect = anchor.getBoundingClientRect();
+      panel.style.top = `${rect.bottom + window.scrollY + 12}px`;
+      panel.style.left = `${rect.left + window.scrollX}px`;
+      panel.style.width = `${rect.width}px`;
+      const available = window.innerHeight - (rect.bottom + 12) - 16;
+      panel.style.maxHeight = `${Math.min(MAX_PANEL_HEIGHT, Math.max(MIN_PANEL_HEIGHT, available))}px`;
+      scrollbar == null ? void 0 : scrollbar.update();
+    }
+    let placing = false;
+    const schedulePlace = () => {
+      if (placing || panel.hidden) return;
+      placing = true;
+      requestAnimationFrame(() => {
+        placing = false;
+        place();
+      });
+    };
+    window.addEventListener("resize", schedulePlace, { passive: true });
+    document.addEventListener("scroll", schedulePlace, { passive: true, capture: true });
+    const live = document.createElement("div");
+    live.className = "search_status";
+    live.setAttribute("role", "status");
+    live.setAttribute("aria-live", "polite");
+    block.appendChild(live);
+    input.setAttribute("role", "combobox");
+    input.setAttribute("aria-autocomplete", "list");
+    input.setAttribute("aria-expanded", "false");
+    input.setAttribute("aria-controls", id);
+    input.setAttribute("autocomplete", "off");
+    const tabs = [...block.querySelectorAll("[data-search-tab]")];
+    tabs.forEach((tab) => {
+      const label = [...tab.querySelectorAll("span")].find((s) => !s.children.length && s.textContent.trim());
+      if (!label || label.classList.contains("search_tab-full")) return;
+      label.classList.add("search_tab-full");
+      const short = document.createElement("span");
+      short.className = "search_tab-short";
+      short.textContent = t(`search.tabShort.${tab.getAttribute("data-search-tab")}`);
+      label.after(short);
+    });
+    let currentTab = tabs.find((tab) => tab.classList.contains("is-active")) || tabs[0];
+    const indicator = tabs.length ? createTabIndicator(tabs[0].parentElement, { getActive: () => currentTab, className: "search_indicator" }) : null;
+    function selectTab(tab, { focus = false } = {}) {
+      currentTab = tab;
+      type = tab.getAttribute("data-search-tab");
+      tabs.forEach((other) => {
+        const on = other === tab;
+        other.classList.toggle("is-active", on);
+        other.setAttribute("aria-selected", String(on));
+        other.setAttribute("tabindex", on ? "0" : "-1");
+      });
+      indicator == null ? void 0 : indicator.move();
+      if (focus) tab.focus();
+      module == null ? void 0 : module.dispatchEvent(new CustomEvent("spaces:type", { detail: { type } }));
+    }
+    tabs.forEach((tab, index) => {
+      tab.setAttribute("tabindex", tab === currentTab ? "0" : "-1");
+      tab.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (tab !== currentTab) selectTab(tab);
+      });
+      tab.addEventListener("keydown", (e) => {
+        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+        e.preventDefault();
+        const next = tabs[(index + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length];
+        selectTab(next, { focus: true });
+      });
+    });
+    input.addEventListener("focus", () => {
+      loadStations();
+      openHero();
+      update();
+    });
+    const hero = module ? null : block.closest("[data-hero-video]");
+    const heading = hero ? block.previousElementSibling : null;
+    const content = heading ? heading.parentElement : null;
+    heading == null ? void 0 : heading.setAttribute("data-hero-heading", "");
+    content == null ? void 0 : content.setAttribute("data-hero-content", "");
+    const HERO_TOP_OFFSET = 56;
+    const HEADING_SCALE = 0.5;
+    function openHero() {
+      if (!hero || hero.classList.contains("is-searching")) return;
+      const heroTop = hero.getBoundingClientRect().top;
+      const h = heading.getBoundingClientRect();
+      const visibleTop = h.top + h.height * (1 - HEADING_SCALE);
+      const shift = Math.max(0, visibleTop - heroTop - HERO_TOP_OFFSET);
+      hero.style.setProperty("--search-shift", `${-shift}px`);
+      hero.style.setProperty("--heading-scale", HEADING_SCALE);
+      hero.classList.add("is-searching");
+      followPanel();
+      centerHero();
+    }
+    function centerHero() {
+      const nav = document.querySelector("[data-nav]");
+      const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+      const target = Math.max(0, hero.getBoundingClientRect().top + window.scrollY - navHeight);
+      if (Math.abs(window.scrollY - target) < 2) return;
+      const instant = prefersReducedMotion();
+      const lenis = getLenis();
+      if (lenis) lenis.scrollTo(target, { duration: instant ? 0 : 0.8, immediate: instant, force: true });
+      else window.scrollTo({ top: target, behavior: instant ? "auto" : "smooth" });
+    }
+    function closeHero() {
+      if (!hero || !hero.classList.contains("is-searching")) return;
+      hero.classList.remove("is-searching");
+    }
+    function followPanel() {
+      const end = performance.now() + 700;
+      const step = () => {
+        place();
+        if (performance.now() < end) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    input.addEventListener("input", () => {
+      clearTimeout(timer2);
+      timer2 = setTimeout(update, DEBOUNCE);
+    });
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        if (panel.hidden) update();
+        e.preventDefault();
+        move(e.key === "ArrowDown" ? 1 : -1);
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        const opt = options[activeIndex] || options.find((o) => o.kind !== "nearme");
+        if (opt) choose(opt);
+      } else if (e.key === "Escape") {
+        close();
+      }
+    });
+    const submit = form == null ? void 0 : form.querySelector('input[type="submit"]');
+    if (submit) {
+      const button = document.createElement("button");
+      button.type = "submit";
+      button.className = `${submit.className} search_submit`;
+      button.innerHTML = '<span class="button_label"></span><span class="button_icon" aria-hidden="true"><span class="ico-arrow-right"></span></span>';
+      button.querySelector(".button_label").textContent = submit.value;
+      submit.replaceWith(button);
+    }
+    form == null ? void 0 : form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (!input.value.trim()) {
+        if (!module) location.href = type === "salles" ? `${MAP_PAGE}?type=salles` : MAP_PAGE;
+        return;
+      }
+      const opt = options.find((o) => o.kind !== "nearme");
+      if (opt) choose(opt);
+      else if (!module) location.href = `${MAP_PAGE}?${new URLSearchParams({ q: input.value.trim() })}`;
+    });
+    document.addEventListener(
+      "pointerdown",
+      (e) => {
+        if (panel.hidden && !(hero == null ? void 0 : hero.classList.contains("is-searching"))) return;
+        if (!block.contains(e.target) && !panel.contains(e.target)) close();
+      },
+      true
+    );
+    async function update() {
+      const query2 = input.value.trim();
+      const q = normalize(query2);
+      const current = ++requestId;
+      const groups = [];
+      groups.push({ items: [{ kind: "nearme", label: t("search.nearMe"), hint: t("search.nearMeHint") }] });
+      const toItem = (s) => ({ kind: "space", label: s.name, hint: s.building, space: s });
+      const pool = spaces.filter((s) => type === "salles" ? s.rooms : true);
+      if (!q) {
+        const byDept = /* @__PURE__ */ new Map();
+        pool.forEach((s) => {
+          const key2 = s.dept || "";
+          if (!byDept.has(key2)) byDept.set(key2, []);
+          byDept.get(key2).push(toItem(s));
+        });
+        byDept.forEach((items, dept) => groups.push({ title: deptTitle(dept) || t("search.spaces"), items }));
+      } else {
+        const spaceMatches = pool.filter((s) => normalize(`${s.name} ${s.city} ${s.building}`).includes(q)).slice(0, MAX.spaces).map(toItem);
+        if (spaceMatches.length) groups.push({ title: t("search.spaces"), items: spaceMatches });
+      }
+      if (q.length >= 2) {
+        const stations = await loadStations();
+        if (current !== requestId) return;
+        const starts = stations.filter((s) => s.key.startsWith(q));
+        const contains = stations.filter((s) => !s.key.startsWith(q) && s.key.includes(q));
+        const stationItems = [...starts, ...contains].slice(0, MAX.stations).map((s) => ({ kind: "station", label: s.name, lines: s.lines, lat: s.lat, lng: s.lng }));
+        if (stationItems.length) groups.push({ title: t("search.stations"), items: stationItems });
+        if (q.length >= 3) {
+          const addresses = await geocode(query2);
+          if (current !== requestId) return;
+          if (addresses.length) groups.push({ title: t("search.addresses"), items: addresses });
+        }
+      }
+      render(groups, query2);
+    }
+    async function geocode(text) {
+      const url = `${GEOCODER}?text=${encodeURIComponent(text)}&type=StreetAddress&maximumResponses=10&lonlat=2.35,48.86`;
+      try {
+        const res = await fetch(url);
+        if (!res.ok) return [];
+        const data = await res.json();
+        const results = (data.results || []).filter((r) => Number.isFinite(r.y) && Number.isFinite(r.x) && r.metropole !== false);
+        const idf = results.filter((r) => isInIdf(r.zipcode));
+        return [...idf, ...results.filter((r) => !isInIdf(r.zipcode))].slice(0, MAX.addresses).map((r) => {
+          const city = r.city || "";
+          const label = r.fulltext || [r.street, r.zipcode, city].filter(Boolean).join(" ");
+          return {
+            kind: "address",
+            label,
+            short: r.kind === "municipality" || !r.street ? city || label : label,
+            hint: isInIdf(r.zipcode) ? "" : t("search.outsideIdf"),
+            lat: r.y,
+            lng: r.x
+          };
+        });
+      } catch (e) {
+        return [];
+      }
+    }
+    function render(groups, query2) {
+      panel.innerHTML = "";
+      options = [];
+      activeIndex = -1;
+      groups.forEach((group) => {
+        if (group.title) {
+          const title = document.createElement("p");
+          title.className = "search_suggest-title";
+          title.setAttribute("role", "presentation");
+          title.textContent = group.title;
+          panel.appendChild(title);
+        }
+        group.items.forEach((item) => {
+          const index = options.length;
+          const el = document.createElement("div");
+          el.className = `search_suggest-item is-${item.kind}${item.kind === "nearme" || item.kind === "space" ? " is-inline" : ""}`;
+          el.id = `${id}-${index}`;
+          el.setAttribute("role", "option");
+          el.setAttribute("aria-selected", "false");
+          el.innerHTML = `<span class="search_suggest-icon" aria-hidden="true"></span><span class="search_suggest-text"><span class="search_suggest-label"></span>${item.hint ? '<span class="search_suggest-hint"></span>' : ""}</span>`;
+          el.querySelector(".search_suggest-label").textContent = item.label;
+          if (item.hint) el.querySelector(".search_suggest-hint").textContent = item.hint;
+          if (item.lines) {
+            const box = renderLines([{ lines: item.lines }], { maxLines: 5 });
+            if (box) {
+              box.classList.add("search_suggest-lines");
+              el.appendChild(box);
+            }
+          }
+          el.addEventListener("mousedown", (e) => e.preventDefault());
+          el.addEventListener("click", () => choose(item));
+          el.addEventListener("mousemove", () => highlight(index));
+          panel.appendChild(el);
+          options.push(item);
+        });
+      });
+      if (query2 && options.length <= 1) {
+        const empty = document.createElement("p");
+        empty.className = "search_suggest-empty";
+        empty.textContent = t("search.noResult");
+        panel.appendChild(empty);
+      }
+      panel.hidden = false;
+      panel.scrollTop = 0;
+      scrollbar == null ? void 0 : scrollbar.attach();
+      place();
+      input.setAttribute("aria-expanded", "true");
+      live.textContent = t("search.results", { n: options.length });
+    }
+    function highlight(index) {
+      activeIndex = index;
+      panel.querySelectorAll("[role='option']").forEach((el, i) => {
+        const on = i === index;
+        el.classList.toggle("is-focused", on);
+        el.setAttribute("aria-selected", String(on));
+        if (on) {
+          input.setAttribute("aria-activedescendant", el.id);
+          el.scrollIntoView({ block: "nearest" });
+        }
+      });
+    }
+    function move(step) {
+      if (!options.length) return;
+      highlight((activeIndex + step + options.length) % options.length);
+    }
+    function close() {
+      panel.hidden = true;
+      input.setAttribute("aria-expanded", "false");
+      input.removeAttribute("aria-activedescendant");
+      closeHero();
+    }
+    function choose(item) {
+      close();
+      if (item.kind === "nearme") return locate();
+      if (item.kind === "space") {
+        input.value = item.label;
+        if (module) module.dispatchEvent(new CustomEvent("spaces:select", { detail: { slug: item.space.slug } }));
+        else location.href = item.space.url;
+        return;
+      }
+      const label = item.short || item.label;
+      input.value = label;
+      goTo({ lat: item.lat, lng: item.lng, label, isUser: false });
+    }
+    function locate() {
+      if (!navigator.geolocation) {
+        live.textContent = t("search.geoError");
+        return;
+      }
+      input.value = t("search.locating");
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          input.value = t("search.nearMe");
+          goTo({ lat: pos.coords.latitude, lng: pos.coords.longitude, label: t("search.nearMe"), isUser: true });
+        },
+        () => {
+          input.value = "";
+          live.textContent = t("search.geoError");
+        },
+        { enableHighAccuracy: false, timeout: 1e4, maximumAge: 3e5 }
+      );
+    }
+    function goTo(origin) {
+      if (module) {
+        module.dispatchEvent(new CustomEvent("spaces:origin", { detail: origin }));
+        return;
+      }
+      const params = new URLSearchParams({ lat: origin.lat.toFixed(5), lng: origin.lng.toFixed(5), q: origin.label });
+      if (origin.isUser) params.set("me", "1");
+      if (type === "salles") params.set("type", "salles");
+      location.href = `${MAP_PAGE}?${params}`;
+    }
+  }
+
+  // src/components/toc.js
+  var ACTIVE_LINE = 0.3;
+  function initTocs(root = document) {
+    root.querySelectorAll("[data-toc]").forEach(initToc);
+  }
+  function slugify(text) {
+    return text.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/^\s*\d+\s*[.)-]?\s*/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60);
+  }
+  function initToc(nav) {
+    const source = document.querySelector("[data-toc-source]");
+    if (!source) return;
+    const levels = nav.getAttribute("data-toc-levels") || "h2";
+    const headings = [...source.querySelectorAll(levels)].filter((h) => h.textContent.trim());
+    document.querySelectorAll("[data-toc-include]").forEach((block) => {
+      const empty = block.querySelector(".w-dyn-empty") || block.closest(".w-condition-invisible, [hidden]");
+      const title = block.querySelector("h2");
+      if (empty || !(title == null ? void 0 : title.textContent.trim())) return;
+      if (!title.id && block.id && !block.querySelector(`#${CSS.escape(block.id)}`)) title.dataset.tocTarget = block.id;
+      headings.push(title);
+    });
+    if (!headings.length) {
+      nav.hidden = true;
+      return;
+    }
+    const used = /* @__PURE__ */ new Set();
+    headings.forEach((h) => {
+      if (!h.id) {
+        let id = slugify(h.textContent) || "partie";
+        let n = 2;
+        while (used.has(id) || document.getElementById(id)) id = `${slugify(h.textContent)}-${n++}`;
+        h.id = id;
+      }
+      used.add(h.id);
+    });
+    const anchor = (h) => h.dataset.tocTarget || h.id;
+    let list = nav.querySelector("[data-toc-list]");
+    let links = [...nav.querySelectorAll('a[href^="#"]')];
+    const valid = links.length && links.every((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))));
+    if (!valid) {
+      links.forEach((a) => a.remove());
+      if (!list) {
+        list = document.createElement("div");
+        list.className = "post-toc_list";
+        nav.appendChild(list);
+      }
+      links = headings.map((h) => {
+        const a = document.createElement("a");
+        a.className = "post-toc_link";
+        a.href = `#${anchor(h)}`;
+        a.textContent = h.textContent.trim();
+        list.appendChild(a);
+        return a;
+      });
+    }
+    const collapse = nav.closest("[data-collapse]");
+    if (collapse) {
+      window.addEventListener(
+        "click",
+        (e) => {
+          var _a, _b, _c;
+          const link = (_b = (_a = e.target).closest) == null ? void 0 : _b.call(_a, 'a[href^="#"]');
+          if (!link || !nav.contains(link) || !collapse.classList.contains("is-open")) return;
+          const content = collapse.querySelector("[data-collapse-content]");
+          if (content) content.style.transition = "none";
+          (_c = collapse.querySelector("[data-collapse-trigger]")) == null ? void 0 : _c.click();
+          if (content) {
+            void content.offsetHeight;
+            requestAnimationFrame(() => content.style.transition = "");
+          }
+        },
+        true
+      );
+    }
+    const pairs = links.map((link) => ({ link, heading: document.getElementById(decodeURIComponent(link.hash.slice(1))) })).filter((p) => p.heading);
+    if (!pairs.length) return;
+    let current = null;
+    const setActive = (pair) => {
+      if (pair === current) return;
+      current = pair;
+      pairs.forEach(({ link }) => {
+        const on = pair && link === pair.link;
+        link.classList.toggle("is-active", on);
+        if (on) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    };
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const line = window.innerHeight * ACTIVE_LINE;
+      let active = null;
+      pairs.forEach((p) => {
+        if (p.heading.getBoundingClientRect().top <= line) active = p;
+      });
+      setActive(active || pairs[0]);
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  }
+
+  // src/components/card-link.js
+  function initCardLinks(root = document) {
+    root.querySelectorAll("[data-card-link]").forEach(initCardLink);
+  }
+  function resolveHref(card) {
+    const own = card.getAttribute("data-card-link");
+    if (own) return own;
+    const scope = card.closest("section") || document;
+    const source = scope.querySelector("[data-card-link-source][href]");
+    const href = source == null ? void 0 : source.getAttribute("href");
+    return href && href !== "#" ? href : "";
+  }
+  function initCardLink(card) {
+    const href = resolveHref(card);
+    if (!href) return;
+    card.classList.add("is-card-link");
+    card.setAttribute("role", "link");
+    card.setAttribute("tabindex", "0");
+    if (!card.hasAttribute("aria-label")) {
+      const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT);
+      const parts = [];
+      while (walker.nextNode()) parts.push(walker.currentNode.nodeValue);
+      const label = parts.join(" ").replace(/\s+/g, " ").trim();
+      if (label) card.setAttribute("aria-label", label);
+    }
+    const go = (newTab) => {
+      if (newTab) window.open(href, "_blank", "noopener");
+      else window.location.href = href;
+    };
+    card.addEventListener("click", (e) => {
+      if (e.target.closest("a, button") && e.target.closest("a, button") !== card) return;
+      go(e.metaKey || e.ctrlKey);
+    });
+    card.addEventListener("auxclick", (e) => {
+      if (e.button === 1) go(true);
+    });
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") go(false);
+    });
+  }
+
+  // src/components/comparateur.js
+  function initComparateur(root = document) {
+    const el = root.querySelector("[data-comparateur]");
+    if (!el || el.dataset.comparateurInit) return;
+    el.dataset.comparateurInit = "1";
+    const show = () => el.classList.add("is-ready");
+    loadStyle(`${ASSET_BASE}comparateur.css`).then(show, show).then(() => loadScript(`${ASSET_BASE}comparateur.js`)).catch((err) => console.warn("[Work'n'Share] comparateur :", err.message));
+  }
+
+  // src/comparateur/communes.json
+  var communes_default = [["Paris 1er", "75001"], ["Paris 2e", "75002"], ["Paris 3e", "75003"], ["Paris 4e", "75004"], ["Paris 5e", "75005"], ["Paris 6e", "75006"], ["Paris 7e", "75007"], ["Paris 8e", "75008"], ["Paris 9e", "75009"], ["Paris 10e", "75010"], ["Paris 11e", "75011"], ["Paris 12e", "75012"], ["Paris 13e", "75013"], ["Paris 14e", "75014"], ["Paris 15e", "75015"], ["Paris 16e", "75016"], ["Paris 17e", "75017"], ["Paris 18e", "75018"], ["Paris 19e", "75019"], ["Paris 20e", "75020"], ["La D\xE9fense", "92400"], ["Neuilly-sur-Seine", "92200"], ["Levallois-Perret", "92300"], ["Boulogne-Billancourt", "92100"], ["Issy-les-Moulineaux", "92130"], ["Saint-Cloud", "92210"], ["Puteaux", "92800"], ["Courbevoie", "92400"], ["Suresnes", "92150"], ["Meudon", "92190"], ["Nanterre", "92000"], ["Rueil-Malmaison", "92500"], ["Bois-Colombes", "92270"], ["La Garenne-Colombes", "92250"], ["S\xE8vres", "92310"], ["Asni\xE8res-sur-Seine", "92600"], ["Colombes", "92700"], ["Gennevilliers", "92230"], ["Villeneuve-la-Garenne", "92390"], ["Montrouge", "92120"], ["Clichy", "92110"], ["Malakoff", "92240"], ["Vanves", "92170"], ["Ch\xE2tillon", "92320"], ["Bagneux", "92220"], ["Clamart", "92140"], ["Le Plessis-Robinson", "92350"], ["Antony", "92160"], ["Bourg-la-Reine", "92340"], ["Sceaux", "92330"], ["Fontenay-aux-Roses", "92260"], ["Ch\xE2tenay-Malabry", "92290"], ["Saint-Ouen-sur-Seine", "93400"], ["Pantin", "93500"], ["Saint-Denis", "93200"], ["Montreuil", "93100"], ["Bagnolet", "93170"], ["Aubervilliers", "93300"], ["Le Pr\xE9-Saint-Gervais", "93310"], ["Les Lilas", "93260"], ["Romainville", "93230"], ["Bobigny", "93000"], ["Noisy-le-Sec", "93130"], ["Rosny-sous-Bois", "93110"], ["Noisy-le-Grand", "93160"], ["La Courneuve", "93120"], ["\xC9pinay-sur-Seine", "93800"], ["Le Bourget", "93350"], ["Bondy", "93140"], ["Drancy", "93700"], ["Stains", "93240"], ["Le Blanc-Mesnil", "93150"], ["Livry-Gargan", "93190"], ["Aulnay-sous-Bois", "93600"], ["Tremblay-en-France", "93290"], ["Villepinte", "93420"], ["Vincennes", "94300"], ["Saint-Mand\xE9", "94160"], ["Charenton-le-Pont", "94220"], ["Nogent-sur-Marne", "94130"], ["Le Kremlin-Bic\xEAtre", "94270"], ["Arcueil", "94110"], ["Gentilly", "94250"], ["Fontenay-sous-Bois", "94120"], ["Saint-Maurice", "94410"], ["Ivry-sur-Seine", "94200"], ["Joinville-le-Pont", "94340"], ["Maisons-Alfort", "94700"], ["Cachan", "94230"], ["Villejuif", "94800"], ["Alfortville", "94140"], ["Cr\xE9teil", "94000"], ["Vitry-sur-Seine", "94400"], ["L\u2019Ha\xFF-les-Roses", "94240"], ["Rungis", "94150"], ["Thiais", "94320"], ["Choisy-le-Roi", "94600"], ["Orly", "94310"], ["Fresnes", "94260"], ["Massy", "91300"], ["Palaiseau", "91120"], ["Orsay", "91400"], ["Les Ulis", "91940"], ["\xC9vry-Courcouronnes", "91000"], ["Corbeil-Essonnes", "91100"], ["V\xE9lizy-Villacoublay", "78140"], ["Versailles", "78000"], ["Saint-Germain-en-Laye", "78100"], ["Poissy", "78300"], ["Montigny-le-Bretonneux", "78180"], ["Guyancourt", "78280"], ["\xC9lancourt", "78990"], ["Trappes", "78190"], ["Argenteuil", "95100"], ["Franconville", "95130"], ["Cergy", "95000"], ["Pontoise", "95300"], ["Gonesse", "95500"], ["Sarcelles", "95200"], ["Roissy-en-France", "95700"], ["Chelles", "77500"], ["Champs-sur-Marne", "77420"], ["Bussy-Saint-Georges", "77600"], ["Serris", "77700"], ["Chaville", "92370"], ["Garches", "92380"], ["Marnes-la-Coquette", "92430"], ["Vaucresson", "92420"], ["Ville-d'Avray", "92410"], ["Clichy-sous-Bois", "93390"], ["Coubron", "93470"], ["Dugny", "93440"], ["Gagny", "93220"], ["Gournay-sur-Marne", "93460"], ["L'\xCEle-Saint-Denis", "93450"], ["Montfermeil", "93370"], ["Neuilly-Plaisance", "93360"], ["Neuilly-sur-Marne", "93330"], ["Les Pavillons-sous-Bois", "93320"], ["Le Raincy", "93340"], ["Sevran", "93270"], ["Vaujours", "93410"], ["Villemomble", "93250"], ["Villetaneuse", "93430"], ["Ablon-sur-Seine", "94480"], ["Boissy-Saint-L\xE9ger", "94470"], ["Bonneuil-sur-Marne", "94380"], ["Bry-sur-Marne", "94360"], ["Champigny-sur-Marne", "94500"], ["Chennevi\xE8res-sur-Marne", "94430"], ["Chevilly-Larue", "94550"], ["Limeil-Br\xE9vannes", "94450"], ["Mandres-les-Roses", "94520"], ["Marolles-en-Brie", "94440"], ["Noiseau", "94880"], ["Ormesson-sur-Marne", "94490"], ["P\xE9rigny", "94520"], ["Le Perreux-sur-Marne", "94170"], ["Le Plessis-Tr\xE9vise", "94420"], ["La Queue-en-Brie", "94510"], ["Saint-Maur-des-Foss\xE9s", "94100"], ["Santeny", "94440"], ["Sucy-en-Brie", "94370"], ["Valenton", "94460"], ["Villecresnes", "94440"], ["Villeneuve-le-Roi", "94290"], ["Villeneuve-Saint-Georges", "94190"], ["Villiers-sur-Marne", "94350"], ["Arnouville", "95400"], ["Beauchamp", "95250"], ["Beaumont-sur-Oise", "95260"], ["Bessancourt", "95550"], ["Bezons", "95870"], ["Cormeilles-en-Parisis", "95240"], ["Courdimanche", "95800"], ["Deuil-la-Barre", "95170"], ["Domont", "95330"], ["Eaubonne", "95600"], ["Enghien-les-Bains", "95880"], ["\xC9ragny-sur-Oise", "95610"], ["Ermont", "95120"], ["\xC9zanville", "95460"], ["Fosses", "95470"], ["Garges-l\xE8s-Gonesse", "95140"], ["Goussainville", "95190"], ["Groslay", "95410"], ["Herblay-sur-Seine", "95220"], ["L'Isle-Adam", "95290"], ["Jouy-le-Moutier", "95280"], ["Louvres", "95380"], ["M\xE9ry-sur-Oise", "95540"], ["Montigny-l\xE8s-Cormeilles", "95370"], ["Montmagny", "95360"], ["Montmorency", "95160"], ["Osny", "95520"], ["Pierrelaye", "95220"], ["Le Plessis-Bouchard", "95130"], ["Saint-Brice-sous-For\xEAt", "95350"], ["Saint-Gratien", "95210"], ["Saint-Leu-la-For\xEAt", "95320"], ["Saint-Ouen-l'Aum\xF4ne", "95310"], ["Saint-Prix", "95390"], ["Sannois", "95110"], ["Soisy-sous-Montmorency", "95230"], ["Taverny", "95150"], ["Vaur\xE9al", "95490"], ["Villiers-le-Bel", "95400"], ["Ach\xE8res", "78260"], ["Andr\xE9sy", "78570"], ["Bois-d'Arcy", "78390"], ["Bougival", "78380"], ["Buc", "78530"], ["Carri\xE8res-sous-Poissy", "78955"], ["Carri\xE8res-sur-Seine", "78420"], ["La Celle-Saint-Cloud", "78170"], ["Chanteloup-les-Vignes", "78570"], ["Chatou", "78400"], ["Le Chesnay-Rocquencourt", "78150"], ["Les Clayes-sous-Bois", "78340"], ["Coigni\xE8res", "78310"], ["Conflans-Sainte-Honorine", "78700"], ["Croissy-sur-Seine", "78290"], ["Fontenay-le-Fleury", "78330"], ["Houilles", "78800"], ["Jouy-en-Josas", "78350"], ["Louveciennes", "78430"], ["Magny-les-Hameaux", "78114"], ["Maisons-Laffitte", "78600"], ["Marly-le-Roi", "78160"], ["Maurepas", "78310"], ["Le Mesnil-le-Roi", "78600"], ["Les Mureaux", "78130"], ["Noisy-le-Roi", "78590"], ["Le Pecq", "78230"], ["Plaisir", "78370"], ["Le Port-Marly", "78560"], ["Saint-Cyr-l'\xC9cole", "78210"], ["Sartrouville", "78500"], ["Triel-sur-Seine", "78510"], ["Verneuil-sur-Seine", "78480"], ["La Verri\xE8re", "78320"], ["Le V\xE9sinet", "78110"], ["Villepreux", "78450"], ["Viroflay", "78220"], ["Voisins-le-Bretonneux", "78960"], ["Arpajon", "91290"], ["Athis-Mons", "91200"], ["Ballainvilliers", "91160"], ["Bi\xE8vres", "91570"], ["Bondoufle", "91070"], ["Boussy-Saint-Antoine", "91800"], ["Br\xE9tigny-sur-Orge", "91220"], ["Brunoy", "91800"], ["Bures-sur-Yvette", "91440"], ["Chilly-Mazarin", "91380"], ["Crosne", "91560"], ["Draveil", "91210"], ["\xC9pinay-sous-S\xE9nart", "91860"], ["\xC9pinay-sur-Orge", "91360"], ["Fleury-M\xE9rogis", "91700"], ["Gif-sur-Yvette", "91190"], ["Grigny", "91350"], ["Igny", "91430"], ["Juvisy-sur-Orge", "91260"], ["Lisses", "91090"], ["Longjumeau", "91160"], ["Marcoussis", "91460"], ["Montgeron", "91230"], ["Montlh\xE9ry", "91310"], ["Morangis", "91420"], ["Morsang-sur-Orge", "91390"], ["Quincy-sous-S\xE9nart", "91480"], ["Ris-Orangis", "91130"], ["Saclay", "91400"], ["Sainte-Genevi\xE8ve-des-Bois", "91700"], ["Saint-Germain-l\xE8s-Arpajon", "91180"], ["Saint-Michel-sur-Orge", "91240"], ["Savigny-sur-Orge", "91600"], ["Verri\xE8res-le-Buisson", "91370"], ["Vigneux-sur-Seine", "91270"], ["Villebon-sur-Yvette", "91140"], ["Viry-Ch\xE2tillon", "91170"], ["Wissous", "91320"], ["Yerres", "91330"], ["Bailly-Romainvilliers", "77700"], ["Chessy", "77700"], ["Claye-Souilly", "77410"], ["Coll\xE9gien", "77090"], ["Combs-la-Ville", "77380"], ["Croissy-Beaubourg", "77183"], ["\xC9merainville", "77184"], ["Lagny-sur-Marne", "77400"], ["Lieusaint", "77127"], ["Lognes", "77185"], ["Magny-le-Hongre", "77700"], ["Mitry-Mory", "77290"], ["Mont\xE9vrain", "77144"], ["Noisiel", "77186"], ["Ozoir-la-Ferri\xE8re", "77330"], ["Pontault-Combault", "77340"], ["Roissy-en-Brie", "77680"], ["Saint-Thibault-des-Vignes", "77400"], ["Thorigny-sur-Marne", "77400"], ["Torcy", "77200"], ["Vaires-sur-Marne", "77360"], ["Villeparisis", "77270"]];
+
+  // src/components/comparator-banner.js
+  var MIN = 1;
+  var MAX2 = 900;
+  var MAX_RESULTS = 8;
+  var norm2 = (s) => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+  var INDEX = communes_default.map(([name, cp]) => ({ name, cp, key: norm2(name) }));
+  function search(query2) {
+    const q = norm2(query2);
+    if (!q) return [];
+    const starts = [];
+    const words = [];
+    INDEX.forEach((c) => {
+      if (c.key.startsWith(q) || c.cp.startsWith(q)) starts.push(c);
+      else if (c.key.includes(` ${q}`)) words.push(c);
+    });
+    return starts.concat(words).slice(0, MAX_RESULTS);
+  }
+  function initComparatorBanners(root = document) {
+    root.querySelectorAll("[data-comparator]").forEach(initBanner);
+  }
+  var uid3 = 0;
+  function initBanner(banner) {
+    if (banner.dataset.comparatorInit) return;
+    banner.dataset.comparatorInit = "1";
+    const cityBox = banner.querySelector("[data-comparator-city]");
+    const valueEl = banner.querySelector("[data-comparator-value]");
+    const minus = banner.querySelector("[data-comparator-minus]");
+    const plus = banner.querySelector("[data-comparator-plus]");
+    const submit = banner.querySelector("[data-comparator-submit]");
+    if (!submit) return;
+    const baseUrl = banner.getAttribute("data-comparator-url") || "/comparateur";
+    let city = null;
+    let heads = clamp2(parseInt(valueEl == null ? void 0 : valueEl.textContent, 10) || 10);
+    const updateLink = () => {
+      const params = new URLSearchParams();
+      if (city) params.set("ville", city.name);
+      params.set("postes", String(heads));
+      submit.setAttribute("href", `${baseUrl}?${params}`);
+    };
+    const setHeads = (n) => {
+      heads = clamp2(n);
+      if (valueEl) valueEl.textContent = String(heads);
+      minus == null ? void 0 : minus.setAttribute("aria-disabled", String(heads <= MIN));
+      plus == null ? void 0 : plus.setAttribute("aria-disabled", String(heads >= MAX2));
+      updateLink();
+    };
+    valueEl == null ? void 0 : valueEl.setAttribute("aria-live", "polite");
+    const step = (delta) => (e) => {
+      e.preventDefault();
+      setHeads(heads + delta);
+    };
+    minus == null ? void 0 : minus.addEventListener("click", step(-1));
+    plus == null ? void 0 : plus.addEventListener("click", step(1));
+    [minus, plus].forEach(
+      (btn) => btn == null ? void 0 : btn.addEventListener("keydown", (e) => {
+        if (e.key === " ") {
+          e.preventDefault();
+          btn.click();
+        }
+      })
+    );
+    if (cityBox) initCity();
+    function initCity() {
+      const placeholderEl = [...cityBox.children].find((el) => !el.querySelector("[class^='ico-']") && el.textContent.trim());
+      const placeholder = (placeholderEl == null ? void 0 : placeholderEl.textContent.trim()) || t("comparator.city");
+      const id = `comparator-${++uid3}`;
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "offices-calc_field-input";
+      input.placeholder = placeholder;
+      input.autocomplete = "off";
+      input.spellcheck = false;
+      input.setAttribute("role", "combobox");
+      input.setAttribute("aria-label", t("comparator.city"));
+      input.setAttribute("aria-autocomplete", "list");
+      input.setAttribute("aria-expanded", "false");
+      input.setAttribute("aria-controls", `${id}-list`);
+      const list = document.createElement("div");
+      list.className = "offices-calc_list";
+      list.id = `${id}-list`;
+      list.setAttribute("role", "listbox");
+      list.setAttribute("aria-label", t("comparator.cities"));
+      list.setAttribute("data-lenis-prevent", "");
+      list.hidden = true;
+      if (placeholderEl) placeholderEl.replaceWith(input);
+      else cityBox.append(input);
+      cityBox.append(list);
+      cityBox.classList.add("has-input");
+      cityBox.addEventListener("click", (e) => {
+        if (!list.contains(e.target)) input.focus();
+      });
+      let results = [];
+      let active = -1;
+      const close = () => {
+        list.hidden = true;
+        input.setAttribute("aria-expanded", "false");
+        input.removeAttribute("aria-activedescendant");
+        active = -1;
+      };
+      const highlight = (i) => {
+        active = i;
+        list.querySelectorAll("[role='option']").forEach((opt, n) => {
+          const on = n === i;
+          opt.classList.toggle("is-active", on);
+          opt.setAttribute("aria-selected", String(on));
+          if (on) {
+            input.setAttribute("aria-activedescendant", opt.id);
+            opt.scrollIntoView({ block: "nearest" });
+          }
+        });
+      };
+      const choose = (c) => {
+        city = c;
+        input.value = c.name;
+        input.removeAttribute("aria-invalid");
+        close();
+        updateLink();
+      };
+      const render = () => {
+        results = search(input.value);
+        list.textContent = "";
+        if (!input.value.trim()) return close();
+        if (!results.length) {
+          const empty = document.createElement("div");
+          empty.className = "offices-calc_empty";
+          empty.textContent = t("comparator.noCity");
+          list.append(empty);
+        }
+        results.forEach((c, i) => {
+          const opt = document.createElement("div");
+          opt.id = `${id}-opt-${i}`;
+          opt.className = "offices-calc_option";
+          opt.setAttribute("role", "option");
+          opt.setAttribute("aria-selected", "false");
+          const name = document.createElement("span");
+          name.textContent = c.name;
+          const cp = document.createElement("span");
+          cp.className = "offices-calc_cp";
+          cp.textContent = c.cp;
+          opt.append(name, cp);
+          opt.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+            choose(c);
+          });
+          list.append(opt);
+        });
+        list.hidden = false;
+        input.setAttribute("aria-expanded", "true");
+        highlight(results.length ? 0 : -1);
+      };
+      input.addEventListener("input", () => {
+        city = null;
+        updateLink();
+        render();
+      });
+      input.addEventListener("focus", () => {
+        if (input.value && !city) render();
+      });
+      input.addEventListener("keydown", (e) => {
+        const open2 = !list.hidden && results.length;
+        if (e.key === "ArrowDown" && open2) {
+          e.preventDefault();
+          highlight((active + 1) % results.length);
+        } else if (e.key === "ArrowUp" && open2) {
+          e.preventDefault();
+          highlight((active - 1 + results.length) % results.length);
+        } else if (e.key === "Enter") {
+          e.preventDefault();
+          if (open2 && active > -1) choose(results[active]);
+          else if (city) submit.click();
+        } else if (e.key === "Escape" && !list.hidden) {
+          e.preventDefault();
+          close();
+        }
+      });
+      input.addEventListener("blur", () => {
+        if (!city && input.value.trim()) {
+          const exact = INDEX.find((c) => c.key === norm2(input.value));
+          if (exact) choose(exact);
+          else input.setAttribute("aria-invalid", "true");
+        }
+        close();
+      });
+    }
+    setHeads(heads);
+  }
+  function clamp2(n) {
+    return Math.min(MAX2, Math.max(MIN, Math.round(n) || MIN));
+  }
+
+  // src/components/blog-filter.js
+  var PARAM = "rubrique";
+  function initBlogFilters(root = document) {
+    const group = root.querySelector("[data-blog-filters]");
+    const list = root.querySelector("[data-blog-list]");
+    if (!group || !list || group.dataset.blogFilterInit) return;
+    group.dataset.blogFilterInit = "1";
+    const buttons = [...group.querySelectorAll("[data-filter]")];
+    const items = [...list.querySelectorAll("[data-category]")].map((card) => ({
+      el: card.closest(".w-dyn-item") || card,
+      category: card.getAttribute("data-category")
+    }));
+    if (!buttons.length || !items.length) return;
+    const status = document.createElement("p");
+    status.className = "blog-filters_status";
+    status.setAttribute("role", "status");
+    group.after(status);
+    const known = new Set(buttons.map((b) => b.getAttribute("data-filter")));
+    const apply = (filter, { announce = true, updateUrl = true } = {}) => {
+      if (!known.has(filter)) filter = "all";
+      buttons.forEach((btn) => {
+        const on = btn.getAttribute("data-filter") === filter;
+        btn.classList.toggle("is-active", on);
+        btn.setAttribute("aria-pressed", String(on));
+      });
+      let count = 0;
+      items.forEach(({ el, category }) => {
+        const show = filter === "all" || category === filter;
+        el.hidden = !show;
+        if (show) count++;
+      });
+      if (announce) status.textContent = count === 1 ? t("blog.countOne") : t("blog.count", { n: count });
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (filter === "all") url.searchParams.delete(PARAM);
+        else url.searchParams.set(PARAM, filter);
+        history.replaceState(history.state, "", url);
+      }
+      requestScrollRefresh();
+    };
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        apply(btn.getAttribute("data-filter"));
+      });
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === " ") {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+    const initial = new URLSearchParams(window.location.search).get(PARAM);
+    if (initial && known.has(initial)) apply(initial, { announce: false, updateUrl: false });
+  }
+
+  // src/components/contact-form.js
+  function initContactForms(root = document) {
+    root.querySelectorAll("form[data-contact-form]").forEach(initContactForm);
+  }
+  function initContactForm(form) {
+    if (form.dataset.contactInit) return;
+    form.dataset.contactInit = "1";
+    const radios = [...form.querySelectorAll('input[type="radio"][name="motif"]')];
+    const conditional = [...form.querySelectorAll("[data-contact-motif]")];
+    const update = () => {
+      var _a;
+      const motif2 = ((_a = radios.find((r) => r.checked)) == null ? void 0 : _a.value) || "";
+      radios.forEach((r) => {
+        var _a2;
+        return (_a2 = r.closest(".contact-motif_option")) == null ? void 0 : _a2.classList.toggle("is-active", r.checked);
+      });
+      conditional.forEach((block) => {
+        const motifs = block.getAttribute("data-contact-motif").split(",").map((m) => m.trim());
+        const show = motifs.includes(motif2);
+        block.hidden = !show;
+        block.querySelectorAll("input, select, textarea").forEach((field) => field.disabled = !show);
+      });
+    };
+    radios.forEach((r) => r.addEventListener("change", update));
+    const params = new URLSearchParams(window.location.search);
+    const motif = params.get("motif");
+    if (motif) {
+      const radio = radios.find((r) => r.value === motif);
+      if (radio) radio.checked = true;
+    }
+    const espace = params.get("espace");
+    const select = form.querySelector('[data-contact-field="espace"]');
+    if (espace && select && [...select.options].some((o) => o.value === espace)) select.value = espace;
+    update();
+    form.addEventListener("submit", () => fillRecap(form));
+    watchSuccess(form);
+  }
+  function fieldText(form, name) {
+    var _a;
+    const fields = [...form.querySelectorAll(`[name="${name}"]`)].filter((f) => !f.disabled);
+    const field = fields.find((f) => f.type !== "radio") || fields.find((f) => f.checked);
+    if (!field) return "";
+    if (field.type === "radio") return ((_a = field.closest("label")) == null ? void 0 : _a.textContent.trim()) || field.value;
+    if (field.tagName === "SELECT") return field.value ? field.options[field.selectedIndex].text.trim() : "";
+    return field.value.trim();
+  }
+  function fillRecap(form) {
+    var _a;
+    const success = (_a = form.parentElement) == null ? void 0 : _a.querySelector("[data-contact-success]");
+    if (!success) return;
+    const values = {
+      "nom-complet": [fieldText(form, "prenom"), fieldText(form, "nom")].filter(Boolean).join(" ")
+    };
+    success.querySelectorAll("[data-contact-recap-value]").forEach((el) => {
+      const key2 = el.getAttribute("data-contact-recap-value");
+      if (el.querySelector("[data-contact-recap-value]")) return;
+      const text = key2 in values ? values[key2] : fieldText(form, key2);
+      el.textContent = text;
+      el.hidden = !text;
+    });
+    success.querySelectorAll("[data-contact-recap-row]").forEach((row) => {
+      row.hidden = ![...row.querySelectorAll("[data-contact-recap-value]")].some((v) => !v.hidden && v.textContent.trim());
+    });
+  }
+  function watchSuccess(form) {
+    var _a;
+    const done = (_a = form.parentElement) == null ? void 0 : _a.querySelector(".w-form-done");
+    const section = form.closest("[data-contact]");
+    if (!done || !section) return;
+    const observer = new MutationObserver(() => {
+      if (getComputedStyle(done).display === "none") return;
+      observer.disconnect();
+      section.classList.add("is-sent");
+      const top = section.getBoundingClientRect().top + window.scrollY;
+      const lenis = getLenis();
+      if (window.scrollY > top) {
+        if (lenis) lenis.scrollTo(top, { immediate: prefersReducedMotion(), force: true });
+        else window.scrollTo({ top, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+      }
+    });
+    observer.observe(done, { attributes: true, attributeFilter: ["style", "class"] });
+  }
+
+  // src/components/devis-form.js
+  function initDevisForms(root = document) {
+    root.querySelectorAll('form[data-form="devis"]').forEach(initDevisForm);
+  }
+  function initDevisForm(form) {
+    var _a;
+    if (form.dataset.devisInit) return;
+    form.dataset.devisInit = "1";
+    const formats = radioGroup(
+      form,
+      "data-devis-format-option",
+      "data-devis-format-input",
+      (o) => o.textContent.trim()
+    );
+    radioGroup(
+      form,
+      "data-devis-restauration-option",
+      "data-devis-restauration-input",
+      (o) => o.getAttribute("data-devis-restauration-option")
+    );
+    const formatSelect = form.querySelector("[data-devis-format-select]");
+    const pickFormat = (value) => {
+      if (!value) return;
+      formats == null ? void 0 : formats.selectValue(value);
+      if (formatSelect && [...formatSelect.options].some((o) => o.value === value)) {
+        formatSelect.value = value;
+        formatSelect.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+    };
+    document.addEventListener(
+      "click",
+      (e) => {
+        var _a2, _b;
+        const card = (_b = (_a2 = e.target).closest) == null ? void 0 : _b.call(_a2, "a[data-devis-format]");
+        if (card) pickFormat(card.getAttribute("data-devis-format"));
+      },
+      true
+    );
+    const espace = form.querySelector("[data-venue-espace-input]");
+    const espaceName = (_a = espace == null ? void 0 : espace.getAttribute("data-espace-name")) == null ? void 0 : _a.trim();
+    if (espace && espaceName && !espace.value) espace.value = espaceName;
+    const params = new URLSearchParams(window.location.search);
+    pickFormat(params.get("format"));
+    const lieu = params.get("lieu");
+    const lieuSelect = form.querySelector("[data-devis-lieu]");
+    if (lieu && lieuSelect && [...lieuSelect.options].some((o) => o.value === lieu)) {
+      lieuSelect.value = lieu;
+      lieuSelect.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  }
+  function radioGroup(form, optionAttr, inputAttr, valueOf) {
+    const options = [...form.querySelectorAll(`[${optionAttr}]`)];
+    if (!options.length) return null;
+    const input = form.querySelector(`[${inputAttr}]`);
+    let current = options.find((o) => o.getAttribute("aria-checked") === "true") || null;
+    const indicator = current ? createSegmentedIndicator(options[0].parentElement, () => current) : null;
+    const select = (option, focus = false) => {
+      current = option;
+      indicator == null ? void 0 : indicator.move();
+      options.forEach((o) => {
+        const on = o === option;
+        o.classList.toggle("is-active", on);
+        o.setAttribute("aria-checked", String(on));
+        o.tabIndex = on ? 0 : -1;
+      });
+      if (input) input.value = option ? valueOf(option) : "";
+      if (focus && option) option.focus();
+    };
+    options.forEach((option, i) => {
+      option.addEventListener("click", (e) => {
+        e.preventDefault();
+        select(option);
+      });
+      option.addEventListener("keydown", (e) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          select(option);
+        } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+          e.preventDefault();
+          select(options[(i + 1) % options.length], true);
+        } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+          e.preventDefault();
+          select(options[(i - 1 + options.length) % options.length], true);
+        }
+      });
+    });
+    if (current) select(current);
+    else options.forEach((o, i) => o.tabIndex = i === 0 ? 0 : -1);
+    return {
+      selectValue(value) {
+        const match = options.find((o) => o.getAttribute(optionAttr) === value);
+        if (match) select(match);
+      }
+    };
+  }
+
+  // src/utils/form-labels.js
+  function linkLabels(form) {
+    form.querySelectorAll("label").forEach((label) => {
+      var _a;
+      const inside = label.querySelector("input, select, textarea");
+      if (inside) {
+        if (label.getAttribute("for") === "") label.removeAttribute("for");
+        return;
+      }
+      if (label.getAttribute("for")) return;
+      const field = (_a = label.parentElement) == null ? void 0 : _a.querySelector("input, select, textarea");
+      if (field == null ? void 0 : field.id) label.htmlFor = field.id;
+      else label.removeAttribute("for");
+    });
+  }
+  function initFormLabels(root = document) {
+    root.querySelectorAll("form").forEach(linkLabels);
+  }
+
+  // src/components/house-shape.js
+  var DEFAULT_RADIUS2 = 16;
+  var ZOOM = 1.05;
+  var REVEAL = 0.85;
+  function initHouseShapes(root = document) {
+    const shapes = [];
+    root.querySelectorAll("body *").forEach((el) => {
+      const clip = getComputedStyle(el).clipPath;
+      if (clip && clip.startsWith("polygon(") && clip.split(",").length === 5) shapes.push(el);
+    });
+    if (!shapes.length) return;
+    const update = (el) => {
+      el.classList.remove("is-house");
+      const clip = getComputedStyle(el).clipPath;
+      const w = el.offsetWidth;
+      const h = el.offsetHeight;
+      const points = parsePolygon(clip, w, h);
+      if (!points || !w || !h) return;
+      const style = getComputedStyle(el);
+      const radius = parseFloat(style.getPropertyValue("--house-radius")) || parseFloat(style.borderBottomLeftRadius) || DEFAULT_RADIUS2;
+      el.style.setProperty("--house-path", `path("${roundedPath(points, radius)}")`);
+      const cx = w / 2;
+      const cy = h / 2;
+      const small = points.map(([x, y]) => [cx + (x - cx) / ZOOM, cy + (y - cy) / ZOOM]);
+      el.style.setProperty("--house-path-zoom", `path("${roundedPath(small, radius / ZOOM)}")`);
+      const reveal2 = points.map(([x, y]) => [cx + (x - cx) * REVEAL, cy + (y - cy) * REVEAL]);
+      el.style.setProperty("--house-path-reveal", `path("${roundedPath(reveal2, radius * REVEAL)}")`);
+      el.classList.add("is-house");
+    };
+    shapes.forEach(update);
+    if (typeof ResizeObserver !== "undefined") {
+      const pending = /* @__PURE__ */ new Set();
+      let frame = 0;
+      const ro = new ResizeObserver((entries) => {
+        entries.forEach((e) => pending.add(e.target));
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => {
+          pending.forEach(update);
+          pending.clear();
+        });
+      });
+      shapes.forEach((el) => ro.observe(el, { box: "border-box" }));
+    }
+  }
+  function parsePolygon(clip, w, h) {
+    const inner = clip.slice(clip.indexOf("(") + 1, clip.lastIndexOf(")"));
+    const toPx = (v, size) => {
+      v = v.trim();
+      if (v.endsWith("%")) return parseFloat(v) / 100 * size;
+      return parseFloat(v) || 0;
+    };
+    const points = inner.split(",").map((pair) => {
+      const [x, y] = pair.trim().split(/\s+/);
+      return [toPx(x, w), toPx(y, h)];
+    });
+    return points.length === 5 && points.every((p) => p.every(Number.isFinite)) ? points : null;
+  }
+  function roundedPath(points, radius) {
+    const n = points.length;
+    const r = (v) => Math.round(v * 100) / 100;
+    let d = "";
+    points.forEach((v, i) => {
+      const prev = points[(i - 1 + n) % n];
+      const next = points[(i + 1) % n];
+      const d1 = Math.hypot(prev[0] - v[0], prev[1] - v[1]);
+      const d2 = Math.hypot(next[0] - v[0], next[1] - v[1]);
+      const k = Math.min(radius, d1 / 2, d2 / 2);
+      const a = [v[0] + (prev[0] - v[0]) * k / d1, v[1] + (prev[1] - v[1]) * k / d1];
+      const b = [v[0] + (next[0] - v[0]) * k / d2, v[1] + (next[1] - v[1]) * k / d2];
+      d += `${i === 0 ? "M" : "L"}${r(a[0])} ${r(a[1])}Q${r(v[0])} ${r(v[1])} ${r(b[0])} ${r(b[1])}`;
+    });
+    return `${d}Z`;
+  }
+
+  // src/components/custom-select.js
+  var GAP3 = 8;
+  var MAX_PANEL_HEIGHT2 = 320;
+  var uid4 = 0;
+  function initCustomSelects(root = document) {
+    root.querySelectorAll("form select:not([multiple]):not([data-native-select]), select[data-enhance-select]").forEach(initSelect);
+  }
+  function initSelect(select) {
+    var _a;
+    if (select.dataset.customSelect) return;
+    select.dataset.customSelect = "1";
+    const id = `custom-select-${++uid4}`;
+    const wrap = document.createElement("div");
+    wrap.className = "custom-select";
+    select.before(wrap);
+    wrap.appendChild(select);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `${select.className} custom-select_button`;
+    button.id = `${id}-button`;
+    button.setAttribute("role", "combobox");
+    button.setAttribute("aria-haspopup", "listbox");
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", `${id}-list`);
+    const value = document.createElement("span");
+    value.className = "custom-select_value";
+    button.appendChild(value);
+    wrap.insertBefore(button, select);
+    select.classList.add("custom-select_native");
+    select.tabIndex = -1;
+    select.setAttribute("aria-hidden", "true");
+    const labels = select.id ? [...document.querySelectorAll(`label[for="${CSS.escape(select.id)}"]`)] : [];
+    if (labels.length) {
+      labels.forEach((label, i) => {
+        if (!label.id) label.id = `${id}-label-${i}`;
+        label.addEventListener("click", (e) => {
+          e.preventDefault();
+          button.focus();
+        });
+      });
+      button.setAttribute("aria-labelledby", `${labels.map((l) => l.id).join(" ")} ${button.id}`);
+    } else if (select.getAttribute("aria-label")) {
+      button.setAttribute("aria-label", select.getAttribute("aria-label"));
+    }
+    const panel = document.createElement("div");
+    panel.className = "search_suggest custom-select_panel";
+    panel.id = `${id}-list`;
+    panel.setAttribute("role", "listbox");
+    panel.setAttribute("data-lenis-prevent", "");
+    panel.hidden = true;
+    if (labels[0]) panel.setAttribute("aria-labelledby", labels[0].id);
+    document.body.appendChild(panel);
+    const scrollbar = createScrollIndicator(panel);
+    let items = [];
+    let active = -1;
+    function build() {
+      panel.innerHTML = "";
+      items = [];
+      [...select.children].forEach((child) => {
+        if (child.tagName === "OPTGROUP") {
+          const title = document.createElement("p");
+          title.className = "search_suggest-title";
+          title.setAttribute("role", "presentation");
+          title.textContent = child.label;
+          panel.appendChild(title);
+          [...child.children].forEach(addOption);
+        } else addOption(child);
+      });
+      scrollbar == null ? void 0 : scrollbar.attach();
+    }
+    function addOption(option) {
+      if (!option.value) return;
+      const index = items.length;
+      const el = document.createElement("div");
+      el.className = "search_suggest-item custom-select_option";
+      el.id = `${id}-opt-${index}`;
+      el.setAttribute("role", "option");
+      el.innerHTML = '<span class="search_suggest-text"><span class="search_suggest-label"></span></span>';
+      el.querySelector(".search_suggest-label").textContent = option.text;
+      if (option.disabled) el.setAttribute("aria-disabled", "true");
+      el.addEventListener("mousedown", (e) => e.preventDefault());
+      el.addEventListener("click", () => choose(index));
+      el.addEventListener("mousemove", () => highlight(index, false));
+      panel.appendChild(el);
+      items.push({ el, option });
+    }
+    function refresh() {
+      const option = select.options[select.selectedIndex];
+      value.textContent = option ? option.text : "";
+      button.classList.toggle("is-placeholder", !option || !option.value);
+      button.disabled = select.disabled;
+      items.forEach(({ el, option: o }) => {
+        const on = o.selected && !!o.value;
+        el.classList.toggle("is-selected", on);
+        el.setAttribute("aria-selected", String(on));
+      });
+    }
+    function place() {
+      if (panel.hidden) return;
+      const rect = button.getBoundingClientRect();
+      panel.style.top = `${rect.bottom + window.scrollY + GAP3}px`;
+      panel.style.left = `${rect.left + window.scrollX}px`;
+      panel.style.width = `${rect.width}px`;
+      const below = window.innerHeight - rect.bottom - GAP3 - 16;
+      panel.style.maxHeight = `${Math.min(MAX_PANEL_HEIGHT2, Math.max(160, below))}px`;
+      scrollbar == null ? void 0 : scrollbar.update();
+    }
+    function highlight(index, scroll = true) {
+      active = index;
+      items.forEach(({ el }, i) => el.classList.toggle("is-focused", i === index));
+      const item = items[index];
+      if (item) {
+        button.setAttribute("aria-activedescendant", item.el.id);
+        if (scroll) item.el.scrollIntoView({ block: "nearest" });
+      } else button.removeAttribute("aria-activedescendant");
+    }
+    function open2() {
+      if (!panel.hidden || select.disabled) return;
+      build();
+      refresh();
+      panel.hidden = false;
+      button.setAttribute("aria-expanded", "true");
+      wrap.classList.add("is-open");
+      place();
+      const selected = items.findIndex(({ option }) => option.selected);
+      highlight(selected >= 0 ? selected : 0);
+    }
+    function close() {
+      if (panel.hidden) return;
+      panel.hidden = true;
+      button.setAttribute("aria-expanded", "false");
+      button.removeAttribute("aria-activedescendant");
+      wrap.classList.remove("is-open");
+    }
+    function choose(index) {
+      const item = items[index];
+      if (!item || item.option.disabled) return;
+      select.value = item.option.value;
+      select.dispatchEvent(new Event("input", { bubbles: true }));
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+      close();
+      button.focus();
+    }
+    function step(dir) {
+      if (!items.length) return;
+      let i = active;
+      for (let n = 0; n < items.length; n++) {
+        i = (i + dir + items.length) % items.length;
+        if (!items[i].option.disabled) return highlight(i);
+      }
+    }
+    button.addEventListener("click", () => panel.hidden ? open2() : close());
+    let typed = "";
+    let typedTimer = 0;
+    button.addEventListener("keydown", (e) => {
+      const isOpen = !panel.hidden;
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        e.preventDefault();
+        if (!isOpen) open2();
+        else step(e.key === "ArrowDown" ? 1 : -1);
+      } else if (e.key === "Home" || e.key === "End") {
+        if (!isOpen) return;
+        e.preventDefault();
+        highlight(e.key === "Home" ? 0 : items.length - 1);
+      } else if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        if (isOpen && active >= 0) choose(active);
+        else open2();
+      } else if (e.key === "Escape") {
+        if (isOpen) {
+          e.preventDefault();
+          close();
+        }
+      } else if (e.key === "Tab") {
+        close();
+      } else if (e.key.length === 1 && /\S/.test(e.key)) {
+        typed += e.key.toLowerCase();
+        clearTimeout(typedTimer);
+        typedTimer = setTimeout(() => typed = "", 600);
+        if (!isOpen) open2();
+        const i = items.findIndex(({ option }) => option.text.trim().toLowerCase().startsWith(typed));
+        if (i >= 0) highlight(i);
+      }
+    });
+    document.addEventListener(
+      "pointerdown",
+      (e) => {
+        if (!panel.hidden && !wrap.contains(e.target) && !panel.contains(e.target)) close();
+      },
+      true
+    );
+    let placing = false;
+    const schedulePlace = () => {
+      if (placing || panel.hidden) return;
+      placing = true;
+      requestAnimationFrame(() => {
+        placing = false;
+        place();
+      });
+    };
+    window.addEventListener("resize", schedulePlace, { passive: true });
+    document.addEventListener("scroll", schedulePlace, { passive: true, capture: true });
+    select.addEventListener("change", refresh);
+    new MutationObserver(refresh).observe(select, { attributes: true, attributeFilter: ["disabled"] });
+    select.addEventListener("invalid", () => button.focus());
+    (_a = select.form) == null ? void 0 : _a.addEventListener("reset", () => setTimeout(refresh));
+    build();
+    refresh();
+  }
+
+  // src/components/mini-map.js
+  var PADDING = { top: 40, bottom: 16, left: 24, right: 24 };
+  function initMiniMaps(root = document) {
+    const images = [...root.querySelectorAll("img[data-mini-map]")];
+    if (!images.length || !("IntersectionObserver" in window)) return;
+    const seen = /* @__PURE__ */ new Set();
+    const pins = [];
+    root.querySelectorAll("[data-pin-lat][data-pin-lng]").forEach((el) => {
+      const lat = parseFloat(el.getAttribute("data-pin-lat"));
+      const lng = parseFloat(el.getAttribute("data-pin-lng"));
+      const key2 = `${lat},${lng}`;
+      if (!Number.isFinite(lat) || !Number.isFinite(lng) || seen.has(key2)) return;
+      seen.add(key2);
+      pins.push([lng, lat]);
+    });
+    if (!pins.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        createMap2(entry.target, pins);
+      })
+    );
+    images.forEach((img) => observer.observe(img));
+  }
+  async function createMap2(img, pins) {
+    const maplibregl = await loadMapLibre();
+    if (!maplibregl) return;
+    const box = document.createElement("div");
+    box.className = `${img.className} mini-map`;
+    if (img.alt) {
+      box.setAttribute("role", "img");
+      box.setAttribute("aria-label", img.alt);
+    } else box.setAttribute("aria-hidden", "true");
+    img.after(box);
+    img.style.display = "none";
+    const canvas = document.createElement("div");
+    canvas.className = "mini-map_canvas";
+    box.appendChild(canvas);
+    const bounds2 = new maplibregl.LngLatBounds();
+    pins.forEach((p) => bounds2.extend(p));
+    const map = new maplibregl.Map({
+      container: canvas,
+      style: STYLE_URL,
+      bounds: bounds2,
+      fitBoundsOptions: { padding: PADDING },
+      interactive: false,
+      // ni glisser, ni zoom, ni molette
+      attributionControl: false
+    });
+    map.on("style.load", () => applyTheme(map));
+    pins.forEach((lngLat) => {
+      const el = document.createElement("div");
+      el.className = "map-pin mini-map_pin";
+      el.setAttribute("aria-hidden", "true");
+      el.innerHTML = PIN_SVG;
+      new maplibregl.Marker({ element: el, anchor: "bottom" }).setLngLat(lngLat).addTo(map);
+    });
+    map.once("load", () => {
+      map.resize();
+      map.fitBounds(bounds2, { padding: PADDING, duration: 0 });
+      box.classList.add("is-ready");
+    });
+  }
+
+  // src/components/line-pills.js
+  var PREFIX = { M\u00E9tro: "metro-", RER: "rer-", Train: "train-", Tram: "tram-", Bus: "bus-" };
+  function initLinePills(root = document) {
+    root.querySelectorAll(".ligne[data-line-mode]").forEach((pill) => {
+      var _a;
+      const prefix = PREFIX[pill.getAttribute("data-line-mode")];
+      const indice = (_a = pill.querySelector(".ligne_indice")) == null ? void 0 : _a.textContent.trim().toLowerCase();
+      if (!prefix || !indice) return;
+      pill.setAttribute("data-line", `${prefix}${indice}`);
+    });
+  }
+
+  // src/schema/page-schema.js
+  var clean = (text) => (text || "").replace(/\s+/g, " ").trim();
+  function initPageSchema(root = document) {
+    const existing = existingTypes();
+    const blocks = [];
+    if (!existing.has("BreadcrumbList")) {
+      const breadcrumb = buildBreadcrumb(root.querySelector("nav.breadcrumb"));
+      if (breadcrumb) blocks.push(breadcrumb);
+    }
+    if (!existing.has("FAQPage")) {
+      const faq = buildFaq(root);
+      if (faq) blocks.push(faq);
+    }
+    blocks.forEach((data) => {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify({ "@context": "https://schema.org", ...data });
+      document.head.appendChild(script);
+    });
+  }
+  function existingTypes() {
+    const types = /* @__PURE__ */ new Set();
+    document.querySelectorAll('script[type="application/ld+json"]').forEach((s) => {
+      try {
+        const data = JSON.parse(s.textContent);
+        [data, ...data["@graph"] || []].forEach((d) => d && d["@type"] && types.add(d["@type"]));
+      } catch (e) {
+      }
+    });
+    return types;
+  }
+  function buildBreadcrumb(nav) {
+    if (!nav) return null;
+    const items = [];
+    nav.querySelectorAll("a.breadcrumb_link, .breadcrumb_current").forEach((el) => {
+      const name = clean(el.textContent);
+      if (!name) return;
+      const href = el.matches("a") ? el.getAttribute("href") : location.pathname;
+      const url = new URL(href, location.origin);
+      url.pathname = url.pathname.replace(/(.)\/$/, "$1");
+      items.push({ name, url: url.href });
+    });
+    if (items.length < 2) return null;
+    return {
+      "@type": "BreadcrumbList",
+      itemListElement: items.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: item.name,
+        item: item.url
+      }))
+    };
+  }
+  function buildFaq(root) {
+    const entities = [];
+    root.querySelectorAll(".faq_item").forEach((item) => {
+      var _a, _b;
+      if (item.closest(".w-condition-invisible, .w-dyn-empty, [hidden]")) return;
+      const question = clean((_a = item.querySelector(".faq_question")) == null ? void 0 : _a.textContent);
+      const answer = clean((_b = item.querySelector(".faq_answer")) == null ? void 0 : _b.textContent);
+      if (!question || !answer) return;
+      entities.push({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer }
+      });
+    });
+    if (!entities.length) return null;
+    return { "@type": "FAQPage", mainEntity: entities };
+  }
+
+  // src/utils/cms-links.js
+  function initCmsLinks(root = document) {
+    const prefix = (LOCALES[getLang()] || {}).prefix || "";
+    root.querySelectorAll("a[data-cms-link][data-cms-slug]").forEach((link) => {
+      const slug = link.getAttribute("data-cms-slug").trim();
+      if (!slug) return;
+      const base = link.getAttribute("data-cms-link").replace(/\/$/, "");
+      link.setAttribute("href", `${prefix}${base}/${slug}`);
+    });
+  }
+
+  // src/index.js
+  onReady(() => {
+    initCore();
+    initNav();
+    initHeroIntro();
+    initHeroVideo();
+    initFooter();
+    initCollapses();
+    initTocs();
+    initCmsLinks();
+    initCardLinks();
+    initLinePills();
+    initPageSchema();
+    initComparateur();
+    initComparatorBanners();
+    initBlogFilters();
+    initFormLabels();
+    initContactForms();
+    initDevisForms();
+    initHouseShapes();
+    initFormulas();
+    initSliders();
+    initPhotoSliders();
+    initRoomsFilters();
+    initRoomDetails();
+    initCounters();
+    initReveal();
+    initCardsStack();
+    initStackReveal();
+    initBentoReveal();
+    initStars();
+    initWiden();
+    initExpand();
+    initSpacesMap();
+    initSpaceMaps();
+    initSpaceGalleries();
+    initVisitForms();
+    initSpaceSearch();
+    initMiniMaps();
+    initCustomSelects();
+  });
+  console.log(`%c[Work'n'Share] main.js \u2014 build ${"2026-11-04 15:02"}`, "color:#7dd3fc");
+})();
+//# sourceMappingURL=main.js.map

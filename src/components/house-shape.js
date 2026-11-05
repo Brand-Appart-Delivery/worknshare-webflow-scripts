@@ -15,12 +15,12 @@
 //
 // Classe posée : .is-house, avec --house-path (forme), --house-path-zoom
 // (même forme réduite de 1/1,05, pour le zoom au survol des cartes, cf.
-// _card-zoom.scss) et --house-path-reveal (réduite à 60 %, départ de
+// _card-zoom.scss) et --house-path-reveal (réduite à 85 %, départ de
 // l'apparition dans les cartes empilées). Styles : _house-shape.scss.
 
 const DEFAULT_RADIUS = 16;
 const ZOOM = 1.05; // zoom des photos au survol (cf. _card-zoom.scss)
-const REVEAL = 0.6; // taille de départ de la forme dans un paquet de cartes (cf. _house-shape.scss)
+const REVEAL = 0.85; // taille de départ de la forme dans un paquet de cartes (cf. _house-shape.scss)
 
 export function initHouseShapes(root = document) {
   // Repérage : éléments dont la forme Webflow est un polygon à 5 points
@@ -55,7 +55,7 @@ export function initHouseShapes(root = document) {
     const small = points.map(([x, y]) => [cx + (x - cx) / ZOOM, cy + (y - cy) / ZOOM]);
     el.style.setProperty("--house-path-zoom", `path("${roundedPath(small, radius / ZOOM)}")`);
 
-    // Version réduite à 60 % autour du centre : point de départ de l'apparition
+    // Version réduite à 85 % autour du centre : point de départ de l'apparition
     // dans les cartes empilées (la forme s'agrandit, la photo ne bouge pas)
     const reveal = points.map(([x, y]) => [cx + (x - cx) * REVEAL, cy + (y - cy) * REVEAL]);
     el.style.setProperty("--house-path-reveal", `path("${roundedPath(reveal, radius * REVEAL)}")`);
