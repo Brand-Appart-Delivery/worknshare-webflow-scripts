@@ -13,6 +13,7 @@
 //   "narrow"   cartes de 280 px
 //   "square"   cartes carrées de 220 px
 //   "tile"     tuiles de 240 × 220 px (bento des salles d'un espace)
+//   "tall"     cartes de 240 × 260 px (formats d'une page lieu)
 //   "thumb"    vignettes de 120 × 96 px (galerie photo d'un espace)
 //
 // La rangée déborde jusqu'aux bords de l'écran (marges du site compensées) :
@@ -77,6 +78,16 @@
     > *,
     [data-mobile-slider-contents] > * {
       height: 220px !important;
+      min-height: 0 !important;
+    }
+  }
+
+  [data-mobile-slider="tall"] {
+    --slide-w: 240px;
+
+    > *,
+    [data-mobile-slider-contents] > * {
+      height: 260px !important;
       min-height: 0 !important;
     }
   }

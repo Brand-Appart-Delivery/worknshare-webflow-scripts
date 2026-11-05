@@ -1,0 +1,128 @@
+// Page d'un lieu événementiel (salles) en mobile (≤ 767 px), Figma 4681:28460.
+
+@media screen and (max-width: 767px) {
+  // ---------- Hero centré ----------
+  .events-hero .breadcrumb {
+    justify-content: center;
+  }
+
+  .events-hero_text,
+  .events-hero_copy,
+  .events-hero_titles {
+    align-items: center;
+    text-align: center;
+  }
+
+  .events-hero_text .events-tags,
+  .venue-hero_access,
+  .venue-hero_access .venue-inline {
+    justify-content: center;
+  }
+
+  .events-hero_text .events-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .events-hero_text .events-actions .button {
+    justify-content: center;
+    min-width: 220px;
+  }
+
+  // Chiffres : grille 2 colonnes centrée sous le filet
+  .venue-facts {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+  }
+
+  .venue-fact {
+    align-items: center;
+    text-align: center;
+  }
+
+  .venue-fact .venue-inline {
+    justify-content: center;
+  }
+
+  .venue-fact_sep {
+    display: none !important;
+  }
+
+  // ---------- « Combien serez-vous ? » : pastilles qui défilent ----------
+  .venue-rooms_options {
+    flex-wrap: nowrap !important;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > [role] {
+      flex: none;
+      white-space: nowrap;
+    }
+  }
+
+  // ---------- Carte de salle compacte : photo, nom + surface, flèche ----------
+  [data-rooms] [data-room-card] {
+    display: grid !important;
+    grid-template-columns: 80px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+    padding: 12px !important;
+  }
+
+  [data-rooms] [data-room-card] .venue-room_photo {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  [data-rooms] [data-room-card] .venue-room_info {
+    width: auto !important;
+    min-width: 0;
+  }
+
+  [data-rooms] [data-room-card] .venue-room_meta {
+    flex-wrap: wrap;
+    column-gap: 0.25em;
+  }
+
+  [data-rooms] [data-room-card] .venue-room_meta > * {
+    width: auto !important;
+  }
+
+  // Le libellé « Voir la salle » laisse place à la flèche seule (le bouton
+  // garde son nom pour les lecteurs d'écran)
+  [data-rooms] [data-room-toggle] {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--_work-n-share---color--rose--300, #ffa7e0);
+  }
+
+  [data-rooms] [data-room-toggle] > span:first-child {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  // Détail d'une salle : une colonne
+  [data-rooms] .venue-room_detail-body {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  [data-rooms] .venue-room_detail {
+    padding: 24px !important;
+  }
+
+  .room-media-col {
+    order: -1;
+  }
+}
