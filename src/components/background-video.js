@@ -2,7 +2,9 @@
 // (ex. bandeau « Bail commercial ou Work & Share ? » de l'accueil).
 //
 // STRUCTURE (Webflow) : élément « Background Video » (.w-background-video),
-// en lecture auto, en boucle. Aucun attribut à poser.
+// en lecture auto, en boucle, sans attribut à poser ; ou élément personnalisé
+// <video data-loop-video autoplay muted loop playsinline poster=…> (ex. bandeau
+// de Bureaux flexibles, l'API ne sait pas créer de Background Video).
 //
 // Le JS : vidéo en pause si l'utilisateur a réduit les animations (l'image
 // d'attente reste affichée), et lue seulement quand elle est à l'écran
@@ -12,7 +14,7 @@
 import { prefersReducedMotion, onMotionPreferenceChange } from "../utils/motion.js";
 
 export function initBackgroundVideos(root = document) {
-  const videos = [...root.querySelectorAll(".w-background-video video")].filter(
+  const videos = [...root.querySelectorAll(".w-background-video video, video[data-loop-video]")].filter(
     (video) => !video.closest("[data-hero-video]"),
   );
   if (!videos.length) return;
