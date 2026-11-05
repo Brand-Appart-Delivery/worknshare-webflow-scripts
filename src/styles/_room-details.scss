@@ -110,11 +110,16 @@ $beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
   }
 }
 
-// Capacités : pastilles beiges « 16 / Réunion »
+// Capacités : pastilles beiges « 16 / Réunion », posées sur le fond blanc
+[data-room-configurations] {
+  padding: 0 !important;
+  background-color: transparent !important;
+}
+
 [data-room-configurations].w-richtext ul,
 [data-room-configurations] ul {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(116px, 1fr));
   gap: 8px;
   margin: 0;
   padding: 0;
@@ -150,6 +155,12 @@ $beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
 
 [data-room-views].is-plan-view .venue-room_view.is-plan {
   display: block;
+}
+
+// Onglets en pastille compacte sur la photo (pas sur toute la largeur)
+[data-room-views] [role="tablist"] {
+  right: auto !important;
+  width: max-content;
 }
 
 // Onglet actif : fond bordeaux glissant, texte rose (Figma)
