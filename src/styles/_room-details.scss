@@ -1,0 +1,156 @@
+// Détail d'une salle « Voir la salle » (components/room-details.js, Figma 4681:28306)
+
+$bordeaux-900: var(--_work-n-share---color--bordeaux--900, #2c0c10);
+$rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
+$beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
+
+// Grille 2 colonnes : la salle « s'efface » (display: contents) pour que sa
+// carte soit une case de la grille et son détail une ligne pleine largeur juste
+// sous la rangée. « dense » : la carte voisine reste dans la même rangée.
+[data-rooms] [role="list"] {
+  grid-auto-flow: row dense;
+}
+
+[data-rooms] [data-room] {
+  display: contents;
+}
+
+[data-rooms] [data-room-panel] {
+  grid-column: 1 / -1;
+}
+
+// ---------- Carte ouverte : rose, « Refermer » + chevron ----------
+[data-rooms] [data-room-card] {
+  transition: background-color 0.3s ease;
+}
+
+[data-rooms] [data-room].is-open [data-room-card] {
+  background-color: $rose-300;
+}
+
+[data-rooms] [data-room-toggle] .venue-icon-18 {
+  transition: transform 0.3s ease;
+}
+
+[data-rooms] [data-room].is-open [data-room-toggle] .venue-icon-18 {
+  transform: rotate(90deg); // flèche → chevron vers le bas
+}
+
+// ---------- Détail ----------
+[data-rooms] [data-room].is-open [data-room-panel] {
+  display: block;
+}
+
+[data-rooms] [data-room-panel].is-panel-in {
+  animation: room-panel-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes room-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Équipements : pastille rose ronde avec coche devant chaque ligne
+[data-room-equipements] ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-room-equipements] li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  margin: 0;
+  padding-left: 56px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    border-radius: 50%;
+    background-color: $rose-300;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    background-color: $bordeaux-900;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 10.5l3.2 3.2L15 6.5'/%3E%3C/svg%3E")
+      center / contain no-repeat;
+  }
+}
+
+// Capacités : pastilles beiges « 16 / Réunion »
+[data-room-configurations] ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-room-configurations] li {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 10px 16px;
+  border-radius: 16px;
+  background-color: $beige-50;
+  line-height: 1.1;
+}
+
+.room-config_value {
+  font-family: var(--_work-n-share---font--display, "Boldonse"), "Arial Black", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.room-config_label {
+  font-size: 0.8125rem;
+}
+
+// ---------- Photos / Plan ----------
+[data-room-views] [hidden] {
+  display: none !important;
+}
+
+[data-room-views].is-plan-view .venue-room_view.is-plan {
+  display: block;
+}
+
+// Onglet actif : fond bordeaux glissant, texte rose (Figma)
+[data-room-views] .segmented-indicator {
+  background-color: $bordeaux-900;
+}
+
+[data-room-views] .is-segmented > [role].is-active {
+  color: $rose-300;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-rooms] [data-room-card],
+  [data-rooms] [data-room-toggle] .venue-icon-18 {
+    transition: none;
+  }
+}

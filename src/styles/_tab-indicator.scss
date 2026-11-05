@@ -39,11 +39,11 @@
   }
 }
 
-// Pastilles « segmented » (role="radio") : sans fond propre (ni blanc, ni
-// rose) ; seul le fond glissant marque la pastille choisie. Couleur reprise de
-// Webflow par le JS (rose par défaut)
-.is-sliding > [role="radio"],
-.is-sliding > [role="radio"].is-active {
+// Pastilles « segmented » (createSegmentedIndicator) : sans fond propre (ni
+// blanc, ni rose) ; seul le fond glissant marque la pastille choisie. Couleur
+// reprise de Webflow par le JS (rose par défaut)
+.is-segmented > [role],
+.is-segmented > [role].is-active {
   background-color: transparent;
   transition: color 0.3s ease;
 }

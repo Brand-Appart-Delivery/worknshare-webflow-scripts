@@ -5,8 +5,9 @@
   display: none !important;
 }
 
-// Apparition des salles qui reviennent dans la liste
-[data-rooms] [data-room].is-room-in {
+// Apparition des salles qui reviennent dans la liste (la salle est en
+// display: contents, cf. _room-details.scss : on anime sa carte)
+[data-rooms] [data-room].is-room-in > [data-room-card] {
   animation: room-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 

@@ -50,11 +50,13 @@ export function createTabIndicator(tablist, { getActive, themeAttr = null, class
   return { move, element: indicator };
 }
 
-// Pastilles « segmented » (role="radio") : même fond glissant, à la couleur de
-// la pastille active dans Webflow (lue avant que le CSS ne la rende transparente)
-export function createSegmentedIndicator(group, getActive) {
+// Pastilles « segmented » (role="radio" ou "tab") : même fond glissant. Par
+// défaut à la couleur de la pastille active dans Webflow (lue avant que le CSS
+// ne la rende transparente) ; copyColor: false = couleur donnée par le CSS.
+export function createSegmentedIndicator(group, getActive, { copyColor = true } = {}) {
   const active = getActive();
-  const color = active ? getComputedStyle(active).backgroundColor : "";
+  const color = copyColor && active ? getComputedStyle(active).backgroundColor : "";
+  group.classList.add("is-segmented");
   const indicator = createTabIndicator(group, { getActive, className: "segmented-indicator" });
   if (color && color !== "rgba(0, 0, 0, 0)") indicator.element.style.backgroundColor = color;
   return indicator;
