@@ -27,6 +27,7 @@ import { initStars } from "./animations/stars.js";
 import { initWiden } from "./animations/widen.js";
 import { initExpand } from "./animations/expand.js";
 import { initHeroVideo } from "./components/hero-video.js";
+import { initBackgroundVideos } from "./components/background-video.js";
 import { initHeroIntro } from "./animations/hero-intro.js";
 import { initSpacesMap } from "./components/spaces-map.js";
 import { initSpaceMaps } from "./components/space-map.js";
@@ -53,6 +54,7 @@ onReady(() => {
   initNav();
   initHeroIntro();
   initHeroVideo(); // tôt : le hero est la première chose visible
+  initBackgroundVideos(); // autres vidéos de fond : pause si mouvement réduit ou hors écran
   initFooter();
   initCollapses();
   initTocs(); // sommaires (article, pages légales) : avant les animations

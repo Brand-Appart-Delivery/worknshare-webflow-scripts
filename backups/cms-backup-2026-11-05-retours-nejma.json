@@ -1,0 +1,15 @@
+{
+  "note": "Sauvegarde avant les retours client de Nejma (vault, 05/11) : préavis (G12) et domiciliation à la place d'impression (G8).",
+  "faq (6ae9130e8f8064abcef984fd)": {
+    "6ae91442d18a4ebaa079264b": {
+      "fr": { "name": "Quelle est la durée d’engagement ?", "reponse": "<p>Aucune pour le coworking. Un bureau privatif se prend sans engagement, avec un préavis d’un mois ; pour des bureaux opérés, la durée se fixe avec vous.</p>" },
+      "en": { "name": "How long is the commitment?", "reponse": "<p>None for coworking. A private office comes with no long-term commitment and one month’s notice; for managed offices, the term is agreed with you.</p>" }
+    }
+  },
+  "services (6ae9130d9c91e630c06762d4)": {
+    "6ae914428f31c3daf261eb27": {
+      "fr": { "name": "Impression et scan à la demande", "slug": "impression-scan", "icone": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aec8a4e16bd480e2ba5843b_6aec89e9e973126e6c29b7a2_service-impression-scan.svg" },
+      "en": { "name": "Printing and scanning on demand", "slug": "impression-scan" }
+    }
+  }
+}
