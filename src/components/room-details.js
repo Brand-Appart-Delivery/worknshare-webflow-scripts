@@ -321,7 +321,12 @@ function createConfigSwitch(box, labels, onChange) {
     group.appendChild(btn);
     return btn;
   });
-  box.after(group); // sous la boîte photo / plan, hors du cadre (Figma)
+  // Sous la boîte photo / plan, hors du cadre (Figma) : boîte et sélecteur
+  // regroupés dans la même colonne de la grille
+  const col = document.createElement("div");
+  col.className = "room-media-col";
+  box.before(col);
+  col.append(box, group);
   const indicator = createSegmentedIndicator(group, () => current, { copyColor: false });
 
   const select = (i, focus = false) => {

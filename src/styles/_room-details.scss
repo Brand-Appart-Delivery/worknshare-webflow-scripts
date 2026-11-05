@@ -312,3 +312,10 @@ $beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
     display: none;
   }
 }
+
+// Colonne photo / plan + sélecteur (créée par le JS)
+.room-media-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
