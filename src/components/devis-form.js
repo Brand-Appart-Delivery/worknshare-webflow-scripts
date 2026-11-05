@@ -1,17 +1,25 @@
-// src/components/devis-form.js — formulaire de devis de la page Événementiel.
+// src/components/devis-form.js — formulaire de devis (page Événementiel et
+// pages des lieux événementiels).
 //
 // STRUCTURE (posée dans Webflow) :
-//   form[data-form="devis"]                     formulaire Webflow (envoi par Webflow)
-//     [data-devis-formats]                      groupe de pastilles « Format »
-//       [data-devis-format-option="seminaire"]  pastille (lien role="radio")
-//     input[data-devis-format-input]            champ caché « format », envoyé
-//     select[data-devis-lieu]                   liste « Lieu »
+//   form[data-form="devis"]                         formulaire Webflow (envoi par Webflow)
+//     Groupes de pastilles (liens role="radio", style is-active posé dans Webflow) :
+//       [data-devis-formats]                        « Format » (page Événementiel)
+//         [data-devis-format-option="seminaire"]    pastille
+//       input[data-devis-format-input]              champ caché envoyé (nom affiché)
+//       [data-devis-restauration]                   « Restauration sur place »
+//         [data-devis-restauration-option="oui"]    pastille
+//       input[data-devis-restauration-input]        champ caché envoyé (« oui » / « non »)
+//     select[data-devis-format-select]              liste « Format » (pages lieux)
+//     select[data-devis-lieu]                       liste « Lieu »
+//     input[data-venue-espace-input]                champ « Espace », rempli avec
+//       [data-espace-name="Clichy"]                 le nom du lieu (lié au CMS)
 //
-// Clic (ou Entrée / Espace) sur une pastille : elle passe en is-active
-// (style posé dans Webflow), aria-checked="true", et son nom (« Séminaire »)
-// part dans le champ caché. Flèches gauche / droite : pastille voisine, comme
-// un groupe de boutons radio. Pré-remplissage depuis l'adresse :
-// /evenementiel?format=seminaire&lieu=clichy#devis
+//   a[data-devis-format="seminaire"]                carte de format (hors formulaire) :
+//                                                   au clic, présélectionne ce format
+//
+// Pastilles : clic, Entrée / Espace, flèches = comme un groupe de boutons radio.
+// Pré-remplissage depuis l'adresse : /evenementiel?format=seminaire&lieu=clichy#devis
 
 export function initDevisForms(root = document) {
   root.querySelectorAll('form[data-form="devis"]').forEach(initDevisForm);
@@ -21,9 +29,57 @@ function initDevisForm(form) {
   if (form.dataset.devisInit) return;
   form.dataset.devisInit = "1";
 
-  const options = [...form.querySelectorAll("[data-devis-format-option]")];
-  const input = form.querySelector("[data-devis-format-input]");
-  if (!options.length) return;
+  // Pastilles « Format » : le nom affiché (« Séminaire ») part dans le champ caché
+  const formats = radioGroup(form, "data-devis-format-option", "data-devis-format-input", (o) =>
+    o.textContent.trim(),
+  );
+  // Pastilles « Restauration » : la valeur (« oui » / « non ») part dans le champ caché
+  radioGroup(form, "data-devis-restauration-option", "data-devis-restauration-input", (o) =>
+    o.getAttribute("data-devis-restauration-option"),
+  );
+
+  const formatSelect = form.querySelector("[data-devis-format-select]");
+
+  // Choisit un format (pastille ou liste), ex. depuis une carte ou l'adresse
+  const pickFormat = (value) => {
+    if (!value) return;
+    formats?.selectValue(value);
+    if (formatSelect && [...formatSelect.options].some((o) => o.value === value)) {
+      formatSelect.value = value;
+      // prévient la liste personnalisée (custom-select.js)
+      formatSelect.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  };
+
+  // Cartes de format de la page : présélectionnent le format (l'ancre #devis
+  // fait défiler jusqu'au formulaire)
+  document.querySelectorAll("a[data-devis-format]").forEach((card) => {
+    card.addEventListener("click", () => pickFormat(card.getAttribute("data-devis-format")));
+  });
+
+  // Champ « Espace » des pages lieux : nom du lieu
+  const espace = form.querySelector("[data-venue-espace-input]");
+  const espaceName = espace?.getAttribute("data-espace-name")?.trim();
+  if (espace && espaceName && !espace.value) espace.value = espaceName;
+
+  // Pré-remplissage depuis l'adresse (?format=…&lieu=…)
+  const params = new URLSearchParams(window.location.search);
+  pickFormat(params.get("format"));
+
+  const lieu = params.get("lieu");
+  const lieuSelect = form.querySelector("[data-devis-lieu]");
+  if (lieu && lieuSelect && [...lieuSelect.options].some((o) => o.value === lieu)) {
+    lieuSelect.value = lieu;
+    lieuSelect.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+}
+
+// Groupe de pastilles qui se comporte comme des boutons radio. Garde le choix
+// posé dans Webflow (is-active / aria-checked="true"), sinon aucun choix.
+function radioGroup(form, optionAttr, inputAttr, valueOf) {
+  const options = [...form.querySelectorAll(`[${optionAttr}]`)];
+  if (!options.length) return null;
+  const input = form.querySelector(`[${inputAttr}]`);
 
   const select = (option, focus = false) => {
     options.forEach((o) => {
@@ -33,7 +89,7 @@ function initDevisForm(form) {
       // Un seul arrêt de tabulation dans le groupe : la pastille choisie
       o.tabIndex = on ? 0 : -1;
     });
-    if (input) input.value = option ? option.textContent.trim() : "";
+    if (input) input.value = option ? valueOf(option) : "";
     if (focus && option) option.focus();
   };
 
@@ -56,16 +112,15 @@ function initDevisForm(form) {
     });
   });
 
-  // Au départ : aucune pastille choisie, la première reçoit la tabulation
-  options.forEach((o, i) => (o.tabIndex = i === 0 ? 0 : -1));
+  // État de départ : celui de Webflow, sinon la première reçoit la tabulation
+  const initial = options.find((o) => o.getAttribute("aria-checked") === "true");
+  if (initial) select(initial);
+  else options.forEach((o, i) => (o.tabIndex = i === 0 ? 0 : -1));
 
-  // Pré-remplissage depuis l'adresse (?format=…&lieu=…)
-  const params = new URLSearchParams(window.location.search);
-  const format = params.get("format");
-  const match = format && options.find((o) => o.getAttribute("data-devis-format-option") === format);
-  if (match) select(match);
-
-  const lieu = params.get("lieu");
-  const lieuSelect = form.querySelector("[data-devis-lieu]");
-  if (lieu && lieuSelect && [...lieuSelect.options].some((o) => o.value === lieu)) lieuSelect.value = lieu;
+  return {
+    selectValue(value) {
+      const match = options.find((o) => o.getAttribute(optionAttr) === value);
+      if (match) select(match);
+    },
+  };
 }

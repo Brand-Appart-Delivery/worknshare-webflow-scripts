@@ -63,7 +63,7 @@ onReady(() => {
   initBlogFilters(); // page Blog : filtre par rubrique
   initFormLabels(); // libellés reliés à leurs champs (tous les formulaires)
   initContactForms(); // page Nous contacter
-  initDevisForms(); // page Événementiel : formulaire de devis
+  initDevisForms(); // formulaire de devis (Événementiel + pages lieux)
   initHouseShapes(); // formes maison aux angles arrondis
   initFormulas();
   initSliders();
