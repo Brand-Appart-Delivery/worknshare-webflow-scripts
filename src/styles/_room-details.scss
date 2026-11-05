@@ -20,8 +20,18 @@ $beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
 }
 
 // ---------- Carte ouverte : rose, « Refermer » + chevron ----------
+// Toute la carte ouvre le détail ; les liens-boutons (href retiré par le JS)
+// gardent la main
 [data-rooms] [data-room-card] {
+  cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+[data-rooms] [data-room-toggle],
+[data-rooms] [data-room-close],
+[data-rooms] [data-room-view-toggle],
+[data-rooms] [data-room-more] {
+  cursor: pointer;
 }
 
 [data-rooms] [data-room].is-open [data-room-card] {

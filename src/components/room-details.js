@@ -108,6 +108,12 @@ function initRoom(room, getAll) {
   }
 
   asButton(toggle, () => (isOpen ? close(false) : open()));
+  // Toute la carte est cliquable (le bouton reste la cible clavier)
+  const card = room.querySelector("[data-room-card]");
+  card?.addEventListener("click", (e) => {
+    if (e.target.closest("[data-room-toggle]")) return; // déjà géré
+    isOpen ? close(false) : open();
+  });
   room.querySelectorAll("[data-room-close]").forEach((btn) => asButton(btn, () => close()));
   panel.addEventListener("keydown", (e) => {
     if (e.key === "Escape") close();
