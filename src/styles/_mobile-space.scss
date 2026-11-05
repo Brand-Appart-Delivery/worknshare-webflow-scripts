@@ -93,6 +93,14 @@
 
   .space-rooms_grid .bento-card_content .space-inline-row {
     flex-wrap: wrap;
+    column-gap: 0.25em;
+  }
+
+  // Titre de la grande carte à la taille de la maquette (40 px)
+  .space-rooms_grid > .bento-card:first-child .space-inline-row,
+  .space-rooms_grid > .bento-card:first-child .space-inline-row > * {
+    font-size: 2.5rem !important;
+    line-height: 1 !important;
   }
 
   // ---------- L'espace en quelques mots : galerie en premier ----------
