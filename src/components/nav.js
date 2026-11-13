@@ -11,7 +11,8 @@
 //
 // ÉTATS : .is-open sur le panneau / tiroir ouvert (display géré par les combos
 // Webflow + _mega-menu.scss), aria-expanded sur les déclencheurs,
-// .is-nav-open sur <html> quand le tiroir est ouvert (scroll bloqué),
+// .is-nav-open sur <html> quand le tiroir ou le mega menu est ouvert (scroll bloqué),
+// .is-visible sur le voile (.nav-veil, créé par le JS) derrière le mega menu,
 // .is-scrolled sur [data-nav] quand elle est revenue en cours de page (fond
 // blanc), .is-hidden quand elle est cachée (scroll vers le bas).
 //
@@ -93,7 +94,31 @@ function setPanel(trigger, panel, open) {
   trigger.setAttribute("aria-expanded", String(open));
   // Accordéon du tiroir mobile : ouverture / fermeture animées
   if (panel.closest("[data-nav-panel]")) animateAccordion(panel, open);
-  else showPanel(panel, open);
+  else {
+    showPanel(panel, open);
+    syncScrollLock(panel.closest("[data-nav]"));
+  }
+}
+
+// ---------- Blocage du scroll de la page ----------
+// Scroll bloqué tant que le tiroir mobile ou un mega menu desktop est ouvert
+// (ou en train de s'ouvrir) ; débloqué dès le début de la fermeture.
+let scrollLocked = false;
+
+function syncScrollLock(header) {
+  if (!header) return;
+  const panels = header.querySelectorAll("[data-nav-panel], [data-mega-panel]");
+  const open = [...panels].some((panel) => !panel.closest("[data-nav-panel] [data-mega-panel]") && isPanelOpen(panel));
+  // Voile sur la page : mega menu desktop seulement (le tiroir couvre déjà l'écran)
+  const megaOpen = [...header.querySelectorAll("[data-mega-panel]")].some(
+    (panel) => !panel.closest("[data-nav-panel]") && isPanelOpen(panel),
+  );
+  setVeil(header, megaOpen);
+  if (open === scrollLocked) return;
+  scrollLocked = open;
+  document.documentElement.classList.toggle("is-nav-open", open);
+  const lenis = getLenis();
+  if (lenis) open ? lenis.stop() : lenis.start();
 }
 
 // ---------- Ouverture / fermeture du mega menu et du tiroir ----------
@@ -254,6 +279,32 @@ function initMegaPanels(header) {
   });
 }
 
+// ---------- Voile derrière le mega menu ----------
+// Vert 900 à 50 % sur toute la page, sous la nav (_mega-menu.scss). Placé juste
+// après le header : un clic dessus est un clic hors du header, qui ferme tout.
+
+let veil = null;
+
+function setVeil(header, open) {
+  if (!veil) {
+    if (!open) return;
+    veil = document.createElement("div");
+    veil.className = "nav-veil";
+    veil.setAttribute("aria-hidden", "true");
+    header.after(veil);
+  }
+  if (open) {
+    // Juste sous la nav : même contexte d'empilement, un cran en dessous
+    let z = parseInt(getComputedStyle(header).zIndex, 10);
+    if (Number.isNaN(z)) {
+      z = 100;
+      header.style.zIndex = String(z);
+    }
+    veil.style.zIndex = String(z - 1);
+  }
+  veil.classList.toggle("is-visible", open);
+}
+
 // ---------- Tiroir mobile ----------
 
 function initDrawer(header) {
@@ -332,9 +383,7 @@ function setDrawer(header, open) {
   toggle.setAttribute("aria-label", t(open ? "nav.close" : "nav.open"));
 
   // Scroll de la page bloqué pendant que le tiroir est ouvert
-  document.documentElement.classList.toggle("is-nav-open", open);
-  const lenis = getLenis();
-  if (lenis) open ? lenis.stop() : lenis.start();
+  syncScrollLock(header);
 
   // Fermeture : on referme aussi l'accordéon du tiroir, sans animation, une
   // fois le tiroir effacé (sinon les deux bougent en même temps)

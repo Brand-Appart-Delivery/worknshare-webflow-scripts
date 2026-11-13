@@ -283,12 +283,43 @@ $nav-bleu: '[data-nav]:has(+ [data-nav-theme="bleu"])';
   border-top: var(--nav-height, 96px) solid transparent;
 }
 
-// Tiroir mobile ouvert : la page derrière ne défile plus. Sur <html> seulement :
-// un overflow sur <body> en ferait une zone de défilement, et la nav collante
-// (sticky) s'y recalerait, tout en haut du document, hors de l'écran.
+// Tiroir mobile ou mega menu ouvert : la page derrière ne défile plus. Sur
+// <html> seulement : un overflow sur <body> en ferait une zone de défilement,
+// et la nav collante (sticky) s'y recalerait, tout en haut du document, hors
+// de l'écran. scrollbar-gutter garde la place de la barre de défilement
+// (Windows) : la page ne se décale pas à l'ouverture du mega menu.
 html.is-nav-open {
   overflow: hidden;
   overscroll-behavior: none;
+  scrollbar-gutter: stable;
+}
+
+// Voile derrière le mega menu (créé par nav.js) : vert 900 à 50 % sur la page,
+// sous la nav (z-index posé par le JS). Fondu à l'ouverture et à la fermeture.
+.nav-veil {
+  position: fixed;
+  inset: 0;
+  background-color: var(--_work-n-share---color--vert--900, #121404);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s 0.45s;
+}
+
+.nav-veil.is-visible {
+  opacity: 0.5;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-veil,
+  .nav-veil.is-visible {
+    transition: none;
+  }
 }
 
 // Burger : pas de soulignement ni de fond au clic

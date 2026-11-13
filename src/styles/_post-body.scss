@@ -134,7 +134,8 @@ $bordeaux-900: var(--_work-n-share---color--bordeaux--900, #2c0c10);
 }
 
 // Cartes « espaces liés » : pastille de disponibilité masquée si le champ est vide
-.post-spaces .tag:has(.w-dyn-bind-empty) {
+// (composant Label = classe rubrique-label)
+.post-spaces .rubrique-label:has(.w-dyn-bind-empty) {
   display: none;
 }
 
