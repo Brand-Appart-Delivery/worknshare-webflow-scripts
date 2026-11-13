@@ -7,7 +7,7 @@
 //       [data-map-list-toggle]        « Masquer la liste » (2e span = libellé)
 //       [data-space-list]             liste CMS des espaces : a[data-space][data-lat]…
 //         [data-space-time]           distance / temps (rempli par le JS)
-//         [data-space-time-label]     « à vol d'oiseau » / « en transports »
+//         [data-space-time-label]     « en transports » / « à pied » (les plus proches), vide sinon
 //     [data-map]                      zone carte (img de repli .map-module_bg)
 //       [data-place-card]             fiche au-dessus du pin (data-place-*)
 //       [data-map-zoom-in] [data-map-zoom-out] [data-map-reset]
@@ -93,36 +93,37 @@ function initModule(module) {
   function renderList() {
     if (!list) return;
     const shown = visibleSpaces();
-    // Depuis le point de recherche : temps en transports si reçu, sinon distance
     spaces.forEach((s) => {
       s.distance = state.origin ? distanceKm(state.origin, s) : null;
-      s.transit = state.origin ? (state.times.get(s.slug) ?? null) : null;
-      // Tout près, la marche bat les transports (PRIM ne propose que des trajets
-      // en transports) : on garde le plus court des deux
+      s.el.closest("[role='listitem'], .w-dyn-item")?.toggleAttribute("hidden", !shown.includes(s));
+    });
+
+    // Ordre : par distance si une recherche est faite, sinon ordre CMS
+    let ordered = state.origin ? [...shown].sort((a, b) => a.distance - b.distance) : shown;
+
+    // « Les plus proches » : temps de trajet (transports, ou à pied si c'est plus
+    // court) dès qu'il est reçu ; les autres espaces : distance seule (« 4,2 km »)
+    const nearest = state.origin ? ordered.slice(0, NEAREST_COUNT) : [];
+    spaces.forEach((s) => {
+      s.transit = null;
       s.onFoot = false;
-      if (s.transit != null && s.distance != null) {
+      const transit = nearest.includes(s) ? state.times.get(s.slug) : undefined;
+      if (Number.isFinite(transit)) {
         const walk = walkMinutes(s.distance);
-        if (walk <= s.transit) {
-          s.transit = walk;
-          s.onFoot = true;
-        }
+        s.onFoot = walk <= transit;
+        s.transit = Math.min(walk, transit);
       }
       const time = s.el.querySelector("[data-space-time]");
       const label = s.el.querySelector("[data-space-time-label]");
       if (time) time.textContent = s.transit != null ? formatDuration(s.transit) : s.distance != null ? formatDistance(s.distance) : "";
-      if (label) {
-        label.textContent =
-          s.transit != null ? t(s.onFoot ? "map.onFoot" : "map.transit") : s.distance != null ? t("map.distance") : "";
-      }
-      s.el.closest("[role='listitem'], .w-dyn-item")?.toggleAttribute("hidden", !shown.includes(s));
+      if (label) label.textContent = s.transit != null ? t(s.onFoot ? "map.onFoot" : "map.transit") : "";
     });
 
-    // Ordre : par temps de trajet si on l'a pour tous les espaces affichés,
-    // sinon par distance ; sans recherche, ordre CMS
-    const byTime = state.origin && shown.every((s) => s.transit != null);
-    const ordered = state.origin
-      ? [...shown].sort(byTime ? (a, b) => a.transit - b.transit : (a, b) => a.distance - b.distance)
-      : shown;
+    // Dans « Les plus proches », tri par temps de trajet quand on l'a pour tous
+    if (nearest.length && nearest.every((s) => s.transit != null)) {
+      nearest.sort((a, b) => a.transit - b.transit);
+      ordered = [...nearest, ...ordered.slice(NEAREST_COUNT)];
+    }
 
     // Groupes : « Les plus proches de… » puis par département
     list.querySelectorAll("[data-map-group]").forEach((g) => g.remove());
@@ -361,24 +362,33 @@ function initModule(module) {
   module.addEventListener("spaces:type", (e) => {
     state.type = e.detail.type === "salles" ? "salles" : "bureaux";
     renderList();
+    requestTimes(); // les plus proches peuvent changer avec le filtre
     if (state.active && !visibleSpaces().includes(state.active)) select(null);
     fitToSpaces();
   });
+
+  // Temps de trajet des « plus proches » encore inconnus : demandés en arrière-plan,
+  // la liste se met à jour à la réception (si la recherche n'a pas changé entre-temps)
+  function requestTimes() {
+    if (!state.origin) return;
+    const asked = state.origin;
+    const wanted = [...visibleSpaces()]
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, NEAREST_COUNT)
+      .filter((s) => !state.times.has(s.slug));
+    if (!wanted.length) return;
+    transitTimes(asked, wanted).then((times) => {
+      if (state.origin !== asked || !times.size) return;
+      times.forEach((minutes, slug) => state.times.set(slug, minutes));
+      renderList();
+    });
+  }
 
   function setOrigin(origin) {
     state.origin = origin && Number.isFinite(origin.lat) ? origin : null;
     state.times = new Map();
     renderList();
-    // Temps en transports : demandé en arrière-plan, la liste se met à jour à
-    // la réception (seulement si la recherche n'a pas changé entre-temps)
-    if (state.origin) {
-      const asked = state.origin;
-      transitTimes(asked, spaces).then((times) => {
-        if (state.origin !== asked || !times.size) return;
-        state.times = times;
-        renderList();
-      });
-    }
+    requestTimes();
     updateOriginMarker();
     if (state.origin) {
       const nearest = [...visibleSpaces()].sort((a, b) => a.distance - b.distance)[0];

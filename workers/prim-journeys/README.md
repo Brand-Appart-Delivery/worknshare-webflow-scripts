@@ -1,7 +1,7 @@
 # Temps de trajet en transports (PRIM IDFM)
 
 Relais Cloudflare entre le site et le calculateur d'itinéraires d'Île-de-France
-Mobilités. Il garde la clé PRIM côté serveur et met les trajets en cache 7 jours.
+Mobilités. Il garde la clé PRIM côté serveur et calcule les trajets en direct (départ maintenant).
 
 ## Mise en place (une seule fois)
 
@@ -22,6 +22,6 @@ Mobilités. Il garde la clé PRIM côté serveur et met les trajets en cache 7 j
 
 - Le site envoie `POST { from: { lat, lng }, to: [{ id, lat, lng }] }`.
 - Le Worker renvoie `{ times: { id: minutes | null } }`.
-- Trajets calculés pour le prochain jour ouvré à 9 h (temps « typique »).
+- Trajets en direct (départ maintenant), cache de 5 minutes sur domaine personnalisé.
 - Si le Worker ne répond pas, le site garde la distance « à vol d'oiseau ».
 - Domaines autorisés : `ALLOWED_ORIGINS` dans `wrangler.toml`.

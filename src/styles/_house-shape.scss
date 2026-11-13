@@ -8,12 +8,12 @@
 
 // Carte espace : la photo zoome au survol, la forme est réduite d'autant pour
 // que le contour visible ne bouge pas (cf. _card-zoom.scss)
-.space-card:is(:hover, :focus-visible) .space-card_image.is-house {
+.space-card:is(:hover, :focus-visible, :has(> .space-card_link:focus-visible)) .space-card_image.is-house {
   clip-path: var(--house-path-zoom) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .space-card:is(:hover, :focus-visible) .space-card_image.is-house {
+  .space-card:is(:hover, :focus-visible, :has(> .space-card_link:focus-visible)) .space-card_image.is-house {
     clip-path: var(--house-path) !important;
   }
 }

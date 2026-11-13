@@ -82,7 +82,8 @@ $radius: var(--_work-n-share---radius--m, 16px);
 }
 
 .space-card:hover .space-card_image,
-.space-card:focus-visible .space-card_image {
+.space-card:focus-visible .space-card_image,
+.space-card:has(> .space-card_link:focus-visible) .space-card_image {
   transform: scale($zoom);
   clip-path: polygon(50% 2.381%, 97.619% 25.238%, 97.619% 97.619%, 2.381% 97.619%, 2.381% 25.238%);
 }
@@ -112,7 +113,8 @@ $radius: var(--_work-n-share---radius--m, 16px);
   .mega-menu_banner:hover .mega-menu_banner-img,
   .mega-menu_banner:focus-visible .mega-menu_banner-img,
   .space-card:hover .space-card_image,
-  .space-card:focus-visible .space-card_image {
+  .space-card:focus-visible .space-card_image,
+  .space-card:has(> .space-card_link:focus-visible) .space-card_image {
     transform: none;
   }
 
@@ -124,7 +126,8 @@ $radius: var(--_work-n-share---radius--m, 16px);
   }
 
   .space-card:hover .space-card_image,
-  .space-card:focus-visible .space-card_image {
+  .space-card:focus-visible .space-card_image,
+  .space-card:has(> .space-card_link:focus-visible) .space-card_image {
     clip-path: polygon(50% 0%, 100% 24%, 100% 100%, 0% 100%, 0% 24%);
   }
 }

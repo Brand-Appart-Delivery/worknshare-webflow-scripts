@@ -1,0 +1,8 @@
+// Composant Webflow « Carte espace » (.space-card).
+// Pastille « Statut ouverture » (.status-badge, prop Disponibilité, champ CMS
+// Disponibilité) : masquée quand le texte est vide, que la carte soit reliée
+// au CMS (w-dyn-bind-empty) ou remplie à la main (texte vide).
+.space-card_tags > .status-badge:has(.w-dyn-bind-empty),
+.space-card_tags > .status-badge:has(> span:last-child:empty) {
+  display: none;
+}

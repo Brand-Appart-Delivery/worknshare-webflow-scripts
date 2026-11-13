@@ -20,3 +20,15 @@
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
+
+// Carte espace (composant « Carte espace ») : la carte est un div, un lien vide
+// (.space-card_link, posé dans Webflow en absolute sur toute la carte) passe
+// devant le contenu. Au focus clavier, c'est la carte entière qui s'entoure.
+.space-card_link:focus-visible {
+  outline: none;
+}
+
+.space-card:has(> .space-card_link:focus-visible) {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}

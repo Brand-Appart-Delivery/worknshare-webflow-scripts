@@ -6,9 +6,9 @@
 // Requête : POST { from: { lat, lng }, to: [{ id, lat, lng }, …] }   (20 destinations max)
 // Réponse : { times: { id: minutes | null } }   (null = pas d'itinéraire ou erreur)
 //
-// Les trajets sont calculés pour le prochain jour ouvré à 9 h (heure de Paris) :
-// un temps « typique », stable quelle que soit l'heure de la visite.
-// Chaque couple départ / arrivée est mis en cache 7 jours (coordonnées arrondies à ~100 m).
+// Trajets en direct : départ maintenant (horaires réels du réseau IDFM).
+// Chaque couple départ / arrivée est mis en cache 5 minutes (coordonnées arrondies à
+// ~100 m) ; le cache ne fonctionne que sur un domaine personnalisé, pas sur workers.dev.
 //
 // Réglages (wrangler) :
 //   secret PRIM_KEY          jeton PRIM (wrangler secret put PRIM_KEY)
@@ -16,29 +16,14 @@
 
 const PRIM_URL = "https://prim.iledefrance-mobilites.fr/marketplace/v2/navitia/journeys";
 const MAX_DESTINATIONS = 20;
-const CACHE_SECONDS = 7 * 24 * 3600;
+const CACHE_SECONDS = 5 * 60;
 
 // Coordonnée arrondie (3 décimales ≈ 100 m) : clé de cache et requête
 const round = (n) => Math.round(Number(n) * 1000) / 1000;
 const isCoord = (p) => p && Number.isFinite(Number(p.lat)) && Number.isFinite(Number(p.lng));
 
-// Prochain jour ouvré à 9 h, heure de Paris, au format Navitia (AAAAMMJJTHHMMSS)
-function nextWeekdayMorning() {
-  const parts = Object.fromEntries(
-    new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris", year: "numeric", month: "2-digit", day: "2-digit", weekday: "short", hour: "2-digit", hour12: false })
-      .formatToParts(new Date())
-      .map((p) => [p.type, p.value]),
-  );
-  const date = new Date(Date.UTC(+parts.year, +parts.month - 1, +parts.day));
-  // Après 9 h : on passe au lendemain ; puis on saute le week-end
-  if (+parts.hour >= 9) date.setUTCDate(date.getUTCDate() + 1);
-  while ([0, 6].includes(date.getUTCDay())) date.setUTCDate(date.getUTCDate() + 1);
-  const ymd = date.toISOString().slice(0, 10).replace(/-/g, "");
-  return `${ymd}T090000`;
-}
-
 // Durée en minutes du meilleur itinéraire, ou null
-async function journeyMinutes(from, to, datetime, env, ctx) {
+async function journeyMinutes(from, to, env, ctx) {
   const key = `https://prim-cache.local/j?f=${round(from.lat)},${round(from.lng)}&t=${round(to.lat)},${round(to.lng)}`;
   const cache = caches.default;
   const hit = await cache.match(key);
@@ -47,7 +32,6 @@ async function journeyMinutes(from, to, datetime, env, ctx) {
   const url = new URL(PRIM_URL);
   url.searchParams.set("from", `${round(from.lng)};${round(from.lat)}`);
   url.searchParams.set("to", `${round(to.lng)};${round(to.lat)}`);
-  url.searchParams.set("datetime", datetime);
   url.searchParams.set("count", "3");
 
   let minutes = null;
@@ -105,8 +89,7 @@ export default {
     if (!isCoord(from) || !Array.isArray(to)) return json({ error: "from / to invalides" }, 400);
 
     const targets = to.filter((t) => t && t.id != null && isCoord(t)).slice(0, MAX_DESTINATIONS);
-    const datetime = nextWeekdayMorning();
-    const results = await Promise.all(targets.map((t) => journeyMinutes(from, t, datetime, env, ctx)));
+    const results = await Promise.all(targets.map((t) => journeyMinutes(from, t, env, ctx)));
 
     const times = {};
     targets.forEach((t, i) => (times[t.id] = results[i]));

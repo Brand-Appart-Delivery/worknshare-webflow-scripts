@@ -133,12 +133,6 @@ $bordeaux-900: var(--_work-n-share---color--bordeaux--900, #2c0c10);
   display: none;
 }
 
-// Cartes « espaces liés » : pastille de disponibilité masquée si le champ est vide
-// (composant Label = classe rubrique-label)
-.post-spaces .rubrique-label:has(.w-dyn-bind-empty) {
-  display: none;
-}
-
 // Barre de progression : largeur posée par le JS (variable --progress, 0 à 1)
 .post-progress_bar {
   width: calc(var(--progress, 0) * 100%);

@@ -178,7 +178,9 @@ $modes: (
 // couleurs portées par ses variantes. Même règle : un seul picto par mode.
 @each $mode, $label in $modes {
   .ligne[data-line-mode="#{$mode}"] + .ligne[data-line-mode="#{$mode}"],
-  .w-dyn-item:has(.ligne[data-line-mode="#{$mode}"]) + .w-dyn-item .ligne[data-line-mode="#{$mode}"] {
+  // (enfants directs seulement : sinon la règle déborde d'une carte à la
+  // suivante quand les cartes sont elles-mêmes dans une liste CMS)
+  .w-dyn-item:has(> .ligne[data-line-mode="#{$mode}"]) + .w-dyn-item > .ligne[data-line-mode="#{$mode}"] {
     > .transport-mode {
       display: none;
     }
@@ -217,20 +219,3 @@ $mode-classes: (
   display: none;
 }
 
-// ---------- Cartes « Près de… » (gabarit Espace) ----------
-// Webflow interdit une liste CMS dans un lien : le bloc d'accès
-// (.space-card_access, avec la liste « Lignes ») est posé à côté du lien de la
-// carte, dans l'élément de liste. On garde la carte en colonne et l'accès en bas.
-[data-space-near] .w-dyn-item:has(> .space-card + .space-card_access) {
-  display: flex;
-  flex-direction: column;
-  gap: var(--_work-n-share---space--12, 12px);
-
-  > .space-card {
-    flex: 1;
-  }
-
-  > .space-card_access {
-    margin-top: 0;
-  }
-}

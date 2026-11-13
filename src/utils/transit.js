@@ -8,14 +8,14 @@
 export const TRANSIT_URL = "https://wns-prim-journeys.amprod.workers.dev";
 
 const TIMEOUT = 8000; // ms : au-delà, on garde la distance
-const cache = new Map(); // point de départ arrondi -> Promise<Map<slug, minutes>>
+const cache = new Map(); // départ arrondi + espaces demandés -> Promise<Map<slug, minutes>>
 
 const round = (n) => Math.round(n * 1000) / 1000;
 
 // Map slug -> minutes (seulement les espaces pour lesquels un trajet a été trouvé)
 export function transitTimes(origin, spaces) {
   if (!TRANSIT_URL || !origin || !spaces.length) return Promise.resolve(new Map());
-  const key = `${round(origin.lat)},${round(origin.lng)}`;
+  const key = `${round(origin.lat)},${round(origin.lng)}|${spaces.map((s) => s.slug).sort().join(",")}`;
   if (cache.has(key)) return cache.get(key);
 
   const controller = new AbortController();
