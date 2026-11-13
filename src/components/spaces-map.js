@@ -26,6 +26,7 @@ import { loadMapLibre, STYLE_URL, applyTheme, PIN_SVG, escapeHtml } from "../uti
 import { distanceKm, formatDistance } from "../utils/geo.js";
 import { readSpaces } from "../utils/spaces-data.js";
 import { loadStations, nearestStations, renderLines } from "../utils/stations.js";
+import { transitTimes, formatDuration, walkMinutes } from "../utils/transit.js";
 import { prefersReducedMotion } from "../utils/motion.js";
 import { t } from "../utils/i18n.js";
 import { initScrollZone } from "../utils/scroll-zone.js";
@@ -77,7 +78,8 @@ function initModule(module) {
 
   // Onglet de départ : data-map-tab="salles" sur le module (page Événementiel)
   const startType = module.getAttribute("data-map-tab") === "salles" ? "salles" : "bureaux";
-  const state = { origin: null, active: null, type: startType, map: null, markers: new Map(), originMarker: null };
+  // times : minutes en transports par slug (utils/transit.js), vide tant que non reçu
+  const state = { origin: null, times: new Map(), active: null, type: startType, map: null, markers: new Map(), originMarker: null };
   const card = module.querySelector("[data-place-card]");
   let sheet = null; // panneau mobile (map-sheet.js), créé plus bas
   const carousel = createPlaceCarousel(card);
@@ -91,18 +93,36 @@ function initModule(module) {
   function renderList() {
     if (!list) return;
     const shown = visibleSpaces();
-    // Distances depuis le point de recherche
+    // Depuis le point de recherche : temps en transports si reçu, sinon distance
     spaces.forEach((s) => {
       s.distance = state.origin ? distanceKm(state.origin, s) : null;
+      s.transit = state.origin ? (state.times.get(s.slug) ?? null) : null;
+      // Tout près, la marche bat les transports (PRIM ne propose que des trajets
+      // en transports) : on garde le plus court des deux
+      s.onFoot = false;
+      if (s.transit != null && s.distance != null) {
+        const walk = walkMinutes(s.distance);
+        if (walk <= s.transit) {
+          s.transit = walk;
+          s.onFoot = true;
+        }
+      }
       const time = s.el.querySelector("[data-space-time]");
       const label = s.el.querySelector("[data-space-time-label]");
-      if (time) time.textContent = s.distance != null ? formatDistance(s.distance) : "";
-      if (label) label.textContent = s.distance != null ? t("map.distance") : "";
+      if (time) time.textContent = s.transit != null ? formatDuration(s.transit) : s.distance != null ? formatDistance(s.distance) : "";
+      if (label) {
+        label.textContent =
+          s.transit != null ? t(s.onFoot ? "map.onFoot" : "map.transit") : s.distance != null ? t("map.distance") : "";
+      }
       s.el.closest("[role='listitem'], .w-dyn-item")?.toggleAttribute("hidden", !shown.includes(s));
     });
 
-    // Ordre : par distance si une recherche est faite, sinon ordre CMS
-    const ordered = state.origin ? [...shown].sort((a, b) => a.distance - b.distance) : shown;
+    // Ordre : par temps de trajet si on l'a pour tous les espaces affichés,
+    // sinon par distance ; sans recherche, ordre CMS
+    const byTime = state.origin && shown.every((s) => s.transit != null);
+    const ordered = state.origin
+      ? [...shown].sort(byTime ? (a, b) => a.transit - b.transit : (a, b) => a.distance - b.distance)
+      : shown;
 
     // Groupes : « Les plus proches de… » puis par département
     list.querySelectorAll("[data-map-group]").forEach((g) => g.remove());
@@ -347,7 +367,18 @@ function initModule(module) {
 
   function setOrigin(origin) {
     state.origin = origin && Number.isFinite(origin.lat) ? origin : null;
+    state.times = new Map();
     renderList();
+    // Temps en transports : demandé en arrière-plan, la liste se met à jour à
+    // la réception (seulement si la recherche n'a pas changé entre-temps)
+    if (state.origin) {
+      const asked = state.origin;
+      transitTimes(asked, spaces).then((times) => {
+        if (state.origin !== asked || !times.size) return;
+        state.times = times;
+        renderList();
+      });
+    }
     updateOriginMarker();
     if (state.origin) {
       const nearest = [...visibleSpaces()].sort((a, b) => a.distance - b.distance)[0];

@@ -86,8 +86,13 @@
 // Flèches bleu marine (blog de l'accueil) : pleine quand on peut avancer dans
 // ce sens, en contour quand on est au bout. Au départ : gauche en contour,
 // droite pleine ; elles s'inversent en fin de liste.
+// Composant « Flèche slider », variante Marine : Webflow pose la classe
+// w-variant-<id de la variante> sur la flèche.
+$arrow-marine: ".slider_arrow.w-variant-886e7ed1-74bf-8965-57da-2d3ff684bc74";
+
 .slider_arrow.is-navy,
-.slider_arrow.is-outline-navy {
+.slider_arrow.is-outline-navy,
+#{$arrow-marine} {
   border: 1.5px solid var(--_work-n-share---color--bleu--900, #0e1b3a);
   transition:
     background-color 0.25s ease,
@@ -114,7 +119,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .slider_arrow.is-navy,
-  .slider_arrow.is-outline-navy {
+  .slider_arrow.is-outline-navy,
+  #{$arrow-marine} {
     transition: none;
   }
 }

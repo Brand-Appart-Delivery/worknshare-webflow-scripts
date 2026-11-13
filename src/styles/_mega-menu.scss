@@ -275,13 +275,10 @@ $nav-bleu: '[data-nav]:has(+ [data-nav-theme="bleu"])';
   }
 }
 
-// Le hero qui suit ce header remonte sous la nav : son fond passe derrière la nav
-// transparente, et une bordure transparente de la hauteur de la nav redescend son
-// contenu à la même place (le fond est peint sous la bordure).
-[data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad + * {
-  margin-top: calc(var(--nav-height, 96px) * -1);
-  border-top: var(--nav-height, 96px) solid transparent;
-}
+// Le hero qui suit la nav remonte dessous (fond derrière la nav transparente) :
+// réglé dans Webflow sur les classes des heros (events-hero, offices-hero, enc),
+// marge haute négative et padding haut de la hauteur de la nav (96 px, 76 px
+// sous 768 px), pour que le Designer l'affiche aussi.
 
 // Tiroir mobile ou mega menu ouvert : la page derrière ne défile plus. Sur
 // <html> seulement : un overflow sur <body> en ferait une zone de défilement,
@@ -555,14 +552,6 @@ $nav-themes: (
       background-color 0.25s ease,
       border-color 0.25s ease;
   }
-}
-
-// Le hero remonte sous la nav : son fond passe derrière la nav transparente ;
-// la bordure transparente (de la hauteur de la nav) redescend son contenu à la
-// même place (même principe que la variante Événementiel).
-[data-nav] + [data-nav-theme] {
-  margin-top: calc(var(--nav-height, 96px) * -1);
-  border-top: var(--nav-height, 96px) solid transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {

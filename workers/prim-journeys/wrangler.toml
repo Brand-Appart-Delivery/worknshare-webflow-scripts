@@ -1,0 +1,9 @@
+# Relais Cloudflare vers le calculateur d'itinéraires IDFM (PRIM).
+# Déploiement : voir README.md à côté.
+name = "wns-prim-journeys"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+# Domaines autorisés à appeler le Worker (production, staging Webflow, dev local)
+ALLOWED_ORIGINS = "https://www.workandshare.com,https://workandshare.com,https://work-share.webflow.io,https://dev.michelaxel.fr,http://localhost:3001"

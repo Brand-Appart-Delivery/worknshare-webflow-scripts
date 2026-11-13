@@ -48,7 +48,7 @@
 [data-a].in{opacity:1;transform:none;
   transition:opacity var(--t4) var(--e2),transform var(--t4) var(--e2)}
 
-.enc.plie{min-height:auto;padding-top:clamp(94px,11.5vh,130px);
+.enc.plie{min-height:auto;padding-top:calc(clamp(94px,11.5vh,130px) + var(--nav-height,96px));
   padding-bottom:clamp(52px,6vh,86px)}
 
 
