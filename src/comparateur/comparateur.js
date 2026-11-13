@@ -1149,6 +1149,7 @@ function lumieres(){
   for(var i=0;i<f.length;i++){
     var dort=i>actif, vif=(i===actif&&!faits[i]), fait=faits[i];
     f[i].classList.toggle('dort',dort);
+    f[i].toggleAttribute('inert',dort); // pas encore actif : hors focus et hors lecture
     f[i].classList.toggle('vif',vif);
     f[i].classList.toggle('fait',fait);
     /* ─────────── NE JAMAIS REECRIRE UN ATTRIBUT INCHANGE ───────────

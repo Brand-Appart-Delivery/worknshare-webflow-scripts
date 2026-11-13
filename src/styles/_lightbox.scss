@@ -22,15 +22,12 @@ html.is-lightbox-open body {
   padding: 24px $lb-gutter 32px;
   background-color: $lb-bg;
   color: $lb-accent;
-  opacity: 0;
-  transition: opacity 0.25s ease;
+  overflow: hidden; // les photos qui glissent sortent par les bords de l'écran
 
+  // Ouverture / fermeture : découpe animée depuis la photo cliquée
+  // (components/lightbox.js), plus de fondu
   &[hidden] {
     display: none;
-  }
-
-  &.is-open {
-    opacity: 1;
   }
 }
 
@@ -75,6 +72,9 @@ html.is-lightbox-open body {
   background: transparent;
   color: inherit;
   cursor: pointer;
+  // Au-dessus des photos qui glissent
+  position: relative;
+  z-index: 2;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
@@ -112,16 +112,28 @@ html.is-lightbox-open body {
   height: 100%;
   min-width: 0;
   margin: 0;
-  touch-action: pan-y;
-  transition: opacity 0.2s ease;
+  position: relative;
+  touch-action: none; // glissé et zoom gérés par components/lightbox.js
 
+  // Photo en chargement (lien lent) : pas de fondu, curseur d'attente
   &.is-loading {
-    opacity: 0.5;
+    cursor: progress;
   }
+}
+
+// Ancienne photo qui sort en glissant (components/lightbox.js)
+.lightbox_image.is-leaving {
+  position: absolute;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  pointer-events: none;
 }
 
 .lightbox_image {
   display: block;
+  transform-origin: 50% 100%; // pivot en bas : la photo penche en glissant
+  cursor: zoom-in;
   max-width: min(100%, 1088px);
   max-height: 100%;
   border-radius: 24px;
@@ -130,9 +142,13 @@ html.is-lightbox-open body {
 }
 
 // ---------- Miniatures ----------
+// Centrées tant qu'elles tiennent ; s'il y en a trop, la rangée défile (doigt,
+// trackpad) et la miniature active est ramenée au centre. Marges automatiques
+// plutôt que justify-content: center, qui rendrait les premières inaccessibles
+// une fois la rangée plus large que l'écran.
 .lightbox_thumbs {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 8px;
   overflow-x: auto;
   scrollbar-width: none;
@@ -144,6 +160,14 @@ html.is-lightbox-open body {
   &[hidden] {
     display: none;
   }
+}
+
+.lightbox_thumb:first-child {
+  margin-left: auto;
+}
+
+.lightbox_thumb:last-child {
+  margin-right: auto;
 }
 
 .lightbox_thumb {
@@ -366,5 +390,24 @@ html.is-lightbox-open body {
   [data-gallery] .space-gallery_main,
   [data-gallery] .space-gallery_thumbs {
     transition: none;
+  }
+}
+
+// ---------- Zoom (clic sur la photo, components/lightbox.js) ----------
+// Tout est masqué sauf la photo agrandie ; on glisse pour se déplacer.
+.lightbox.is-zoomed {
+  .lightbox_bar,
+  .lightbox_button,
+  .lightbox_thumbs,
+  .lightbox_caption {
+    visibility: hidden;
+  }
+
+  .lightbox_image {
+    cursor: grab;
+  }
+
+  .lightbox_image:active {
+    cursor: grabbing;
   }
 }

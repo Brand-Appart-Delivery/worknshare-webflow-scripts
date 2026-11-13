@@ -18,6 +18,12 @@
 //
 // Légende de chaque photo : son texte alternatif. Les doublons (même image)
 // ne sont comptés qu'une fois.
+//
+// Vignettes en slider (≤ 991 px, data-mobile-slider sur les vignettes) : les
+// photos cachées derrière « +N » sont ajoutées en vignettes (copies de la
+// 1re vignette de [data-gallery-thumbs], classe .is-gallery-extra) et la
+// tuile « +N » (.is-gallery-more) est masquée. Au-dessus : l'inverse.
+// Styles : _mobile-space.scss.
 
 import { createLightbox } from "./lightbox.js";
 import { createTabIndicator } from "../utils/tab-indicator.js";
@@ -69,6 +75,7 @@ function initGallery(gallery) {
     counter.textContent = rest > 0 ? `+${rest}` : "";
     counter.hidden = rest <= 0;
   }
+  addExtraThumbs(gallery, photos, shown, counter);
 
   const lightbox = createLightbox();
   const tourTab = gallery.querySelector("[data-tour-360]");
@@ -102,6 +109,31 @@ function initGallery(gallery) {
     main.style.cursor = "zoom-in";
     main.addEventListener("click", () => lightbox.open(photos, 0, main));
   }
+}
+
+// Vignettes des photos cachées derrière « +N » (affichées seulement quand les
+// vignettes deviennent un slider, cf. en-tête)
+function addExtraThumbs(gallery, photos, shown, counter) {
+  const list = gallery.querySelector("[data-gallery-thumbs]");
+  const model = list?.querySelector("[data-gallery-open]");
+  if (!model || photos.length <= shown) return;
+  counter?.closest("[data-gallery-open]")?.classList.add("is-gallery-more");
+  photos.slice(shown).forEach((photo, i) => {
+    const index = shown + i;
+    const thumb = model.cloneNode(true);
+    thumb.classList.add("is-gallery-extra");
+    thumb.setAttribute("data-gallery-open", String(index));
+    thumb.setAttribute("aria-label", t("gallery.open", { index: index + 1 }));
+    const img = thumb.querySelector("img");
+    if (img) {
+      img.removeAttribute("srcset");
+      img.removeAttribute("sizes");
+      img.src = photo.thumb || photo.src;
+      img.alt = photo.alt;
+      img.loading = "lazy";
+    }
+    list.appendChild(thumb);
+  });
 }
 
 // Adresse de la visite : le champ CMS peut contenir l'adresse (ex. Matterport

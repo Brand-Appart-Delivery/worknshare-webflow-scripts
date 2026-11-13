@@ -16,6 +16,28 @@
   display: none;
 }
 
+// Burger jusqu'à 1199 px (Webflow ne bascule qu'à 991 px) : entre 992 et
+// 1199 px, les liens + logo + boutons débordent. On reprend ici ce que fait
+// le breakpoint tablette de Webflow. Même valeur que DESKTOP_QUERY (nav.js).
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  [data-nav] .navbar_menu {
+    display: none;
+  }
+
+  [data-nav] [data-nav-toggle] {
+    display: flex;
+  }
+
+  [data-nav] [data-mega-panel].is-open:not([data-nav-panel] *) {
+    display: none;
+  }
+
+  // flex (pas block) : boutons du tiroir calés en bas, cf. plus bas
+  [data-nav] [data-nav-panel].is-open {
+    display: flex;
+  }
+}
+
 // Arrivée de la nav au chargement : elle descend du haut de l'écran jusqu'à sa
 // place. En CSS pur (pas d'attente du JS) ; « both » la garde cachée avant le
 // départ. Pas d'animation si l'utilisateur a réduit les animations (plus bas).
@@ -172,7 +194,8 @@ $menu-ease: cubic-bezier(0.22, 1, 0.36, 1);
   background-color: $blanc;
 
   .navbar_link,
-  .logo {
+  .logo,
+  [data-nav-toggle] {
     color: $fonce;
   }
 
@@ -266,20 +289,132 @@ html.is-nav-open body {
   -webkit-tap-highlight-color: transparent;
 }
 
-// Apparition douce du panneau et du tiroir
-.mega-menu.is-open,
-.mega-menu_drawer.is-open {
-  animation: mega-menu-in $menu-fade $menu-ease;
+// ---------- Burger → croix (traits créés par nav.js) ----------
+// Ouverture : les traits du haut et du bas glissent au centre (le trait du
+// milieu s'efface), puis pivotent en croix. Fermeture : l'inverse (ils se
+// redressent, puis s'écartent). Chaque trait tourne autour de son propre centre.
+$burger-ease: cubic-bezier(0.22, 1, 0.36, 1);
+$burger-move: 0.25s;
+$burger-turn: 0.35s;
+
+.navbar_burger-line {
+  transform-box: view-box;
+  // Fermeture : rotation d'abord, glissement ensuite
+  transition:
+    rotate $burger-turn $burger-ease,
+    translate $burger-move $burger-ease 0.15s,
+    opacity 0.15s ease 0.15s,
+    scale $burger-move $burger-ease 0.15s;
+
+  &.is-top {
+    transform-origin: 12px 7px;
+  }
+
+  &.is-middle {
+    transform-origin: 12px 12px;
+  }
+
+  &.is-bottom {
+    transform-origin: 12px 17px;
+  }
 }
 
-@keyframes mega-menu-in {
+[data-nav-toggle][aria-expanded="true"] .navbar_burger-line {
+  // Ouverture : glissement d'abord, rotation ensuite
+  transition:
+    translate $burger-move $burger-ease,
+    opacity 0.15s ease,
+    scale $burger-move $burger-ease,
+    rotate $burger-turn $burger-ease 0.15s;
+
+  &.is-top {
+    translate: 0 5px;
+    rotate: 45deg;
+  }
+
+  &.is-middle {
+    opacity: 0;
+    scale: 0 1;
+  }
+
+  &.is-bottom {
+    translate: 0 -5px;
+    rotate: -45deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar_burger-line,
+  [data-nav-toggle][aria-expanded="true"] .navbar_burger-line {
+    transition: none;
+  }
+}
+
+// Ouverture / fermeture du panneau et du tiroir : translation animée en JS
+// (nav.js, showPanel). Le panneau glisse SOUS la nav : pendant qu'un menu est
+// ouvert, un cache blanc (::before) couvre toute la hauteur de la nav, au-dessus
+// du panneau (z-index 20) et sous le contenu de la barre (.navbar_inner).
+[data-nav]:has([data-nav-panel].is-open, [data-mega-panel].is-open)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 21;
+  background-color: var(--_work-n-share---color--blanc, #ffffff);
+  pointer-events: none;
+}
+
+[data-nav] .navbar_inner {
+  position: relative;
+  z-index: 22;
+}
+
+// Tiroir : au moins toute la hauteur de l'écran sous la nav (dvh : hauteur
+// visible réelle sur mobile, barres du navigateur comprises ; vh en secours)
+[data-nav-panel] {
+  min-height: calc(100vh - var(--nav-height, 80px));
+  min-height: calc(100dvh - var(--nav-height, 80px));
+  max-height: calc(100vh - var(--nav-height, 80px));
+  max-height: calc(100dvh - var(--nav-height, 80px));
+}
+
+// Boutons « Appeler » / « Contact » (.mega-menu_bar) calés en bas de l'écran :
+// le tiroir passe en colonne et les entrées prennent la place libre. Si le
+// contenu dépasse (accordéon ouvert), la barre reste collée en bas (sticky,
+// réglé dans Webflow) pendant que le tiroir défile.
+@media screen and (max-width: 1199px) {
+  [data-nav-panel].is-open {
+    display: flex;
+    flex-direction: column;
+
+    > * {
+      flex-shrink: 0;
+    }
+
+    .mega-menu_bar {
+      margin-top: auto;
+      // Encoche / barre d'accueil des iPhone : les boutons restent au-dessus
+      padding-bottom: calc(var(--_work-n-share---space--12, 12px) + env(safe-area-inset-bottom, 0px));
+    }
+  }
+}
+
+// Accordéon du tiroir (« Nos espaces ») : le trait sous l'entrée devient celui
+// du bas du panneau, qui descend pendant l'ouverture (animation : nav.js).
+[data-nav-panel] [data-mega-trigger]:has(+ [data-mega-panel].is-open) {
+  border-bottom-color: transparent;
+}
+
+// Liens du panneau : apparaissent en fondu pendant l'ouverture
+[data-nav-panel] [data-mega-panel].is-open > * {
+  animation: mega-menu-sub-in 0.35s ease 0.1s both;
+}
+
+@keyframes mega-menu-sub-in {
   from {
     opacity: 0;
-    transform: translateY(-8px);
   }
   to {
     opacity: 1;
-    transform: none;
   }
 }
 
@@ -312,8 +447,7 @@ html.is-nav-open body {
     animation: none;
   }
 
-  .mega-menu.is-open,
-  .mega-menu_drawer.is-open {
+  [data-nav-panel] [data-mega-panel].is-open > * {
     animation: none;
   }
 
@@ -349,7 +483,8 @@ $nav-themes: (
     background-color: transparent;
 
     .navbar_link,
-    .logo {
+    .logo,
+    [data-nav-toggle] {
       color: $creme;
     }
 
@@ -375,7 +510,8 @@ $nav-themes: (
 [data-nav]:has(+ [data-nav-theme]) {
   .navbar_link,
   .logo,
-  .button {
+  .button,
+  [data-nav-toggle] {
     transition:
       color 0.25s ease,
       background-color 0.25s ease,
@@ -395,7 +531,8 @@ $nav-themes: (
   [data-nav]:has(+ [data-nav-theme]) {
     .navbar_link,
     .logo,
-    .button {
+    .button,
+    [data-nav-toggle] {
       transition: none;
     }
   }
@@ -445,4 +582,31 @@ $nav-themes: (
   .navbar_pill {
     transition: opacity 0.2s ease;
   }
+}
+
+// ---------- Lien d'évitement « Aller au contenu » (nav.js) ----------
+// Hors écran jusqu'au premier Tab, puis visible en haut à gauche.
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 2000;
+  padding: 12px 20px;
+  border-radius: var(--_work-n-share---radius--pill, 999px);
+  background-color: var(--_work-n-share---color--vert--700, #3b400f);
+  color: var(--_work-n-share---color--vert--100, #eefc96);
+  font-weight: 500;
+  text-decoration: none;
+  transform: translateY(-200%);
+
+  &:focus-visible {
+    transform: none;
+    outline: 2px solid var(--_work-n-share---color--vert--700, #3b400f);
+    outline-offset: 3px;
+  }
+}
+
+// Bloc atteint par le lien : pas de contour au focus (focus posé par le code)
+[id="contenu"]:focus {
+  outline: none;
 }

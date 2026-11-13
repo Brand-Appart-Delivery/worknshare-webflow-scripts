@@ -1,0 +1,22 @@
+// Cartes entières cliquables (components/card-link.js).
+// Le lien ajouté dans la carte est caché à l'écran (lu par les lecteurs
+// d'écran, atteint au clavier) ; quand il a le focus, c'est la carte entière
+// qui s'entoure.
+
+.is-card-link {
+  cursor: pointer;
+}
+
+.card-link_anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.is-card-link:has(.card-link_anchor:focus-visible) {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}

@@ -13,6 +13,32 @@
   transform: scale(1.04);
 }
 
+// ---------- Bento (.event-bento) : largeurs qui suivent l'écran ----------
+// Dans Webflow, la grande carte fait 500 px et la carte large 420 px : sous
+// ~1280 px, les autres cartes sont écrasées (textes coupés).
+// - 1280 px et plus : mêmes proportions que la maquette, en % ;
+// - 992 à 1279 px : disposition tablette de Webflow (grande carte au-dessus).
+@media screen and (min-width: 1280px) {
+  .event-bento .event-card.is-large {
+    flex-basis: 39%; // 500 / 1280
+  }
+
+  .event-bento .event-card.is-wide {
+    flex-basis: 55.5%; // 420 / 756 (largeur de la colonne de droite)
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1279px) {
+  .event-bento {
+    flex-direction: column;
+  }
+
+  .event-bento .event-card.is-large {
+    flex-basis: auto;
+    min-height: 360px;
+  }
+}
+
 // Animations réduites : pas de zoom
 @media (prefers-reduced-motion: reduce) {
   .event-card_photo {

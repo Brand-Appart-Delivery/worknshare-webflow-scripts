@@ -1,0 +1,94 @@
+// Tableau « Comparer les offres » (Bureaux flexibles).
+// STRUCTURE (Webflow) : [data-compare] (boîte blanche) > [role="table"]
+// (tableau de 880 px minimum).
+//
+// Dans Webflow, la boîte blanche garde la largeur de l'écran et le tableau
+// défile à l'intérieur. Sous 992 px (le tableau ne tient plus), c'est la boîte
+// entière qui défile : elle prend la largeur du tableau, et son enveloppe
+// (.compare_scroller, créée par components/compare.js) défile jusqu'aux bords
+// de l'écran (marges du site compensées), comme les carrousels.
+
+@mixin compare-scroll($marge) {
+  // Enveloppe de la boîte : zone qui défile, jusqu'aux bords de l'écran
+  .compare_scroller {
+    margin-inline: calc(#{$marge} * -1);
+    padding-inline: $marge;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // La boîte blanche fait la largeur du tableau (plus de défilement dedans)
+  [data-compare] {
+    width: max-content;
+    min-width: 100%;
+    overflow-x: visible;
+  }
+
+  [data-compare] > [role="table"] {
+    width: 880px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  @include compare-scroll(var(--_work-n-share---layout--marge, 24px));
+}
+
+@media screen and (max-width: 767px) {
+  @include compare-scroll(var(--_work-n-share---layout--marge-mobile, 24px));
+}
+
+// ---------- Curseur sous la boîte (components/compare.js) ----------
+// Même style que la barre de défilement des listes (_scroll-indicator.scss),
+// à l'horizontale. Masqué (attribut hidden) quand le tableau tient.
+.compare_bar {
+  position: relative;
+  height: 4px;
+  margin-top: 16px;
+  border-radius: 4px;
+  background-color: var(--_work-n-share---color--vert--700-a16, rgba(59, 64, 15, 0.16));
+  cursor: pointer;
+
+  // Zone de clic plus haute que le trait
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -8px 0;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.compare_thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--_work-n-share---color--vert--700, #3b400f);
+  cursor: grab;
+  touch-action: none;
+
+  // Zone de prise plus haute que la poignée
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -10px 0;
+  }
+
+  .compare_bar.is-dragging & {
+    cursor: grabbing;
+  }
+}
+
+// Focus clavier sur la zone qui défile
+.compare_scroller:focus-visible {
+  outline: 2px solid var(--_work-n-share---color--vert--700, #3b400f);
+  outline-offset: 4px;
+}

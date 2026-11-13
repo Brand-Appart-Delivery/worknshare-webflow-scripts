@@ -16,32 +16,55 @@
 //   data-slider-per-view="3"      slides visibles en desktop (≥ 992 px)
 //   data-slider-per-view-tablet="2.2"  de 768 à 991 px
 //   data-slider-per-view-mobile="1.15" en dessous de 768 px
-//   data-slider-mobile-only="true"  slider seulement en mobile (≤ 767 px) :
-//                                 au-dessus, la grille Webflow reste telle quelle
-//                                 (Swiper retiré si on agrandit la fenêtre)
+//   data-slider-mobile-only="true"  slider seulement en mobile et tablette
+//                                 (≤ 991 px, avant que la grille passe en
+//                                 colonne) : au-dessus, la grille Webflow reste
+//                                 telle quelle (Swiper retiré si on agrandit).
+//                                 En tablette : data-slider-per-view-tablet, sinon
+//                                 2,2 slides si per-view-mobile est posé
 //   data-slider-gap="edge"        les slides hors vue sont repoussées hors de la
 //                                 page (marge jusqu'au bord de l'écran + 24 px) et
 //                                 entrent / sortent par les côtés ; l'espace entre
 //                                 les slides visibles reste celui de Webflow
 //
+// Navigation : flèches, points, clavier, glissé (souris / doigt) et glissé à
+// deux doigts au trackpad (horizontal).
+//
 // Sans data-slider-per-view : largeur des slides donnée par Webflow
 // (slidesPerView "auto"). L'espace entre slides reprend le gap de la piste.
 // États : .is-disabled sur une flèche en bout de course, .is-active sur le point actif.
+//
+// Swiper est chargé ici, seulement sur les pages qui ont un [data-slider]
+// (plus besoin de la balise dans le footer Webflow). S'il est déjà présent sur
+// window (ancienne balise du footer), on s'en sert directement.
 
 import { prefersReducedMotion } from "../utils/motion.js";
 import { requestScrollRefresh } from "../utils/scroll-refresh.js";
 import { t } from "../utils/i18n.js";
+import { SLIDER_QUERY } from "../utils/env.js";
+import { loadScript } from "../utils/load-asset.js";
+
+const SWIPER_SRC = "https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js";
 
 const EDGE_EXTRA = 24; // px au-delà du bord de l'écran (option data-slider-gap="edge")
 
-const MOBILE = "(max-width: 767px)";
+const TABLET_PER_VIEW = 2.2; // slides visibles en tablette (mode mobile seulement)
 
 export function initSliders(root = document) {
+  const blocks = root.querySelectorAll("[data-slider]");
+  if (!blocks.length) return;
+  if (typeof window.Swiper !== "undefined") return setupSliders(blocks);
+  loadScript(SWIPER_SRC)
+    .then(() => setupSliders(blocks))
+    .catch((err) => console.warn("[slider]", err.message));
+}
+
+function setupSliders(blocks) {
   if (typeof window.Swiper === "undefined") return;
-  root.querySelectorAll("[data-slider]").forEach((block) => {
+  blocks.forEach((block) => {
     if (!readBool(block, "data-slider-mobile-only")) return initSlider(block);
-    // Mobile seulement : créé en entrant en mobile, retiré en sortant
-    const mq = window.matchMedia(MOBILE);
+    // Mobile seulement : créé sous 992 px, retiré au-dessus
+    const mq = window.matchMedia(SLIDER_QUERY);
     let destroy = null;
     const sync = () => {
       if (mq.matches && !destroy) destroy = initSlider(block, { mobileOnly: true });
@@ -120,7 +143,12 @@ function initSlider(block, { mobileOnly = false } = {}) {
   const perViewTablet = readNumber(block, "data-slider-per-view-tablet", perView);
   const perViewMobile = readNumber(block, "data-slider-per-view-mobile", perViewTablet);
   const sizing = mobileOnly
-    ? { slidesPerView: perViewMobile || "auto" }
+    ? perViewMobile
+      ? {
+          slidesPerView: perViewMobile,
+          breakpoints: { 768: { slidesPerView: readNumber(block, "data-slider-per-view-tablet", TABLET_PER_VIEW) } },
+        }
+      : { slidesPerView: "auto" }
     : perView
     ? {
         slidesPerView: perViewMobile,
@@ -160,8 +188,15 @@ function initSlider(block, { mobileOnly = false } = {}) {
       paginationBulletMessage: t("slider.goto"),
       firstSlideMessage: t("slider.first"),
       lastSlideMessage: t("slider.last"),
+      // role="group" n'est permis que sur un bloc neutre (div) : pas sur un
+      // lien, un élément de liste ou un article (sinon liste cassée pour les
+      // lecteurs d'écran)
+      slideRole: slides[0].tagName === "DIV" ? "group" : "",
     },
     keyboard: { enabled: true, onlyInViewport: true },
+    // Glissé à deux doigts au trackpad (et molette horizontale) : une slide par
+    // geste. Horizontal seulement : le défilement vertical de la page passe.
+    mousewheel: { forceToAxis: true, thresholdDelta: 10 },
     on: {
       // Slider prêt ou redimensionné : la hauteur de page a pu bouger
       afterInit: () => requestScrollRefresh(),

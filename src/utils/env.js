@@ -10,6 +10,10 @@ export const BREAKPOINTS = {
   tablet: 992,
 };
 
+// Sliders « mobile » (data-slider-mobile-only, data-mobile-slider) : actifs
+// jusqu'à 991 px, avant que les grilles Webflow passent en colonne.
+export const SLIDER_QUERY = "(max-width: 991px)";
+
 export function maxWidthQuery(px) {
   return window.matchMedia(`(max-width: ${px}px)`);
 }

@@ -1,4 +1,5 @@
-// src/core/core.js — démarrage global : scroll fluide (Lenis, optionnel) + ancres.
+// src/core/core.js — démarrage global : scroll fluide (Lenis, optionnel, souris /
+// trackpad seulement : scroll natif sur mobile et tablette tactile) + ancres.
 import { requestScrollRefresh } from "../utils/scroll-refresh.js";
 import { prefersReducedMotion } from "../utils/motion.js";
 
@@ -89,6 +90,11 @@ export function initLenis() {
   if (lenisInstance) return lenisInstance;
   if (!SMOOTH_SCROLL_ENABLED || typeof window.Lenis === "undefined") return null;
   if (prefersReducedMotion()) return null;
+  // Appareils tactiles sans souris ni trackpad (téléphones, tablettes) : scroll
+  // natif. Lenis ne lisserait rien (le doigt n'est pas lissé) mais tournerait
+  // à chaque image pour rien. Tous les modules ont un repli natif sans Lenis.
+  // Tablette avec trackpad ou ordinateur tactile : Lenis gardé (« any- »).
+  if (!window.matchMedia("(any-hover: hover) and (any-pointer: fine)").matches) return null;
 
   // lerp (et pas « duration ») : avec une durée fixe, chaque coup de molette
   // relance une animation qui part vite puis freine longtemps, d'où des à-coups

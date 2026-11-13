@@ -14,6 +14,7 @@ import { initCollapses } from "./components/collapse.js";
 import { initNav } from "./components/nav.js";
 import { initFooter } from "./components/footer.js";
 import { initFormulas } from "./components/formula.js";
+import { initCompare } from "./components/compare.js";
 import { initSliders } from "./components/slider.js";
 import { initPhotoSliders } from "./components/photo-slider.js";
 import { initRoomsFilters } from "./components/rooms-filter.js";
@@ -70,6 +71,7 @@ onReady(() => {
   initDevisForms(); // formulaire de devis (Événementiel + pages lieux)
   initHouseShapes(); // formes maison aux angles arrondis
   initFormulas();
+  initCompare();
   initSliders();
   initPhotoSliders();
   initRoomsFilters(); // pages lieux : filtre « Combien serez-vous ? »

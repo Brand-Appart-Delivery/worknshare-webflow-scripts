@@ -14,6 +14,7 @@
 // Rien si l'utilisateur a réduit les animations.
 
 import { prefersReducedMotion } from "../utils/motion.js";
+import { SLIDER_QUERY } from "../utils/env.js";
 
 const ROTATIONS = [-7, 5, -3, 6, -5, 3]; // degrés, carte par carte
 const OFFSETS = [
@@ -35,8 +36,8 @@ export function initCardsStack(root = document) {
 function initGrid(grid) {
   const cards = [...grid.children];
   if (cards.length < 2) return;
-  // Carrousel mobile (slider ou _mobile-slider.scss) : cartes à faire glisser, pas de paquet
-  if (grid.matches("[data-mobile-slider], [data-slider-track]") && window.matchMedia("(max-width: 767px)").matches) return;
+  // Carrousel mobile / tablette (slider ou _mobile-slider.scss) : cartes à faire glisser, pas de paquet
+  if (grid.matches("[data-mobile-slider], [data-slider-track]") && window.matchMedia(SLIDER_QUERY).matches) return;
 
   // Cartes côte à côte (même ligne) ? Sinon pas d'effet
   const sameRow = () => cards.every((card) => Math.abs(card.offsetTop - cards[0].offsetTop) < 4);

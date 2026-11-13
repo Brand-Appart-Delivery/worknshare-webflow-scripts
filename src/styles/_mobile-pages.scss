@@ -15,6 +15,16 @@
   }
 }
 
+// ---------- Heros « bureaux » (Bureaux flexibles, Recrutement…) ----------
+// Sous 992 px, le hero passe en colonne et la photo « maison » (360 px max)
+// se calait à gauche : elle est centrée sous le texte. La variante claire en
+// mobile (pleine largeur, au-dessus du texte) n'est pas concernée.
+@media screen and (max-width: 991px) {
+  .offices-hero_media {
+    align-self: center;
+  }
+}
+
 // ---------- Pages légales (Figma 4726:29065, 29423, 29462) ----------
 // Tableaux empilés : la 1re cellule de chaque ligne devient le titre du bloc
 // (son intitulé de colonne est masqué), comme sur la maquette

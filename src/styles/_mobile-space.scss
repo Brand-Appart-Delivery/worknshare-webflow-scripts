@@ -76,15 +76,6 @@
     text-align: center;
   }
 
-  // ---------- Près de… : slider (grille d'une colonne qui ne doit pas
-  // s'élargir avec Swiper)
-  .space-near_grid > *,
-  [data-space-near],
-  [data-space-near] > .w-dyn-list {
-    min-width: 0;
-    max-width: 100%;
-  }
-
   // ---------- Salles : grande carte, titre qui revient à la ligne ----------
   .space-rooms_grid .bento-card_content {
     max-width: 100%;
@@ -108,6 +99,43 @@
     order: -1;
   }
 
+  // Vignettes sous la photo principale (slider : _mobile-slider.scss)
+  [data-gallery] .space-gallery_thumb,
+  [data-gallery] .space-gallery_more {
+    border-radius: 16px;
+    overflow: hidden;
+  }
+}
+
+// Galerie d'un espace : vignettes des photos cachées derrière « +N »
+// (components/space-gallery.js). Desktop : tuile « +N » ; en slider (≤ 991 px) :
+// toutes les photos en vignettes, plus de tuile « +N ».
+[data-gallery] .is-gallery-extra {
+  display: none !important;
+}
+
+@media screen and (max-width: 991px) {
+  [data-gallery] .is-gallery-extra {
+    display: block !important;
+  }
+
+  [data-gallery] .is-gallery-more {
+    display: none !important;
+  }
+}
+
+// Sliders mobile / tablette (≤ 991 px, cf. _mobile-slider.scss et slider.js) :
+// les grilles qui les contiennent ne doivent pas s'élargir avec eux
+@media screen and (max-width: 991px) {
+  // ---------- Près de… : slider (grille d'une colonne qui ne doit pas
+  // s'élargir avec Swiper)
+  .space-near_grid > *,
+  [data-space-near],
+  [data-space-near] > .w-dyn-list {
+    min-width: 0;
+    max-width: 100%;
+  }
+
   // Colonnes de la grille : pas plus larges que l'écran (le slider de
   // vignettes défile dedans au lieu d'élargir la page)
   [data-space-section="intro"] [data-gallery],
@@ -115,13 +143,6 @@
   [data-space-section="intro"] .space-intro_content {
     min-width: 0;
     max-width: 100%;
-  }
-
-  // Vignettes sous la photo principale (slider : _mobile-slider.scss)
-  [data-gallery] .space-gallery_thumb,
-  [data-gallery] .space-gallery_more {
-    border-radius: 16px;
-    overflow: hidden;
   }
 }
 

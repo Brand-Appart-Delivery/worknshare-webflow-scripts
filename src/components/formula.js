@@ -11,8 +11,10 @@
 // sa couleur (utils/tab-indicator.js). États : .is-active sur l'onglet,
 // attribut hidden sur les panneaux inactifs. Styles : _formula.scss.
 //
-// En mobile, les onglets sont remplacés par une liste déroulante (même choix,
-// libellés des onglets), habillée par custom-select.js (_mobile-home.scss).
+// Quand les onglets ne tiennent pas sur une ligne (quelle que soit la largeur
+// d'écran), ils sont remplacés par une liste déroulante (même choix, libellés
+// des onglets), habillée par custom-select.js : .is-compact sur [data-formula]
+// (_mobile-home.scss).
 
 import { requestScrollRefresh } from "../utils/scroll-refresh.js";
 import { createTabIndicator } from "../utils/tab-indicator.js";
@@ -94,6 +96,26 @@ function initFormula(formula) {
   listWrap.className = "formula_select";
   listWrap.appendChild(list);
   tablist.after(listWrap);
+
+  // Onglets ou liste : on réaffiche les onglets le temps de mesurer s'ils
+  // débordent (sans affichage entre-temps), puis on choisit
+  const updateCompact = () => {
+    formula.classList.remove("is-compact");
+    const overflows = tablist.scrollWidth > tablist.clientWidth + 1;
+    formula.classList.toggle("is-compact", overflows);
+  };
+  updateCompact();
+  // Largeur qui change (fenêtre) ou police chargée : on revérifie. On ne suit
+  // que la largeur (le changement onglets / liste modifie la hauteur).
+  let lastWidth = formula.clientWidth;
+  if (typeof ResizeObserver !== "undefined") {
+    new ResizeObserver(() => {
+      if (formula.clientWidth === lastWidth) return;
+      lastWidth = formula.clientWidth;
+      updateCompact();
+    }).observe(formula);
+  }
+  if (document.fonts) document.fonts.ready.then(updateCompact);
 
   // Fond glissant, placé derrière les onglets (couleur selon data-formula-theme)
   const indicator = createTabIndicator(tablist, {

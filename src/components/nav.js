@@ -24,19 +24,24 @@
 import { t } from "../utils/i18n.js";
 import { getLenis } from "../core/core.js";
 import { createScrollIndicator } from "../utils/scroll-indicator.js";
+import { prefersReducedMotion } from "../utils/motion.js";
 
-const DESKTOP_QUERY = window.matchMedia("(min-width: 992px)");
+// Nav desktop à partir de 1200 px : en dessous, les liens + boutons ne tiennent
+// plus sur une ligne, on passe au burger (même valeur que _mega-menu.scss).
+const DESKTOP_QUERY = window.matchMedia("(min-width: 1200px)");
 const HOVER_QUERY = window.matchMedia("(hover: hover) and (pointer: fine)");
 const HOVER_CLOSE_DELAY = 250; // ms avant fermeture quand la souris sort
 
-// Icônes du burger (tracés SVG)
-const ICON_MENU = "M4 7h16M4 12h16M4 17h16";
-const ICON_CLOSE = "M6 6l12 12M18 6L6 18";
+// Burger : 3 traits (haut, milieu, bas), animés en croix par le CSS
+// (_mega-menu.scss) selon aria-expanded du bouton
+const SVG_NS = "http://www.w3.org/2000/svg";
+const BURGER_LINES = ["top", "middle", "bottom"];
 
 export function initNav(root = document) {
   const header = root.querySelector("[data-nav]");
   if (!header) return;
 
+  initSkipLink(header);
   initMegaPanels(header);
   initDrawer(header);
   initScrollState(header);
@@ -61,6 +66,22 @@ export function initNav(root = document) {
   DESKTOP_QUERY.addEventListener("change", () => closeAll(header));
 }
 
+// ---------- Lien d'évitement « Aller au contenu » ----------
+// Premier élément atteint au clavier (Tab) : saute la nav et mène au premier
+// bloc qui suit le header. Caché tant qu'il n'a pas le focus (_mega-menu.scss).
+function initSkipLink(header) {
+  const target = header.nextElementSibling;
+  if (!target || document.querySelector(".skip-link")) return;
+  if (!target.id) target.id = "contenu";
+  target.setAttribute("tabindex", "-1"); // reçoit le focus sans entrer dans l'ordre Tab
+  const link = document.createElement("a");
+  link.className = "skip-link";
+  link.href = `#${target.id}`;
+  link.textContent = t("nav.skip");
+  link.addEventListener("click", () => requestAnimationFrame(() => target.focus({ preventScroll: true })));
+  document.body.prepend(link);
+}
+
 // ---------- Panneaux (mega menu desktop + accordéon mobile) ----------
 
 function getPanel(header, trigger) {
@@ -69,8 +90,112 @@ function getPanel(header, trigger) {
 }
 
 function setPanel(trigger, panel, open) {
-  panel.classList.toggle("is-open", open);
   trigger.setAttribute("aria-expanded", String(open));
+  // Accordéon du tiroir mobile : ouverture / fermeture animées
+  if (panel.closest("[data-nav-panel]")) animateAccordion(panel, open);
+  else showPanel(panel, open);
+}
+
+// ---------- Ouverture / fermeture du mega menu et du tiroir ----------
+// Le panneau glisse depuis le bas de la nav (translation seule, gérée par la
+// carte graphique) en passant SOUS la nav : un cache blanc couvre toute la
+// hauteur de la nav pendant qu'un menu est ouvert (_mega-menu.scss). Pas de
+// clip-path : animé à part, il se décalait de la translation aux premières
+// images (bande du panneau visible par-dessus la nav). Fermeture : le même
+// mouvement à l'envers. Un clic pendant l'animation la fait repartir dans l'autre sens.
+// .is-open reste posé jusqu'à la fin de la fermeture (fond blanc de la nav).
+
+const PANEL_DURATION = 450; // ms
+const PANEL_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+const PANEL_FRAMES = [{ transform: "translateY(-100%)" }, { transform: "translateY(0)" }];
+const panelAnims = new WeakMap(); // panneau -> { anim, open }
+
+function showPanel(panel, open) {
+  const state = panelAnims.get(panel);
+  if (state) {
+    // Animation en cours : on repart dans l'autre sens depuis là où elle en est
+    if (state.open !== open) {
+      state.open = open;
+      state.anim.reverse();
+    }
+    return;
+  }
+  if (panel.classList.contains("is-open") === open) return;
+  panel.classList.add("is-open");
+  if (prefersReducedMotion() || getComputedStyle(panel).display === "none") {
+    panel.classList.toggle("is-open", open);
+    return;
+  }
+  // fill "forwards" : l'état final reste affiché jusqu'au retrait de .is-open
+  // (sinon le panneau réapparaît ouvert une image avant de disparaître)
+  const anim = panel.animate(PANEL_FRAMES, {
+    duration: PANEL_DURATION,
+    easing: PANEL_EASE,
+    direction: open ? "normal" : "reverse",
+    fill: "forwards",
+  });
+  const entry = { anim, open };
+  panelAnims.set(panel, entry);
+  anim.onfinish = () => {
+    panelAnims.delete(panel);
+    if (!entry.open) panel.classList.remove("is-open");
+    anim.cancel();
+  };
+}
+
+// Panneau ouvert (ou en train de s'ouvrir), hors fermeture en cours
+function isPanelOpen(panel) {
+  const state = panelAnims.get(panel);
+  return state ? state.open : panel.classList.contains("is-open");
+}
+
+// ---------- Accordéon du tiroir (« Nos espaces ») ----------
+// Le panneau se déplie en hauteur : sa bordure du bas (le trait sous l'entrée,
+// cf. _mega-menu.scss) descend avec lui et révèle les liens ; à la fermeture,
+// elle remonte jusqu'à l'entrée. .is-open reste posé jusqu'à la fin de la
+// fermeture. Sans animation si l'utilisateur a réduit les animations.
+
+const ACCORDION_DURATION = 450; // ms
+const ACCORDION_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+const accordionAnims = new WeakMap();
+
+function animateAccordion(panel, open) {
+  const running = accordionAnims.get(panel);
+  const wasShown = panel.classList.contains("is-open");
+  if (!running && wasShown === open) return;
+
+  // Point de départ : hauteur actuelle (au milieu d'une animation, ou fermé)
+  const border = parseFloat(getComputedStyle(panel).borderBottomWidth) || 0;
+  const collapsed = { height: `${border}px`, paddingBottom: "0px" };
+  const from = wasShown
+    ? { height: `${panel.getBoundingClientRect().height}px`, paddingBottom: getComputedStyle(panel).paddingBottom }
+    : collapsed;
+  if (running) running.cancel();
+  accordionAnims.delete(panel);
+
+  panel.classList.add("is-open");
+  if (prefersReducedMotion()) {
+    panel.classList.toggle("is-open", open);
+    return;
+  }
+  // Hauteur dépliée (mesurée sans animation)
+  const expanded = { height: `${panel.getBoundingClientRect().height}px`, paddingBottom: getComputedStyle(panel).paddingBottom };
+
+  panel.style.overflow = "hidden";
+  // fill "forwards" : l'état final reste affiché jusqu'au retrait de .is-open
+  // (sinon le panneau réapparaît déplié une image avant de disparaître)
+  const anim = panel.animate([from, open ? expanded : collapsed], {
+    duration: ACCORDION_DURATION,
+    easing: ACCORDION_EASE,
+    fill: "forwards",
+  });
+  accordionAnims.set(panel, anim);
+  anim.onfinish = () => {
+    accordionAnims.delete(panel);
+    panel.style.overflow = "";
+    if (!open) panel.classList.remove("is-open");
+    anim.cancel();
+  };
 }
 
 function initMegaPanels(header) {
@@ -80,7 +205,7 @@ function initMegaPanels(header) {
 
     // Les liens sans href ne réagissent pas à Entrée / Espace : on le gère
     trigger.setAttribute("aria-expanded", "false");
-    const toggle = () => setPanel(trigger, panel, !panel.classList.contains("is-open"));
+    const toggle = () => setPanel(trigger, panel, trigger.getAttribute("aria-expanded") !== "true");
 
     trigger.addEventListener("click", (e) => {
       e.preventDefault();
@@ -123,7 +248,7 @@ function initMegaPanels(header) {
     header.addEventListener("focusout", (e) => {
       const next = e.relatedTarget;
       if (!next || (!trigger.contains(next) && !panel.contains(next))) {
-        if (panel.classList.contains("is-open") && !panel.matches(":hover")) setPanel(trigger, panel, false);
+        if (isPanelOpen(panel) && !panel.matches(":hover")) setPanel(trigger, panel, false);
       }
     });
   });
@@ -138,6 +263,7 @@ function initDrawer(header) {
 
   toggle.setAttribute("aria-expanded", "false");
   toggle.setAttribute("aria-label", t("nav.open"));
+  buildBurgerIcon(toggle);
   // Le tiroir défile seul : Lenis ne doit pas capter sa molette / son tactile
   drawer.setAttribute("data-lenis-prevent", "");
   // Barre de défilement maison (la même que la liste de la carte)
@@ -145,18 +271,18 @@ function initDrawer(header) {
 
   toggle.addEventListener("click", (e) => {
     e.preventDefault();
-    setDrawer(header, !drawer.classList.contains("is-open"));
+    setDrawer(header, !isPanelOpen(drawer));
   });
   toggle.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      setDrawer(header, !drawer.classList.contains("is-open"));
+      setDrawer(header, !isPanelOpen(drawer));
     }
   });
 
   // Tab bloqué entre le burger et le tiroir quand il est ouvert
   header.addEventListener("keydown", (e) => {
-    if (e.key !== "Tab" || !drawer.classList.contains("is-open")) return;
+    if (e.key !== "Tab" || !isPanelOpen(drawer)) return;
     const focusables = [toggle, ...drawer.querySelectorAll("a[href], [role='button'], button, input")].filter(
       (el) => el.offsetParent !== null,
     );
@@ -182,37 +308,62 @@ function initDrawer(header) {
   });
 }
 
+// Remplace le tracé unique du burger (3 traits dans un seul path) par 3 paths
+// séparés, que le CSS peut déplacer et tourner un par un.
+function buildBurgerIcon(toggle) {
+  const svg = toggle.querySelector("svg");
+  if (!svg) return;
+  svg.querySelectorAll("path").forEach((path) => path.remove());
+  BURGER_LINES.forEach((name, i) => {
+    const line = document.createElementNS(SVG_NS, "path");
+    line.setAttribute("d", `M4 ${7 + i * 5}h16`);
+    line.setAttribute("class", `navbar_burger-line is-${name}`);
+    svg.append(line);
+  });
+}
+
 function setDrawer(header, open) {
   const toggle = header.querySelector("[data-nav-toggle]");
   const drawer = header.querySelector("[data-nav-panel]");
   if (!toggle || !drawer) return;
 
-  drawer.classList.toggle("is-open", open);
+  showPanel(drawer, open);
   toggle.setAttribute("aria-expanded", String(open));
   toggle.setAttribute("aria-label", t(open ? "nav.close" : "nav.open"));
-  const path = toggle.querySelector("svg path");
-  if (path) path.setAttribute("d", open ? ICON_CLOSE : ICON_MENU);
 
   // Scroll de la page bloqué pendant que le tiroir est ouvert
   document.documentElement.classList.toggle("is-nav-open", open);
   const lenis = getLenis();
   if (lenis) open ? lenis.stop() : lenis.start();
 
-  // Fermeture : on referme aussi l'accordéon du tiroir
+  // Fermeture : on referme aussi l'accordéon du tiroir, sans animation, une
+  // fois le tiroir effacé (sinon les deux bougent en même temps)
   if (!open) {
     drawer.querySelectorAll("[data-mega-trigger]").forEach((trigger) => {
       const panel = getPanel(header, trigger);
-      if (panel) setPanel(trigger, panel, false);
+      if (!panel) return;
+      trigger.setAttribute("aria-expanded", "false");
+      setTimeout(() => {
+        if (trigger.getAttribute("aria-expanded") === "true") return; // rouvert entre-temps
+        const running = accordionAnims.get(panel);
+        if (running) running.cancel();
+        accordionAnims.delete(panel);
+        panel.style.overflow = "";
+        panel.classList.remove("is-open");
+      }, PANEL_DURATION);
     });
   }
 }
 
 function closeAll(header) {
   header.querySelectorAll("[data-mega-trigger]").forEach((trigger) => {
+    // Accordéon du tiroir : refermé avec le tiroir (setDrawer)
+    if (trigger.closest("[data-nav-panel]")) return;
     const panel = getPanel(header, trigger);
     if (panel) setPanel(trigger, panel, false);
   });
-  if (header.querySelector("[data-nav-panel].is-open")) setDrawer(header, false);
+  const drawer = header.querySelector("[data-nav-panel]");
+  if (drawer && isPanelOpen(drawer)) setDrawer(header, false);
 }
 
 // ---------- Nav au scroll : part avec la page, revient quand on remonte ----------

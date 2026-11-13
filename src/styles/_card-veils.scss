@@ -1,0 +1,25 @@
+// Voiles en dégradé des cartes « photo + texte » (classes créées dans Webflow).
+// En desktop, la photo est à gauche et le voile se fond vers la droite, dans
+// le fond du texte. Sous 992 px, ces cartes passent en colonne (photo au-dessus) :
+// le voile tourne et se fond vers le bas. Webflow le fait déjà pour
+// .formula-compare_veil ; ici, les autres cartes du même format.
+
+@media screen and (max-width: 991px) {
+  // Bannière « Une salle pour une réunion… » (Bureaux flexibles…)
+  .offices-banner_veil {
+    background-image: linear-gradient(180deg, #2c0c1000 35%, #2c0c10);
+  }
+
+  .offices-banner_veil.is-office {
+    background-image: linear-gradient(180deg, #0e1b3a00 35%, #0e1b3a);
+  }
+
+  .offices-banner_veil.is-green {
+    background-image: linear-gradient(180deg, #12140400 35%, #121404);
+  }
+
+  // Bureaux opérés d'une page espace
+  .space-managed_veil {
+    background-image: linear-gradient(180deg, #56260b00 35%, #56260b 100%);
+  }
+}

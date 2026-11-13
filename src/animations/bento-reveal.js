@@ -19,6 +19,7 @@
 // Rien si l'utilisateur a réduit les animations.
 
 import { prefersReducedMotion } from "../utils/motion.js";
+import { SLIDER_QUERY } from "../utils/env.js";
 
 const DEFAULT_SELECTOR = ".event-card";
 const DEFAULT_SPREAD = 450; // ms
@@ -30,8 +31,8 @@ export function initBentoReveal(root = document) {
 }
 
 function initBento(bento) {
-  // Bento devenu slider en mobile : ses tuiles bougent déjà avec le slider
-  if (bento.matches("[data-slider-track]") && window.matchMedia("(max-width: 767px)").matches) return;
+  // Bento devenu slider (mobile, tablette) : ses tuiles bougent déjà avec le slider
+  if (bento.matches("[data-slider-track]") && window.matchMedia(SLIDER_QUERY).matches) return;
   const selector = bento.getAttribute("data-bento-reveal") || DEFAULT_SELECTOR;
   const tiles = selector === "self" ? [bento] : [...bento.querySelectorAll(selector)];
   if (!tiles.length) return;

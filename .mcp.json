@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "webflow-wns": {
+      "type": "http",
+      "url": "https://mcp.webflow.com/mcp"
+    }
+  }
+}

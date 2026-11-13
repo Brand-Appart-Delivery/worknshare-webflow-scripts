@@ -1,0 +1,10 @@
+// Grille des avis (.reviews-grid, classes créées dans Webflow).
+// Webflow garde 4 colonnes jusqu'à 992 px : sous ~1280 px, les cartes
+// deviennent trop étroites et les citations illisibles. De 992 à 1279 px,
+// on passe à 2 colonnes, comme le breakpoint tablette de Webflow.
+
+@media screen and (min-width: 992px) and (max-width: 1279px) {
+  .reviews-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

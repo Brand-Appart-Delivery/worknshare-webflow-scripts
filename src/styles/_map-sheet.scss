@@ -216,18 +216,36 @@ $sheet-ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   // Points sous le slider
+  // Un point par espace : la fenêtre en montre 5, la rangée glisse dedans
+  // (map-sheet.js). Points du bord plus petits quand d'autres suivent.
   .map-sheet_dots {
     display: flex;
     justify-content: center;
-    gap: 6px;
     margin-top: 14px;
+  }
+
+  .map-sheet_dots-window {
+    overflow: hidden;
+  }
+
+  .map-sheet_dots-track {
+    display: flex;
+    gap: 6px;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 
     span {
+      flex: 0 0 6px;
       width: 6px;
       height: 6px;
       border-radius: 50%;
       background-color: $vert-700a16;
-      transition: background-color 0.2s ease, width 0.2s ease;
+      transition:
+        background-color 0.2s ease,
+        transform 0.25s ease;
+    }
+
+    span.is-small {
+      transform: scale(0.6);
     }
 
     span.is-active {
@@ -259,6 +277,11 @@ $sheet-ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .map-sheet_dots-track,
+    .map-sheet_dots-track span {
+      transition: none;
+    }
+
     .is-sheet [data-map-list] {
       transition: none;
     }

@@ -36,14 +36,15 @@ $radius: var(--_work-n-share---radius--m, 16px);
   overflow: hidden;
   cursor: pointer;
 
-  &:focus-visible {
+  // Focus clavier sur le lien caché de la carte (card-link.js)
+  &:has(.card-link_anchor:focus-visible) {
     outline: 2px solid var(--_work-n-share---color--rose--300, #ffa7e0);
     outline-offset: 3px;
   }
 }
 
 .bento-card.is-card-link:hover .bento-card_image,
-.bento-card.is-card-link:focus-visible .bento-card_image,
+.bento-card.is-card-link:has(.card-link_anchor:focus-visible) .bento-card_image,
 .events-format-card:hover .events-format-card_image,
 .events-format-card:focus-visible .events-format-card_image,
 .space-gallery_thumb:hover .space-cover,
@@ -103,7 +104,7 @@ $radius: var(--_work-n-share---radius--m, 16px);
   }
 
   .bento-card.is-card-link:hover .bento-card_image,
-  .bento-card.is-card-link:focus-visible .bento-card_image,
+  .bento-card.is-card-link:has(.card-link_anchor:focus-visible) .bento-card_image,
   .events-format-card:hover .events-format-card_image,
   .events-format-card:focus-visible .events-format-card_image,
   .space-gallery_thumb:hover .space-cover,

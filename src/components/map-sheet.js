@@ -4,7 +4,7 @@
 //
 // Panneau replié : poignée, « 14 espaces » + « Voir la liste », titre
 // « Les plus proches de… » (après une recherche), espaces en slider horizontal
-// et points. Glisser un espace sélectionne celui qui s'arrête au bord (pin
+// et points (un par espace). Glisser un espace sélectionne celui qui s'arrête au bord (pin
 // actif sur la carte). Un clic sur un espace le sélectionne ; un 2e clic ouvre
 // sa page.
 //
@@ -21,7 +21,10 @@ import { getLenis } from "../core/core.js";
 
 const MOBILE = window.matchMedia("(max-width: 767px)");
 const EDGE = 24; // px, marge du slider (scroll-padding)
-const MAX_DOTS = 6;
+// Points sous le slider : un point par espace, 5 visibles au plus ; la rangée
+// glisse pour garder le point actif au centre (styles : _map-sheet.scss)
+const VISIBLE_DOTS = 5;
+const DOT_STEP = 12; // px : largeur d'un point (6) + espace (6)
 
 export function createMapSheet(module, { select, isActive, resizeMap }) {
   const column = module.querySelector("[data-map-list]");
@@ -139,20 +142,40 @@ export function createMapSheet(module, { select, isActive, resizeMap }) {
   }
 
   // ---------- Slider (panneau replié) ----------
+  // Fenêtre (5 points visibles) > rangée de points (un par espace)
+  const dotsWindow = document.createElement("div");
+  dotsWindow.className = "map-sheet_dots-window";
+  const dotsTrack = document.createElement("div");
+  dotsTrack.className = "map-sheet_dots-track";
+  dotsWindow.appendChild(dotsTrack);
+  dots.appendChild(dotsWindow);
+
   function renderDots() {
-    const n = Math.min(items().length, MAX_DOTS);
-    dots.innerHTML = "";
-    for (let i = 0; i < n; i++) dots.appendChild(document.createElement("span"));
+    const n = items().length;
+    dotsTrack.innerHTML = "";
+    for (let i = 0; i < n; i++) dotsTrack.appendChild(document.createElement("span"));
+    dotsWindow.style.width = `${Math.min(n, VISIBLE_DOTS) * DOT_STEP - (DOT_STEP - 6)}px`;
     updateDots();
   }
 
   function updateDots() {
-    const spans = [...dots.children];
-    if (!spans.length) return;
+    const spans = [...dotsTrack.children];
+    const n = spans.length;
+    if (!n) return;
+    // Point actif = espace arrêté au bord ; en bout de course : le dernier
     const max = list.scrollWidth - list.clientWidth;
-    const progress = max > 0 ? list.scrollLeft / max : 0;
-    const active = Math.round(progress * (spans.length - 1));
-    spans.forEach((s, i) => s.classList.toggle("is-active", i === active));
+    const all = items();
+    let active = Math.max(all.indexOf(snapped()), 0);
+    if (max > 0 && list.scrollLeft >= max - 2) active = n - 1;
+    // Fenêtre centrée sur le point actif, sans dépasser les bouts
+    const start = Math.min(Math.max(active - Math.floor(VISIBLE_DOTS / 2), 0), Math.max(n - VISIBLE_DOTS, 0));
+    const end = start + VISIBLE_DOTS - 1;
+    dotsTrack.style.transform = `translateX(${-start * DOT_STEP}px)`;
+    spans.forEach((dot, i) => {
+      dot.classList.toggle("is-active", i === active);
+      // Points du bord plus petits quand d'autres suivent derrière
+      dot.classList.toggle("is-small", (i === start && start > 0) || (i === end && end < n - 1));
+    });
   }
 
   // L'espace arrêté au bord gauche du slider

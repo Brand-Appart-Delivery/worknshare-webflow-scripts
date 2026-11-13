@@ -1,0 +1,10 @@
+// Cartes « offres » de l'accueil (Coworking, Bureaux privatifs, Bureaux opérés ;
+// classes offer-card_* créées dans Webflow).
+// Webflow fixe la photo à 150 px de haut : quand la carte rétrécit ou s'élargit
+// (tablette en une colonne), l'image s'écrase ou s'étire. Ici, elle garde le
+// ratio de la maquette (368 × 150 px, carte à pleine largeur du conteneur).
+
+.offer-card_media {
+  height: auto;
+  aspect-ratio: 368 / 150;
+}

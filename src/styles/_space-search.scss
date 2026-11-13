@@ -166,6 +166,31 @@ $blanc: var(--_work-n-share---color--blanc, #ffffff);
   background-color: transparent;
 }
 
+// ---------- Onglets clairs (panneau de la carte) : libellés courts si étroit ----------
+// « Bureaux et coworking » / « Salles et événements » ne tiennent pas dans le
+// panneau de liste : sous 520 px de large, on affiche les libellés courts
+// (« Bureaux », « Événements », créés par space-search.js) et les deux onglets
+// se partagent la largeur. Requête de conteneur : dépend de la largeur des
+// onglets, pas de celle de l'écran.
+.search_tabs.is-light {
+  container-type: inline-size;
+}
+
+@container (max-width: 520px) {
+  .search_tabs.is-light .search_tab {
+    flex: 1 1 0;
+    justify-content: center;
+  }
+
+  .search_tabs.is-light .search_tab-full {
+    display: none;
+  }
+
+  .search_tabs.is-light .search_tab-short {
+    display: inline;
+  }
+}
+
 .search_indicator {
   background-color: var(--_work-n-share---color--rose--300, #ffa7e0);
 }

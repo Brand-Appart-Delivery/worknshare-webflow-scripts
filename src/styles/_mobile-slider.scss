@@ -1,4 +1,5 @@
-// Carrousel mobile (≤ 767 px) en défilement natif, sans bibliothèque :
+// Carrousel mobile et tablette (≤ 991 px, avant que les grilles Webflow passent
+// en colonne ; même limite que SLIDER_QUERY dans utils/env.js) en défilement natif, sans bibliothèque :
 // la grille de cartes devient une rangée qui glisse au doigt, la carte suivante
 // dépasse à droite et le défilement s'arrête sur chaque carte.
 //
@@ -17,9 +18,9 @@
 //   "thumb"    vignettes de 120 × 96 px (galerie photo d'un espace)
 //
 // La rangée déborde jusqu'aux bords de l'écran (marges du site compensées) :
-// les cartes entrent et sortent par les côtés. Au-dessus de 767 px : rien ne change.
+// les cartes entrent et sortent par les côtés. Au-dessus de 991 px : rien ne change.
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   [data-mobile-slider] {
     --slide-w: 300px;
     --slider-edge: 24px; // marge du site (padding-global)

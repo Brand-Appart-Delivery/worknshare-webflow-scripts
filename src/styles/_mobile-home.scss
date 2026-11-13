@@ -11,18 +11,43 @@
   display: none;
 }
 
-// Liste « Quelle formule pour vous ? » (formula.js) : seulement en mobile
+// Liste « Quelle formule pour vous ? » (formula.js) : seulement quand les
+// onglets ne tiennent pas sur une ligne (.is-compact posé par le JS, quelle
+// que soit la largeur d'écran)
 .formula_select {
   display: none;
 }
 
-@media screen and (max-width: 767px) {
-  // ---------- Nav : burger plus grand ----------
+[data-formula].is-compact {
+  .formula_tabs {
+    display: none;
+  }
+
+  .formula_select {
+    display: block;
+    align-self: stretch;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .formula_select .custom-select,
+  .formula_select .custom-select_button {
+    display: flex;
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+// ---------- Nav : burger plus grand ----------
+// Partout où le burger s'affiche (jusqu'à 1199 px, cf. _mega-menu.scss)
+@media screen and (max-width: 1199px) {
   [data-nav-toggle] .slider_arrow-icon {
     width: 28px;
     height: 28px;
   }
+}
 
+@media screen and (max-width: 767px) {
   // ---------- Hero ----------
   // Titre, onglets et recherche calés en bas du bloc : même marge (16 px) en
   // bas que sur les côtés (Figma)
@@ -46,6 +71,12 @@
   [data-hero-video] .search_tab {
     flex: 1 1 0;
     justify-content: center;
+  }
+
+  // Recherche aussi large que les onglets (Webflow la limite à 594 px)
+  [data-hero-video] .search_form,
+  [data-hero-video] [data-search-form] {
+    max-width: none;
   }
 
   // Champ puis bouton pleine largeur, à la ligne
@@ -76,25 +107,6 @@
   .stats .stat {
     align-items: center;
     text-align: center;
-  }
-
-  // ---------- Quelle formule : liste au lieu des onglets ----------
-  [data-formula] .formula_tabs {
-    display: none;
-  }
-
-  .formula_select {
-    display: block;
-    align-self: stretch;
-    width: 100%;
-    margin-bottom: 16px;
-  }
-
-  .formula_select .custom-select,
-  .formula_select .custom-select_button {
-    display: flex;
-    width: 100% !important;
-    max-width: none !important;
   }
 
   // ---------- Footer : pas de marge autour de la carte ----------
