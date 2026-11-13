@@ -48,13 +48,15 @@
 @media (prefers-reduced-motion: no-preference) {
   // Avant le JS : bloc photo masqué (sinon il s'afficherait à sa place puis
   // sauterait en plein écran). Repli : affiché au bout de 2 s si le JS ne vient pas.
-  [data-hero-video]:not(.is-intro-running):not(.is-intro-done) .hero-video_media {
+  // Pas sur une page vue après la première de l'onglet (html.is-return-visit) :
+  // hero affiché tout de suite, sans arrivée.
+  html:not(.is-return-visit) [data-hero-video]:not(.is-intro-running):not(.is-intro-done) .hero-video_media {
     opacity: 0;
     animation: hero-intro-fallback 0s linear 2s forwards;
   }
 
   // Contenu (titre, recherche, contrôles vidéo) : apparaît une fois le cadre en place
-  [data-hero-video]:not(.is-intro-done) .hero-video_media > :not(img):not([data-hero-bg]):not(.w-background-video):not(video):not(:empty) {
+  html:not(.is-return-visit) [data-hero-video]:not(.is-intro-done) .hero-video_media > :not(img):not([data-hero-bg]):not(.w-background-video):not(video):not(:empty) {
     opacity: 0;
     transform: translateY(16px);
     animation: hero-intro-fallback 0s linear 2s forwards;

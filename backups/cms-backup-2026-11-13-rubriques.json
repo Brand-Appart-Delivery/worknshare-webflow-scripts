@@ -1,0 +1,13 @@
+{
+  "collection": "Rubriques",
+  "collectionId": "6ae9130e6547ae39844c1c59",
+  "savedOn": "2026-11-13",
+  "reason": "Avant ajout des champs Couleur et Icône (chips du filtre du blog en CMS)",
+  "items": [
+    {"id": "6ae913e99a2a76a53ebef3af", "slug": "immobilier-de-bureau", "ordre": 1, "fr": "Immobilier de bureau", "en": "Office real estate", "description": null},
+    {"id": "6ae913e99a2a76a53ebef3b1", "slug": "facons-de-travailler", "ordre": 2, "fr": "Façons de travailler", "en": "Ways of working", "description": null},
+    {"id": "6ae913e99a2a76a53ebef3b3", "slug": "nouveaux-espaces", "ordre": 3, "fr": "Nouveaux espaces", "en": "New spaces", "description": null},
+    {"id": "6ae913e99a2a76a53ebef3b5", "slug": "evenementiel", "ordre": 4, "fr": "Événementiel", "en": "Events", "description": null},
+    {"id": "6ae913e99a2a76a53ebef3b7", "slug": "coulisses", "ordre": 5, "fr": "Coulisses", "en": "Behind the scenes", "description": null}
+  ]
+}

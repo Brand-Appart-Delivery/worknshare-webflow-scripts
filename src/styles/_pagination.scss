@@ -1,0 +1,110 @@
+// Pagination des listes CMS (components/pagination.js), maquette Figma
+// « WS/Pagination » : pastilles rondes de 56 px espacées de 8 px.
+// - page courante : fond vert 700, chiffre vert 100 ;
+// - autres pages : filet discret, chiffre vert 700 ;
+// - flèche disponible : pleine (vert 700) ; indisponible : filet, estompée.
+
+@use "motion" as m;
+
+$vert-100: var(--_work-n-share---color--vert--100, #eefc96);
+$vert-700: var(--_work-n-share---color--vert--700, #3b400f);
+$filet: var(--_work-n-share---bordure--discrete, rgba(59, 64, 15, 0.16));
+$size: 56px;
+
+.w-pagination-wrapper.is-pagination-ready {
+  justify-content: center;
+  margin-top: var(--_work-n-share---space--48, 48px);
+
+  // Boutons natifs de Webflow (Précédent / Suivant, compteur) : masqués dans
+  // Webflow par la classe pagination_native (gardés pour leurs liens)
+
+  // Une seule page (ex. filtre avec peu d'articles) : pas de pagination
+  &.is-single-page {
+    display: none;
+  }
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--_work-n-share---space--8, 8px);
+}
+
+.pagination_item {
+  display: inline-flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: $size;
+  height: $size;
+  border: 1px solid $filet;
+  border-radius: 999px;
+  color: $vert-700;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition:
+    background-color 0.25s m.$ease-out,
+    border-color 0.25s m.$ease-out,
+    color 0.25s m.$ease-out;
+
+  &:focus-visible {
+    outline: 2px solid $vert-700;
+    outline-offset: 2px;
+  }
+}
+
+a.pagination_item:not(.is-current, .is-arrow):hover {
+  border-color: $vert-700;
+}
+
+.pagination_item.is-current,
+.pagination_item.is-arrow:not(.is-disabled) {
+  border-color: $vert-700;
+  background-color: $vert-700;
+  color: $vert-100;
+}
+
+.pagination_item.is-disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.pagination_item.is-gap {
+  border-color: transparent;
+}
+
+// Icône flèche (même masque que les boutons du site, effet de survol
+// dans _button-arrow.scss) ; « précédent » retournée
+.pagination_icon {
+  display: flex;
+  width: 18px;
+  height: 18px;
+
+  > .ico-arrow-right {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.pagination_item.is-prev .pagination_icon {
+  transform: scaleX(-1);
+}
+
+// Mobile : pastilles plus petites pour que 9 éléments tiennent sur la ligne
+@media (max-width: 479px) {
+  .pagination_item {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .pagination {
+    gap: 6px;
+  }
+}

@@ -54,7 +54,6 @@ $radius: var(--_work-n-share---radius--m, 16px);
 
 // ---------- Cas 2a : photo aux coins arrondis ----------
 .blog-featured_image,
-.events-article_image,
 .space-item_photo,
 .mega-menu_banner-img {
   clip-path: inset(0 round $radius);
@@ -65,8 +64,6 @@ $radius: var(--_work-n-share---radius--m, 16px);
 
 .blog-featured:hover .blog-featured_image,
 .blog-featured:focus-visible .blog-featured_image,
-.events-article:hover .events-article_image,
-.events-article:focus-visible .events-article_image,
 .space-item:hover .space-item_photo,
 .space-item:focus-visible .space-item_photo,
 .mega-menu_banner:hover .mega-menu_banner-img,
@@ -95,7 +92,6 @@ $radius: var(--_work-n-share---radius--m, 16px);
   .events-format-card_image,
   .space-gallery_thumb .space-cover,
   .blog-featured_image,
-  .events-article_image,
   .space-item_photo,
   .mega-menu_banner-img,
   .space-card_image,
@@ -111,8 +107,6 @@ $radius: var(--_work-n-share---radius--m, 16px);
   .space-gallery_thumb:focus-visible .space-cover,
   .blog-featured:hover .blog-featured_image,
   .blog-featured:focus-visible .blog-featured_image,
-  .events-article:hover .events-article_image,
-  .events-article:focus-visible .events-article_image,
   .space-item:hover .space-item_photo,
   .space-item:focus-visible .space-item_photo,
   .mega-menu_banner:hover .mega-menu_banner-img,
@@ -124,7 +118,6 @@ $radius: var(--_work-n-share---radius--m, 16px);
 
   // On garde le contour de base (sinon le clip réduit resterait au survol)
   .blog-featured:hover .blog-featured_image,
-  .events-article:hover .events-article_image,
   .space-item:hover .space-item_photo,
   .mega-menu_banner:hover .mega-menu_banner-img {
     clip-path: inset(0 round $radius);

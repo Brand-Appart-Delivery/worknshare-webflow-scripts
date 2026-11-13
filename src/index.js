@@ -21,6 +21,7 @@ import { initRoomsFilters } from "./components/rooms-filter.js";
 import { initRoomDetails } from "./components/room-details.js";
 import { initCounters } from "./animations/counter.js";
 import { initReveal } from "./animations/reveal.js";
+import { initParallax } from "./animations/parallax.js";
 import { initCardsStack } from "./animations/cards-stack.js";
 import { initStackReveal } from "./animations/stack-reveal.js";
 import { initBentoReveal } from "./animations/bento-reveal.js";
@@ -40,6 +41,7 @@ import { initCardLinks } from "./components/card-link.js";
 import { initComparateur } from "./components/comparateur.js";
 import { initComparatorBanners } from "./components/comparator-banner.js";
 import { initBlogFilters } from "./components/blog-filter.js";
+import { initPaginations } from "./components/pagination.js";
 import { initContactForms } from "./components/contact-form.js";
 import { initDevisForms } from "./components/devis-form.js";
 import { initFormLabels } from "./utils/form-labels.js";
@@ -49,6 +51,11 @@ import { initMiniMaps } from "./components/mini-map.js";
 import { initLinePills } from "./components/line-pills.js";
 import { initPageSchema } from "./schema/page-schema.js";
 import { initCmsLinks } from "./utils/cms-links.js";
+import { isReturnVisit } from "./utils/visit.js";
+
+// Note la visite tout de suite (première page de l'onglet ou non), même sans
+// hero : sert à l'accueil et à la nav des pages suivantes (utils/visit.js).
+isReturnVisit();
 
 onReady(() => {
   initCore();
@@ -66,6 +73,7 @@ onReady(() => {
   initComparateur(); // page /comparateur : charge son propre JS et CSS
   initComparatorBanners(); // bandeau qui pré-remplit le comparateur
   initBlogFilters(); // page Blog : filtre par rubrique
+  initPaginations(); // listes CMS paginées (blog)
   initFormLabels(); // libellés reliés à leurs champs (tous les formulaires)
   initContactForms(); // page Nous contacter
   initDevisForms(); // formulaire de devis (Événementiel + pages lieux)
@@ -78,6 +86,7 @@ onReady(() => {
   initRoomDetails(); // pages lieux : détail « Voir la salle »
   initCounters();
   initReveal();
+  initParallax(); // image du haut des articles
   initCardsStack();
   initStackReveal(); // cartes empilées qui se dévoilent au scroll
   initBentoReveal();

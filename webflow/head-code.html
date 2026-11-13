@@ -14,6 +14,8 @@
     position de scroll), sauf lien vers une ancre (#section).
   - Navigation interne (on vient d'une page du site) : html.is-internal-nav,
     la nav ne rejoue pas son animation d'arrivée.
+  - Première page vue dans l'onglet seulement : arrivée de la nav et du hero.
+    Ensuite html.is-return-visit, tout reste statique (même au rechargement).
 -->
 <style>
   html.wns-loading body { opacity: 0; }
@@ -36,6 +38,15 @@
     try {
       const fromSite = document.referrer && new URL(document.referrer).origin === location.origin;
       if (fromSite && (!navEntry || navEntry.type !== 'reload')) root.classList.add('is-internal-nav');
+    } catch (e) {}
+
+    // Première page vue dans l'onglet : seule à jouer l'arrivée de la nav et du
+    // hero de l'accueil. Ensuite (autre page, rechargement, retour) : tout reste
+    // statique (html.is-return-visit, cf. utils/visit.js et _mega-menu.scss).
+    try {
+      if (sessionStorage.getItem('wns-visited')) root.classList.add('is-return-visit');
+      else sessionStorage.setItem('wns-visited', '1');
+      root.classList.add('wns-visit-known');
     } catch (e) {}
 
     // Anti-flash : page cachée jusqu'à l'arrivée de main.css

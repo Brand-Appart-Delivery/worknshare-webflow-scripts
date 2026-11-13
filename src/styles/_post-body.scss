@@ -2,19 +2,13 @@
 // Ici : ce que le Designer ne sait pas faire.
 // - texte riche .post-body (styles imbriqués h2/h3/listes/citation/images) ;
 //   la base du texte riche est dans Global Styles (.w-richtext), on la complète ;
-// - couleur et icône de la rubrique selon data-category (slug lié au CMS) ;
+// - couleur du texte des cartes « Carte blog » selon la rubrique (data-category) ;
 // - légende vide masquée, barre de progression pilotée par le JS.
 
 // Raccourcis vers les variables Webflow (collection Work'n'Share)
-$vert-100: var(--_work-n-share---color--vert--100, #eefc96);
-$vert-700: var(--_work-n-share---color--vert--700, #3b400f);
-$vert-900: var(--_work-n-share---color--vert--900, #121404);
 $marron-900: var(--_work-n-share---color--marron--900, #56260b);
-$jaune-400: var(--_work-n-share---color--jaune--400, #ffcd40);
 $bleu-900: var(--_work-n-share---color--bleu--900, #0e1b3a);
-$bleu-300: var(--_work-n-share---color--bleu--300, #a3c4ff);
 $bordeaux-900: var(--_work-n-share---color--bordeaux--900, #2c0c10);
-$rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
 
 // ---------- Texte riche de l'article ----------
 
@@ -100,90 +94,22 @@ $rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
   }
 }
 
-// ---------- Rubrique : couleur et icône selon data-category ----------
-// Une icône par rubrique est posée dans la pastille (data-icon) : on n'affiche
-// que celle qui correspond au slug. Sans slug connu, on garde l'icône lieu.
+// ---------- Rubrique : couleur du texte des cartes ----------
+// Pastille de rubrique (haut d'article, cartes) : composant Webflow
+// « Label rubrique », rien à styler ici.
+// Reste en code : la couleur du texte de la « Carte blog », qui suit le slug
+// de rubrique posé en data-category sur la carte.
 
-.post-category [data-icon] {
-  display: none;
-}
-
-.post-category:not([data-category]) [data-icon="nouveaux-espaces"],
-.post-category[data-category="immobilier-de-bureau"] [data-icon="immobilier-de-bureau"],
-.post-category[data-category="facons-de-travailler"] [data-icon="facons-de-travailler"],
-.post-category[data-category="nouveaux-espaces"] [data-icon="nouveaux-espaces"],
-.post-category[data-category="evenementiel"] [data-icon="evenementiel"],
-.post-category[data-category="coulisses"] [data-icon="coulisses"] {
-  display: block;
-}
-
-// Couleurs de la pastille (mêmes paires que le filtre rubrique du blog)
-@mixin post-category-colors($fond, $texte) {
-  background-color: $fond;
-  color: $texte;
-}
-
-.post-category[data-category="immobilier-de-bureau"] {
-  @include post-category-colors($marron-900, $jaune-400);
-}
-
-.post-category[data-category="facons-de-travailler"] {
-  @include post-category-colors($bleu-900, $bleu-300);
-}
-
-.post-category[data-category="nouveaux-espaces"] {
-  @include post-category-colors($vert-100, $vert-700);
-}
-
-.post-category[data-category="evenementiel"] {
-  @include post-category-colors($bordeaux-900, $rose-300);
-}
-
-.post-category[data-category="coulisses"] {
-  @include post-category-colors($vert-700, $vert-100);
-}
-
-// Cartes article des listes CMS (blog, « À lire aussi ») : la pastille suit le slug
-// posé en data-category sur la carte, comme les variantes du composant.
 .article-card[data-category="immobilier-de-bureau"] {
   color: $marron-900;
-
-  .article-card_category {
-    @include post-category-colors($marron-900, $jaune-400);
-  }
 }
 
 .article-card[data-category="facons-de-travailler"] {
   color: $bleu-900;
-
-  .article-card_category {
-    @include post-category-colors($bleu-900, $bleu-300);
-  }
-}
-
-.article-card[data-category="nouveaux-espaces"] .article-card_category {
-  @include post-category-colors($vert-100, $vert-700);
 }
 
 .article-card[data-category="evenementiel"] {
   color: $bordeaux-900;
-
-  .article-card_category {
-    @include post-category-colors($bordeaux-900, $rose-300);
-  }
-}
-
-// Icône de la rubrique dans les cartes : même principe que la pastille d'en-tête
-.article-card [data-icon] {
-  display: none;
-}
-
-.article-card[data-category="immobilier-de-bureau"] [data-icon="immobilier-de-bureau"],
-.article-card[data-category="facons-de-travailler"] [data-icon="facons-de-travailler"],
-.article-card[data-category="nouveaux-espaces"] [data-icon="nouveaux-espaces"],
-.article-card[data-category="evenementiel"] [data-icon="evenementiel"],
-.article-card[data-category="coulisses"] [data-icon="coulisses"] {
-  display: block;
 }
 
 // ---------- Divers ----------
@@ -220,5 +146,22 @@ $rose-300: var(--_work-n-share---color--rose--300, #ffa7e0);
 @media (prefers-reduced-motion: no-preference) {
   .post-toc_link {
     transition: border-color 200ms ease, font-weight 200ms ease;
+  }
+}
+
+// ---------- Colonne collante du sommaire ([data-toc]) ----------
+// Elle suit la nav : contre le haut de l'écran quand la nav est partie (cachée
+// en descendant, ou sortie avec la page), juste dessous quand elle est revenue
+// fixe en remontant (html.is-nav-shown, components/nav.js). Même durée et même
+// courbe que le glissement de la nav (_mega-menu.scss).
+// Articles et pages légales (le sommaire est masqué sous 992 px).
+@media (min-width: 992px) {
+  body :has(> [data-toc]) {
+    top: var(--_work-n-share---space--24, 24px);
+    transition: top 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html.is-nav-shown body :has(> [data-toc]) {
+    top: calc(var(--nav-height, 96px) + var(--_work-n-share---space--24, 24px));
   }
 }

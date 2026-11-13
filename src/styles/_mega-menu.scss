@@ -81,10 +81,15 @@ html.is-internal-nav body:not(:has([data-hero-video])) [data-nav] {
   animation: none;
 }
 
+// Pas la première page vue dans l'onglet (head code, utils/visit.js) : la nav
+// est déjà là, sur toutes les pages, accueil compris, et même au rechargement.
+html.is-return-visit body [data-nav] {
+  animation: none;
+}
+
 body:has([data-hero-video]) [data-nav]:not(.is-scrolled):not(:has([data-mega-panel].is-open, [data-nav-panel].is-open)) {
   background-color: transparent;
 }
-
 // Nav fixe (sticky dans Webflow) : fond blanc une fois revenue en cours de
 // page ; elle se cache en descendant et revient en remontant (components/nav.js,
 // propriété « translate »). En haut de page (.is-flow) elle suit la page sans
@@ -278,10 +283,12 @@ $nav-bleu: '[data-nav]:has(+ [data-nav-theme="bleu"])';
   border-top: var(--nav-height, 96px) solid transparent;
 }
 
-// Tiroir mobile ouvert : la page derrière ne défile plus
-html.is-nav-open,
-html.is-nav-open body {
+// Tiroir mobile ouvert : la page derrière ne défile plus. Sur <html> seulement :
+// un overflow sur <body> en ferait une zone de défilement, et la nav collante
+// (sticky) s'y recalerait, tout en haut du document, hors de l'écran.
+html.is-nav-open {
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 // Burger : pas de soulignement ni de fond au clic

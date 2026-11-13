@@ -16,10 +16,12 @@
 // --hero-x / --hero-y, cf. _hero-video.scss) : le cadrage est le même au début
 // et à la fin de l'animation, sans saut.
 //
-// Une seule fois, seulement si la page s'ouvre en haut. Rien si l'utilisateur a
-// réduit les animations.
+// Une seule fois, seulement si la page s'ouvre en haut et si c'est la première
+// page vue dans l'onglet (utils/visit.js). Rien si l'utilisateur a réduit les
+// animations.
 
 import { prefersReducedMotion } from "../utils/motion.js";
+import { isReturnVisit } from "../utils/visit.js";
 
 const DURATION = 1400; // ms
 const DELAY = 150; // ms, laisse la nav commencer à descendre
@@ -58,7 +60,7 @@ export function initHeroIntro(root = document) {
     hero.classList.remove("is-intro-pending", "is-intro-running");
     hero.classList.add("is-intro-done");
   };
-  if (prefersReducedMotion() || window.scrollY > 40) {
+  if (isReturnVisit() || prefersReducedMotion() || window.scrollY > 40) {
     // Arrivée sautée : la nav n'attend pas le hero (_mega-menu.scss)
     document.documentElement.classList.add("is-hero-intro-skipped");
     return done();

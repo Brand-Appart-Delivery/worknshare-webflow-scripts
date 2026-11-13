@@ -7,9 +7,16 @@
 //   [data-blog-list]                    liste CMS des articles
 //     [data-category="<slug rubrique>"] carte d'article (dans chaque w-dyn-item)
 //
-// Le bouton choisi prend la classe is-active (styles posés dans Webflow) et
-// aria-pressed="true". La rubrique est gardée dans l'adresse (?rubrique=slug) :
+// Le bouton choisi prend les classes is-active et is-chip-on (styles posés
+// dans Webflow ; is-chip-on = état sélectionné du composant « Chip rubrique »,
+// une couleur par variante) et aria-pressed="true". La rubrique est gardée dans l'adresse (?rubrique=slug) :
 // un lien partagé ou un retour arrière retrouve le même filtre.
+//
+// Avec la pagination (pagination.js) : toutes les pages d'articles sont
+// chargées dans la liste, le filtre porte donc sur tous les articles. Les
+// articles écartés reçoivent data-filtered-out ; la liste émet « wns:filter »
+// et la pagination recalcule ses pages. Quand elle ajoute des articles
+// (« wns:items-added »), le filtre en cours leur est appliqué.
 
 import { t } from "../utils/i18n.js";
 import { requestScrollRefresh } from "../utils/scroll-refresh.js";
@@ -23,12 +30,14 @@ export function initBlogFilters(root = document) {
   group.dataset.blogFilterInit = "1";
 
   const buttons = [...group.querySelectorAll("[data-filter]")];
-  // Élément de liste CMS de chaque carte (c'est lui qu'on masque)
-  const items = [...list.querySelectorAll("[data-category]")].map((card) => ({
-    el: card.closest(".w-dyn-item") || card,
-    category: card.getAttribute("data-category"),
-  }));
-  if (!buttons.length || !items.length) return;
+  // Élément de liste CMS de chaque carte (c'est lui qu'on masque). Relu à
+  // chaque filtre : la pagination ajoute des articles après coup.
+  const getItems = () =>
+    [...list.querySelectorAll("[data-category]")].map((card) => ({
+      el: card.closest(".w-dyn-item") || card,
+      category: card.getAttribute("data-category"),
+    }));
+  if (!buttons.length || !getItems().length) return;
 
   // Annonce du nombre d'articles pour les lecteurs d'écran
   const status = document.createElement("p");
@@ -38,19 +47,26 @@ export function initBlogFilters(root = document) {
 
   const known = new Set(buttons.map((b) => b.getAttribute("data-filter")));
 
-  const apply = (filter, { announce = true, updateUrl = true } = {}) => {
+  let current = "all";
+
+  const apply = (filter, { announce = true, updateUrl = true, reset = true } = {}) => {
     if (!known.has(filter)) filter = "all";
+    current = filter;
 
     buttons.forEach((btn) => {
       const on = btn.getAttribute("data-filter") === filter;
       btn.classList.toggle("is-active", on);
+      // Composant « Chip rubrique » : couleurs de l'état sélectionné réglées
+      // dans Webflow, par variante, sur la combo is-chip-on
+      btn.classList.toggle("is-chip-on", on);
       btn.setAttribute("aria-pressed", String(on));
     });
 
     let count = 0;
-    items.forEach(({ el, category }) => {
+    getItems().forEach(({ el, category }) => {
       const show = filter === "all" || category === filter;
       el.hidden = !show;
+      el.toggleAttribute("data-filtered-out", !show);
       if (show) count++;
     });
 
@@ -63,9 +79,18 @@ export function initBlogFilters(root = document) {
       history.replaceState(history.state, "", url);
     }
 
+    // Pagination : recalcul des pages (retour à la page 1 si l'utilisateur
+    // vient de changer de filtre)
+    list.dispatchEvent(new CustomEvent("wns:filter", { detail: { filter, reset } }));
+
     // Hauteur de page modifiée : recalcul des animations au scroll
     requestScrollRefresh();
   };
+
+  // Articles ajoutés par la pagination : on leur applique le filtre en cours
+  list.addEventListener("wns:items-added", () =>
+    apply(current, { announce: false, updateUrl: false, reset: false }),
+  );
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -83,5 +108,5 @@ export function initBlogFilters(root = document) {
 
   // Filtre présent dans l'adresse à l'arrivée sur la page
   const initial = new URLSearchParams(window.location.search).get(PARAM);
-  if (initial && known.has(initial)) apply(initial, { announce: false, updateUrl: false });
+  if (initial && known.has(initial)) apply(initial, { announce: false, updateUrl: false, reset: false });
 }

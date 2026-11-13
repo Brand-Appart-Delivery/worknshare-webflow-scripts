@@ -1,0 +1,15 @@
+// Parallaxe d'image (animations/parallax.js) : cadre posé par le JS autour de
+// l'image [data-parallax]. Il coupe ce qui dépasse ; ses coins arrondis sont
+// repris de l'image par le JS.
+
+.parallax_frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  // Garde les coins arrondis pendant la transformation (Safari)
+  isolation: isolate;
+
+  > img {
+    will-change: transform;
+  }
+}

@@ -412,6 +412,9 @@ function initScrollState(header) {
     // Fond blanc seulement quand elle est revenue en cours de page
     header.classList.toggle("is-scrolled", mode !== "flow" && y > SCROLL_THRESHOLD);
     header.style.translate = mode === "flow" ? `0 ${-Math.min(y, height)}px` : "";
+    // Nav fixe et visible en cours de page : les éléments collants (sommaire
+    // des articles) se placent dessous (html.is-nav-shown, _post-body.scss)
+    document.documentElement.classList.toggle("is-nav-shown", mode === "shown");
   };
 
   const update = () => {
