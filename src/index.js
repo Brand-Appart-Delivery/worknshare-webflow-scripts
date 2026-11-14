@@ -26,6 +26,9 @@ import { initCardsStack } from "./animations/cards-stack.js";
 import { initStackReveal } from "./animations/stack-reveal.js";
 import { initBentoReveal } from "./animations/bento-reveal.js";
 import { initStars } from "./animations/stars.js";
+import { initRatings } from "./components/rating.js";
+import { initDates } from "./content/dates.js";
+import { initCookies } from "./components/cookies.js";
 import { initWiden } from "./animations/widen.js";
 import { initExpand } from "./animations/expand.js";
 import { initHeroVideo } from "./components/hero-video.js";
@@ -44,6 +47,7 @@ import { initBlogFilters } from "./components/blog-filter.js";
 import { initPaginations } from "./components/pagination.js";
 import { initContactForms } from "./components/contact-form.js";
 import { initDevisForms } from "./components/devis-form.js";
+import { initHubspotForms } from "./components/hubspot-forms.js";
 import { initFormLabels } from "./utils/form-labels.js";
 import { initHouseShapes } from "./components/house-shape.js";
 import { initCustomSelects } from "./components/custom-select.js";
@@ -57,6 +61,10 @@ import { isReturnVisit } from "./utils/visit.js";
 // hero : sert à l'accueil et à la nav des pages suivantes (utils/visit.js).
 isReturnVisit();
 
+// Bandeau cookies le plus tôt possible : mode consentement Google « refusé »
+// avant tout traceur, puis tarteaucitron (components/cookies.js)
+initCookies();
+
 onReady(() => {
   initCore();
   initNav();
@@ -64,6 +72,7 @@ onReady(() => {
   initHeroVideo(); // tôt : le hero est la première chose visible
   initBackgroundVideos(); // autres vidéos de fond : pause si mouvement réduit ou hors écran
   initFooter();
+  initDates(); // dates CMS en français (« 23 septembre 2024 »)
   initCollapses();
   initTocs(); // sommaires (article, pages légales) : avant les animations
   initCmsLinks(); // liens des cartes CMS imbriquées (avant les cartes cliquables)
@@ -77,6 +86,7 @@ onReady(() => {
   initFormLabels(); // libellés reliés à leurs champs (tous les formulaires)
   initContactForms(); // page Nous contacter
   initDevisForms(); // formulaire de devis (Événementiel + pages lieux)
+  initHubspotForms(); // formulaires [data-hubspot-form] : copie envoyée à HubSpot
   initHouseShapes(); // formes maison aux angles arrondis
   initFormulas();
   initCompare();
@@ -90,6 +100,7 @@ onReady(() => {
   initCardsStack();
   initStackReveal(); // cartes empilées qui se dévoilent au scroll
   initBentoReveal();
+  initRatings(); // étoiles remplies selon la note (avant l'animation des étoiles)
   initStars(); // après le bento : lit le délai de chaque carte
   initWiden();
   initExpand();

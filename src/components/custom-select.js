@@ -5,6 +5,14 @@
 // Aucun attribut à poser : tout <select> d'un formulaire est pris en charge.
 // Pour garder la liste native : data-native-select sur le <select>.
 //
+// CHOIX MULTIPLE : data-select-multiple sur le <select> (Webflow).
+//   Le menu reste ouvert, chaque ligne se coche / décoche. Le bouton affiche
+//   « Clichy, Nanterre » puis « 3 sélectionnés » au-delà de deux choix.
+//   Une option de valeur « indifferent » (ex. « Je ne sais pas encore ») est
+//   exclusive : la cocher décoche les autres, et inversement.
+//   Envoi : un champ caché du même nom reçoit les libellés séparés par des
+//   virgules (« Clichy, Nanterre ») ; il remplace la valeur du <select>.
+//
 // Le <select> de Webflow reste dans le formulaire (caché) : c'est lui qui est
 // envoyé et validé (required). Le JS pose devant lui un bouton qui reprend ses
 // classes Webflow (même aspect) et ouvre le menu. Choisir une ligne met à jour
@@ -15,9 +23,12 @@
 // Styles : _custom-select.scss et _space-search.scss.
 
 import { createScrollIndicator } from "../utils/scroll-indicator.js";
+import { t } from "../utils/i18n.js";
 
 const GAP = 8; // px entre le champ et le menu
 const MAX_PANEL_HEIGHT = 320; // px
+const EXCLUSIVE = "indifferent"; // valeur d'option exclusive en choix multiple
+const MAX_NAMES = 2; // au-delà, le bouton affiche le nombre de choix
 let uid = 0;
 
 export function initCustomSelects(root = document) {
@@ -56,6 +67,31 @@ function initSelect(select) {
   select.tabIndex = -1;
   select.setAttribute("aria-hidden", "true");
 
+  // ---------- Choix multiple ----------
+  const multiple = select.hasAttribute("data-select-multiple");
+  let placeholder = "";
+  let hidden = null;
+  if (multiple) {
+    // Option vide « Choisir… » : devient le texte d'attente du bouton
+    const empty = [...select.options].find((o) => !o.value);
+    placeholder = empty?.text || "";
+    const preset = [...select.options].filter((o) => o.selected && o.value).map((o) => o.value);
+    empty?.remove();
+    select.multiple = true;
+    [...select.options].forEach((o) => (o.selected = preset.includes(o.value)));
+    // Champ envoyé : placé après le <select>, il prend le dessus sur sa valeur
+    // à l'envoi Webflow (même data-name)
+    const name = select.getAttribute("data-name") || select.name;
+    hidden = document.createElement("input");
+    hidden.type = "hidden";
+    hidden.name = name;
+    hidden.setAttribute("data-name", name);
+    select.removeAttribute("name");
+    select.setAttribute("data-name", name);
+    select.after(hidden);
+  }
+  const selectedOptions = () => [...select.options].filter((o) => o.selected && o.value);
+
   // Libellé : relié au bouton (un clic dessus ouvre le focus sur le bouton)
   const labels = select.id ? [...document.querySelectorAll(`label[for="${CSS.escape(select.id)}"]`)] : [];
   if (labels.length) {
@@ -76,6 +112,7 @@ function initSelect(select) {
   panel.className = "search_suggest custom-select_panel";
   panel.id = `${id}-list`;
   panel.setAttribute("role", "listbox");
+  if (multiple) panel.setAttribute("aria-multiselectable", "true");
   panel.setAttribute("data-lenis-prevent", "");
   panel.hidden = true;
   if (labels[0]) panel.setAttribute("aria-labelledby", labels[0].id);
@@ -121,9 +158,22 @@ function initSelect(select) {
 
   // Texte du bouton = option choisie (ou texte d'attente)
   function refresh() {
-    const option = select.options[select.selectedIndex];
-    value.textContent = option ? option.text : "";
-    button.classList.toggle("is-placeholder", !option || !option.value);
+    if (multiple) {
+      const chosen = selectedOptions();
+      const names = chosen.map((o) => o.text.trim());
+      hidden.value = names.join(", ");
+      hidden.disabled = select.disabled;
+      value.textContent = !chosen.length
+        ? placeholder
+        : chosen.length > MAX_NAMES
+          ? t("select.count", { count: chosen.length })
+          : names.join(", ");
+      button.classList.toggle("is-placeholder", !chosen.length);
+    } else {
+      const option = select.options[select.selectedIndex];
+      value.textContent = option ? option.text : "";
+      button.classList.toggle("is-placeholder", !option || !option.value);
+    }
     button.disabled = select.disabled;
     items.forEach(({ el, option: o }) => {
       const on = o.selected && !!o.value;
@@ -176,6 +226,20 @@ function initSelect(select) {
   function choose(index) {
     const item = items[index];
     if (!item || item.option.disabled) return;
+    if (multiple) {
+      // Coche / décoche ; le menu reste ouvert
+      const on = !item.option.selected;
+      item.option.selected = on;
+      if (on) {
+        const exclusive = item.option.value === EXCLUSIVE;
+        [...select.options].forEach((o) => {
+          if (o !== item.option && (exclusive || o.value === EXCLUSIVE)) o.selected = false;
+        });
+      }
+      select.dispatchEvent(new Event("input", { bubbles: true }));
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+      return;
+    }
     select.value = item.option.value;
     select.dispatchEvent(new Event("input", { bubbles: true }));
     select.dispatchEvent(new Event("change", { bubbles: true }));

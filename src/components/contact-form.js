@@ -4,14 +4,21 @@
 //   form[data-contact-form]                 formulaire Webflow (envoi géré par Webflow)
 //     [data-contact-field="motif"]          pastilles « Votre demande » :
 //       label.contact-motif_option > input[type=radio][name=motif]
-//     [data-contact-field="espace"]         liste « Espace »
-//     [data-contact-motif="bureaux,coworking"]  champ ou ligne affiché seulement
-//                                           pour ces demandes (sinon masqué et
+//       valeurs : bureaux, evenement
+//     [data-contact-field="espace"]         liste « Espaces » (choix multiple :
+//                                           data-select-multiple, custom-select.js)
+//     [data-contact-motif="bureaux"]        champ ou ligne affiché seulement
+//                                           pour ces demandes (liste séparée par
+//                                           des virgules ; sinon masqué et
 //                                           désactivé : il n'est pas envoyé)
+//     input[data-date-input]                date avec calendrier (à partir d'aujourd'hui)
+//
+// Noms des champs de coordonnées = noms HubSpot : firstname, lastname, email,
+// phone, company, message.
 //
 // Le JS : coche la pastille choisie (classe is-active, stylée dans Webflow),
 // affiche les champs selon la demande, et pré-remplit depuis l'adresse :
-// /nous-contacter?motif=visite&espace=clichy
+// /nous-contacter?motif=bureaux&espace=clichy
 
 // (Libellés reliés à leurs champs : utils/form-labels.js, pour tous les formulaires.)
 //
@@ -20,6 +27,10 @@
 
 import { getLenis } from "../core/core.js";
 import { prefersReducedMotion } from "../utils/motion.js";
+import { getLocale } from "../utils/i18n.js";
+
+// Anciennes demandes encore utilisées dans des liens (?motif=visite…)
+const MOTIF_ALIASES = { visite: "bureaux", coworking: "bureaux" };
 
 export function initContactForms(root = document) {
   root.querySelectorAll("form[data-contact-form]").forEach(initContactForm);
@@ -48,15 +59,26 @@ function initContactForm(form) {
 
   radios.forEach((r) => r.addEventListener("change", update));
 
+  // Date : calendrier natif du navigateur, pas de date passée
+  form.querySelectorAll("input[data-date-input]").forEach((input) => {
+    input.type = "date";
+    const today = new Date();
+    today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+    input.min = today.toISOString().slice(0, 10);
+  });
+
   // Pré-remplissage depuis l'adresse (?motif=…&espace=…)
   const params = new URLSearchParams(window.location.search);
-  const motif = params.get("motif");
+  const asked = params.get("motif");
+  const motif = MOTIF_ALIASES[asked] || asked;
   if (motif) {
     const radio = radios.find((r) => r.value === motif);
     if (radio) radio.checked = true;
   }
   const espace = params.get("espace");
   const select = form.querySelector('[data-contact-field="espace"]');
+  // Choix multiple : la liste n'est pas encore multiple ici (custom-select.js
+  // la transforme ensuite en gardant l'option choisie)
   if (espace && select && [...select.options].some((o) => o.value === espace)) select.value = espace;
 
   update();
@@ -75,6 +97,12 @@ function fieldText(form, name) {
   if (!field) return "";
   if (field.type === "radio") return field.closest("label")?.textContent.trim() || field.value;
   if (field.tagName === "SELECT") return field.value ? field.options[field.selectedIndex].text.trim() : "";
+  // Date : « 3 décembre 2026 »
+  if (field.type === "date" && field.valueAsDate) {
+    return new Intl.DateTimeFormat(getLocale(), { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(
+      field.valueAsDate,
+    );
+  }
   return field.value.trim();
 }
 
@@ -86,7 +114,7 @@ function fillRecap(form) {
   const success = form.parentElement?.querySelector("[data-contact-success]");
   if (!success) return;
   const values = {
-    "nom-complet": [fieldText(form, "prenom"), fieldText(form, "nom")].filter(Boolean).join(" "),
+    "nom-complet": [fieldText(form, "firstname"), fieldText(form, "lastname")].filter(Boolean).join(" "),
   };
   success.querySelectorAll("[data-contact-recap-value]").forEach((el) => {
     const key = el.getAttribute("data-contact-recap-value");

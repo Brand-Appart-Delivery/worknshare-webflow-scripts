@@ -12,3 +12,13 @@
     opacity 0.25s ease var(--star-delay, 0ms),
     transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) var(--star-delay, 0ms);
 }
+
+// Étoiles remplies selon la note (components/rating.js) : la part vide de
+// l'étoile reste visible, plus pâle. --star-fill : 0 % à 100 % par étoile.
+[data-rating] .ico-star-filled {
+  background: linear-gradient(
+    90deg,
+    currentColor var(--star-fill, 100%),
+    color-mix(in srgb, currentColor 30%, transparent) var(--star-fill, 100%)
+  );
+}

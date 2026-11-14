@@ -1,0 +1,632 @@
+// Bandeau et panneau cookies (tarteaucitron.js, components/cookies.js) aux
+// couleurs du site. Le CSS de tarteaucitron (chargé depuis jsDelivr) pose
+// beaucoup de !important : on repasse devant avec « html body #tarteaucitronRoot ».
+
+// Thème du bandeau et du panneau : trois couleurs à changer ici.
+//   --cookies-fonce   fond du bandeau, en-tête du panneau, textes du panneau
+//   --cookies-accent  bouton « Tout accepter », titres, croix
+//   --cookies-pill    fond qui glisse sous le choix Autoriser / Interdire
+// Exemple de test : bleu nuit 900 / bleu clair 300 / bleu clair 300.
+$vert: var(--cookies-fonce);
+$citron: var(--cookies-accent);
+$creme: var(--_work-n-share---color--beige--50, #fffbe7);
+$blanc: var(--_work-n-share---color--blanc, #ffffff);
+$font: var(--_work-n-share---font--texte, "Google Sans Flex", Arial, sans-serif);
+
+html body #tarteaucitronRoot {
+  // Thème vert : vert 700 / vert 100 (citron), fond du sélecteur en citron
+  --cookies-fonce: var(--_work-n-share---color--vert--700, #3b400f);
+  --cookies-accent: var(--_work-n-share---color--vert--100, #eefc96);
+  --cookies-pill: var(--_work-n-share---color--vert--100, #eefc96);
+
+  font-family: $font !important;
+
+  // ---------- Bandeau (coin bas gauche) ----------
+  // tarteaucitron affiche / masque le bandeau par un style direct (display) :
+  // la mise en page flex ne s'applique que quand il est affiché.
+  #tarteaucitronAlertBig {
+    box-sizing: border-box !important;
+    left: 16px !important;
+    right: auto !important;
+    bottom: 16px !important;
+    top: auto !important;
+    width: calc(100% - 32px) !important;
+    max-width: 420px !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    border-radius: 24px !important;
+    background: $vert !important;
+    color: $creme !important;
+    font-family: $font !important;
+    text-align: left !important;
+    box-shadow: 0 12px 48px rgba(18, 20, 4, 0.25) !important;
+  }
+
+  // Grille : texte sur toute la largeur, puis Accepter | Refuser, puis les
+  // deux liens (Personnaliser à gauche, Politique de confidentialité à droite)
+  #tarteaucitronAlertBig[style*="display: block"] {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 12px 8px !important;
+  }
+
+  #tarteaucitronDisclaimerAlert {
+    display: block !important;
+    grid-column: 1 / -1 !important;
+    margin: 0 0 4px !important;
+    padding: 0 !important;
+    color: $creme !important;
+    font-family: $font !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+
+  .ws-cookie-title {
+    display: block !important;
+    margin-bottom: 6px !important;
+    color: $citron !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+  }
+
+  // Boutons : pilule comme les boutons du site
+  #tarteaucitronAlertBig .tarteaucitronCTAButton,
+  .tarteaucitronAllow,
+  .tarteaucitronDeny,
+  #tarteaucitronSaveButton {
+    margin: 0 !important;
+    padding: 10px 20px !important;
+    border: 1.5px solid $citron !important;
+    border-radius: 999px !important;
+    font-family: $font !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+    cursor: pointer;
+  }
+
+  // Bandeau : Accepter et Refuser, même largeur, côte à côte
+  #tarteaucitronPersonalize2,
+  #tarteaucitronAllDenied2 {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  // Accepter : plein citron ; Refuser : contour (même poids visuel)
+  #tarteaucitronPersonalize2,
+  .tarteaucitronAllow {
+    background: $citron !important;
+    color: $vert !important;
+  }
+
+  #tarteaucitronAllDenied2,
+  .tarteaucitronDeny {
+    background: transparent !important;
+    color: $citron !important;
+  }
+
+  // Personnaliser et Politique de confidentialité : liens discrets, centrés
+  // ensemble sous les boutons (« Personnaliser · Politique de confidentialité »)
+  #tarteaucitronCloseAlert,
+  #tarteaucitronAlertBig #tarteaucitronPrivacyUrl {
+    margin: 2px 0 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: color-mix(in srgb, #{$creme} 65%, transparent) !important;
+    font-family: $font !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    text-decoration: underline !important;
+    text-decoration-color: color-mix(in srgb, #{$creme} 30%, transparent) !important;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  // Écart de 32 px entre les deux liens (8 px de colonne + 12 px de chaque côté)
+  #tarteaucitronCloseAlert {
+    justify-self: end !important;
+    margin-right: 12px !important;
+  }
+
+  #tarteaucitronAlertBig #tarteaucitronPrivacyUrl {
+    justify-self: start !important;
+    margin-left: 12px !important;
+  }
+
+  // Petit point entre les deux liens (hors soulignement)
+  #tarteaucitronCloseAlert {
+    position: relative !important;
+  }
+
+  // Point centré dans l'écart (16 px après « Personnaliser »)
+  #tarteaucitronCloseAlert::after {
+    content: "·";
+    position: absolute;
+    right: -16px;
+    transform: translateX(50%);
+    color: color-mix(in srgb, #{$creme} 45%, transparent);
+  }
+
+  #tarteaucitronCloseAlert:hover,
+  #tarteaucitronAlertBig #tarteaucitronPrivacyUrl:hover {
+    color: $citron !important;
+  }
+
+  // Icônes ✓ / ✗ de tarteaucitron (caractères absents de la police : carrés « □ »)
+  .tarteaucitronCheck,
+  .tarteaucitronCross {
+    display: none !important;
+  }
+
+  // ---------- Panneau « Personnaliser » ----------
+  // Fond derrière le panneau
+  // Voile : même que celui du mega menu (vert 900 à 50 %, _mega-menu.scss)
+  #tarteaucitronBack {
+    background: color-mix(in srgb, var(--_work-n-share---color--vert--900, #121404) 50%, transparent) !important;
+    opacity: 1;
+  }
+
+  #tarteaucitron {
+    box-sizing: border-box !important;
+    width: calc(100% - 32px) !important;
+    max-width: 720px !important;
+    // tarteaucitron limite à 80 % : la hauteur est gérée par #tarteaucitronServices
+    max-height: none !important;
+    left: 50% !important;
+    top: 50% !important;
+    translate: -50% -50% !important;
+    transform: none;
+    margin: 0 !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    box-shadow: 0 24px 64px rgba(18, 20, 4, 0.3) !important;
+  }
+
+  #tarteaucitronNoServicesTitle {
+    display: none !important;
+  }
+
+  // Panneau en trois zones dans la hauteur de l'écran : en-tête (vert) fixe,
+  // liste des services qui défile, pied (« Enregistrer ») fixe
+  #tarteaucitronServices {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    max-height: calc(100vh - 32px) !important;
+    max-height: calc(100dvh - 32px) !important;
+    margin: 0 !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    background: $blanc !important;
+    color: $vert !important;
+    font-family: $font !important;
+    box-shadow: none !important;
+  }
+
+  // Bouton « Fermer » : croix ronde dans l'en-tête. Le texte « Fermer » reste
+  // dans le bouton (nom accessible), masqué à l'écran par font-size: 0.
+  #tarteaucitronClosePanel {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 2 !important;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border: 1.5px solid color-mix(in srgb, #{$citron} 60%, transparent) !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    color: $citron !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 1.5px;
+      border-radius: 1px;
+      background: currentColor;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:hover {
+      border-color: $citron !important;
+      background: color-mix(in srgb, #{$citron} 12%, transparent) !important;
+    }
+  }
+
+  // En-tête vert : titre, texte, préférences globales
+  #tarteaucitronMainLineOffset {
+    flex: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 16px 24px !important;
+    margin: 0 !important;
+    padding: 32px 32px 28px !important;
+    border: 0 !important;
+    background: $vert !important;
+    color: $creme !important;
+  }
+
+  #dialogTitle.tarteaucitronH1 {
+    display: block !important;
+    flex: 1 1 100% !important;
+    margin: 0 96px 0 0 !important;
+    color: $citron !important;
+    font-family: $font !important;
+    font-size: 26px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+
+  #tarteaucitronInfo {
+    flex: 1 1 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: $creme !important;
+    font-family: $font !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+
+    p {
+      margin: 0 !important;
+      color: $creme !important;
+      font-size: 15px !important;
+    }
+
+    br {
+      display: none;
+    }
+  }
+
+  #tarteaucitronPrivacyUrlDialog {
+    margin: 8px 0 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: $citron !important;
+    font-family: $font !important;
+    font-size: 15px !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+  }
+
+  #tarteaucitronMainLineOffset .tarteaucitronName {
+    flex: 1 1 auto !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #tarteaucitronMainLineOffset .tarteaucitronH2 {
+    margin: 0 !important;
+    color: $creme !important;
+    font-family: $font !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+  }
+
+  #tarteaucitronMainLineOffset .tarteaucitronAsk {
+    display: flex !important;
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+
+  #tarteaucitronAllAllowed {
+    background: $citron !important;
+    color: $vert !important;
+  }
+
+  #tarteaucitronAllDenied {
+    border-color: $citron !important;
+    background: transparent !important;
+    color: $citron !important;
+  }
+
+  #tarteaucitronMainLineOffset .tarteaucitronAsk button {
+    margin: 0 !important;
+  }
+
+  // Liste des services
+  .tarteaucitronBorder {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    padding: 8px 32px !important;
+    border: 0 !important;
+    background: $blanc !important;
+  }
+
+  .tarteaucitronTitle button {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px 0 8px !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: $vert !important;
+    font-family: $font !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+  }
+
+  .tarteaucitronPlus {
+    display: none !important;
+  }
+
+  .tarteaucitronLine {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px 24px !important;
+    margin: 0 !important;
+    padding: 16px 0 !important;
+    border: 0 !important;
+    border-top: 1px solid color-mix(in srgb, #{$vert} 12%, transparent) !important;
+    background: transparent !important;
+    color: $vert !important;
+  }
+
+  .tarteaucitronBorder .tarteaucitronName {
+    flex: 1 1 260px !important;
+    width: auto !important;
+    margin: 0 !important;
+    color: $vert !important;
+    font-family: $font !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+
+    .tarteaucitronH3 {
+      display: block !important;
+      margin-bottom: 4px !important;
+      color: $vert !important;
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      line-height: 1.35 !important;
+    }
+
+    // On garde seulement « En savoir plus » (page de confidentialité du
+    // service) : le lien « Voir le site officiel » et son séparateur sont masqués
+    .tarteaucitronReadmoreSeparator,
+    .tarteaucitronReadmoreOfficial {
+      display: none !important;
+    }
+
+    a,
+    .tarteaucitronReadmoreSeparator {
+      color: color-mix(in srgb, #{$vert} 70%, transparent) !important;
+      font-family: $font !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+    }
+  }
+
+  // Autoriser / Interdire : sélecteur à deux positions, fond qui glisse sous
+  // le choix (même mouvement que les onglets du hero, _tab-indicator.scss).
+  // État lu sur la ligne du service (classes posées par tarteaucitron) :
+  // .tarteaucitronIsAllowed → Autoriser ; sinon (Interdire ou pas encore
+  // choisi) → Interdire, ce qui s'applique tant qu'il n'y a pas de consentement.
+  // Fond rose comme les onglets du hero : se distingue du vert de l'en-tête.
+  .tarteaucitronBorder .tarteaucitronAsk {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    margin: 0 !important;
+    padding: 4px !important;
+    border-radius: 999px !important;
+    background: color-mix(in srgb, #{$vert} 8%, transparent) !important;
+    isolation: isolate;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      left: 4px;
+      z-index: 0;
+      width: calc(50% - 4px);
+      border-radius: 999px;
+      background: var(--cookies-pill);
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    button {
+      position: relative;
+      z-index: 1;
+      margin: 0 !important;
+      padding: 8px 18px !important;
+      border: 0 !important;
+      background: transparent !important;
+      color: $vert !important;
+      font-size: 14px !important;
+      transition: color 0.3s ease;
+    }
+  }
+
+  .tarteaucitronIsAllowed .tarteaucitronAsk::before {
+    transform: none;
+  }
+
+  // Graisse normale tout le temps ; seule l'option non choisie est atténuée
+  .tarteaucitronBorder .tarteaucitronAsk button {
+    font-weight: 400 !important;
+    opacity: 0.6;
+  }
+
+  .tarteaucitronIsAllowed .tarteaucitronAsk .tarteaucitronAllow,
+  .tarteaucitronLine:not(.tarteaucitronIsAllowed) .tarteaucitronAsk .tarteaucitronDeny {
+    opacity: 1;
+  }
+
+  #tarteaucitronSaveButton {
+    border-color: $vert !important;
+    background: $vert !important;
+    color: $citron !important;
+  }
+
+  #tarteaucitronSave {
+    flex: none !important;
+    padding: 16px 32px 24px !important;
+    border-top: 1px solid color-mix(in srgb, #{$vert} 12%, transparent) !important;
+    background: $blanc !important;
+    text-align: right !important;
+  }
+
+  #tarteaucitronSaveButton {
+    margin: 0 !important;
+  }
+
+  // Focus clavier dans la partie blanche
+  .tarteaucitronBorder button:focus-visible,
+  #tarteaucitronSave button:focus-visible {
+    outline-color: $vert !important;
+  }
+
+  // Focus clavier bien visible
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid $citron !important;
+    outline-offset: 3px !important;
+  }
+
+  @media screen and (max-width: 767px) {
+    #tarteaucitronAlertBig {
+      left: 8px !important;
+      right: 8px !important;
+      width: auto !important;
+      max-width: none !important;
+      bottom: 8px !important;
+      padding: 20px !important;
+      border-radius: 20px !important;
+    }
+  }
+
+  // ---------- Animations (apparition / disparition) ----------
+  // Apparition : jouée quand tarteaucitron passe l'élément en display: block.
+  // Disparition : classe .ws-closing posée par components/cookies.js juste
+  // avant que tarteaucitron masque l'élément.
+  #tarteaucitronAlertBig[style*="display: block"] {
+    animation: ws-cookie-alert-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  #tarteaucitronAlertBig.ws-closing {
+    animation: ws-cookie-alert-out 0.25s ease-in both;
+  }
+
+  #tarteaucitron[style*="display: block"] {
+    animation: ws-cookie-panel-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  #tarteaucitron.ws-closing {
+    animation: ws-cookie-panel-out 0.25s ease-in both;
+  }
+
+  #tarteaucitronBack[style*="display: block"] {
+    animation: ws-cookie-fade-in 0.35s ease both;
+  }
+
+  #tarteaucitronBack.ws-closing {
+    animation: ws-cookie-fade-out 0.25s ease-in both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #tarteaucitronAlertBig,
+    #tarteaucitron,
+    #tarteaucitronBack {
+      animation: none !important;
+    }
+
+    .tarteaucitronBorder .tarteaucitronAsk::before {
+      transition: none;
+    }
+  }
+}
+
+@keyframes ws-cookie-alert-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+}
+
+@keyframes ws-cookie-alert-out {
+  to {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+
+@keyframes ws-cookie-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+}
+
+@keyframes ws-cookie-panel-out {
+  to {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+}
+
+@keyframes ws-cookie-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes ws-cookie-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+// Panneau ouvert : la page ne défile plus derrière (components/cookies.js)
+html.is-cookies-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+  scrollbar-gutter: stable;
+}
+
+// tarteaucitron ajoute un voile flou blanc (pseudo-élément sur sa racine) quand
+// le panneau est ouvert : on le retire, le voile vert (#tarteaucitronBack) suffit.
+html body.tarteaucitron-modal-open div#tarteaucitronRoot::before,
+html body .tarteaucitronSize-middle.tarteaucitronBeforeVisible::before {
+  content: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}

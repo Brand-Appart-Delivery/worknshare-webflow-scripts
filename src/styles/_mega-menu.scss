@@ -136,11 +136,14 @@ $menu-ease: cubic-bezier(0.22, 1, 0.36, 1);
   background-color: var(--_work-n-share---color--blanc, #ffffff);
 }
 
-// Variante « Événementiel » du Header (texte clair, sans fond, sur hero bordeaux) :
-// au scroll ou menu ouvert, elle reprend l'apparence normale du header (fond
-// blanc, textes vert foncé, boutons par défaut). Webflow pose la classe
-// w-variant-<id de la variante> sur le header et ses éléments.
-[data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad {
+// Variantes claires du Header (texte clair, sans fond, sur hero coloré) :
+// « Événementiel » (bordeaux), « Vert clair » (Bureaux flexibles), « Bleu »
+// (Comparateur). Au scroll ou menu ouvert, elles passent sur fond blanc aux
+// couleurs de la page (plus bas). Webflow pose la classe w-variant-<id de la
+// variante> sur le header et ses éléments.
+$nav-light-variants: "[data-nav]:is(.w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad, .w-variant-9b6fcfb9-d5e6-0798-0f03-166d4085fd50, .w-variant-9af60bed-0846-cb1f-21e8-821b8c1a2372)";
+
+#{$nav-light-variants} {
   .navbar_link,
   .logo,
   .button {
@@ -246,10 +249,24 @@ $nav-ev: "[data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad";
   @include nav-white($ev-bordeaux, $ev-rose);
 }
 
-// Hero bleu (data-nav-theme="bleu", ex. Comparateur) : bleu nuit et bleu clair
+// Variante « Vert clair » du Header (Bureaux flexibles) : vert foncé et vert clair
+$vert-700: var(--_work-n-share---color--vert--700, #3b400f);
+$vert-100: var(--_work-n-share---color--vert--100, #eefc96);
+$nav-vert: "[data-nav].w-variant-9b6fcfb9-d5e6-0798-0f03-166d4085fd50";
+
+#{$nav-vert}:not(:has([data-nav-panel].is-open)) {
+  @include nav-hover($vert-700, $vert-100);
+}
+
+#{$nav-vert}:is(.is-scrolled, :has([data-mega-panel].is-open)):not(:has([data-nav-panel].is-open)) {
+  @include nav-white($vert-700, $vert-100);
+}
+
+// Hero bleu (data-nav-theme="bleu") ou variante « Bleu » du Header (Comparateur) :
+// bleu nuit et bleu clair
 $bleu-900: var(--_work-n-share---color--bleu--900, #0e1b3a);
 $bleu-300: var(--_work-n-share---color--bleu--300, #a3c4ff);
-$nav-bleu: '[data-nav]:has(+ [data-nav-theme="bleu"])';
+$nav-bleu: '[data-nav]:is(:has(+ [data-nav-theme="bleu"]), .w-variant-9af60bed-0846-cb1f-21e8-821b8c1a2372)';
 
 #{$nav-bleu}:not(:has([data-nav-panel].is-open)) {
   @include nav-hover($bleu-900, $bleu-300);
@@ -266,7 +283,7 @@ $nav-bleu: '[data-nav]:has(+ [data-nav-theme="bleu"])';
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-nav].w-variant-14ba25a8-2b52-1a0f-1cac-8f7fe40e54ad {
+  #{$nav-light-variants} {
     .navbar_link,
     .logo,
     .button {
