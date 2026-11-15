@@ -126,42 +126,9 @@ function initRoom(room, getAll) {
 
   room.roomConfigs = readConfigs(panel); // avant la mise en forme ci-dessous
   formatConfigurations(panel);
-  addFeatureIcons(panel);
 
   const api = { close };
   return api;
-}
-
-// Icône de chaque équipement, choisie d'après son texte. Toutes viennent du
-// même jeu (.room-icon, _room-details.scss) pour garder la même graisse.
-const FEATURE_ICONS = [
-  [/lumi[eè]re|fen[eê]tre|soleil|jour/i, "sun"],
-  [/paperboard|tableau|whiteboard/i, "board"],
-  [/[ée]cran|visio|t[ée]l[ée]|projecteur/i, "screen"],
-  [/r[ée]gie|vid[ée]o|cam[ée]ra|captation/i, "video"],
-  [/micro|sono|son\b|enceinte|audio/i, "mic"],
-  [/divisible|modulable|cloison/i, "split"],
-  [/bistrot|caf[ée]|restaura|bar\b|cocktail|traiteur/i, "coffee"],
-  [/rooftop|terrasse|jardin/i, "terrace"],
-  [/wi-?fi|internet|fibre/i, "wifi"],
-  [/parking/i, "parking"],
-  [/mobilier|fauteuil|canap|lounge/i, "sofa"],
-  [/acc[eè]s|badge|24/i, "key"],
-];
-
-function addFeatureIcons(panel) {
-  panel.querySelectorAll("[data-room-equipements] li").forEach((li) => {
-    if (li.querySelector(".room-feature_icon")) return;
-    const text = li.textContent;
-    const name = (FEATURE_ICONS.find(([re]) => re.test(text)) || [, "check"])[1];
-    const puce = document.createElement("span");
-    puce.className = "room-feature_icon";
-    puce.setAttribute("aria-hidden", "true");
-    const icon = document.createElement("span");
-    icon.className = `room-icon is-${name}`;
-    puce.appendChild(icon);
-    li.prepend(puce);
-  });
 }
 
 // Capacités « 16 · Réunion » -> chiffre + libellé (mis en forme en pastilles)

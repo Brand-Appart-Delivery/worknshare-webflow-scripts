@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-15",
+  "sujet": "Collection 🔒 Salles avant ajout du champ Multi-reference « Équipements » (vers 🔒 Services). Le texte riche « equipements » n'est pas modifié.",
+  "collectionId": "6ae9133b45531a4fb29963b9",
+  "locales": { "fr": "6ae9130c9b633fa64cb835c2", "en": "6aeb5d9ef4c99dd494ea722f" },
+  "items": [
+    { "id": "6ae91e7eeab97d4277592cbc", "slug": "clichy-le-studio",
+      "equipements_fr": "<ul><li>Écran et visio</li><li>Paperboard</li><li>Wi-Fi haut débit</li></ul>",
+      "equipements_en": "<ul><li>Screen and video conferencing</li><li>Flipchart</li><li>High-speed Wi-Fi</li></ul>" },
+    { "id": "6ae91e7eeab97d4277592cbe", "slug": "clichy-l-atelier",
+      "equipements_fr": "<ul><li>Lumière naturelle sur deux façades</li><li>Écran 65 pouces et visio</li><li>Paperboard et tableau blanc</li><li>À deux pas du bistrot et du rooftop</li></ul>",
+      "equipements_en": "<ul><li>Natural light on two sides</li><li>65-inch screen and video conferencing</li><li>Flipchart and whiteboard</li><li>A few steps from the bistro and the rooftop</li></ul>",
+      "configurations_fr": "<ul><li>16 · Réunion</li><li>30 · Théâtre</li><li>14 · En U</li><li>12 · En dd</li><li>35 · Cocktail</li></ul>" },
+    { "id": "6ae91e7eeab97d4277592cc0", "slug": "clichy-le-salon",
+      "equipements_fr": "<ul><li>Écran et visio</li><li>Mobilier modulable</li><li>Paperboard</li></ul>",
+      "equipements_en": "<ul><li>Screen and video conferencing</li><li>Modular furniture</li><li>Flipchart</li></ul>" },
+    { "id": "6ae91e7eeab97d4277592cc2", "slug": "clichy-la-grande-salle",
+      "equipements_fr": "<ul><li>Divisible en deux</li><li>Régie vidéo</li><li>Sonorisation et micros</li></ul>",
+      "equipements_en": "<ul><li>Can be split in two</li><li>Video control room</li><li>Sound system and microphones</li></ul>" }
+  ]
+}

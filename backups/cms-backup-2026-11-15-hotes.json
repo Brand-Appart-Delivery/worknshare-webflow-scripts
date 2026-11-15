@@ -1,0 +1,447 @@
+{
+ "date": "2026-11-15",
+ "sujet": "Champs hôte des 🌐 Espaces (et du lieu Clichy) avant création de la collection 🔒 Hôtes. Aucun champ existant modifié.",
+ "espaces": [
+  {
+   "id": "6ae927aab71194d345adc441",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "nanterre",
+   "hote-prenom": "Amandine",
+   "hote-photo": {
+    "fileId": "6aeca5259a53b182e3899576",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5259a53b182e3899576_d100cc76-templates-ig-_-old-5.webp",
+    "alt": "Amandine, coworking manager at Work & Share Nanterre"
+   },
+   "hote-role": "Coworking Manager, Nanterre",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9274c2d2afb91f79ab483",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "colombes",
+   "hote-prenom": "Romane",
+   "hote-photo": {
+    "fileId": "6aeca5769a53b182e389aefe",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5769a53b182e389aefe_1c45462a-templates-ig-_-old-1.webp",
+    "alt": "Romane, coworking manager at Work & Share Colombes"
+   },
+   "hote-role": "Coworking Manager, Colombes",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b5810",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "villejuif",
+   "hote-prenom": "Marine",
+   "hote-photo": {
+    "fileId": "6aeca5769a53b182e389af01",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5769a53b182e389af01_f92cd2c0-templates-ig-_-old.webp",
+    "alt": "Marine, coworking manager at Work & Share Villejuif"
+   },
+   "hote-role": "Coworking Manager, Villejuif",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580a",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "saint-ouen",
+   "hote-prenom": "Morgan",
+   "hote-photo": {
+    "fileId": "6aeca5779a53b182e389af6d",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5779a53b182e389af6d_0846067f-templates-ig-_-old-2.webp",
+    "alt": "Morgan, coworking manager at Work & Share Saint-Ouen"
+   },
+   "hote-role": "Coworking Manager, Saint-Ouen",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d1",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "suresnes",
+   "hote-prenom": "Lisa",
+   "hote-photo": {
+    "fileId": "6aeca5799a53b182e389afa6",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5799a53b182e389afa6_40d566f9-templates-ig-_-old-4.webp",
+    "alt": "Lisa, coworking manager at Work & Share Suresnes"
+   },
+   "hote-role": "Coworking Manager, Suresnes",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cf",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "saint-cloud",
+   "hote-prenom": "Léna",
+   "hote-photo": {
+    "fileId": "6aeca5799a53b182e389af91",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5799a53b182e389af91_68077462-templates-ig-_-old-6.webp",
+    "alt": "Léna, coworking manager at Work & Share Saint-Cloud"
+   },
+   "hote-role": "Coworking Manager, Saint-Cloud",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580e",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "val-de-fontenay",
+   "hote-prenom": "Méline",
+   "hote-photo": {
+    "fileId": "6aeca5799a53b182e389afb0",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5799a53b182e389afb0_066212b4-templates-ig-_-old-1.webp",
+    "alt": "Méline, coworking manager at Work & Share Val de Fontenay"
+   },
+   "hote-role": "Coworking Manager, Val de Fontenay",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580c",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "cachan",
+   "hote-prenom": "Mathilde",
+   "hote-photo": {
+    "fileId": "6aeca61737e0d113fbb6d2c1",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61737e0d113fbb6d2c1_aacf4906-templates-ig-_-old-2.webp",
+    "alt": "Mathilde, coworking manager at Work & Share Cachan"
+   },
+   "hote-role": "Coworking Manager, Cachan",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae927aab71194d345adc43f",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "levallois-perret",
+   "hote-prenom": "Elisabeth",
+   "hote-photo": {
+    "fileId": "6aeca61737e0d113fbb6d2c7",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61737e0d113fbb6d2c7_6f50f43b-eli-cadre.webp",
+    "alt": "Elisabeth, senior coworking manager at Work & Share Levallois-Perret"
+   },
+   "hote-role": "Senior Coworking Manager, Levallois-Perret",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae927aab71194d345adc43d",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "la-defense",
+   "hote-prenom": "Victoire",
+   "hote-photo": {
+    "fileId": "6aeca61937e0d113fbb6d32f",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61937e0d113fbb6d32f_5bd0bf06-template-de-post-ig-73.webp",
+    "alt": "Victoire, coworking manager at Work & Share La Défense"
+   },
+   "hote-role": "Coworking Manager, La Défense",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d3",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "saint-denis",
+   "hote-prenom": "Nadja",
+   "hote-photo": {
+    "fileId": "6aeca61a37e0d113fbb6d344",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61a37e0d113fbb6d344_fd2b34f2-templates-ig-_-old.webp",
+    "alt": "Nadja, coworking manager at Work & Share Saint-Denis"
+   },
+   "hote-role": "Coworking Manager, Saint-Denis",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cd",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "rueil-malmaison",
+   "hote-prenom": "Mathilde",
+   "hote-photo": {
+    "fileId": "6aeca61737e0d113fbb6d2c1",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61737e0d113fbb6d2c1_aacf4906-templates-ig-_-old-2.webp",
+    "alt": "Mathilde, coworking manager at Work & Share Rueil-Malmaison"
+   },
+   "hote-role": "Coworking Manager, Rueil-Malmaison",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae927aab71194d345adc43b",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "issy-les-moulineaux",
+   "hote-prenom": "Jean-Charles",
+   "hote-photo": {
+    "fileId": "6aeca61e37e0d113fbb6d3dc",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61e37e0d113fbb6d3dc_eb07e152-templates-ig-_-old-3.webp",
+    "alt": "Jean-Charles, senior event manager at Work & Share Issy-les-Moulineaux"
+   },
+   "hote-role": "Senior Event Manager, EOS Business Center",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae91849a1be7ba7205931b5",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "clichy",
+   "hote-prenom": "Clara",
+   "hote-photo": {
+    "fileId": "6aeca61e37e0d113fbb6d3ba",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61e37e0d113fbb6d3ba_3ed8b8e7-templates-ig-_-old.webp",
+    "alt": "Clara, coworking manager at Work & Share Clichy"
+   },
+   "hote-role": "Coworking Manager, Clichy",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b5810",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "villejuif",
+   "hote-prenom": "Marine",
+   "hote-photo": {
+    "fileId": "6aeca5769a53b182e389af01",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5769a53b182e389af01_f92cd2c0-templates-ig-_-old.webp",
+    "alt": "Marine, coworking manager de Work & Share Villejuif"
+   },
+   "hote-role": "Coworking Manager de Villejuif",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580e",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "val-de-fontenay",
+   "hote-prenom": "Méline",
+   "hote-photo": {
+    "fileId": "6aeca5799a53b182e389afb0",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5799a53b182e389afb0_066212b4-templates-ig-_-old-1.webp",
+    "alt": "Méline, coworking manager de Work & Share Val de Fontenay"
+   },
+   "hote-role": "Coworking Manager de Val de Fontenay",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580c",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "cachan",
+   "hote-prenom": "Mathilde",
+   "hote-photo": {
+    "fileId": "6aeca61737e0d113fbb6d2c1",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61737e0d113fbb6d2c1_aacf4906-templates-ig-_-old-2.webp",
+    "alt": "Mathilde, coworking manager de Work & Share Cachan"
+   },
+   "hote-role": "Coworking Manager de Cachan",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580a",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "saint-ouen",
+   "hote-prenom": "Morgan",
+   "hote-photo": {
+    "fileId": "6aeca5779a53b182e389af6d",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5779a53b182e389af6d_0846067f-templates-ig-_-old-2.webp",
+    "alt": "Morgan, coworking manager de Work & Share Saint-Ouen"
+   },
+   "hote-role": "Coworking Manager de Saint-Ouen",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d3",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "saint-denis",
+   "hote-prenom": "Nadja",
+   "hote-photo": {
+    "fileId": "6aeca61a37e0d113fbb6d344",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61a37e0d113fbb6d344_fd2b34f2-templates-ig-_-old.webp",
+    "alt": "Nadja, coworking manager de Work & Share Saint-Denis"
+   },
+   "hote-role": "Coworking Manager de Saint-Denis",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d1",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "suresnes",
+   "hote-prenom": "Lisa",
+   "hote-photo": {
+    "fileId": "6aeca5799a53b182e389afa6",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5799a53b182e389afa6_40d566f9-templates-ig-_-old-4.webp",
+    "alt": "Lisa, coworking manager de Work & Share Suresnes"
+   },
+   "hote-role": "Coworking Manager de Suresnes",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cf",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "saint-cloud",
+   "hote-prenom": "Léna",
+   "hote-photo": {
+    "fileId": "6aeca5799a53b182e389af91",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5799a53b182e389af91_68077462-templates-ig-_-old-6.webp",
+    "alt": "Léna, coworking manager de Work & Share Saint-Cloud"
+   },
+   "hote-role": "Coworking Manager de Saint-Cloud",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cd",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "rueil-malmaison",
+   "hote-prenom": "Mathilde",
+   "hote-photo": {
+    "fileId": "6aeca61737e0d113fbb6d2c1",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61737e0d113fbb6d2c1_aacf4906-templates-ig-_-old-2.webp",
+    "alt": "Mathilde, coworking manager de Work & Share Rueil-Malmaison"
+   },
+   "hote-role": "Coworking Manager de Rueil-Malmaison",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae927aab71194d345adc441",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "nanterre",
+   "hote-prenom": "Amandine",
+   "hote-photo": {
+    "fileId": "6aeca5259a53b182e3899576",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5259a53b182e3899576_d100cc76-templates-ig-_-old-5.webp",
+    "alt": "Amandine, coworking manager de Work & Share Nanterre"
+   },
+   "hote-role": "Coworking Manager de Nanterre",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae927aab71194d345adc43f",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "levallois-perret",
+   "hote-prenom": "Elisabeth",
+   "hote-photo": {
+    "fileId": "6aeca61737e0d113fbb6d2c7",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61737e0d113fbb6d2c7_6f50f43b-eli-cadre.webp",
+    "alt": "Elisabeth, senior coworking manager de Work & Share Levallois-Perret"
+   },
+   "hote-role": "Senior Coworking Manager de Levallois-Perret",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae927aab71194d345adc43d",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "la-defense",
+   "hote-prenom": "Victoire",
+   "hote-photo": {
+    "fileId": "6aeca61937e0d113fbb6d32f",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61937e0d113fbb6d32f_5bd0bf06-template-de-post-ig-73.webp",
+    "alt": "Victoire, coworking manager de Work & Share La Défense"
+   },
+   "hote-role": "Coworking Manager de La Défense",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae927aab71194d345adc43b",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "issy-les-moulineaux",
+   "hote-prenom": "Jean-Charles",
+   "hote-photo": {
+    "fileId": "6aeca61e37e0d113fbb6d3dc",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61e37e0d113fbb6d3dc_eb07e152-templates-ig-_-old-3.webp",
+    "alt": "Jean-Charles, senior event manager de Work & Share Issy-les-Moulineaux"
+   },
+   "hote-role": "Senior Event Manager du Business Center EOS",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae9274c2d2afb91f79ab483",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "colombes",
+   "hote-prenom": "Romane",
+   "hote-photo": {
+    "fileId": "6aeca5769a53b182e389aefe",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca5769a53b182e389aefe_1c45462a-templates-ig-_-old-1.webp",
+    "alt": "Romane, coworking manager de Work & Share Colombes"
+   },
+   "hote-role": "Coworking Manager de Colombes",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  },
+  {
+   "id": "6ae91849a1be7ba7205931b5",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "clichy",
+   "hote-prenom": "Clara",
+   "hote-photo": {
+    "fileId": "6aeca61e37e0d113fbb6d3ba",
+    "url": "https://cdn.prod.website-files.com/6ae9130c9b633fa64cb835c3/6aeca61e37e0d113fbb6d3ba_3ed8b8e7-templates-ig-_-old.webp",
+    "alt": "Clara, coworking manager de Work & Share Clichy"
+   },
+   "hote-role": "Coworking Manager de Clichy",
+   "hote-citation": null,
+   "telephone": "01 89 71 74 72",
+   "e-mail": null
+  }
+ ],
+ "lieux": [
+  {
+   "id": "6ae91e660a5af0daef0e87c3",
+   "slug": "clichy",
+   "fr": {
+    "hote-evenementiel-prenom": "Julien",
+    "hote-evenementiel-role": "Responsable événementiel de Clichy",
+    "telephone-evenementiel": "01 89 71 74 72",
+    "hote-evenementiel-photo": {
+     "fileId": "6ae91e650a5af0daef0e87bc",
+     "alt": "Julien, responsable événementiel de Clichy"
+    }
+   },
+   "en": {
+    "hote-evenementiel-role": "Events manager in Clichy",
+    "hote-evenementiel-photo": {
+     "alt": "Julien, events manager in Clichy"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-15",
+  "sujet": "Collection 🌐 Lieux événementiels avant ajout des champs Multi-reference « Compris dans la location » et « À la carte » (vers 🔒 Services). Aucun champ existant modifié ; fiche complète consultable via l'API (id ci-dessous).",
+  "collectionId": "6ae9133a7f810025d154e738",
+  "items": [
+    { "id": "6ae91e660a5af0daef0e87c3", "slug": "clichy", "locales": ["6ae9130c9b633fa64cb835c2", "6aeb5d9ef4c99dd494ea722f"],
+      "template_en_dur": {
+        "Compris dans la location": [["ico-presentation", "Une salle équipée : écran, visio et Wi-Fi haut débit"], ["ico-coffee", "Bar à sucreries et creative box en libre-service"], ["ico-calendar", "Une équipe dédiée jusqu’au jour J, et une réponse sous 2 heures"]],
+        "À la carte, sur devis": [["ico-key", "Le Bistrot, le jardin ou la terrasse, privatisés pour vous"], ["ico-users", "Animations et activités de team building"], ["ico-clock", "Hôtesses, régie ou photographe, selon votre événement"]]
+      } }
+  ]
+}

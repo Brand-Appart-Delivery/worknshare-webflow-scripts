@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-15",
+  "sujet": "Collection 🔒 Services avant ajout du champ Option « Pictogramme » (classes ico-*)",
+  "collectionId": "6ae9130d9c91e630c06762d4",
+  "locales": { "fr": "6ae9130c9b633fa64cb835c2", "en": "6aeb5d9ef4c99dd494ea722f" },
+  "options_type": { "0203f1cea0e9da68a6f533ac99ae4963": "Inclus", "78eeedee4ce9cae45a43b1a91f07a33a": "En option" },
+  "items": [
+    { "id": "6ae914428f31c3daf261eb17", "slug": "gestion-du-courrier", "ordre": 1, "type": "0203f1cea0e9da68a6f533ac99ae4963", "icone": "6aec8a4e16bd480e2ba5842f", "name_fr": "Gestion du courrier", "name_en": "Mail handling" },
+    { "id": "6ae914428f31c3daf261eb19", "slug": "wifi-haut-debit", "ordre": 2, "type": "0203f1cea0e9da68a6f533ac99ae4963", "icone": "6aec8a4e16bd480e2ba5842c", "name_fr": "Wi-Fi haut débit sécurisé", "name_en": "Secure high-speed Wi-Fi" },
+    { "id": "6ae914428f31c3daf261eb1b", "slug": "menage-regulier", "ordre": 3, "type": "0203f1cea0e9da68a6f533ac99ae4963", "icone": "6aec8a4e16bd480e2ba58444", "name_fr": "Ménage régulier", "name_en": "Regular cleaning" },
+    { "id": "6ae914428f31c3daf261eb1d", "slug": "cuisine-et-bistrot", "ordre": 4, "type": "0203f1cea0e9da68a6f533ac99ae4963", "icone": "6aec8a4e16bd480e2ba58435", "name_fr": "Cuisine équipée et bistrot", "name_en": "Fully equipped kitchen and bistro" },
+    { "id": "6ae914428f31c3daf261eb1f", "slug": "salles-phonebox-alcoves", "ordre": 5, "type": "0203f1cea0e9da68a6f533ac99ae4963", "icone": "6aec8a4e16bd480e2ba58432", "name_fr": "Salles de réunion, phonebox, alcôves", "name_en": "Meeting rooms, phone booths, alcoves" },
+    { "id": "6ae914428f31c3daf261eb21", "slug": "acces-6h-21h", "ordre": 6, "type": "0203f1cea0e9da68a6f533ac99ae4963", "icone": "6aec8a4e16bd480e2ba58441", "name_fr": "Accès du lundi au vendredi de 6 h à 21 h", "name_en": "Access Monday to Friday, 6 am to 9 pm" },
+    { "id": "6ae914428f31c3daf261eb23", "slug": "parking-location", "ordre": 7, "type": "78eeedee4ce9cae45a43b1a91f07a33a", "icone": "6aec8a4e16bd480e2ba5843e", "name_fr": "Places de parking à la location", "name_en": "Parking spaces for rent" },
+    { "id": "6ae914428f31c3daf261eb25", "slug": "privatisation-espace", "ordre": 8, "type": "78eeedee4ce9cae45a43b1a91f07a33a", "icone": "6aec8a4e16bd480e2ba58438", "name_fr": "Privatisation de l’espace pour vos événements", "name_en": "Private hire of the space for your events" },
+    { "id": "6ae914428f31c3daf261eb27", "slug": "domiciliation", "ordre": 9, "type": "78eeedee4ce9cae45a43b1a91f07a33a", "icone": "6aec950a5655e601a3bf2c4c", "name_fr": "Domiciliation de votre entreprise", "name_en": "Registered address for your company" }
+  ]
+}

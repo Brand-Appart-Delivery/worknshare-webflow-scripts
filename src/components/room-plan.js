@@ -13,6 +13,10 @@
 // puis ceux de la nouvelle se relèvent, en cascade depuis le centre de la salle
 // (700 ms). Sans animation si l'utilisateur a réduit les animations.
 //
+// Sécurité : si la jauge du CMS ne tient pas dans la surface (ex. 170 places
+// sur 40 m²), chaque disposition dessine seulement ce que la salle peut
+// contenir. Le chiffre affiché sous le plan reste celui du CMS.
+//
 // Utilisation : const plan = createRoomPlan(stage, { surface: 40, configs });
 //   configs = [{ key: "reunion", n: 16 }, …] ; plan.show("theatre")
 
@@ -32,7 +36,9 @@ function reunion(n, RW, RD) {
   const L = [];
   const pitch = 6.4;
   const maxSide = Math.max(2, Math.floor((RW - 26) / pitch));
-  const islands = clamp(Math.ceil(n / (2 * maxSide)), 1, Math.max(1, Math.floor(RD / 26)));
+  const maxIslands = Math.max(1, Math.floor(RD / 26));
+  n = Math.min(n, 2 * maxSide * maxIslands); // sécurité : pas plus de chaises que la salle n'en tient
+  const islands = clamp(Math.ceil(n / (2 * maxSide)), 1, maxIslands);
   let left = n;
   for (let k = 0; k < islands; k++) {
     const count = Math.ceil(left / (islands - k));
@@ -60,7 +66,10 @@ function enU(n, RW, RD) {
   const armLen = xb - xa - 4, endLen = yb - yt - 8;
   let end = clamp(Math.round((n * endLen) / (2 * armLen + endLen)), 1, Math.max(1, Math.floor(endLen / 6)));
   if (n < 6) end = 0;
-  const top = Math.ceil((n - end) / 2), bottom = n - end - top;
+  // Sécurité : une chaise tous les 5 dm au plus sur chaque bras
+  const perArm = Math.max(1, Math.floor(armLen / 5));
+  const top = Math.min(perArm, Math.ceil((n - end) / 2));
+  const bottom = Math.min(perArm, n - end - top);
   const along = (count, from, len) => Array.from({ length: count }, (_, i) => from + ((i + 0.5) * len) / count - CH / 2);
   along(top, xa + 2, armLen).forEach((x) => L.push(["chair", x, yt - 4.6, "-y"]));
   along(bottom, xa + 2, armLen).forEach((x) => L.push(["chair", x, yb + 6.6, "+y"]));
@@ -72,6 +81,8 @@ function enU(n, RW, RD) {
 function theatre(n, RW, RD) {
   const L = [];
   const cols = Math.max(1, Math.floor((RD - 10) / 6.6));
+  const maxRows = Math.max(1, Math.floor((RW - 22) / 6)); // rangs espacés de 6 dm minimum
+  n = Math.min(n, cols * maxRows); // sécurité : les rangs restent dans la salle
   const rows = Math.ceil(n / cols);
   const pitch = clamp((RW - 22) / Math.max(rows, 1), 6, 11);
   let left = n;
@@ -94,9 +105,11 @@ const seeded = (seed) => () => {
 function cocktail(n, RW, RD) {
   const L = [];
   if (RW > 40) L.push(["bar", RW * 0.42, 3, [Math.min(26, RW * 0.33), 6]]);
-  const count = clamp(Math.round(n / 4.5), 2, 60);
   const x0 = 14, x1 = RW - 8, y0 = 14, y1 = RD - 6;
   const W = x1 - x0, H = y1 - y0;
+  // Sécurité : un mange-debout par carré de 1 m au plus, pour qu'ils ne se chevauchent pas
+  const room = Math.max(2, Math.floor(W / 10) * Math.floor(H / 10));
+  const count = clamp(Math.round(n / 4.5), 2, Math.min(60, room));
   const cols = Math.max(1, Math.round(Math.sqrt((count * W) / H)));
   const rows = Math.ceil(count / cols);
   const rnd = seeded(n * 7 + Math.round(RW));
