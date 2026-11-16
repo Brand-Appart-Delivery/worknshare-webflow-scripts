@@ -1,0 +1,203 @@
+{
+  "date": "2026-11-16",
+  "sujet": "Espaces : prix poste nomade (retrait « / mois ») et prix poste dédié (vide -> Dès 220 € HT)",
+  "collectionId": "6ae9133a82664ff73e573da9",
+  "items": [
+    {
+      "id": "6ae927aab71194d345adc441",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "nanterre",
+      "prix-poste-nomade": "From €150 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9274c2d2afb91f79ab483",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "colombes",
+      "prix-poste-nomade": "From €150 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9286d82229bf3ee7b5810",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "villejuif",
+      "prix-poste-nomade": "From €100 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9286d82229bf3ee7b580a",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "saint-ouen",
+      "prix-poste-nomade": "From €150 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9280a7a97882afbb974d1",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "suresnes",
+      "prix-poste-nomade": "From €150 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9280a7a97882afbb974cf",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "saint-cloud",
+      "prix-poste-nomade": "From €150 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9286d82229bf3ee7b580e",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "val-de-fontenay",
+      "prix-poste-nomade": "From €150 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9286d82229bf3ee7b580c",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "cachan",
+      "prix-poste-nomade": "From €150 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae927aab71194d345adc43f",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "levallois-perret",
+      "prix-poste-nomade": null,
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae927aab71194d345adc43d",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "la-defense",
+      "prix-poste-nomade": "From €150 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9280a7a97882afbb974d3",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "saint-denis",
+      "prix-poste-nomade": "From €150 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9280a7a97882afbb974cd",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "rueil-malmaison",
+      "prix-poste-nomade": "From €150 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae927aab71194d345adc43b",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "issy-les-moulineaux",
+      "prix-poste-nomade": null,
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae91849a1be7ba7205931b5",
+      "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+      "slug": "clichy",
+      "prix-poste-nomade": "From €150 excl. VAT / month",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9286d82229bf3ee7b5810",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "villejuif",
+      "prix-poste-nomade": "Dès 100 € HT / mois",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9286d82229bf3ee7b580e",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "val-de-fontenay",
+      "prix-poste-nomade": "Dès 150 € HT / mois",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9286d82229bf3ee7b580c",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "cachan",
+      "prix-poste-nomade": "Dès 150 € HT / mois",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9286d82229bf3ee7b580a",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "saint-ouen",
+      "prix-poste-nomade": "Dès 150 € HT / mois",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9280a7a97882afbb974d3",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "saint-denis",
+      "prix-poste-nomade": "Dès 150 € HT / mois",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9280a7a97882afbb974d1",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "suresnes",
+      "prix-poste-nomade": "Dès 150 € HT / mois",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9280a7a97882afbb974cf",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "saint-cloud",
+      "prix-poste-nomade": "Dès 150 € HT / mois",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9280a7a97882afbb974cd",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "rueil-malmaison",
+      "prix-poste-nomade": "Dès 150 € HT / mois",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae927aab71194d345adc441",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "nanterre",
+      "prix-poste-nomade": "Dès 150 € HT / mois",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae927aab71194d345adc43f",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "levallois-perret",
+      "prix-poste-nomade": null,
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae927aab71194d345adc43d",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "la-defense",
+      "prix-poste-nomade": "Dès 150 € HT / mois",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae927aab71194d345adc43b",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "issy-les-moulineaux",
+      "prix-poste-nomade": null,
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae9274c2d2afb91f79ab483",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "colombes",
+      "prix-poste-nomade": "Dès 150 € HT / mois",
+      "prix-poste-dedie": null
+    },
+    {
+      "id": "6ae91849a1be7ba7205931b5",
+      "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+      "slug": "clichy",
+      "prix-poste-nomade": "Dès 150 € HT / mois",
+      "prix-poste-dedie": null
+    }
+  ]
+}
