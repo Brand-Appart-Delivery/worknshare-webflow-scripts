@@ -55,6 +55,7 @@ import { initMiniMaps } from "./components/mini-map.js";
 import { initLinePills } from "./components/line-pills.js";
 import { initPageSchema } from "./schema/page-schema.js";
 import { initCmsLinks } from "./utils/cms-links.js";
+import { initCmsUnwrap } from "./utils/cms-unwrap.js";
 import { isReturnVisit } from "./utils/visit.js";
 
 // Note la visite tout de suite (première page de l'onglet ou non), même sans
@@ -75,6 +76,7 @@ onReady(() => {
   initDates(); // dates CMS en français (« 23 septembre 2024 »)
   initCollapses();
   initTocs(); // sommaires (article, pages légales) : avant les animations
+  initCmsUnwrap(); // listes CMS [data-cms-unwrap] fondues dans leur grille (avant sliders et bento)
   initCmsLinks(); // liens des cartes CMS imbriquées (avant les cartes cliquables)
   initCardLinks();
   initLinePills(); // pastilles de lignes (couleur selon la ligne)
