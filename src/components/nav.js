@@ -101,14 +101,16 @@ function setPanel(trigger, panel, open) {
 }
 
 // ---------- Blocage du scroll de la page ----------
-// Scroll bloqué tant que le tiroir mobile ou un mega menu desktop est ouvert
-// (ou en train de s'ouvrir) ; débloqué dès le début de la fermeture.
+// Scroll bloqué tant que le tiroir mobile ou un mega menu desktop est affiché :
+// ouvert, en train de s'ouvrir OU de se fermer. Débloqué seulement à la fin de
+// l'animation de fermeture (showPanel rappelle syncScrollLock à ce moment-là).
+// Le voile, lui, s'efface dès le début de la fermeture.
 let scrollLocked = false;
 
 function syncScrollLock(header) {
   if (!header) return;
   const panels = header.querySelectorAll("[data-nav-panel], [data-mega-panel]");
-  const open = [...panels].some((panel) => !panel.closest("[data-nav-panel] [data-mega-panel]") && isPanelOpen(panel));
+  const open = [...panels].some((panel) => !panel.closest("[data-nav-panel] [data-mega-panel]") && isPanelShown(panel));
   // Voile sur la page : mega menu desktop seulement (le tiroir couvre déjà l'écran)
   const megaOpen = [...header.querySelectorAll("[data-mega-panel]")].some(
     (panel) => !panel.closest("[data-nav-panel]") && isPanelOpen(panel),
@@ -165,6 +167,8 @@ function showPanel(panel, open) {
     panelAnims.delete(panel);
     if (!entry.open) panel.classList.remove("is-open");
     anim.cancel();
+    // Fermeture terminée : le scroll peut reprendre
+    syncScrollLock(panel.closest("[data-nav]"));
   };
 }
 
@@ -172,6 +176,11 @@ function showPanel(panel, open) {
 function isPanelOpen(panel) {
   const state = panelAnims.get(panel);
   return state ? state.open : panel.classList.contains("is-open");
+}
+
+// Panneau visible à l'écran : ouvert, ou animation (ouverture / fermeture) en cours
+function isPanelShown(panel) {
+  return panelAnims.has(panel) || panel.classList.contains("is-open");
 }
 
 // ---------- Accordéon du tiroir (« Nos espaces ») ----------

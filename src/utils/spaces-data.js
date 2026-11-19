@@ -5,6 +5,8 @@
 //   [data-space=slug][data-lat][data-lng] + data-name, data-city, data-dept,
 //   data-building, data-address, data-postcode, data-station,
 //   data-coworking, data-offices, data-rooms ("true" / "false")
+//   data-events="false" : pas de lieu événementiel (par défaut : tous les
+//   espaces en ont un, page /evenementiel/<slug>)
 // Les offres peuvent aussi venir de repères cachés dans l'élément :
 //   [data-offer="rooms|coworking|offices"], affichés par Webflow seulement si
 //   l'offre est cochée (visibilité conditionnelle -> classe w-condition-invisible
@@ -27,6 +29,26 @@ function spaceUrl(el, slug) {
   const url = `${prefix}/espaces/${slug}`;
   if (el.tagName === "A") el.setAttribute("href", url);
   return url;
+}
+
+// Page « lieu événementiel » d'un espace (même slug), préfixe de langue compris
+export function eventUrl(slug) {
+  const prefix = (LOCALES[getLang()] || {}).prefix || "";
+  return `${prefix}/evenementiel/${slug}`;
+}
+
+// Filtre Bureaux / Événements (onglets de recherche et de la carte) :
+// « bureaux » = espaces avec coworking ou bureaux, « salles » = lieux événementiels.
+// Sans repères d'offre dans la page, tous les espaces restent affichés.
+export function spacesForType(spaces, type) {
+  if (type === "salles") return spaces.filter((s) => s.events);
+  if (!spaces.some((s) => s.coworking || s.offices || s.rooms)) return spaces;
+  return spaces.filter((s) => s.coworking || s.offices);
+}
+
+// Lien d'un espace selon l'onglet : sa fiche, ou sa page événementielle
+export function urlForType(space, type) {
+  return type === "salles" ? space.eventUrl : space.url;
 }
 
 function hasOffer(el, name) {
@@ -84,7 +106,9 @@ export function readSpaces(root = document) {
       coworking: hasOffer(el, "coworking"),
       offices: hasOffer(el, "offices"),
       rooms: hasOffer(el, "rooms"),
+      events: el.getAttribute("data-events") == null || isTrue(el.getAttribute("data-events")),
       url: spaceUrl(el, slug),
+      eventUrl: eventUrl(slug),
       photo: img ? bestSrc(img) : "",
       photos: readPhotos(el, img),
       photoAlt: img ? img.alt : "",

@@ -16,7 +16,9 @@
 // ÉVÉNEMENTS reçus (envoyés par space-search.js sur le module) :
 //   "spaces:origin"  detail { lat, lng, label, isUser }  -> tri par distance
 //   "spaces:select"  detail { slug }                     -> sélectionne un espace
-//   "spaces:type"    detail { type: "bureaux"|"salles" } -> filtre les espaces
+//   "spaces:type"    detail { type: "bureaux"|"salles" } -> filtre les espaces,
+//                    thème des pins (data-map-tab du module : vert / rose) et
+//                    liens (fiche de l'espace ou page /evenementiel/<slug>)
 // Paramètres d'URL lus au chargement : ?lat=&lng=&q=&type=&espace=
 //
 // ÉTATS : .is-active (élément de liste et pin), .is-open (fiche),
@@ -24,7 +26,7 @@
 
 import { loadMapLibre, STYLE_URL, applyTheme, PIN_SVG, escapeHtml } from "../utils/map-base.js";
 import { distanceKm, formatDistance } from "../utils/geo.js";
-import { readSpaces } from "../utils/spaces-data.js";
+import { readSpaces, spacesForType, urlForType } from "../utils/spaces-data.js";
 import { loadStations, nearestStations, renderLines } from "../utils/stations.js";
 import { transitTimes, formatDuration, walkMinutes } from "../utils/transit.js";
 import { prefersReducedMotion } from "../utils/motion.js";
@@ -87,7 +89,17 @@ function initModule(module) {
   // ---------- Liste : tri, groupes, distances ----------
 
   function visibleSpaces() {
-    return state.type === "salles" ? spaces.filter((s) => s.rooms) : spaces;
+    return spacesForType(spaces, state.type);
+  }
+
+  // Onglet courant : thème de la carte (_map-module.scss, data-map-tab="salles"
+  // = pins bordeaux / rose) et liens de la liste vers la bonne page
+  function applyType() {
+    module.setAttribute("data-map-tab", state.type);
+    spaces.forEach((s) => {
+      if (s.el.tagName === "A") s.el.setAttribute("href", urlForType(s, state.type));
+    });
+    if (state.active) fillCard(state.active);
   }
 
   function renderList() {
@@ -253,8 +265,9 @@ function initModule(module) {
       paintAccess(el.parentElement, el, space);
       el.hidden = !el.textContent;
     });
-    set("[data-place-link]", (a) => a.setAttribute("href", space.url));
-    set("[data-place-visit]", (a) => a.setAttribute("href", `/nous-contacter/?motif=visite&espace=${space.slug}`));
+    set("[data-place-link]", (a) => a.setAttribute("href", urlForType(space, state.type)));
+    const motif = state.type === "salles" ? "evenement" : "visite";
+    set("[data-place-visit]", (a) => a.setAttribute("href", `/nous-contacter/?motif=${motif}&espace=${space.slug}`));
     card.setAttribute("aria-label", space.name);
     card.classList.add("is-open");
   }
@@ -361,6 +374,7 @@ function initModule(module) {
   module.addEventListener("spaces:select", (e) => select(e.detail.slug));
   module.addEventListener("spaces:type", (e) => {
     state.type = e.detail.type === "salles" ? "salles" : "bureaux";
+    applyType();
     renderList();
     requestTimes(); // les plus proches peuvent changer avec le filtre
     if (state.active && !visibleSpaces().includes(state.active)) select(null);
@@ -581,6 +595,7 @@ function initModule(module) {
   closeCard();
   const params = new URLSearchParams(location.search);
   if (params.get("type") === "salles") state.type = "salles";
+  applyType();
   const lat = parseFloat(params.get("lat"));
   const lng = parseFloat(params.get("lng"));
   if (Number.isFinite(lat) && Number.isFinite(lng)) {

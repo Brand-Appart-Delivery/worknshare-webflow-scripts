@@ -15,7 +15,7 @@
 // Ailleurs (hero) : redirige vers /espaces (page Nos espaces) avec la recherche dans l'URL.
 
 import { normalize, isInIdf } from "../utils/geo.js";
-import { readSpaces } from "../utils/spaces-data.js";
+import { readSpaces, spacesForType, urlForType } from "../utils/spaces-data.js";
 import { loadStations, renderLines } from "../utils/stations.js";
 import { createTabIndicator } from "../utils/tab-indicator.js";
 import { t } from "../utils/i18n.js";
@@ -296,7 +296,7 @@ function initSearch(block) {
     // Espaces : champ vide -> tous, groupés par département (« Hauts-de-Seine · 92 ») ;
     // sinon ceux dont le nom, la ville ou l'immeuble correspond
     const toItem = (s) => ({ kind: "space", label: s.name, hint: s.building, space: s });
-    const pool = spaces.filter((s) => (type === "salles" ? s.rooms : true));
+    const pool = spacesForType(spaces, type);
     if (!q) {
       const byDept = new Map();
       pool.forEach((s) => {
@@ -453,7 +453,7 @@ function initSearch(block) {
     if (item.kind === "space") {
       input.value = item.label;
       if (module) module.dispatchEvent(new CustomEvent("spaces:select", { detail: { slug: item.space.slug } }));
-      else location.href = item.space.url;
+      else location.href = urlForType(item.space, type);
       return;
     }
     const label = item.short || item.label;

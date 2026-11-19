@@ -6,16 +6,16 @@
 
 // Caché tant que le hero n'est pas dépassé (components/contact-float.js
 // pose .is-visible). Le Designer n'exécute pas ce CSS : le bouton y reste visible.
+// Entrée en glissement seul (pas de fondu) : caché, le bouton est poussé sous
+// le bas de l'écran (sa hauteur + les 24 px de marge + l'ombre).
 [data-contact-float] {
   transition:
-    opacity 0.3s ease,
-    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0s linear 0.3s;
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.4s;
 
   &:not(.is-visible) {
-    opacity: 0;
     visibility: hidden; // ni cliquable ni atteignable au clavier
-    transform: translateY(12px);
+    transform: translateY(calc(100% + 64px));
   }
 
   &.is-visible {
