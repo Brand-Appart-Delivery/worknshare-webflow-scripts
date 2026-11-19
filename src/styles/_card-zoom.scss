@@ -21,6 +21,7 @@ $radius: var(--_work-n-share---radius--m, 16px);
 // ---------- Cas 1 : bloc qui coupe déjà la photo ----------
 .events-format-card_image,
 .space-gallery_thumb .space-cover,
+.space-gallery_more > *,
 .bento-card.is-card-link .bento-card_image {
   transition: transform $duration $ease;
 }
@@ -48,7 +49,11 @@ $radius: var(--_work-n-share---radius--m, 16px);
 .events-format-card:hover .events-format-card_image,
 .events-format-card:focus-visible .events-format-card_image,
 .space-gallery_thumb:hover .space-cover,
-.space-gallery_thumb:focus-visible .space-cover {
+.space-gallery_thumb:focus-visible .space-cover,
+// Tuile « +N Toutes les photos » : son contenu grossit comme la photo des
+// miniatures voisines (le fond et le contour ne bougent pas)
+.space-gallery_more:hover > *,
+.space-gallery_more:focus-visible > * {
   transform: scale($zoom);
 }
 
@@ -92,6 +97,7 @@ $radius: var(--_work-n-share---radius--m, 16px);
 @media (prefers-reduced-motion: reduce) {
   .events-format-card_image,
   .space-gallery_thumb .space-cover,
+  .space-gallery_more > *,
   .blog-featured_image,
   .space-item_photo,
   .mega-menu_banner-img,
@@ -106,6 +112,8 @@ $radius: var(--_work-n-share---radius--m, 16px);
   .events-format-card:focus-visible .events-format-card_image,
   .space-gallery_thumb:hover .space-cover,
   .space-gallery_thumb:focus-visible .space-cover,
+  .space-gallery_more:hover > *,
+  .space-gallery_more:focus-visible > *,
   .blog-featured:hover .blog-featured_image,
   .blog-featured:focus-visible .blog-featured_image,
   .space-item:hover .space-item_photo,

@@ -1,0 +1,37 @@
+// Bouton flottant « Nous contacter » (composant Footer, classe Webflow
+// .contact-float : position, ombre et masquage sous 992 px réglés dans Webflow).
+// Couleur : variantes du composant « Bouton icône », choisies par la variante
+// du Footer (vert par défaut, bordeaux en Événementiel, bleu en variante Bleu
+// sur le comparateur).
+
+// Caché tant que le hero n'est pas dépassé (components/contact-float.js
+// pose .is-visible). Le Designer n'exécute pas ce CSS : le bouton y reste visible.
+[data-contact-float] {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.3s;
+
+  &:not(.is-visible) {
+    opacity: 0;
+    visibility: hidden; // ni cliquable ni atteignable au clavier
+    transform: translateY(12px);
+  }
+
+  &.is-visible {
+    transition-delay: 0s;
+  }
+}
+
+// Inutile sur la page contact elle-même : Webflow pose w--current sur le lien
+// qui pointe vers la page en cours
+.contact-float:has(.w--current) {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-contact-float] {
+    transition: none;
+    transform: none !important;
+  }
+}

@@ -108,6 +108,7 @@ const DICT = {
     "cookies.lemlist": "Lemlist : suivi des visiteurs",
     "cookies.hubspot": "HubSpot : suivi des visites et origine des demandes",
     "blog.countOne": "1 article affiché",
+    "lang.label": "Langue",
   },
   en: {
     "menu.open": "Menu",
@@ -202,6 +203,7 @@ const DICT = {
     "cookies.lemlist": "Lemlist: visitor tracking",
     "cookies.hubspot": "HubSpot: visit tracking and enquiry source",
     "blog.countOne": "1 article shown",
+    "lang.label": "Language",
   },
 };
 

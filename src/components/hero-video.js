@@ -14,7 +14,10 @@
 import { prefersReducedMotion } from "../utils/motion.js";
 import { t } from "../utils/i18n.js";
 
-const ICON_PLAY = '<svg viewBox="0 0 16 16" width="100%" height="100%" fill="none" aria-hidden="true"><path d="M5 3.5v9l7-4.5-7-4.5Z" fill="currentColor"/></svg>';
+// Icône lecture pleine aux coins arrondis (forme Hugeicons « play »), assortie
+// à l'icône pause posée dans Webflow (deux barres pleines arrondies). viewBox
+// recadré : même poids visuel que la pause, décalée à droite pour paraître centrée
+const ICON_PLAY = '<svg viewBox="1.8 2.4 19.2 19.2" width="100%" height="100%" aria-hidden="true"><path d="M18.89 12.846C18.536 14.189 16.86 15.138 13.509 17.036C10.27 18.871 8.651 19.788 7.346 19.42C6.806 19.267 6.314 18.977 5.917 18.575C5 17.631 5 15.754 5 12C5 8.246 5 6.369 5.917 5.425C6.314 5.023 6.806 4.733 7.346 4.58C8.651 4.212 10.27 5.129 13.509 6.964C16.86 8.862 18.536 9.811 18.89 11.154C19.037 11.708 19.037 12.292 18.89 12.846Z" fill="currentColor"/></svg>';
 
 export function initHeroVideo(root = document) {
   const hero = root.querySelector("[data-hero-video]");

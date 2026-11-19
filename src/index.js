@@ -13,6 +13,8 @@ import { initCore } from "./core/core.js";
 import { initCollapses } from "./components/collapse.js";
 import { initNav } from "./components/nav.js";
 import { initFooter } from "./components/footer.js";
+import { initLangSelects } from "./components/lang-select.js";
+import { initContactFloat } from "./components/contact-float.js";
 import { initFormulas } from "./components/formula.js";
 import { initCompare } from "./components/compare.js";
 import { initSliders } from "./components/slider.js";
@@ -73,6 +75,8 @@ onReady(() => {
   initHeroVideo(); // tôt : le hero est la première chose visible
   initBackgroundVideos(); // autres vidéos de fond : pause si mouvement réduit ou hors écran
   initFooter();
+  initLangSelects(); // footer : sélecteur de langue (liste Webflow -> menu)
+  initContactFloat(); // footer : bouton flottant de contact, visible après le hero
   initDates(); // dates CMS en français (« 23 septembre 2024 »)
   initCollapses();
   initTocs(); // sommaires (article, pages légales) : avant les animations

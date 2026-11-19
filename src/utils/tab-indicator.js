@@ -29,9 +29,21 @@ export function createTabIndicator(tablist, { getActive, themeAttr = null, class
     if (animate) animatingUntil = performance.now() + 450;
     if (!tab || !tab.offsetWidth) return; // barre masquée (mobile, onglet replié…)
     if (!animate) indicator.classList.add("is-instant");
-    indicator.style.width = `${tab.offsetWidth}px`;
-    indicator.style.height = `${tab.offsetHeight}px`;
-    indicator.style.transform = `translate(${tab.offsetLeft}px, ${tab.offsetTop}px)`;
+    // Mesures au sous-pixel près : offsetWidth / offsetLeft arrondissent au
+    // pixel, et les onglets en flex: 1 ont des largeurs à virgule (fond décalé
+    // ou rogné d'1 à 2 px d'un côté). Position relative à l'intérieur de la
+    // bordure de la barre, comme le fond (position: absolute).
+    // getBoundingClientRect mesure à l'écran, zoom compris (ex. carte qui
+    // grandit au scroll, animations/expand.js) : on divise par l'échelle de
+    // la barre pour revenir en pixels CSS.
+    const box = tab.getBoundingClientRect();
+    const bar = tablist.getBoundingClientRect();
+    const scale = tablist.offsetWidth ? bar.width / tablist.offsetWidth : 1;
+    const x = (box.left - bar.left) / scale - tablist.clientLeft;
+    const y = (box.top - bar.top) / scale - tablist.clientTop;
+    indicator.style.width = `${box.width / scale}px`;
+    indicator.style.height = `${box.height / scale}px`;
+    indicator.style.transform = `translate(${x}px, ${y}px)`;
     if (themeAttr) indicator.setAttribute("data-theme", tab.getAttribute(themeAttr) || "");
     if (!animate) {
       indicator.getBoundingClientRect(); // applique la position avant de réactiver la transition
@@ -39,11 +51,17 @@ export function createTabIndicator(tablist, { getActive, themeAttr = null, class
     }
   }
 
-  // Taille des onglets qui change (police chargée, redimensionnement) : on recale.
-  // Pendant un glissement (la pastille active peut changer de largeur), on
-  // réajuste la cible sans couper l'animation.
+  // Taille des onglets qui change (police chargée, redimensionnement, libellés
+  // courts en mobile) : on recale. On observe aussi chaque onglet, car leur
+  // taille peut changer sans que celle de la barre bouge. Pendant un glissement
+  // (la pastille active peut changer de largeur), on réajuste la cible sans
+  // couper l'animation.
   const recalc = () => move(performance.now() < animatingUntil);
-  if (typeof ResizeObserver !== "undefined") new ResizeObserver(recalc).observe(tablist);
+  if (typeof ResizeObserver !== "undefined") {
+    const observer = new ResizeObserver(recalc);
+    observer.observe(tablist);
+    [...tablist.children].forEach((child) => child !== indicator && observer.observe(child));
+  }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => move(false));
   move(false);
 
