@@ -1,0 +1,174 @@
+{
+ "collection": "6ae9133a82664ff73e573da9",
+ "note": "Champ Espaces > Témoignage (référence) avant sa suppression le 23/11 : remplacé par le champ Espace des témoignages",
+ "items": [
+  {
+   "id": "6ae927aab71194d345adc441",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "nanterre",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9274c2d2afb91f79ab483",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "colombes",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b5810",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "villejuif",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580a",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "saint-ouen",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d1",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "suresnes",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cf",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "saint-cloud",
+   "temoignage": "6afae85307a91ed88a406ee3"
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580e",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "val-de-fontenay",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580c",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "cachan",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae927aab71194d345adc43f",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "levallois-perret",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae927aab71194d345adc43d",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "la-defense",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d3",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "saint-denis",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cd",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "rueil-malmaison",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae927aab71194d345adc43b",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "issy-les-moulineaux",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae91849a1be7ba7205931b5",
+   "cmsLocaleId": "6aeb5d9ef4c99dd494ea722f",
+   "slug": "clichy",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b5810",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "villejuif",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580e",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "val-de-fontenay",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580c",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "cachan",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9286d82229bf3ee7b580a",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "saint-ouen",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d3",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "saint-denis",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9280a7a97882afbb974d1",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "suresnes",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cf",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "saint-cloud",
+   "temoignage": "6afae85307a91ed88a406ee3"
+  },
+  {
+   "id": "6ae9280a7a97882afbb974cd",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "rueil-malmaison",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae927aab71194d345adc441",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "nanterre",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae927aab71194d345adc43f",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "levallois-perret",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae927aab71194d345adc43d",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "la-defense",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae927aab71194d345adc43b",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "issy-les-moulineaux",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae9274c2d2afb91f79ab483",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "colombes",
+   "temoignage": "6afae673aab2041522d04651"
+  },
+  {
+   "id": "6ae91849a1be7ba7205931b5",
+   "cmsLocaleId": "6ae9130c9b633fa64cb835c2",
+   "slug": "clichy",
+   "temoignage": "6afae673aab2041522d04651"
+  }
+ ]
+}

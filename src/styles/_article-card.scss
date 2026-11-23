@@ -15,7 +15,7 @@
 
 .article-card:hover .article-card_image,
 .article-card:focus-visible .article-card_image {
-  transform: scale(1.05);
+  transform: scale(var(--zoom, 1.05)) /* animations/zoom-scale.js */;
 }
 
 @media (prefers-reduced-motion: reduce) {

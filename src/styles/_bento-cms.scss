@@ -1,0 +1,79 @@
+// Bentos « Salles » (page espace) et « Formats » (page lieu événementiel),
+// remplis par la collection CMS « Bentos » : 1 à 5 cartes.
+//
+// STRUCTURE (Webflow) : une seule Collection List par bento (limite 5).
+//   .space-rooms_list / .venue-bento_list   la liste = la grille
+//     .space-rooms_item / .venue-bento_item  un élément = une carte
+// La mise en page à 5 cartes est dans Webflow (grande carte à gauche : le
+// 1er élément s'étend sur 2 rangées grâce à son état :first-child).
+// Ici, le reste :
+//   - titre de la 1re carte en grand (page espace) ;
+//   - moins de 5 cartes :
+//       1 → une carte sur toute la largeur
+//       2 → grande carte + une carte
+//       3 → grande carte + deux cartes l'une sous l'autre
+//       4 → grande carte + une carte en haut sur toute la largeur, deux dessous
+// Tablette et mobile (≤ 991 px) : carrousel (data-mobile-slider), rien ici.
+
+$lists: ".space-rooms_list, .venue-bento_list";
+
+// La liste a au moins n cartes
+@function has-n($n) {
+  @return ":has(> .w-dyn-item:nth-child(#{$n}))";
+}
+
+// Grande carte de la page espace : titre en grand (comme .is-large)
+.space-rooms_item:first-child .bento-card_figure {
+  font-size: var(--_work-n-share---typo--display-l);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.space-rooms_list {
+  --bento-big: 596fr;
+  --bento-rest: 660fr;
+}
+
+.venue-bento_list {
+  --bento-big: 0.9fr;
+  --bento-rest: 1fr;
+}
+
+@media screen and (min-width: 992px) {
+  :is(#{$lists}) {
+    // 1 carte : toute la largeur
+    &:not(#{has-n(2)}) {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr);
+
+      > .w-dyn-item {
+        grid-row: auto;
+      }
+    }
+
+    // 2 ou 3 cartes : grande carte + une colonne
+    &#{has-n(2)}:not(#{has-n(4)}) {
+      grid-template-columns: minmax(0, var(--bento-big)) minmax(0, var(--bento-rest));
+    }
+
+    // 2 cartes : une seule rangée
+    &#{has-n(2)}:not(#{has-n(3)}) {
+      grid-template-rows: minmax(0, 1fr);
+
+      > .w-dyn-item:first-child {
+        grid-row: auto;
+      }
+    }
+
+    // 4 cartes : la 2e sur toute la largeur de la colonne de droite
+    &#{has-n(4)}:not(#{has-n(5)}) > .w-dyn-item:nth-child(2) {
+      grid-column: 2 / -1;
+    }
+  }
+}
+
+// Liste CMS sans carte : pas de bento vide
+.space-rooms_grid:has(.w-dyn-list):not(:has(.w-dyn-item)),
+.venue-bento:has(.w-dyn-list):not(:has(.w-dyn-item)) {
+  display: none;
+}

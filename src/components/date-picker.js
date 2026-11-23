@@ -4,6 +4,9 @@
 //
 // STRUCTURE (Webflow) :
 //   input[data-date-input]       champ texte du formulaire (Webflow)
+//   input[type="date"]           tout champ date d'un formulaire (devis des
+//                                lieux, page Événementiel…) : même calendrier,
+//                                sans attribut à poser
 //   OPTIONS :
 //     data-date-min="today"      pas de date passée (par défaut)
 //     data-date-min="none"       toutes les dates
@@ -32,7 +35,9 @@ const GAP = 8; // px entre le champ et le calendrier
 let uid = 0;
 
 export function initDatePickers(root = document) {
-  root.querySelectorAll("input[data-date-input]").forEach(initDatePicker);
+  root
+    .querySelectorAll('input[data-date-input], form input[type="date"]:not([data-native-date])')
+    .forEach(initDatePicker);
 }
 
 // Champ envoyé : date native, pas de date passée sauf data-date-min="none"
@@ -66,10 +71,10 @@ const sameDay = (a, b) => !!a && !!b && toIso(a) === toIso(b);
 function initDatePicker(input) {
   if (input.dataset.datePicker) return;
   input.dataset.datePicker = "1";
-  // Texte d'attente : celui du champ, sauf « Example Text » (défaut de Webflow)
+  // Texte d'attente : celui du champ, sauf « Example Text » (défaut de Webflow,
+  // quelle que soit la casse)
   const own = input.placeholder.trim();
-  const placeholder =
-    own && own !== "Example Text" ? own : t("date.placeholder");
+  const placeholder = own && !/^example text$/i.test(own) ? own : t("date.placeholder");
   const allowUndecided = input.getAttribute("data-date-undecided") !== "off";
   setupNative(input);
   if (input.hasAttribute("data-native-date")) return;

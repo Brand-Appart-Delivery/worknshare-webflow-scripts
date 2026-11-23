@@ -1,6 +1,7 @@
 // Zoom léger de la photo au survol / focus clavier des cartes-liens.
-// Même effet partout (cf. carte article et carte événement) : la photo
-// grossit de 5 %, son contour visible ne bouge pas.
+// Même effet partout : la photo grandit du même nombre de pixels quelle que
+// soit la taille de la carte (--zoom posé par animations/zoom-scale.js selon
+// la largeur de la photo ; 1,05 sans JS). Son contour visible ne bouge pas.
 //
 // Deux cas :
 // 1. la photo remplit un bloc qui coupe déjà ce qui dépasse (overflow hidden) :
@@ -11,18 +12,24 @@
 
 @use "motion" as m;
 
-$zoom: 1.05;
+$zoom: var(--zoom, 1.05);
 $ease: m.$image-zoom-ease;
 $duration: m.$image-zoom-duration;
-// Marge du clip-path qui compense le zoom : (1 - 1 / 1.05) / 2
-$inset: 2.381%;
+// Marge du clip-path qui compense le zoom : (1 - 1 / zoom) / 2
+$inset: calc(50% - 50% / #{$zoom});
+
+// Point d'un polygone rapproché du centre pour compenser le zoom
+@function shrink($v) {
+  @return calc(50% + (#{$v} - 50%) / #{$zoom});
+}
 $radius: var(--_work-n-share---radius--m, 16px);
 
 // ---------- Cas 1 : bloc qui coupe déjà la photo ----------
 .events-format-card_image,
 .space-gallery_thumb .space-cover,
 .space-gallery_more > *,
-.bento-card.is-card-link .bento-card_image {
+.bento-card.is-card-link .bento-card_image,
+.events-mosaic_item .bento-card_image {
   transition: transform $duration $ease;
 }
 
@@ -46,6 +53,9 @@ $radius: var(--_work-n-share---radius--m, 16px);
 
 .bento-card.is-card-link:hover .bento-card_image,
 .bento-card.is-card-link:has(.card-link_anchor:focus-visible) .bento-card_image,
+// Mosaïque de la page Événementiel : chaque carte est un lien (a.events-mosaic_item)
+.events-mosaic_item:hover .bento-card_image,
+.events-mosaic_item:focus-visible .bento-card_image,
 .events-format-card:hover .events-format-card_image,
 .events-format-card:focus-visible .events-format-card_image,
 .space-gallery_thumb:hover .space-cover,
@@ -79,7 +89,7 @@ $radius: var(--_work-n-share---radius--m, 16px);
 
 // ---------- Cas 2b : photo en forme de maison (carte espace) ----------
 // Forme de base posée dans Webflow : polygon(50% 0, 100% 24%, 100% 100%, 0 100%, 0 24%).
-// Au survol, chaque point est rapproché du centre de 1/1.05 pour compenser le zoom.
+// Au survol, chaque point est rapproché du centre de 1/zoom pour compenser le zoom.
 .space-card_image {
   transition:
     transform $duration $ease,
@@ -90,7 +100,7 @@ $radius: var(--_work-n-share---radius--m, 16px);
 .space-card:focus-visible .space-card_image,
 .space-card:has(> .space-card_link:focus-visible) .space-card_image {
   transform: scale($zoom);
-  clip-path: polygon(50% 2.381%, 97.619% 25.238%, 97.619% 97.619%, 2.381% 97.619%, 2.381% 25.238%);
+  clip-path: polygon(50% shrink(0%), shrink(100%) shrink(24%), shrink(100%) shrink(100%), shrink(0%) shrink(100%), shrink(0%) shrink(24%));
 }
 
 // ---------- Animations réduites : pas de zoom ----------
@@ -102,12 +112,15 @@ $radius: var(--_work-n-share---radius--m, 16px);
   .space-item_photo,
   .mega-menu_banner-img,
   .space-card_image,
-  .bento-card.is-card-link .bento-card_image {
+  .bento-card.is-card-link .bento-card_image,
+  .events-mosaic_item .bento-card_image {
     transition: none;
   }
 
   .bento-card.is-card-link:hover .bento-card_image,
   .bento-card.is-card-link:has(.card-link_anchor:focus-visible) .bento-card_image,
+  .events-mosaic_item:hover .bento-card_image,
+  .events-mosaic_item:focus-visible .bento-card_image,
   .events-format-card:hover .events-format-card_image,
   .events-format-card:focus-visible .events-format-card_image,
   .space-gallery_thumb:hover .space-cover,
@@ -138,4 +151,11 @@ $radius: var(--_work-n-share---radius--m, 16px);
   .space-card:has(> .space-card_link:focus-visible) .space-card_image {
     clip-path: polygon(50% 0%, 100% 24%, 100% 100%, 0% 100%, 0% 24%);
   }
+}
+
+// Carte de la mosaïque Événementiel : contour au focus clavier
+.events-mosaic_item:focus-visible {
+  outline: 2px solid var(--_work-n-share---color--rose--300, #ffa7e0);
+  outline-offset: 3px;
+  border-radius: var(--_work-n-share---radius--l, 24px);
 }

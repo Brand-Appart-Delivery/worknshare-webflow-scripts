@@ -43,6 +43,7 @@ import { initVisitForms } from "./components/visit-form.js";
 import { initSpaceSearch } from "./components/space-search.js";
 import { initTocs } from "./components/toc.js";
 import { initCardLinks } from "./components/card-link.js";
+import { initZoomScale } from "./animations/zoom-scale.js";
 import { initComparateur } from "./components/comparateur.js";
 import { initComparatorBanners } from "./components/comparator-banner.js";
 import { initBlogFilters } from "./components/blog-filter.js";
@@ -84,6 +85,7 @@ onReady(() => {
   initCmsUnwrap(); // listes CMS [data-cms-unwrap] fondues dans leur grille (avant sliders et bento)
   initCmsLinks(); // liens des cartes CMS imbriquées (avant les cartes cliquables)
   initCardLinks();
+  initZoomScale(); // zoom des photos au survol : même agrandissement en px partout
   initLinePills(); // pastilles de lignes (couleur selon la ligne)
   initPageSchema(); // JSON-LD : fil d'Ariane et FAQ de la page
   initComparateur(); // page /comparateur : charge son propre JS et CSS

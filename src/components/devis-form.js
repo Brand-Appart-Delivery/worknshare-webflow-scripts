@@ -16,7 +16,9 @@
 //       [data-espace-name="Clichy"]                 le nom du lieu (lié au CMS)
 //
 //   a[data-devis-format="seminaire"]                carte de format (hors formulaire) :
-//                                                   au clic, présélectionne ce format
+//                                                   au clic, présélectionne ce format.
+//                                                   Accepte aussi le nom de l'option
+//                                                   CMS (« Séminaire », « Team building »)
 //
 // Pastilles : clic, Entrée / Espace, flèches = comme un groupe de boutons radio ;
 // le fond de la pastille choisie glisse de l'une à l'autre (utils/tab-indicator.js).
@@ -43,8 +45,10 @@ function initDevisForm(form) {
 
   const formatSelect = form.querySelector("[data-devis-format-select]");
 
-  // Choisit un format (pastille ou liste), ex. depuis une carte ou l'adresse
-  const pickFormat = (value) => {
+  // Choisit un format (pastille ou liste), ex. depuis une carte ou l'adresse.
+  // « Team building » (option CMS) -> « team-building »
+  const pickFormat = (raw) => {
+    const value = slugify(raw);
     if (!value) return;
     formats?.selectValue(value);
     if (formatSelect && [...formatSelect.options].some((o) => o.value === value)) {
@@ -136,4 +140,15 @@ function radioGroup(form, optionAttr, inputAttr, valueOf) {
       if (match) select(match);
     },
   };
+}
+
+// « Séminaire » -> « seminaire », « Team building » -> « team-building »
+function slugify(value) {
+  return (value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }

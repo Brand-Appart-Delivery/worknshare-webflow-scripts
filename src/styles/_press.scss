@@ -71,7 +71,7 @@ html[lang^="en"] .press-card_title::after {
 
 .press-card:hover .press-card_photo,
 .press-card:focus-visible .press-card_photo {
-  transform: scale(1.05);
+  transform: scale(var(--zoom, 1.05)) /* animations/zoom-scale.js */;
 }
 
 @media (prefers-reduced-motion: reduce) {

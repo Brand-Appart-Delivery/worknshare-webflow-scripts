@@ -10,7 +10,7 @@
 
 .event-card:hover .event-card_photo,
 .event-card:focus-visible .event-card_photo {
-  transform: scale(1.04);
+  transform: scale(var(--zoom, 1.05)) /* animations/zoom-scale.js */;
 }
 
 // Bento (.event-bento) : largeurs gérées dans Webflow (breakpoint de base :
