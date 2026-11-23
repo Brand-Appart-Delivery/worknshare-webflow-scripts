@@ -1,0 +1,16 @@
+// Bandeau de logos clients (collection CMS Clients, components/logo-strip.js).
+// Hauteur de chaque logo : champ « Hauteur du logo » relié à l'attribut
+// data-logo-h de l'image (vide = 24 px, la hauteur de .logo-strip_logo).
+
+$heights: 18, 20, 22, 26, 28, 30;
+
+@each $h in $heights {
+  .logo-strip_logo[data-logo-h="#{$h}"] {
+    height: #{$h}px;
+  }
+}
+
+// Aucun logo (collection vide) : pas de bandeau blanc
+.logo-strip:not(:has(img)) {
+  display: none;
+}

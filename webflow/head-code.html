@@ -6,7 +6,8 @@
     jsDelivr @<version> : nouvelle adresse à chaque deploy, jamais d'ancien
     fichier en cache. Repli sur @main si version.json ne répond pas.
   - Staging (*.webflow.io) avec FORCE_PROD = false : essaie le serveur local
-    puis le tunnel (npm run dev), avec rechargement automatique.
+    puis le tunnel (npm run dev), avec rechargement automatique. Seulement si
+    c'est le dev de CE projet (nom du package.json) : sinon code de production.
   - Anti-flash : la page reste invisible tant que main.css n'est pas chargé
     (sinon on voit la page sans ses styles d'animation, puis elle saute).
     Sécurité : affichée quoi qu'il arrive au bout de 2,5 s.
@@ -61,6 +62,7 @@
     setTimeout(show, 2500);
 
     const REPO = 'Brand-Appart-Delivery/worknshare-webflow-scripts';
+    const PROJECT = 'worknshare'; // « name » du package.json
     const DEV_ORIGINS = ['http://localhost:3000', 'https://dev.michelaxel.fr'];
     const VERSION_URL = 'https://raw.githubusercontent.com/' + REPO + '/main/version.json';
     const CDN = 'https://cdn.jsdelivr.net/gh/' + REPO + '@';
@@ -82,8 +84,12 @@
       if (FORCE_PROD || !isStaging) return null;
       for (const origin of DEV_ORIGINS) {
         try {
-          await fetch(origin + '/main.css', { method: 'HEAD' });
-          return origin;
+          // Le serveur de dev doit être celui de CE projet (le tunnel sert
+          // aussi les autres clients) : on compare le nom de son package.json
+          const r = await fetch(origin + '/package.json', { cache: 'no-store' });
+          const pkg = r.ok ? await r.json() : null;
+          if (pkg && pkg.name === PROJECT) return origin;
+          console.warn("[Work'n'Share] Serveur de dev ignoré (" + origin + ") : projet " + (pkg && pkg.name));
         } catch (e) {}
       }
       return null;
