@@ -60,6 +60,7 @@ import { initLinePills } from "./components/line-pills.js";
 import { initPageSchema } from "./schema/page-schema.js";
 import { initCmsLinks } from "./utils/cms-links.js";
 import { initCmsUnwrap } from "./utils/cms-unwrap.js";
+import { initCmsIcons } from "./utils/cms-icon.js";
 import { initLogoStrips } from "./components/logo-strip.js";
 import { isReturnVisit } from "./utils/visit.js";
 
@@ -83,6 +84,7 @@ onReady(() => {
   initDates(); // dates CMS en français (« 23 septembre 2024 »)
   initCollapses();
   initTocs(); // sommaires (article, pages légales) : avant les animations
+  initCmsIcons(); // icône des pastilles CMS [data-ico] (ex. Pictogramme des Services)
   initCmsUnwrap(); // listes CMS [data-cms-unwrap] fondues dans leur grille (avant sliders et bento)
   initLogoStrips(); // bandeau logos clients : copie de la liste CMS pour la boucle
   initCmsLinks(); // liens des cartes CMS imbriquées (avant les cartes cliquables)

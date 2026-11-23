@@ -51,11 +51,32 @@ $link: ":is(a, button):not(.is-disabled, .is-locked)";
   }
 }
 
+// Flèches de slider (bouton rond) : la flèche allongée reste centrée. L'icône
+// recule de la moitié de l'allongement (propriété translate, qui ne touche pas
+// au retournement de .is-prev ; la flèche « précédent » s'allonge vers la
+// gauche, elle part donc vers la droite)
+#{$link} .slider_arrow-icon:has(> .ico-arrow-right) {
+  transition: translate $arrow-speed m.$ease-out;
+}
+
+#{$link}:is(:hover, :focus-visible) .slider_arrow-icon:has(> .ico-arrow-right) {
+  translate: calc($arrow-grow / -2) 0;
+
+  &.is-prev {
+    translate: calc($arrow-grow / 2) 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  #{$link} #{$holder} {
+  #{$link} #{$holder},
+  #{$link} .slider_arrow-icon {
     > .ico-arrow-right,
     &::before {
       transition: none;
     }
+  }
+
+  #{$link} .slider_arrow-icon {
+    transition: none;
   }
 }

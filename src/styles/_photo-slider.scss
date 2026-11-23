@@ -2,9 +2,21 @@
 // (position réglée dans Webflow) ; le JS place chacune via --slide-x
 // (0 = visible, 100% = à droite, -100% = à gauche).
 
-// Avant le JS : seule la première photo
-[data-photo-slider]:not(.is-photo-ready) [data-photo-slide] ~ [data-photo-slide] {
-  opacity: 0;
+// Avant le JS : seule la première photo (et la carte du premier espace)
+[data-photo-slider]:not(.is-photo-ready) {
+  [data-photo-slide] ~ [data-photo-slide],
+  [data-photo-space] ~ [data-photo-space] [data-photo-slide] {
+    opacity: 0;
+  }
+
+  [data-photo-space] ~ [data-photo-space] [data-photo-card] {
+    display: none;
+  }
+}
+
+// Carte d'un autre espace : masquée (l'emporte sur le display de Webflow)
+[data-photo-slider] [data-photo-card][hidden] {
+  display: none;
 }
 
 [data-photo-slider] {
@@ -22,6 +34,61 @@
   }
 }
 
+// ---------- Flèches et points ----------
+// Avant le JS : cachés (pas d'apparition furtive s'il n'y a qu'une photo)
+[data-photo-slider]:not(.is-photo-ready) :is([data-slider-prev], [data-slider-next], .slider_dots) {
+  visibility: hidden;
+}
+
+// Une seule photo : masqués par le JS (hidden), à forcer car Webflow leur
+// donne un display ; le bloc qui contient les points disparaît aussi
+[data-photo-slider] {
+  [data-slider-prev][hidden],
+  [data-slider-next][hidden],
+  .slider_dots[hidden],
+  :has(> .slider_dots[hidden]:only-child) {
+    display: none !important;
+  }
+}
+
+// Comme la fiche de la carte : flèches et points cachés hors du cadre, ils
+// glissent à leur place au survol du bloc (ou focus clavier dedans) : flèche
+// gauche depuis la gauche, droite depuis la droite, points depuis le bas.
+// Écrans tactiles (pas de survol) : toujours en place.
+// Décalage = taille + marge de la section (48px) + un peu de marge.
+@media (hover: hover) and (pointer: fine) {
+  [data-photo-slider] {
+    [data-slider-prev],
+    [data-slider-next],
+    .slider_dots {
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    [data-slider-prev] {
+      transform: translateX(calc(-100% - 64px));
+    }
+
+    [data-slider-next] {
+      transform: translateX(calc(100% + 64px));
+    }
+
+    .slider_dots {
+      transform: translateY(calc(100% + 64px));
+    }
+
+    // :focus-visible et pas :focus-within : après un clic souris, le bouton
+    // garde le focus, et l'interface resterait affichée hors survol
+    &:hover,
+    &:has(:focus-visible) {
+      [data-slider-prev],
+      [data-slider-next],
+      .slider_dots {
+        transform: none;
+      }
+    }
+  }
+}
+
 // Points devenus des boutons
 [data-photo-slider] .slider_dot {
   padding: 0;
@@ -34,10 +101,21 @@
     outline: 2px solid currentColor;
     outline-offset: 2px;
   }
+
+  // Point actif : fond translucide, rempli en rose au fil du temps passé sur
+  // la photo (.place-carousel_progress, styles dans _spaces-map.scss)
+  &.is-active {
+    position: relative;
+    overflow: hidden;
+    width: 32px;
+    opacity: 1;
+    background-color: color-mix(in srgb, currentColor 30%, transparent);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-photo-slider].is-photo-ready [data-photo-slide] {
+  [data-photo-slider].is-photo-ready [data-photo-slide],
+  [data-photo-slider] :is([data-slider-prev], [data-slider-next], .slider_dots) {
     transition: none;
   }
 }
