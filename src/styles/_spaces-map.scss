@@ -292,16 +292,84 @@ $blanc: var(--_work-n-share---color--blanc, #ffffff);
 }
 
 [data-place-photo] {
-  transition: opacity 0.2s ease;
   user-select: none;
+}
 
-  &.is-changing {
-    opacity: 0.4;
+// Changement de photo : la nouvelle glisse, la copie de l'ancienne
+// (.place-carousel_ghost, créée par le JS) sort de l'autre côté
+[data-place-card] .place-card_media {
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-y; // glisser horizontal = changer de photo
+}
+
+.place-carousel_ghost {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+// Une seule photo : flèches et points masqués par place-carousel.js (hidden),
+// à forcer car Webflow leur donne un display
+[data-place-prev][hidden],
+[data-place-next][hidden],
+[data-place-dots][hidden] {
+  display: none !important;
+}
+
+// Flèches et points cachés hors du cadre (qui coupe ce qui dépasse), ils
+// glissent à leur place au survol de la photo (ou focus clavier dedans) :
+// flèche gauche depuis la gauche, droite depuis la droite, points depuis le
+// bas. Écrans tactiles (pas de survol) : toujours en place.
+// Les points gardent le translateX(-50%) de Webflow qui les centre.
+@media (hover: hover) and (pointer: fine) {
+  .place-card_media {
+    [data-place-prev],
+    [data-place-next],
+    [data-place-dots] {
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    [data-place-prev] {
+      transform: translateX(calc(-100% - 16px));
+    }
+
+    [data-place-next] {
+      transform: translateX(calc(100% + 16px));
+    }
+
+    [data-place-dots] {
+      transform: translate(-50%, calc(100% + 16px));
+    }
+
+    // :focus-visible et pas :focus-within : après un clic souris, le bouton
+    // garde le focus, et l'interface resterait affichée hors survol
+    &:hover,
+    &:has(:focus-visible) {
+      [data-place-prev],
+      [data-place-next] {
+        transform: none;
+      }
+
+      [data-place-dots] {
+        transform: translate(-50%, 0);
+      }
+    }
   }
 }
 
-[data-place-card] .place-card_media {
-  touch-action: pan-y; // glisser horizontal = changer de photo
+@media (prefers-reduced-motion: reduce) {
+  .place-card_media {
+    [data-place-prev],
+    [data-place-next],
+    [data-place-dots] {
+      transition: none;
+    }
+  }
 }
 
 // Points devenus des boutons (cliquables)
@@ -316,13 +384,39 @@ $blanc: var(--_work-n-share---color--blanc, #ffffff);
     outline: 2px solid currentColor;
     outline-offset: 2px;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  [data-place-photo] {
-    transition: none;
+  // Point actif : même fond translucide que les autres, rempli en rose au fil
+  // du temps passé sur la photo (scaleX animé par place-carousel.js)
+  &.is-active {
+    position: relative;
+    overflow: hidden;
+    width: 32px;
+    opacity: 1;
+    background-color: color-mix(in srgb, currentColor 30%, transparent);
   }
 }
+
+.place-carousel_progress {
+  position: absolute;
+  inset: 0;
+  display: none;
+  border-radius: inherit;
+  background-color: var(--_work-n-share---color--rose--300, #ffa7e0);
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  .is-active > & {
+    display: block;
+  }
+}
+
+// Mouvement réduit : pas de défilement automatique, point actif plein
+@media (prefers-reduced-motion: reduce) {
+  .place-carousel_progress {
+    transform: none;
+  }
+}
+
 
 // ---------- Carte d'accès d'une page espace (components/space-map.js) ----------
 // Carte prête : image, faux pin de repli masqués

@@ -4,14 +4,18 @@
 //   form[data-contact-form]                 formulaire Webflow (envoi géré par Webflow)
 //     [data-contact-field="motif"]          pastilles « Votre demande » :
 //       label.contact-motif_option > input[type=radio][name=motif]
-//       valeurs : bureaux, evenement
+//       valeurs : bureaux, coworking, reunion, evenement, autre
 //     [data-contact-field="espace"]         liste « Espaces » (choix multiple :
 //                                           data-select-multiple, custom-select.js)
-//     [data-contact-motif="bureaux"]        champ ou ligne affiché seulement
+//     [data-contact-motif="bureaux,coworking"] champ ou ligne affiché seulement
 //                                           pour ces demandes (liste séparée par
 //                                           des virgules ; sinon masqué et
 //                                           désactivé : il n'est pas envoyé)
-//     input[data-date-input]                date avec calendrier (à partir d'aujourd'hui)
+//     [data-contact-motif-hide="autre"]     l'inverse : champ ou ligne masqué (et
+//                                           désactivé) pour ces demandes. Ex. pour
+//                                           « Autres » : seuls prénom, nom, e-mail
+//                                           et message restent.
+//     input[data-date-input]                date avec calendrier (components/date-picker.js)
 //
 // Noms des champs de coordonnées = noms HubSpot : firstname, lastname, email,
 // phone, company, message.
@@ -30,7 +34,7 @@ import { prefersReducedMotion } from "../utils/motion.js";
 import { getLocale } from "../utils/i18n.js";
 
 // Anciennes demandes encore utilisées dans des liens (?motif=visite…)
-const MOTIF_ALIASES = { visite: "bureaux", coworking: "bureaux" };
+const MOTIF_ALIASES = { visite: "bureaux" };
 
 export function initContactForms(root = document) {
   root.querySelectorAll("form[data-contact-form]").forEach(initContactForm);
@@ -40,8 +44,25 @@ function initContactForm(form) {
   if (form.dataset.contactInit) return;
   form.dataset.contactInit = "1";
 
-  const radios = [...form.querySelectorAll('input[type="radio"][name="motif"]')];
-  const conditional = [...form.querySelectorAll("[data-contact-motif]")];
+  // Pastilles « Votre demande » : tous les boutons du bloc motif, même si
+  // Webflow leur a donné un autre name (« radio », « radio-2 »…) : on remet « motif »
+  const motifField = form.querySelector('[data-contact-field="motif"]');
+  const radios = [
+    ...new Set([
+      ...form.querySelectorAll('input[type="radio"][name="motif"]'),
+      ...(motifField?.querySelectorAll('input[type="radio"]') || []),
+    ]),
+  ];
+  radios.forEach((r) => {
+    r.name = "motif";
+    r.setAttribute("data-name", "motif");
+  });
+  const conditional = [...form.querySelectorAll("[data-contact-motif], [data-contact-motif-hide]")];
+  const list = (block, attr) =>
+    (block.getAttribute(attr) || "")
+      .split(",")
+      .map((m) => m.trim())
+      .filter(Boolean);
 
   const update = () => {
     const motif = radios.find((r) => r.checked)?.value || "";
@@ -49,8 +70,9 @@ function initContactForm(form) {
     radios.forEach((r) => r.closest(".contact-motif_option")?.classList.toggle("is-active", r.checked));
 
     conditional.forEach((block) => {
-      const motifs = block.getAttribute("data-contact-motif").split(",").map((m) => m.trim());
-      const show = motifs.includes(motif);
+      const only = list(block, "data-contact-motif");
+      const hideFor = list(block, "data-contact-motif-hide");
+      const show = (!only.length || only.includes(motif)) && !hideFor.includes(motif);
       block.hidden = !show;
       // Champ masqué : désactivé, donc ni obligatoire ni envoyé
       block.querySelectorAll("input, select, textarea").forEach((field) => (field.disabled = !show));
@@ -58,14 +80,6 @@ function initContactForm(form) {
   };
 
   radios.forEach((r) => r.addEventListener("change", update));
-
-  // Date : calendrier natif du navigateur, pas de date passée
-  form.querySelectorAll("input[data-date-input]").forEach((input) => {
-    input.type = "date";
-    const today = new Date();
-    today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
-    input.min = today.toISOString().slice(0, 10);
-  });
 
   // Pré-remplissage depuis l'adresse (?motif=…&espace=…)
   const params = new URLSearchParams(window.location.search);

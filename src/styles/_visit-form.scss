@@ -1,18 +1,13 @@
 // Bloc final « Venez visiter » d'une page espace (components/visit-form.js).
-// Classes visit-block_* créées dans Webflow ; ici ce que Webflow ne sait pas
-// faire : espacement des champs dans le <form>, pastilles « Votre besoin »
-// cochées, champs au focus, Turnstile, mobile.
+// Classes visit-block_* créées dans Webflow, y compris le <form>
+// (visit-block_fields), les messages (visit-block_success / _error), le focus
+// des champs et la version tablette / mobile (22/11 : sortis d'ici pour que le
+// Designer ressemble au site). Ici seulement ce que Webflow ne sait pas faire :
+// pastilles « Votre besoin » cochées (:has), chevron du select (SVG en
+// data-URI), Turnstile.
 
-$vert-900: var(--_work-n-share---color--vert--900, #121404);
 $vert-700: var(--_work-n-share---color--vert--700, #3b400f);
 $vert-100: var(--_work-n-share---color--vert--100, #eefc96);
-
-// Le <form> Webflow est dans .visit-block_form (bloc formulaire)
-.visit-block_form > form {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
 
 // Cloudflare Turnstile ajouté par Webflow : ne doit pas créer de trou
 .visit-block_form form > :not(.visit-block_field):not(.visit-block_row):not(.visit-block_actions) {
@@ -21,7 +16,6 @@ $vert-100: var(--_work-n-share---color--vert--100, #eefc96);
 
 // Pastilles « Votre besoin » : cochée = fond vert
 .visit-block_chip {
-  position: relative;
   transition:
     background-color 0.2s ease,
     color 0.2s ease,
@@ -39,12 +33,6 @@ $vert-100: var(--_work-n-share---color--vert--100, #eefc96);
   }
 }
 
-.visit-block_input:focus {
-  border-color: $vert-700;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 64, 15, 0.12);
-}
-
 .visit-block_select {
   appearance: none;
   padding-right: 48px;
@@ -52,54 +40,6 @@ $vert-100: var(--_work-n-share---color--vert--100, #eefc96);
   background-repeat: no-repeat;
   background-position: right 16px center;
   background-size: 20px;
-}
-
-.visit-block_submit {
-  flex-shrink: 0;
-  border: 0;
-  cursor: pointer;
-}
-
-// Messages Webflow après envoi
-.visit-block_form .w-form-done,
-.visit-block_form .w-form-fail {
-  border-radius: 16px;
-}
-
-.visit-block_form .w-form-done {
-  background-color: $vert-100;
-  color: $vert-900;
-}
-
-// Tablette / mobile : colonnes empilées, toit moins haut
-@media (max-width: 991px) {
-  .visit-block_house {
-    padding: 160px 32px 32px !important;
-  }
-
-  .visit-block_grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-}
-
-@media (max-width: 767px) {
-  .visit-block_house {
-    padding: 112px 16px 16px !important;
-    clip-path: polygon(50% 0, 100% 8%, 100% 100%, 0 100%, 0 8%) !important;
-  }
-
-  .visit-block_card {
-    padding: 24px !important;
-  }
-
-  .visit-block_row {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-
-  .visit-block_actions {
-    flex-direction: column;
-    align-items: stretch !important;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

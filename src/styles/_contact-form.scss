@@ -2,7 +2,8 @@
 // Styles des pastilles et des champs : dans Webflow (contact-motif_*, form_*).
 
 // Champs affichés selon la demande : Webflow met display flex / grid
-[data-contact-motif][hidden] {
+[data-contact-motif][hidden],
+[data-contact-motif-hide][hidden] {
   display: none !important;
 }
 

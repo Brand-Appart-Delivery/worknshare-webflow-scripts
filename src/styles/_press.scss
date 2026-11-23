@@ -1,0 +1,86 @@
+// Section « Ils parlent de nous » de la home (collection CMS Presse).
+// Classes press-* créées dans Webflow (mise en page, couleurs, textes). Ici
+// seulement ce que Webflow ne sait pas faire :
+//   - zoom de la photo au survol (comme les cartes article) ;
+//   - guillemets autour du titre ;
+//   - visuel de repli : photo, sinon logo du média, sinon nom du média ;
+//   - section masquée si la collection est vide.
+//
+// STRUCTURE (Webflow) :
+//   section.is-press
+//     .press-list (Collection List, data-slider-track + data-cards-stack ; section : data-slider)
+//       a.press-card (lien de l'article, nouvel onglet)
+//         .press-card_visual > img.press-card_photo + img.press-card_logo + .press-card_visual-name
+//         .press-card_content
+//           .press-card_meta > .press-card_type > .filter-chip_icon > .ico-news | .ico-radio
+//                                  | .ico-tv | .ico-globe (une seule visible : conditions Webflow)
+//                            + .press-card_date[data-date]
+//           .press-card_title, .press-card_source
+//           .press-card_link > span + .button_icon > .ico-arrow-right
+//             (flèche des boutons : _button-arrow.scss)
+
+@use "motion" as m;
+
+// ---------- Guillemets du titre ----------
+.press-card_title::before {
+  content: "«\00a0";
+}
+
+.press-card_title::after {
+  content: "\00a0»";
+}
+
+html[lang^="en"] .press-card_title::before {
+  content: "\201C";
+}
+
+html[lang^="en"] .press-card_title::after {
+  content: "\201D";
+}
+
+// ---------- Visuel de repli ----------
+// Champ image vide : Webflow pose w-dyn-bind-empty sur l'image
+.press-card_photo.w-dyn-bind-empty,
+.press-card_logo.w-dyn-bind-empty,
+.press-card_visual:has(.press-card_photo:not(.w-dyn-bind-empty)) .press-card_logo,
+.press-card_visual:has(.press-card_photo:not(.w-dyn-bind-empty)) .press-card_visual-name,
+.press-card_visual:has(.press-card_logo:not(.w-dyn-bind-empty)) .press-card_visual-name {
+  display: none;
+}
+
+// ---------- Collection vide : pas de section ----------
+.section.is-press:has(.w-dyn-empty) {
+  display: none;
+}
+
+// ---------- Flèche « Lire l'article » en diagonale (lien externe) ----------
+// On tourne le conteneur : la flèche et sa barre d'allongement
+// (_button-arrow.scss) partent ensemble vers le haut à droite
+.press-card_link .button_icon {
+  transform: rotate(-45deg);
+}
+
+// ---------- Zoom de la photo au survol ----------
+.press-card_visual {
+  isolation: isolate; // coins arrondis nets pendant le zoom (Safari)
+}
+
+.press-card_photo {
+  transition: transform m.$image-zoom-duration m.$image-zoom-ease;
+}
+
+.press-card:hover .press-card_photo,
+.press-card:focus-visible .press-card_photo {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .press-card_photo {
+    transition: none;
+  }
+
+  .press-card:hover .press-card_photo,
+  .press-card:focus-visible .press-card_photo {
+    transform: none;
+  }
+}

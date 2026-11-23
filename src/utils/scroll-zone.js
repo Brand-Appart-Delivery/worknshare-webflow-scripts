@@ -8,7 +8,11 @@
 // fin :
 // - la page est à l'arrêt, ou la souris a bougé sur la zone : la zone défile ;
 // - la page est encore en mouvement (la zone arrive sous la souris) : la page
-//   continue.
+//   continue ;
+// - la zone est déjà au bout dans le sens du geste (tout en bas en descendant,
+//   tout en haut en remontant) : la page défile. Le relais se fait au geste
+//   suivant, pas au milieu d'un même geste (l'élan du trackpad ne fait pas
+//   sauter la page).
 
 import { getLenis } from "../core/core.js";
 
@@ -20,12 +24,20 @@ const zones = [];
 let lastWheel = 0;
 let started = false;
 
+// La zone peut-elle encore défiler dans ce sens (dy > 0 : vers le bas) ?
+function canScroll(zone, dy) {
+  if (dy > 0) return zone.scrollTop + zone.clientHeight < zone.scrollHeight - 1;
+  if (dy < 0) return zone.scrollTop > 0;
+  return false;
+}
+
 export function initScrollZone(zone) {
   if (!zone) return;
-  zone.setAttribute(ATTR, ""); // par défaut (et sans Lenis) : la zone défile seule
-
   const lenis = getLenis();
+  // Sans Lenis : défilement natif du navigateur, qui passe déjà à la page en
+  // fin de zone (l'attribut l'en empêcherait : overscroll-behavior: contain)
   if (!lenis) return;
+  zone.setAttribute(ATTR, ""); // par défaut : la zone défile seule
 
   const state = { zone, pointerMoved: true };
   zones.push(state);
@@ -55,7 +67,8 @@ export function initScrollZone(zone) {
       // Seule la zone sous la souris au début du geste peut le prendre ; les
       // autres le laissent à la page même si elles arrivent sous la souris
       zones.forEach((s) => {
-        const owns = s.zone.contains(e.target) && (pageStopped || s.pointerMoved);
+        const owns =
+          s.zone.contains(e.target) && (pageStopped || s.pointerMoved) && canScroll(s.zone, e.deltaY);
         if (owns) s.zone.setAttribute(ATTR, "");
         else s.zone.removeAttribute(ATTR);
       });

@@ -366,8 +366,9 @@ html.is-lightbox-open body {
   transition: opacity 0.25s ease;
 }
 
+// Pas de position ici : la galerie est sticky (desktop) ou relative (tablette)
+// dans Webflow, ce qui suffit à caler les éléments absolus de la visite
 [data-gallery].is-tour {
-  position: relative;
   overflow: hidden;
 
   // Miniatures sorties de la colonne (sinon elles gardent leur place et la

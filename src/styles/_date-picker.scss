@@ -1,0 +1,274 @@
+// Champs date des formulaires (components/date-picker.js).
+// Le bouton reprend les classes Webflow du champ (bordure, padding, fond) ;
+// le calendrier reprend le panneau blanc de la recherche (_space-search.scss).
+
+$vert-900: var(--_work-n-share---color--vert--900, #121404);
+$vert-700: var(--_work-n-share---color--vert--700, #3b400f);
+$vert-100: var(--_work-n-share---color--vert--100, #eefc96);
+$beige-50: var(--_work-n-share---color--beige--50, #fffbe7);
+$chevron: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 8" fill="none" stroke="%23000" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M1 1.5l5 5 5-5"/%3E%3C/svg%3E');
+$calendar: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="%23000" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"%3E%3Crect x="2" y="3" width="12" height="11" rx="2"/%3E%3Cpath d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/%3E%3C/svg%3E');
+$ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+.date-picker {
+  position: relative;
+}
+
+// Champ de Webflow : gardé pour l'envoi et la validation, invisible
+.date-picker_native {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+:where(.date-picker_button) {
+  font: inherit;
+  color: inherit;
+}
+
+.date-picker_button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-right: 44px !important; // place de l'icône
+  text-align: left;
+  cursor: pointer;
+
+  // Icône calendrier, 16 px du bord
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    background-color: currentColor;
+    mask: $calendar center / contain no-repeat;
+    -webkit-mask: $calendar center / contain no-repeat;
+  }
+
+  &.is-placeholder .date-picker_value {
+    color: $vert-700;
+    opacity: 0.7;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.date-picker_value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Calendrier : panneau blanc de la recherche, hauteur libre
+.date-picker_panel {
+  z-index: 95;
+  min-width: 0;
+  max-height: none;
+  padding: 12px;
+  overflow: visible;
+  animation: date-picker-in 0.2s $ease;
+}
+
+.date-picker_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.date-picker_month {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+// Mois précédent / suivant : boutons ronds avec chevron
+.date-picker_nav {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s $ease;
+
+  span {
+    width: 12px;
+    height: 8px;
+    background-color: currentColor;
+    mask: $chevron center / contain no-repeat;
+    -webkit-mask: $chevron center / contain no-repeat;
+  }
+
+  &.is-prev span {
+    transform: rotate(90deg);
+  }
+
+  &.is-next span {
+    transform: rotate(-90deg);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $beige-50;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+.date-picker_grid {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  th,
+  td {
+    padding: 2px 0;
+    text-align: center;
+  }
+}
+
+.date-picker_weekday {
+  padding-bottom: 6px !important;
+  color: $vert-700;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+// Jour : pastille ronde, fond beige au survol, vert foncé si choisi
+.date-picker_day {
+  position: relative;
+  width: 40px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: $vert-900;
+  font: inherit;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition:
+    background-color 0.2s $ease,
+    color 0.2s $ease;
+
+  &:hover:not(:disabled) {
+    background-color: $beige-50;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $vert-900;
+    outline-offset: 1px;
+  }
+
+  // Jours du mois précédent / suivant
+  &.is-outside {
+    color: $vert-700;
+    opacity: 0.45;
+  }
+
+  // Aujourd'hui : petit point sous le chiffre
+  &.is-today::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 50%;
+    background-color: currentColor;
+  }
+
+  &.is-selected,
+  &.is-selected:hover {
+    background-color: $vert-900;
+    color: $vert-100;
+    opacity: 1;
+  }
+
+  &:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+  }
+}
+
+@keyframes date-picker-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .date-picker_panel {
+    animation: none;
+  }
+
+  .date-picker_nav,
+  .date-picker_day {
+    transition: none;
+  }
+}
+
+// « Date pas encore définie » : lien pleine largeur sous la grille, séparé par un filet
+.date-picker_undecided {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border: 0;
+  border-top: 1px solid rgba(18, 20, 4, 0.1);
+  border-radius: 0 0 16px 16px;
+  background: transparent;
+  color: $vert-900;
+  font: inherit;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s $ease;
+
+  &:hover {
+    background-color: $beige-50;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $vert-900;
+    outline-offset: -2px;
+  }
+
+  &.is-selected {
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .date-picker_undecided {
+    transition: none;
+  }
+}

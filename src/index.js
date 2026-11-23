@@ -53,6 +53,7 @@ import { initHubspotForms } from "./components/hubspot-forms.js";
 import { initFormLabels } from "./utils/form-labels.js";
 import { initHouseShapes } from "./components/house-shape.js";
 import { initCustomSelects } from "./components/custom-select.js";
+import { initDatePickers } from "./components/date-picker.js";
 import { initMiniMaps } from "./components/mini-map.js";
 import { initLinePills } from "./components/line-pills.js";
 import { initPageSchema } from "./schema/page-schema.js";
@@ -117,6 +118,7 @@ onReady(() => {
   initVisitForms();
   initSpaceSearch();
   initMiniMaps(); // carte du mega menu « Nos espaces »
+  initDatePickers(); // champs date des formulaires : calendrier du site
   initCustomSelects(); // en dernier : lit les valeurs pré-remplies des formulaires
 });
 

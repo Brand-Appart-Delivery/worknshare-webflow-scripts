@@ -49,8 +49,9 @@
     display: none !important;
   }
 
-  // 3e chiffre (rooftop) seul sur sa ligne, centré
-  .venue-fact[data-venue-rooftop] {
+  // Nombre impair de chiffres : le dernier seul sur sa ligne, centré
+  // (enfants : sép., chiffre, sép., chiffre… → 1er, 3e, 5e chiffre en 4n+2)
+  .venue-fact:last-child:nth-child(4n + 2) {
     grid-column: 1 / -1;
   }
 
